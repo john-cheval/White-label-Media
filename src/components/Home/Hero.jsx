@@ -5,6 +5,7 @@ import gsap from "gsap";
 import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger);
 import { LuArrowRight } from "react-icons/lu";
+import Image from "next/image";
 const Hero = () => {
   const videoRef = useRef(null);
   const [videoExpanded, setVidoExpanded] = useState(false);
@@ -76,7 +77,15 @@ const Hero = () => {
   }, []);
 
   return (
-    <header className="containers relative perspective-[1500px] h-[100dvh] overflow-hidden pb-14">
+    <header
+      className="containers relative perspective-[1500px] h-[100dvh] overflow-hidden pb-14"
+      style={{
+        backgroundImage: `url("/Home/label.svg")`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "110% auto",
+        backgroundPosition: "center center",
+      }}
+    >
       <div className="grid grid-cols-12">
         <h1 className="uppercase text-main font-gambetta text-[6vw] 5xl:text-[100px]  leading-[1.30] col-span-5">
           A CREATIVE COLLECTIVE
