@@ -47,7 +47,7 @@ const Section2 = () => {
       style={{
         backgroundImage: `url("/Home/TheGroupLabel.svg")`,
         backgroundRepeat: "no-repeat",
-        backgroundSize: "35% auto",
+        backgroundSize: "30% auto",
         backgroundPosition: "-15%",
       }}
     >
