@@ -40,3 +40,54 @@ export const houseData = [
     desc: "Homegrown events consultancy",
   },
 ];
+
+export const clientsData = [
+  {
+    id: 1,
+    image: "/clients/image1.jpg",
+  },
+  {
+    id: 2,
+    image: "/clients/image2.jpg",
+  },
+  {
+    id: 3,
+    image: "/clients/image3.jpg",
+  },
+  {
+    id: 4,
+    image: "/clients/image4.jpg",
+  },
+  {
+    id: 5,
+    image: "/clients/image5.jpg",
+  },
+  {
+    id: 6,
+    image: "/clients/image6.jpg",
+  },
+  {
+    id: 7,
+    image: "/clients/image7.jpg",
+  },
+  {
+    id: 8,
+    image: "/clients/image8.jpg",
+  },
+  {
+    id: 9,
+    image: "/clients/image9.jpg",
+  },
+  {
+    id: 10,
+    image: "/clients/image10.jpg",
+  },
+  {
+    id: 11,
+    image: "/clients/image11.jpg",
+  },
+  {
+    id: 12,
+    image: "/clients/imag12.jpg",
+  },
+];

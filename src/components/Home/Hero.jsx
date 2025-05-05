@@ -5,7 +5,6 @@ import gsap from "gsap";
 import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger);
 import { LuArrowRight } from "react-icons/lu";
-import Image from "next/image";
 const Hero = () => {
   const videoRef = useRef(null);
   const [videoExpanded, setVidoExpanded] = useState(false);
