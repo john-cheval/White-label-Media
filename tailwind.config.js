@@ -19,6 +19,13 @@ module.exports = {
         main: "#22334F",
         sec: "#F7F7F7",
       },
+      screens: {
+        "5xl": "2000px",
+      },
+      backgroundImage: {
+        "home-hero-video-grad":
+          " linear-gradient(180deg, rgba(34, 51, 79, 0.00) 0%, #22334F 100%)",
+      },
     },
   },
   plugins: [],

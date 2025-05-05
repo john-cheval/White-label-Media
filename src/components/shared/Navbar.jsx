@@ -12,6 +12,7 @@ const Navbar = () => {
             width={260}
             height={80}
             sizes="100vw"
+            unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
             className="w-full h-auto object-cover"
           />
         </div>
