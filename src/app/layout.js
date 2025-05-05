@@ -1,5 +1,6 @@
 import { Gambetta, GtSuperDisplay, Switzer } from "./ui/fonts";
 import "./globals.css";
+import Navbar from "@/components/shared/Navbar";
 
 export const metadata = {
   title: "White Label Media",
@@ -13,6 +14,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${Gambetta.variable} ${GtSuperDisplay.variable} ${Switzer.variable} antialiased`}
       >
+        <Navbar />
         <main>{children}</main>
       </body>
     </html>

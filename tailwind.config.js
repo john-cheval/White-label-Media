@@ -15,6 +15,10 @@ module.exports = {
         gt: "var(--font-gt-super)",
         switzer: "var(--font-switzer)",
       },
+      colors: {
+        main: "#22334F",
+        sec: "#F7F7F7",
+      },
     },
   },
   plugins: [],

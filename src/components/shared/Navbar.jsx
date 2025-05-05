@@ -1,0 +1,27 @@
+import Image from "next/image";
+import React from "react";
+import { IoMenuOutline } from "react-icons/io5";
+const Navbar = () => {
+  return (
+    <nav className="flex items-center justify-between py-6 border-b border-b-[#DBDBDB] containers relative ">
+      <div className="flex-1 flex justify-center">
+        <div className="max-w-[260px] w-full px-4">
+          <Image
+            src={"/common/logo.svg"}
+            alt="White Label Media"
+            width={260}
+            height={80}
+            sizes="100vw"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+
+      <div>
+        <IoMenuOutline className="text-main text-3xl cursor-pointer" />
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
