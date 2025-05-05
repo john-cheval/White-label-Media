@@ -9,7 +9,13 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        gambetta: "var(--font-gambetta)",
+        gt: "var(--font-gt-super)",
+        switzer: "var(--font-switzer)",
+      },
+    },
   },
   plugins: [],
 };
