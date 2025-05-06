@@ -31,7 +31,7 @@ const Hero = () => {
         //   overwrite: true,
         // });
 
-        if (progress > 0.3 && !videoExpanded) {
+        if (progress > 0.5 && !videoExpanded) {
           setVidoExpanded(true);
           gsap.to(video, {
             position: "absolute",

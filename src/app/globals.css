@@ -23,6 +23,7 @@ body {
   font-size: 16px;
   overflow-x: hidden;
   font-family: var(--font-gambetta);
+  color: #22334f;
 }
 a {
   text-decoration: none;
@@ -86,4 +87,11 @@ input[type="number"]::-webkit-outer-spin-button {
 .footer-grad {
   background: url(/common/footer_bg.svg) center no-repeat,
     linear-gradient(180deg, #161616 0%, #22334f 100%);
+}
+
+.serviceBg {
+  background: url(/Home/servicesOg.svg);
+  background-repeat: no-repeat;
+  background-size: 28% auto;
+  background-position: -10% center;
 }

@@ -191,3 +191,41 @@ export const awardsList = [
     image: "/awards/2.svg",
   },
 ];
+
+export const servicesData = [
+  {
+    id: 1,
+    title: " PR & Media Relations",
+    description:
+      "Elevating brands with strategic storytelling, exclusive media access, and high-impact PR campaigns.",
+    image: "/Home/Services/1.png",
+  },
+  {
+    id: 2,
+    title: " Brand Launches & Events",
+    description:
+      "Conceptualise and execute immersive brand experiences that captivate, connect, and leave a lasting impact.",
+    image: "/Home/Services/2.png",
+  },
+  {
+    id: 3,
+    title: "Brand Strategy & Design",
+    description:
+      "Crafting unique brand identities through strategy, storytelling, and standout design.",
+    image: "/Home/Services/3.png",
+  },
+  {
+    id: 4,
+    title: "Social Media & Influencer Marketing",
+    description:
+      "Engaging content, performance-driven marketing, and omnichannel expertise for an unforgettable digital presence.",
+    image: "/Home/Services/5.mp4",
+  },
+  {
+    id: 5,
+    title: "Business & Tech Consultancy",
+    description:
+      "Expert advisory, website/app development, and tailored growth strategies for SMEs.",
+    image: "/Home/Services/4.png",
+  },
+];

@@ -49,6 +49,9 @@ const Awards = () => {
                       height={100}
                       sizes="100vw"
                       className="w-full h-auto object-cover"
+                      unoptimized={
+                        process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                      }
                     />
                   </div>
                 ))}
