@@ -64,7 +64,7 @@ const Testimonials = () => {
             className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
           >
             {testimonialData?.map((data, index) => {
-              const { text: titleText } = truncateByWords(data?.title, 8, true);
+              const { text: titleText } = truncateByWords(data?.title, 5, true);
               const { text: descText, isTruncated: showReadMore } =
                 truncateByWords(data?.description, 50, false);
               return (

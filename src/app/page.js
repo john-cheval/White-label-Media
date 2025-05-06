@@ -1,3 +1,4 @@
+import Awards from "@/components/Home/Awards";
 import Clients from "@/components/Home/Clients";
 import Hero from "@/components/Home/Hero";
 import OurHouses from "@/components/Home/OurHouses";
@@ -12,6 +13,7 @@ export default function Home() {
       <OurHouses />
       <Clients />
       <Testimonials />
+      <Awards />
     </>
   );
 }
