@@ -11,7 +11,7 @@ const OurHouses = () => {
         {/* Section 1 */}
         <div className="grid grid-cols-12">
           <div className="col-span-5 border border-b-1 border-r-0 border-t-0 border-l-0  py-24 pl-24 pr-16 space-y-28">
-            <h5 className=" text-6xl font-medium leading-[141%]">Our Houses</h5>
+            <h5 className="main-heading">Our Houses</h5>
             <p className="font-gt leading-[141%] text-[40px] ">
               Discover our unique and specialised agencies
             </p>

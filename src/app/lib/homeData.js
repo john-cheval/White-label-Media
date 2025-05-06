@@ -91,3 +91,38 @@ export const clientsData = [
     image: "/clients/imag12.jpg",
   },
 ];
+
+export const testimonialData = [
+  {
+    id: 1,
+    title: "White Label has really helped our business for your business",
+    description:
+      "“White Label has really helped our business evolve and stand out from the crowd.  With the amount of work they put in, it is hard to believe they aren’t a part of our company.  They have gone out of their way and at times performed beyond their scope of work simply due to their genuine interest in seeing our business succeed. We have been very happy with their performance and hope to...",
+    name: "Pallav Patel",
+    designation: "House of curry, Bombay Bungalow, Ibn AlBahr",
+  },
+  {
+    id: 2,
+    title: "White Label are a joy to work with!",
+    description:
+      '"White Label are a joy to work with! They commit the energy, the ideas and the hard work to everything they do and most importantly, they are always kind and brimming with positivity.  We have thrown them a few tasks that moved them beyond their comfort zone and they always are up for the challenge."',
+    name: "Angie Hall",
+    designation: "Head of Ideation/Partner, Meraki & Modus",
+  },
+  {
+    id: 3,
+    title: "White Label has really helped our business for your business",
+    description:
+      "“White Label has really helped our business evolve and stand out from the crowd.  With the amount of work they put in, it is hard to believe they aren’t a part of our company.  They have gone out of their way and at times performed beyond their scope of work simply due to their genuine interest in seeing our business succeed. We have been very happy with their performance and hope to...",
+    name: "Pallav Patel",
+    designation: "House of curry, Bombay Bungalow, Ibn AlBahr",
+  },
+  {
+    id: 4,
+    title: "White Label are a joy to work with!",
+    description:
+      '"White Label are a joy to work with! They commit the energy, the ideas and the hard work to everything they do and most importantly, they are always kind and brimming with positivity.  We have thrown them a few tasks that moved them beyond their comfort zone and they always are up for the challenge."',
+    name: "Angie Hall",
+    designation: "Head of Ideation/Partner, Meraki & Modus",
+  },
+];

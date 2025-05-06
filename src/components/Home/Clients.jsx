@@ -25,7 +25,7 @@ const Clients = () => {
         scrub: 1,
         start: "top bottom",
         end: "bottom top",
-        markers: true,
+        // markers: true,
       },
     });
     timeline
@@ -49,7 +49,7 @@ const Clients = () => {
       className="relative overflow-x-hidden w-full containers pt-10 pb-24"
       id="clients"
     >
-      <h3 className="text-main text-6xl font-medium leading-[141%]">Clients</h3>
+      <h3 className="main-heading">Clients</h3>
 
       <div
         className="relative whitespace-nowrap mt-8 overflow-hidden "
