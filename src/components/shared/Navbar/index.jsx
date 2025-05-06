@@ -3,7 +3,7 @@ import React from "react";
 import { IoMenuOutline } from "react-icons/io5";
 const Navbar = () => {
   return (
-    <nav className="flex items-center justify-between py-6 border-b border-b-[#DBDBDB] containers relative ">
+    <nav className="flex items-center justify-between py-6 border-b border-b-[#DBDBDB] containers relative bg-white ">
       <div className="flex-1 flex justify-center">
         <div className="max-w-[260px] w-full px-4">
           <Image

@@ -10,6 +10,7 @@ const Footer = () => {
         <div className="col-span-4 space-y-12">
           <Image
             src={"/common/footer_logo.svg"}
+            alt="footer_logo"
             width={175}
             height={130}
             sizes="100vw"

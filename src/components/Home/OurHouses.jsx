@@ -6,7 +6,7 @@ import { GoArrowUpRight } from "react-icons/go";
 
 const OurHouses = () => {
   return (
-    <section className="bg-main containers pb-3">
+    <section className="bg-main containers pb-14">
       <div className="bg-white text-main">
         {/* Section 1 */}
         <div className="grid grid-cols-12">

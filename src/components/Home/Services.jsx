@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const Services = () => {
   const isVideo = (url) => url.endsWith(".mp4");
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  console.log(hoveredIndex, "hoverindex");
   return (
     <section className="containers pt-24 serviceBg overflow-hidden">
       <div className="grid grid-cols-12">
@@ -63,7 +62,7 @@ const Services = () => {
                 ) : (
                   <Image
                     src={servicesData[hoveredIndex].image}
-                    alt={servicesData[hoveredIndex].title}
+                    alt={servicesData[hoveredIndex]?.title || "image"}
                     fill
                     className="object-cover "
                     unoptimized={

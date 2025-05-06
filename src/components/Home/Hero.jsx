@@ -5,6 +5,8 @@ import gsap from "gsap";
 import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger);
 import { LuArrowRight } from "react-icons/lu";
+import { GoArrowUpRight } from "react-icons/go";
+
 const Hero = () => {
   const videoRef = useRef(null);
   const [videoExpanded, setVidoExpanded] = useState(false);
@@ -77,7 +79,7 @@ const Hero = () => {
 
   return (
     <header
-      className="containers relative perspective-[1500px] h-[100dvh] overflow-hidden pb-14"
+      className="containers relative perspective-[1500px] h-[100dvh] overflow-hidden py-14"
       style={{
         backgroundImage: `url("/Home/label.svg")`,
         backgroundRepeat: "no-repeat",
@@ -91,7 +93,7 @@ const Hero = () => {
         </h1>
       </div>
 
-      <div className="grid grid-cols-12">
+      <div className="grid grid-cols-12 relative-">
         <video
           ref={videoRef}
           autoPlay
@@ -102,22 +104,40 @@ const Hero = () => {
           className="col-start-5 col-end-9 w-full h-auto rounded-[20px] rotate-[-4deg]"
         />
 
+        {videoExpanded && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            src="/Home/hero.mp4"
+            className="col-start-5 col-end-9 w-full h-auto rounded-[20px] rotate-[-4deg]"
+          />
+        )}
+
         {/* {videoExpanded && (
           <div className="relative- z-[100] w-full absolute bottom-0">
-            <p className="font-gambetta text-white- text-red-500 text-3xl leading-main uppercase">
-              “I believe in the unique identity of each brand and that every
-              business has the opportunity to go global.”
-            </p>
+            <div className="flex gap-x-11">
+              <div>
+                <p className="font-gambetta text-white- text-red-500 text-3xl leading-main ">
+                  “I believe in the unique identity of each brand and that every
+                  business has the opportunity to go global.”
+                </p>
 
-            <div className="flex flex-col gap-y-4">
-              <span className="font-switzer text-base leading-[193%] text-sec- text-red-500">
-                Shraddha Barot Amariei
-              </span>
-              <span className="font-switzer text-base leading-[193%] text-sec- text-red-500">
-                Group CEO & Founder
-              </span>
+                <div className="flex flex-col gap-y-4">
+                  <span className="font-switzer text-base leading-[193%] text-sec- text-red-500">
+                    Shraddha Barot Amariei
+                  </span>
+                  <span className="font-switzer text-base leading-[193%] text-sec- text-red-500">
+                    Group CEO & Founder
+                  </span>
+                </div>
+              </div>
+
+              <Link href={"/"} className="text-white text-6xl">
+                <GoArrowUpRight />
+              </Link>
             </div>
-
             {videoExpanded && (
               <div className="bg-home-hero-video-grad w-full h-full absolute- bottom-0 left-0" />
             )}
