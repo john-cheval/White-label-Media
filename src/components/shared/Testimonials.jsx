@@ -60,7 +60,7 @@ const Testimonials = () => {
                 progress * 100
               }%`;
             }}
-            modules={[Navigation, Autoplay]}
+            modules={[Navigation /* , Autoplay */]}
             className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
           >
             {testimonialData?.map((data, index) => {

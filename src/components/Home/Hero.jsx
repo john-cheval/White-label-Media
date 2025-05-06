@@ -93,7 +93,7 @@ const Hero = () => {
 
       <div className="grid grid-cols-12">
         <video
-          // ref={videoRef}
+          ref={videoRef}
           autoPlay
           muted
           loop
