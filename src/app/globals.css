@@ -23,6 +23,7 @@ body {
   font-size: 16px;
   overflow-x: hidden;
   font-family: var(--font-gambetta);
+  color: #22334f;
 }
 a {
   text-decoration: none;
@@ -59,4 +60,38 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .font-gt-super {
   font-family: var(--font-gt-super);
+}
+.containers {
+  @apply px-14;
+}
+.leading-main {
+  @apply leading-[118.423%];
+}
+.main-heading {
+  @apply text-main text-6xl font-medium leading-[141%];
+}
+
+/* Modal */
+.modal {
+  width: clamp(50%, 700px, 90%);
+  height: min(50%, 300px);
+  margin: auto;
+  padding: 2rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  z-index: 101;
+}
+.footer-grad {
+  background: url(/common/footer_bg.svg) center no-repeat,
+    linear-gradient(180deg, #161616 0%, #22334f 100%);
+}
+
+.serviceBg {
+  background: url(/Home/servicesOg.svg);
+  background-repeat: no-repeat;
+  background-size: 28% auto;
+  background-position: -10% center;
 }
