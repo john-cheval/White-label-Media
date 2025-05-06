@@ -7,8 +7,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
-import Modal from "./Modal";
 import { AnimatePresence } from "framer-motion";
+import Modal from "../Modal";
 // import { AnimatePresence } from "motion";
 const Testimonials = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -126,3 +126,41 @@ export const testimonialData = [
     designation: "Head of Ideation/Partner, Meraki & Modus",
   },
 ];
+
+export const footerLink = [
+  {
+    id: 1,
+    title: "Home",
+    link: "/",
+  },
+  {
+    id: 2,
+    title: "About",
+    link: "/about",
+  },
+  {
+    id: 3,
+    title: "Sectors",
+    link: "/sectors",
+  },
+  {
+    id: 4,
+    title: "Ventures",
+    link: "/ventures",
+  },
+  {
+    id: 5,
+    title: "News and Insights",
+    link: "/news-and-insights",
+  },
+  {
+    id: 6,
+    title: "Services",
+    link: "/services",
+  },
+  {
+    id: 7,
+    title: "Let’s Connect",
+    link: "/contact-us",
+  },
+];
