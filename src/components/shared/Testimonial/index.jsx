@@ -98,7 +98,7 @@ const Testimonials = () => {
           </Swiper>
         </div>
 
-        <div className="progress w-full h-[2px] bg-black/[0.2] relative overflow-hidden">
+        <div className="progress w-full h-[1px] bg-black/[0.2] relative overflow-hidden">
           <div className="progress-fill absolute top-0 left-0 h-full bg-black transition-all duration-[0ms] w-0" />
         </div>
       </section>

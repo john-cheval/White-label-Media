@@ -11,12 +11,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`${Gambetta.variable} ${GtSuperDisplay.variable} ${Switzer.variable} antialiased`}
+        className={`${Gambetta.variable} ${GtSuperDisplay.variable} ${Switzer.variable} antialiased flex flex-col min-h-full`}
       >
         <Navbar />
-        <main>{children}</main>
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>
