@@ -108,6 +108,10 @@ input[type="number"]::-webkit-outer-spin-button {
   background: url(/common/footer_bg.svg) center no-repeat, #22334f;
   background-position: 140% 20%;
 }
+.careersbg {
+  background: url(/common/careers_bg.svg) center no-repeat;
+  background-position: 100% 150%;
+}
 /* .swiper-slide-next .slide-content {
   margin-top: 100px;
 }
