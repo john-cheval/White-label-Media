@@ -8,11 +8,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 
 const ServiceClients = () => {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  const prevRefClient = useRef(null);
+  const nextRefClient = useRef(null);
+
   const clientsData = Array.from({ length: 24 }, (_, i) => {
     return `/services/clients/${i + 1}.svg`;
   });
+
+  const repeatedClientsData = Array(3).fill(clientsData).flat();
+  const chunkedData = [];
+  for (let i = 0; i < repeatedClientsData.length; i += 24) {
+    chunkedData.push(repeatedClientsData.slice(i, i + 24));
+  }
 
   return (
     <section className="containers pb-16">
@@ -21,20 +28,78 @@ const ServiceClients = () => {
       <div className="w-full pt-8 pb-16">
         <Swiper
           slidesPerView={1}
+          grabCursor
           loop
           autoplay={{
             delay: 2000,
             disableOnInteraction: false,
           }}
           navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
+            prevEl: prevRefClient.current,
+            nextEl: nextRefClient.current,
           }}
-          modules={[Navigation, Autoplay]}
+          onSlideChange={(swiper) => {
+            const progress = (swiper.realIndex + 1) / swiper.slides.length;
+            document.querySelector(".progress-fill-client").style.width = `${
+              progress * 100
+            }%`;
+          }}
+          onInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevRefClient.current;
+            swiper.params.navigation.nextEl = nextRefClient.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
+            const progress = (swiper.realIndex + 1) / swiper.slides.length;
+            document.querySelector(".progress-fill-client").style.width = `${
+              progress * 100
+            }%`;
+          }}
+          modules={[Navigation]}
           className="mySwiper ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
         >
-          {}
+          {chunkedData.map((chunk, chunkIndex) => (
+            <SwiperSlide key={chunkIndex}>
+              <div className="grid grid-cols-6 grid-rows-4 gap-4-  ">
+                {chunk.map((client, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-center border border-main/[0.20] py-4 px-16"
+                  >
+                    <Image
+                      src={client}
+                      alt={`client-${chunkIndex * 24 + index + 1}`}
+                      height={100}
+                      width={150}
+                      sizes="100vw"
+                      unoptimized={
+                        process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                      }
+                      className="w-full h-auto max-w-[140px] object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
+      </div>
+
+      <div className="flex items-center gap-x-11 px-16">
+        <button
+          ref={prevRefClient}
+          className={`custom-prev p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
+        >
+          <IoArrowBackSharp className=" text-2xl text-main" />
+        </button>
+        <div className="progress w-full h-[1px] bg-black/[0.2] relative overflow-hidden">
+          <div className="progress-fill-client absolute top-0 left-0 h-full bg-black transition-all duration-[0ms] w-0" />
+        </div>
+        <button
+          ref={nextRefClient}
+          className={`custom-next p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
+        >
+          <IoArrowForwardSharp className="text-2xl text-main" />
+        </button>
       </div>
     </section>
   );

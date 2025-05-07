@@ -69,18 +69,32 @@ const Works = () => {
                         height={300}
                         width={150}
                         sizes="100vw"
+                        unoptimized={
+                          process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                        }
                       />
                     </div>
                   ) : (
                     <div className="h-[480px]">
-                      <video
+                      {/* <video
                         src={item?.image}
                         autoPlay
                         loop
                         muted
                         playsInline
                         className="w-full h-full object-cover "
-                      />
+                      /> */}
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                      >
+                        <source src={item?.videoMp4} type="video/mp4" />
+                        <source src={item?.videoMov} type="video/quicktime" />
+                        Your browser does not support the video tag.
+                      </video>
                     </div>
                   )}
                   <p
