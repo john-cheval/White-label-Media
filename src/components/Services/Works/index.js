@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import { useRef } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,7 +11,6 @@ import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
 const Works = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <section className="py-20  containers ">
       <h3 className="text-[80px]  leading-[118.423%] uppercase pl-36">
@@ -23,7 +22,7 @@ const Works = () => {
           slidesPerView={3}
           spaceBetween={42}
           loop
-          loopedSlides={servicesWorkData.length}
+          loopedslides={servicesWorkData.length}
           autoplay={{
             delay: 2000,
             disableOnInteraction: false,
@@ -33,7 +32,6 @@ const Works = () => {
             nextEl: nextRef.current,
           }}
           onSlideChange={(swiper) => {
-            setActiveIndex(swiper.activeIndex);
             const progress = (swiper.realIndex + 1) / swiper.slides.length;
             document.querySelector(".progress-fill").style.width = `${
               progress * 100
@@ -99,7 +97,7 @@ const Works = () => {
         </Swiper>
       </div>
 
-      <div className="flex items-center gap-x-11">
+      <div className="flex items-center gap-x-11 px-16">
         <button
           ref={prevRef}
           className={`custom-prev p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
