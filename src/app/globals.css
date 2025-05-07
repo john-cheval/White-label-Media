@@ -100,3 +100,14 @@ input[type="number"]::-webkit-outer-spin-button {
   background-size: 28% auto;
   background-position: -10% center;
 }
+
+.bg-service {
+  background: url(/common/footer_bg.svg) center no-repeat, #22334f;
+  background-position: 140% 20%;
+}
+/* .swiper-slide-next .slide-content {
+  margin-top: 100px;
+}
+.swiper-slide-next .slide-content p {
+  order: -1;
+} */
