@@ -112,6 +112,33 @@ input[type="number"]::-webkit-outer-spin-button {
   background: url(/common/careers_bg.svg) center no-repeat;
   background-position: 100% 150%;
 }
+.eventsbg {
+  background: url(/common/eventsbg.svg) center no-repeat, #eae4d6;
+  background-position: 100% auto;
+  background-size: contain;
+}
+@layer components {
+  .event-tab {
+    @apply font-switzer text-sm  relative pb-5  text-center  uppercase leading-[118.423%];
+  }
+
+  .event-tab.active::after {
+    content: "";
+    @apply absolute bottom-0 left-0 -translate-x-0 w-full h-[2px] bg-[#22334f];
+  }
+
+  .event-card {
+    @apply flex flex-col;
+  }
+
+  .event-card-large {
+    @apply col-span-2 row-span-1;
+  }
+
+  .event-meta {
+    @apply flex items-center text-base text-main gap-x-2;
+  }
+}
 /* .swiper-slide-next .slide-content {
   margin-top: 100px;
 }
