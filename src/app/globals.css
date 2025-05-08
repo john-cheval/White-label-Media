@@ -139,6 +139,12 @@ input[type="number"]::-webkit-outer-spin-button {
     @apply flex items-center text-base text-main gap-x-2;
   }
 }
+.country:nth-child(5) {
+  @apply border-r border-main border-opacity-20;
+}
+.country:nth-child(3) {
+  @apply border-r border-main border-opacity-20;
+}
 /* .swiper-slide-next .slide-content {
   margin-top: 100px;
 }

@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="flex items-center justify-between py-6 border-b border-b-[#DBDBDB] containers relative bg-white ">
       <div className="flex-1 flex justify-center">
         <div className="max-w-[260px] w-full px-4">
-          <Link href={"/"}>
+          <Link href={"/"} className="relative z-50">
             <Image
               src={"/common/logo.svg"}
               alt="White Label Media"
