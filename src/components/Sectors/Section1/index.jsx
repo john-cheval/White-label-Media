@@ -23,17 +23,6 @@ const Section1 = () => {
     exit: { opacity: 0, y: -40, transition: { duration: 0.4 } },
   };
 
-  const links = [
-    "White label media",
-    " 11 15",
-    "The nameless network",
-    "Ri & Toni",
-    "White window",
-    "Rejoin",
-    "Posh Label",
-    "971Finds",
-  ];
-
   return (
     <section className=" h-full pt-52 pb-28 relative">
       <div className="absolute w-full h-full bottom-0 left-0 -z-10">
@@ -61,6 +50,9 @@ const Section1 = () => {
                 alt="background"
                 fill
                 className="object-cover"
+                unoptimized={
+                  process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                }
               />
             )}
           </motion.div>
