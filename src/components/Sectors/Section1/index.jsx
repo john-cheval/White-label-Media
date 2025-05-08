@@ -200,13 +200,16 @@ const Section1 = () => {
               </button>
             </div>
             <div>
-              {links?.map((link, index) => (
+              {sectorsData.map((data, index) => (
                 <button
                   key={index}
-                  className="text-white  text-sm font-medium leading-[141%]"
+                  onClick={() => setActiveSector(data)}
+                  className={`text-white text-sm font-medium leading-[141%] transition-colors duration-300 ${
+                    activeSector.id === data.id ? "underline-" : ""
+                  }`}
                 >
-                  {link}{" "}
-                  {index !== links.length - 1 && (
+                  {data.listTitle}
+                  {index !== sectorsData.length - 1 && (
                     <span className="mx-2">|</span>
                   )}
                 </button>
