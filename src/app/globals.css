@@ -112,6 +112,11 @@ input[type="number"]::-webkit-outer-spin-button {
   background: url(/common/careers_bg.svg) center no-repeat;
   background-position: 100% 150%;
 }
+.eventsbg {
+  background: url(/common/eventsbg.svg) center no-repeat, #eae4d6;
+  background-position: 100% auto;
+  background-size: contain;
+}
 @layer components {
   .event-tab {
     @apply font-switzer text-sm  relative pb-5  text-center  uppercase leading-[118.423%];
@@ -131,7 +136,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .event-meta {
-    @apply flex items-center text-xs text-gray-500 gap-1;
+    @apply flex items-center text-base text-main gap-x-2;
   }
 }
 /* .swiper-slide-next .slide-content {
