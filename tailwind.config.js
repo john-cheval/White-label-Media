@@ -26,8 +26,10 @@ module.exports = {
       backgroundImage: {
         "home-hero-video-grad":
           " linear-gradient(180deg, rgba(34, 51, 79, 0.00) 0%, #22334F 100%)",
-        "nav-grad":
-          "linear-gradient(90deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%)",
+        "sector-grad":
+          "linear-gradient(180deg, rgba(34, 51, 79, 0.00) 0%, #22334F 100%)",
+        "sector-grad-2":
+          "linear-gradient(180deg, rgba(34, 51, 79, 0.00) 0%, #22334F 100%)",
       },
     },
   },
