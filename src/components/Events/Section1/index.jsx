@@ -120,27 +120,28 @@ const Section1 = () => {
                   }
                 />
               )}
-
-              <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2-"
-                variants={playButtonVariants}
-              >
-                {isPlaying ? (
-                  <IoPauseCircle
-                    className=" cursor-pointer"
-                    color="#EAE4D6"
-                    size={100}
-                    onClick={handleVideoClick}
-                  />
-                ) : (
-                  <IoPlayCircleSharp
-                    className=" cursor-pointer"
-                    color="#EAE4D6"
-                    size={100}
-                    onClick={handleVideoClick}
-                  />
-                )}
-              </motion.div>
+              {isVideo("/events/hero.jpg") && (
+                <motion.div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2-"
+                  variants={playButtonVariants}
+                >
+                  {isPlaying ? (
+                    <IoPauseCircle
+                      className=" cursor-pointer"
+                      color="#EAE4D6"
+                      size={100}
+                      onClick={handleVideoClick}
+                    />
+                  ) : (
+                    <IoPlayCircleSharp
+                      className=" cursor-pointer"
+                      color="#EAE4D6"
+                      size={100}
+                      onClick={handleVideoClick}
+                    />
+                  )}
+                </motion.div>
+              )}
             </motion.div>
 
             <motion.div className="space-y-1 -mt-6" variants={textVariants}>
