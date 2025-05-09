@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const Backdrop = ({ children, onClick }) => {
   return (
     <motion.div
-      className="fixed top-0 left-0 h-full w-full bg-[#000000e1] flex items-center justify-center z-[100]"
+      className="fixed top-0 left-0 h-full w-full bg-black/[0.4] backdrop-blur-[14.5px] flex items-center justify-center z-[100]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
