@@ -137,7 +137,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   .event-meta {
-    @apply flex items-center text-base text-main gap-x-2;
+    @apply flex items-center text-sm md:text-base font-medium text-main gap-x-2;
   }
 }
 .country:nth-child(5) {
@@ -159,5 +159,12 @@ input[type="number"]::-webkit-outer-spin-button {
   }
   .footer-grad {
     background: linear-gradient(180deg, #161616 0%, #22334f 100%);
+  }
+  .eventsbg {
+    background: linear-gradient(
+      360deg,
+      #eae4d6 0%,
+      rgba(234, 228, 214, 0) 100%
+    );
   }
 }
