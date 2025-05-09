@@ -78,10 +78,11 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* Modal */
 .modal {
-  width: clamp(50%, 700px, 90%);
-  height: min(50%, 300px);
+  /* width: clamp(50%, 700px, 90%); */
+  /* height: min(50%, 300px); */
+
   margin: auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   border-radius: 12px;
   display: flex;
   flex-direction: column;

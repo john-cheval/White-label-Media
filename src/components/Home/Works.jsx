@@ -5,6 +5,7 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import isVideo from "@/app/lib/checkVideo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -63,17 +64,29 @@ const Works = () => {
           <div className="flex flex-col gap-y-24" ref={firstSlider}>
             {[...firstSet]?.map((work, index) => (
               <div key={index} className="space-y-4">
-                <Image
-                  src={work?.image}
-                  alt={work?.title || `image-${index + 1}`}
-                  width={400}
-                  height={650}
-                  sizes="100vw"
-                  unoptimized={
-                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                  }
-                  className="w-full h-auto object-cover"
-                />
+                {isVideo(work?.image) ? (
+                  <video
+                    src={work?.image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover  "
+                  />
+                ) : (
+                  <Image
+                    src={work?.image}
+                    alt={work?.title || `image-${index + 1}`}
+                    width={400}
+                    height={650}
+                    sizes="100vw"
+                    unoptimized={
+                      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                    }
+                    className="w-full h-auto object-cover"
+                  />
+                )}
+
                 <p className="text-3xl font-medium leading-[141%]">
                   {work?.title}
                 </p>
@@ -86,17 +99,29 @@ const Works = () => {
           <div className="flex flex-col gap-y-24" ref={secondSlider}>
             {[...secondSet]?.map((work, index) => (
               <div key={index} className="space-y-4">
-                <Image
-                  src={work?.image}
-                  alt={work?.title || `image-${index + 1}`}
-                  width={400}
-                  height={650}
-                  sizes="100vw"
-                  unoptimized={
-                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                  }
-                  className="w-full h-auto object-cover"
-                />
+                {isVideo(work?.image) ? (
+                  <video
+                    src={work?.image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover  "
+                  />
+                ) : (
+                  <Image
+                    src={work?.image}
+                    alt={work?.title || `image-${index + 1}`}
+                    width={400}
+                    height={650}
+                    sizes="100vw"
+                    unoptimized={
+                      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                    }
+                    className="w-full h-auto object-cover"
+                  />
+                )}
+
                 <p className="text-3xl font-medium leading-[141%]">
                   {work?.title}
                 </p>
@@ -109,17 +134,29 @@ const Works = () => {
           <div className="flex flex-col gap-y-24" ref={thirdSlider}>
             {[...thirdSet]?.map((work, index) => (
               <div key={index} className="space-y-4">
-                <Image
-                  src={work?.image}
-                  alt={work?.title || `image-${index + 1}`}
-                  width={400}
-                  height={650}
-                  sizes="100vw"
-                  unoptimized={
-                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                  }
-                  className="w-full h-auto object-cover"
-                />
+                {isVideo(work?.image) ? (
+                  <video
+                    src={work?.image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover  "
+                  />
+                ) : (
+                  <Image
+                    src={work?.image}
+                    alt={work?.title || `image-${index + 1}`}
+                    width={400}
+                    height={650}
+                    sizes="100vw"
+                    unoptimized={
+                      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                    }
+                    className="w-full h-auto object-cover"
+                  />
+                )}
+
                 <p className="text-3xl font-medium leading-[141%]">
                   {work?.title}
                 </p>

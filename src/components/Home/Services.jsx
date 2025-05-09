@@ -4,9 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import isVideo from "@/app/lib/checkVideo";
 
 const Services = () => {
-  const isVideo = (url) => url.endsWith(".mp4");
   const [hoveredIndex, setHoveredIndex] = useState(null);
   return (
     <section className="containers pt-24 serviceBg overflow-hidden">

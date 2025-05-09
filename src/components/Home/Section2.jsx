@@ -6,6 +6,7 @@ import React from "react";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { GoArrowUpRight } from "react-icons/go";
 import { motion } from "framer-motion";
+import isVideo from "@/app/lib/checkVideo";
 
 const containerVariants = {
   hidden: {},
@@ -94,15 +95,26 @@ const Section2 = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
         >
-          <Image
-            src="/Home/image.jpg"
-            height={600}
-            width={470}
-            sizes="100vw"
-            unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-            className="w-full h-auto object-cover"
-            alt="Home Section Image"
-          />
+          {isVideo("/Home/image.jpg") ? (
+            <video
+              src={"/Home/image.jpg"}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover  "
+            />
+          ) : (
+            <Image
+              src="/Home/image.jpg"
+              height={600}
+              width={470}
+              sizes="100vw"
+              unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
+              className="w-full h-auto object-cover"
+              alt="Home Section Image"
+            />
+          )}
 
           <Link
             href="/about"
