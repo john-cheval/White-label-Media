@@ -84,6 +84,9 @@ const Section1 = () => {
                   width={100}
                   sizes="100vw"
                   className="h-auto w-full "
+                  unoptimized={
+                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                  }
                 />
               </div>
             </motion.div>
@@ -173,6 +176,9 @@ const Section1 = () => {
                           height={400}
                           sizes="100vw"
                           className="w-full h-auto object-cover"
+                          unoptimized={
+                            process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                          }
                         />
                         <div className="bg-sector-grad-2 w-full h-full absolute bottom-0 left-0 z-[5]" />
                         <p className="text-white absolute bottom-9  w-full z-[10] text-center text-2xl font-medium leading-[141%]">

@@ -7,17 +7,18 @@ import { Navigation, Autoplay } from "swiper/modules";
 import { servicesWorkData } from "@/app/lib/servicesData";
 import Image from "next/image";
 import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
+import isVideo from "@/app/lib/checkVideo";
 
 const Works = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   return (
-    <section className="py-20  containers ">
-      <h3 className="text-[80px]  leading-[118.423%] uppercase pl-36">
-        Selection of <br /> <span className="ml-[12%]">our works</span>
+    <section className="py-12 md:py-14 lg:py-16 xl:py-20  containers ">
+      <h3 className="text-[40px] sm:text-[5vw] 3xl:text-[80px]  leading-[118.423%] uppercase md:pl-10 lg:pl-20 2xl:pl-28 3xl:pl-36 text-center md:text-left">
+        Selection of <br /> <span className="md:ml-[12%]">our works</span>
       </h3>
 
-      <div className="w-full pt-14  px-16 pb-28">
+      <div className="w-full pt-7 md:pt-14 md:px-10 lg:px-14 xl:px-16 pb-7 md:pb-14 lg:pb-20 xl:pb-28">
         <Swiper
           slidesPerView={3}
           spaceBetween={42}
@@ -30,6 +31,20 @@ const Works = () => {
           navigation={{
             prevEl: prevRef.current,
             nextEl: nextRef.current,
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 42,
+            },
           }}
           onSlideChange={(swiper) => {
             const progress = (swiper.realIndex + 1) / swiper.slides.length;
@@ -55,12 +70,11 @@ const Works = () => {
             return (
               <SwiperSlide key={idx}>
                 <div
-                  className={`overflow-hidden flex flex-col gap-y-8 transition-all duration-300 relative group slide-content- swiper-slide-next:mt-[100px]- ${
-                    isEvenCard ? "mt-[100px]" : ""
+                  className={`overflow-hidden flex flex-col gap-y-5 md:gap-y-8 transition-all duration-300 relative group slide-content- swiper-slide-next:mt-[100px]- ${
+                    isEvenCard ? "md:mt-[100px]" : ""
                   } `}
                 >
-                  {item.image.endsWith(".jpg") ||
-                  item.image.endsWith(".png") ? (
+                  {!isVideo(item?.image) ? (
                     <div className="max-h-[300px]-">
                       <Image
                         src={item?.image}
@@ -75,15 +89,7 @@ const Works = () => {
                       />
                     </div>
                   ) : (
-                    <div className="h-[480px]">
-                      {/* <video
-                        src={item?.image}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover "
-                      /> */}
+                    <div className="">
                       <video
                         autoPlay
                         loop
@@ -98,8 +104,8 @@ const Works = () => {
                     </div>
                   )}
                   <p
-                    className={` text-base font-switzer leading-[161%] ${
-                      isEvenCard ? "-order-1" : ""
+                    className={`text-sm md:text-base font-switzer text-center md:text-left leading-[161%] ${
+                      isEvenCard ? "md:-order-1" : ""
                     }`}
                   >
                     {item.descrption}
@@ -111,21 +117,21 @@ const Works = () => {
         </Swiper>
       </div>
 
-      <div className="flex items-center gap-x-11 px-16">
+      <div className="flex items-center gap-x-3 md:gap-x-8 lg:gap-x-11 md:px-10 lg:px-14 xl:px-16">
         <button
           ref={prevRef}
-          className={`custom-prev p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
+          className={`custom-prev p-3 sm:p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
         >
-          <IoArrowBackSharp className=" text-2xl text-main" />
+          <IoArrowBackSharp className="text-xl md:text-2xl lg: text-main" />
         </button>
         <div className="progress w-full h-[1px] bg-black/[0.2] relative overflow-hidden">
           <div className="progress-fill absolute top-0 left-0 h-full bg-black transition-all duration-[0ms] w-0" />
         </div>
         <button
           ref={nextRef}
-          className={`custom-next p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
+          className={`custom-next p-3 sm:p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
         >
-          <IoArrowForwardSharp className="text-2xl text-main" />
+          <IoArrowForwardSharp className="text-xl md:text-2xl text-main" />
         </button>
       </div>
     </section>
