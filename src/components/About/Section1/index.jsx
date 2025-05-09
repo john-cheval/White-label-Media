@@ -135,7 +135,7 @@ const Section1 = () => {
           width={100}
           height={100}
           sizes="100vw"
-          aspectRatio={391 / 191}
+          aspectratio={391 / 191}
           unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
           className=" w-full h-full object-cover"
         />
