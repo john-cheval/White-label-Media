@@ -41,21 +41,28 @@ const Section2 = () => {
       );
   }, []);
   return (
-    <section className="relative overflow-x-hidden w-full pb-24" id="content">
+    <section
+      className="relative overflow-x-hidden w-full pb-11 md:pb-16  xl:pb-24"
+      id="content"
+    >
       <div
         className="relative  whitespace-nowrap  overflow-hidden"
         ref={slider1}
       >
         <div className="flex -translate-x-[100%]" ref={firstSlider}>
-          <h3 className="text-[100px] uppercase">Trusted by 300+ brands</h3>
+          <h3 className="  text-[6vw] xl:text-[100px] uppercase">
+            Trusted by 300+ brands
+          </h3>
         </div>
       </div>
       <div
-        className="relative  whitespace-nowrap  overflow-hidden"
+        className="relative whitespace-nowrap  overflow-hidden"
         ref={slider2}
       >
         <div className="flex translate-x-[100%]" ref={secondSlider}>
-          <h3 className="text-[100px] uppercase">to create lasting impact</h3>
+          <h3 className="text-[6vw] xl:text-[100px] uppercase">
+            to create lasting impact
+          </h3>
         </div>
       </div>
     </section>

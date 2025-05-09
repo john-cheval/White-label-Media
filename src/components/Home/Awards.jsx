@@ -27,24 +27,24 @@ const Awards = () => {
     awardsList?.slice(7, 9),
   ];
   return (
-    <section className="containers bg-[#161616] py-16">
+    <section className="containers bg-[#161616] pt-10 lg:py-16">
       <motion.h3
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
-        className="main-heading !text-white"
+        className="main-heading !text-white text-center md:text-left"
       >
         Awards
       </motion.h3>
 
-      <div className=" border-y border-y-main mt-6">
+      <div className=" border-y border-y-[#2C2C2C] mt-6">
         {rows?.map((row, rowIndex) => {
           const columns =
             row.length === 4
-              ? "grid-cols-4"
+              ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
               : row.length === 3
-              ? "grid-cols-3"
+              ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
               : "grid-cols-1";
 
           const isLastRow = rowIndex === rows.length - 1;
@@ -52,7 +52,7 @@ const Awards = () => {
           return (
             <div
               key={rowIndex}
-              className={`border-b border-b-main ${
+              className={`border-b  border-b-[#2C2C2C] ${
                 isLastRow ? "flex justify-center" : ""
               }`}
             >
@@ -69,9 +69,12 @@ const Awards = () => {
                   <motion.div
                     variants={itemVariants}
                     key={index}
-                    className={`relative flex items-center justify-center p-8 ${
-                      index === row.length - 1 ? "" : "border-r border-r-main"
-                    }`}
+                    className={`relative flex items-center border-t border-t-[#2C2C2C] md:border-t-0 justify-center p-5
+                       md:p-8 ${
+                         index === row.length - 1
+                           ? ""
+                           : "md:border-r border-r-[#2C2C2C]"
+                       }`}
                   >
                     <Image
                       src={award.image}
