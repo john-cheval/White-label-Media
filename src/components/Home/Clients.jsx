@@ -46,10 +46,10 @@ const Clients = () => {
   }, []);
   return (
     <section
-      className="relative overflow-x-hidden w-full containers pt-10 pb-24"
+      className="relative overflow-x-hidden w-full containers pt-10 pb-12 lg:pb-16 xl:pb-24"
       id="clients"
     >
-      <h3 className="main-heading">Clients</h3>
+      <h3 className="main-heading text-center md:text-left">Clients</h3>
 
       <div
         className="relative whitespace-nowrap mt-8 overflow-hidden "

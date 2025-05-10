@@ -30,10 +30,10 @@ const itemVariants = {
 };
 
 const imageVariants = {
-  hidden: { opacity: 0, x: 100 },
+  hidden: { opacity: 0, y: 100 },
   visible: {
     opacity: 1,
-    x: 0,
+    y: 0,
     transition: {
       duration: 0.8,
       ease: [0.23, 1, 0.32, 1],
@@ -43,25 +43,17 @@ const imageVariants = {
 
 const Section2 = () => {
   return (
-    <section
-      className="relative bg-main text-sec py-[200px] containers"
-      style={{
-        backgroundImage: `url("/Home/TheGroupLabel.svg")`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "30% auto",
-        backgroundPosition: "-15%",
-      }}
-    >
+    <section className="relative bg-main text-sec py-9 md:py-20 lg:py-[100px] xl:py-[150px] 2xl:py-[200px] containers homeBGSection1 ">
       <div className="grid grid-cols-12">
         <motion.div
-          className="col-start-2 col-end-7 flex flex-col gap-y-9"
+          className="md:col-start-1 lg:col-start-2 md:col-end-7 col-span-12 flex flex-col items-center md:items-start gap-y-3 md:gap-y-5 lg:gap-y-9"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
         >
           <motion.h3
-            className="text-5xl font-medium leading-[141%]"
+            className="text-3xl lg:text-4xl xl:text-5xl text-center md:text-left font-medium leading-[141%]"
             variants={itemVariants}
           >
             White Label Group is a curated collective and an integrated hub of
@@ -70,7 +62,7 @@ const Section2 = () => {
           </motion.h3>
 
           <motion.p
-            className="font-switzer text-base leading-[193%]"
+            className="font-switzer text-sm md:text-base  text-center md:text-left leading-[193%]"
             variants={itemVariants}
           >
             What started as a ”let’s see if I can do this” dream from our
@@ -81,7 +73,7 @@ const Section2 = () => {
           <motion.div variants={itemVariants}>
             <Link
               href="/about"
-              className="font-switzer text-sm underline uppercase inline-block mt-10"
+              className="font-switzer text-center md:text-left text-sm underline uppercase inline-block  md:mt-10 mb-10 md:mb-0"
             >
               Explore the group
             </Link>
@@ -89,7 +81,7 @@ const Section2 = () => {
         </motion.div>
 
         <motion.div
-          className="col-start-8 col-end-12 relative flex gap-x-4"
+          className="col-span-12 md:col-start-8 md:col-end-12 relative flex gap-x-4"
           variants={imageVariants}
           initial="hidden"
           whileInView="visible"
@@ -118,14 +110,14 @@ const Section2 = () => {
 
           <Link
             href="/about"
-            className="text-xs uppercase font-medium px-5 py-3 rounded-full border border-sec absolute bottom-9 left-14 overflow-hidden flex items-center group gap-x-1"
+            className="text-xs hidden md:flex uppercase font-medium px-5 py-3 rounded-full border border-sec absolute bottom-9 left-14 overflow-hidden  items-center group gap-x-1"
           >
             Explore
             <IoArrowForwardOutline className="translate-x-3 group-hover:translate-x-0 transition-all duration-300 opacity-0 group-hover:opacity-100 text-lg" />
           </Link>
 
           <Link href="/about">
-            <GoArrowUpRight className="text-6xl text-sec hover:scale-110 transition-all duration-200" />
+            <GoArrowUpRight className="text-4xl lg:text-6xl text-sec hover:scale-110 transition-all duration-200 absolute top-3 right-3" />
           </Link>
         </motion.div>
       </div>

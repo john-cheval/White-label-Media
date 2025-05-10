@@ -122,26 +122,26 @@ const Hero = () => {
         )}
 
         {videoExpanded && (
-          <div className=" z-[100] w-[80vw] left-1/2 -translate-x-1/2 -translate-y-1/2  absolute bottom-4   px-6 md:px-[70px] lg:px-[128px]  overflow-hidden home-grad">
+          <div className=" z-[100] w-[80vw] hidden sm:block left-1/2 -translate-x-1/2 -translate-y-1/2  absolute sm:bottom-5 md:bottom-10 pb-5 md:pb-10   sm:px-6 md:px-[70px] lg:px-[128px]  overflow-hidden home-grad-">
             <div>
-              <div className="flex gap-x-11 relative ">
+              <div className="flex gap-x-11 relative items-center md:items-start ">
                 <div>
-                  <p className="font-gambetta text-white- text-white text-3xl leading-main ">
+                  <p className="font-gambetta text-white- text-white text-lg sm:text-xl md:text-2xl lg:text-3xl leading-main ">
                     “I believe in the unique identity of each brand and that
                     every business has the opportunity to go global.”
                   </p>
 
-                  <div className="flex flex-col gap-y-4">
-                    <span className="font-switzer text-base leading-[193%] text-sec- text-white">
+                  <div className="flex flex-col gap-y-2 md:gap-y-3">
+                    <span className="font-switzer text-sm md:text-base leading-[193%] text-sec- text-white">
                       Shraddha Barot Amariei
                     </span>
-                    <span className="font-switzer text-base leading-[193%] text-sec- text-white">
+                    <span className="font-switzer text-sm md:text-base leading-[193%] text-sec- text-white">
                       Group CEO & Founder
                     </span>
                   </div>
                 </div>
 
-                <Link href={"/"} className="text-white text-6xl">
+                <Link href={"/"} className="text-white text-4xl lg:text-6xl">
                   <GoArrowUpRight />
                 </Link>
               </div>
