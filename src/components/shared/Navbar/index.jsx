@@ -17,8 +17,8 @@ const Navbar = () => {
   return (
     <>
       <nav className="flex items-center justify-between py-6 border-b border-b-[#DBDBDB] containers relative bg-white ">
-        <div className="flex-1 flex justify-center relative z-50">
-          <div className="max-w-[260px] w-full px-4">
+        <div className="md:flex-1 flex justify-center relative z-50">
+          <div className="max-w-[120px] sm:max-w-[150px] md:max-w-[260px] w-full md:px-4">
             <Link href={"/"}>
               <Image
                 src={"/common/logo.svg"}
@@ -37,7 +37,7 @@ const Navbar = () => {
 
         <div>
           <IoMenuOutline
-            className="text-main text-3xl cursor-pointer relative z-50"
+            className="text-main text-xl md:text-3xl cursor-pointer relative z-50"
             onClick={() => setIsOpen(true)}
           />
         </div>
@@ -55,14 +55,14 @@ const Navbar = () => {
             />
 
             <motion.nav
-              className="bg-white fixed top-0 right-0 px-10 py-12 h-full z-[99999] w-[30%]  flex flex-col"
+              className="bg-white fixed top-0 right-0 px-6 md:px-10 py-9 md:py-12 h-full z-[99999] w-full sm:w-[70%] md:w-[50%] xl:w-[30%]  flex flex-col"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-              <div className="flex justify-between items-center border-b border-[#DBDBDB] pb-9">
-                <div className="max-w-[190px] w-full px-4">
+              <div className="flex justify-between items-center border-b border-[#DBDBDB] pb-5 md:pb-9">
+                <div className="max-w-[120px] sm:max-w-[150px] md:max-w-[190px] w-full md:px-4">
                   <Link href={"/"}>
                     <Image
                       src={"/common/logo.svg"}
@@ -79,7 +79,7 @@ const Navbar = () => {
                 </div>
 
                 <IoMdClose
-                  className="text-main text-3xl cursor-pointer"
+                  className="text-main text-xl md:text-3xl cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 />
               </div>
@@ -90,12 +90,12 @@ const Navbar = () => {
                   return (
                     <li
                       key={index}
-                      className="flex items-center justify-between border-b pb-[22px] border-b-[#DBDBDB] group"
+                      className="flex items-center justify-between border-b pb-5 md:pb-[22px] border-b-[#DBDBDB] group"
                     >
                       <Link
                         href={link.link}
-                        className={`text-3xl uppercase leading-[118.423%] font-medium  ${
-                          index === 0 ? "pt-6" : ""
+                        className={`text-xl md:text-2xl lg:text-3xl uppercase leading-[118.423%] font-medium  ${
+                          index === 0 ? "pt-5 md:pt-6" : ""
                         } ${isActive ? "font-semibold" : "font-normal"}`}
                         onClick={() => setIsOpen(false)}
                       >
@@ -118,7 +118,7 @@ const Navbar = () => {
                     target="_blank"
                     className="w-11 h-11 flex items-center justify-center rounded-full border border-main text-main text-sm"
                   >
-                    <FaFacebookF />
+                    <FaFacebookF className="text-sm md:text-lg" />
                   </Link>
                 </li>
                 <li>
@@ -127,7 +127,7 @@ const Navbar = () => {
                     target="_blank"
                     className="w-11 h-11 flex items-center justify-center rounded-full border border-main text-main text-sm"
                   >
-                    <FaInstagram />
+                    <FaInstagram className="text-sm md:text-lg" />
                   </Link>
                 </li>
                 <li>
@@ -136,7 +136,7 @@ const Navbar = () => {
                     target="_blank"
                     className="w-11 h-11 flex items-center justify-center rounded-full border border-main text-main text-sm"
                   >
-                    <FaLinkedinIn />
+                    <FaLinkedinIn className="text-sm md:text-lg" />
                   </Link>
                 </li>
               </motion.ul>

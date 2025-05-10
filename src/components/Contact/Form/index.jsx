@@ -63,7 +63,10 @@ const ContactForm = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-y-8 pt-8">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-y-8 pt-5 md:pt-8"
+    >
       {" "}
       <motion.input
         type="text"
@@ -157,7 +160,7 @@ const ContactForm = () => {
         animate="visible"
         custom={4}
         type="submit"
-        className="font-switzer text-sm leading-[118.423%] uppercase py-4 px-16 flex items-center justify-center bg-[#EAE4D6] rounded-full w-fit text-main border border-[#EAE4D6] hover:text-[#EAE4D6] hover:bg-transparent duration-300 transition-all hover:scale-105 hover:-translate-y-2"
+        className="font-switzer text-sm leading-[118.423%] uppercase py-3 md:py-4 px-12 md:px-16 flex items-center justify-center bg-[#EAE4D6] rounded-full w-fit text-main border border-[#EAE4D6] hover:text-[#EAE4D6] hover:bg-transparent duration-300 transition-all hover:scale-105 hover:-translate-y-2 mx-auto md:mx-0"
       >
         Submit
       </motion.button>

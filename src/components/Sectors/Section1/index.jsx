@@ -9,8 +9,8 @@ import { Navigation } from "swiper/modules";
 import { sectorsData } from "@/app/lib/sectorsData";
 import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
+import isVideo from "@/app/lib/checkVideo";
 const Section1 = () => {
-  const isVideo = (url) => url?.endsWith(".mp4") || url?.endsWith(".mov");
   const [activeSector, setActiveSector] = useState(sectorsData[0]);
 
   const itemVariant = {
@@ -24,7 +24,7 @@ const Section1 = () => {
   };
 
   return (
-    <section className=" h-full pt-52 pb-28 relative">
+    <section className=" h-full pt-10 md:pt-20 xl:pt-28 2xl:pt-40 3xl:pt-52 pb-14 md:pb-20 xl:pb-28 relative">
       <div className="absolute w-full h-full bottom-0 left-0 -z-10">
         <AnimatePresence mode="wait">
           <motion.div
@@ -60,14 +60,14 @@ const Section1 = () => {
         <div className="absolute- inset-0 bg-sector-grad" />
       </div>
 
-      <div className="grid grid-cols-12 relative z-50 gap-x-20">
+      <div className="grid grid-cols-12 relative z-50 md:gap-x-10 xl:gap-x-20">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeSector.id}
             initial="initial"
             animate="animate"
             exit="exit"
-            className="col-span-4 ml-24 gap-y-6 flex flex-col h-full"
+            className="col-span-12 md:col-span-5 3xl:col-span-4 px-6 md:ml-12 xl:ml-20 2xl:ml-24 gap-y-3 md:gap-y-6 flex items-center md:items-start flex-col h-full"
           >
             <motion.div
               custom={0}
@@ -84,6 +84,9 @@ const Section1 = () => {
                   width={100}
                   sizes="100vw"
                   className="h-auto w-full "
+                  unoptimized={
+                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                  }
                 />
               </div>
             </motion.div>
@@ -93,7 +96,7 @@ const Section1 = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="text-white text-[80px] leading-[118.423%] uppercase"
+              className="text-white text-3xl text-center md:text-left md:text-[5vw]  3xl:text-[80px] leading-[118.423%] uppercase"
             >
               {activeSector?.title}
             </motion.h1>
@@ -103,7 +106,7 @@ const Section1 = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="text-white font-switzer text-base font-light leading-[161%] "
+              className="text-white font-switzer text-sm md:text-base font-light leading-[161%] text-center md:text-left"
             >
               {activeSector?.description}
             </motion.p>
@@ -113,12 +116,12 @@ const Section1 = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="mt-auto mb-2"
+              className="mt-auto mb-10 md:mb-2"
             >
               <Link
                 href={activeSector?.link}
                 target="_blank"
-                className="text-white font-switzer text-sm leading-[118.423%] uppercase text-center py-4 px-14 border border-white rounded-full inline-block w-fit "
+                className="text-white font-switzer text-sm leading-[118.423%] uppercase text-center py-3 md:py-4 px-10 md:px-14 border border-white rounded-full inline-block w-fit "
               >
                 {activeSector?.linkText}
               </Link>
@@ -126,7 +129,7 @@ const Section1 = () => {
           </motion.div>
         </AnimatePresence>
 
-        <div className="col-span-8">
+        <div className="col-span-12 md:col-span-7 3xl:col-span-8 px-6">
           <div className="w-full">
             <Swiper
               slidesPerView={3}
@@ -135,6 +138,17 @@ const Section1 = () => {
               navigation={{
                 nextEl: ".custom-next",
                 prevEl: ".custom-prev",
+              }}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+                },
+
+                1024: {
+                  slidesPerView: 2,
+                  spaceBetween: 24,
+                },
               }}
               modules={[Navigation]}
               className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
@@ -162,13 +176,16 @@ const Section1 = () => {
                           height={400}
                           sizes="100vw"
                           className="w-full h-auto object-cover"
+                          unoptimized={
+                            process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                          }
                         />
                         <div className="bg-sector-grad-2 w-full h-full absolute bottom-0 left-0 z-[5]" />
                         <p className="text-white absolute bottom-9  w-full z-[10] text-center text-2xl font-medium leading-[141%]">
                           {data?.listTitle}
                         </p>
                       </div>
-                      <p className="font-switzer text-center text-base leading-[161%] font-light text-white">
+                      <p className="font-switzer text-center text-sm md:text-base leading-[161%] font-light text-white">
                         {data?.listDescription}
                       </p>
                     </motion.div>
@@ -178,20 +195,20 @@ const Section1 = () => {
             </Swiper>
           </div>
 
-          <div className="flex items-center justify-between pr-14 mt-16">
-            <div className="flex gap-x-7">
+          <div className="flex gap-x-5 items-center justify-center md:justify-between md:pr-6 xl:pr-14 mt-10 md:mt-16">
+            <div className="flex gap-x-5 lg:gap-x-7">
               <button
-                className={`custom-prev p-4 rounded-full flex items-center justify-center border border-white `}
+                className={`custom-prev p-3 md:p-4 rounded-full flex items-center justify-center border border-white `}
               >
-                <BsArrowLeftShort className=" text-white" size={30} />
+                <BsArrowLeftShort className=" text-white text-xl md:text-3xl" />
               </button>
               <button
-                className={`custom-next p-4 rounded-full flex items-center justify-center border border-white `}
+                className={`custom-next p-3 md:p-4 rounded-full flex items-center justify-center border border-white `}
               >
-                <BsArrowRightShort className=" text-white" size={30} />
+                <BsArrowRightShort className=" text-white text-xl md:text-3xl" />
               </button>
             </div>
-            <div>
+            <div className="flex-  items-center flex-wrap hidden md:flex">
               {sectorsData.map((data, index) => (
                 <button
                   key={index}
@@ -210,7 +227,7 @@ const Section1 = () => {
           </div>
         </div>
       </div>
-      <div className="absolute bg-sector-grad w-full h-full bottom-0 left-0" />
+      <div className="absolute bg-sector-grad-1 md:bg-sector-grad w-full h-full bottom-0 left-0" />
     </section>
   );
 };

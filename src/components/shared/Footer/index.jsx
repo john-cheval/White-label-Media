@@ -30,14 +30,14 @@ const childVariants = {
 
 const Footer = () => {
   return (
-    <footer className="footer-grad containers pt-20 relative">
-      <div className="grid grid-cols-12 border-b border-b-white pb-20">
+    <footer className="footer-grad containers pt-[74px] relative">
+      <div className="grid grid-cols-12 border-b border-b-white pb-7 md:pb-10 lg:pb-14  2xl:pb-[74px]  place-items-center">
         <motion.div
           variants={parentVariants}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="col-span-4 space-y-12"
+          className="col-span-12 md:col-span-4 space-y-4 md:space-y-5 lg:space-y-8 2xl:space-y-12"
         >
           <motion.div variants={childVariants}>
             <Image
@@ -47,7 +47,7 @@ const Footer = () => {
               height={130}
               sizes="100vw"
               unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-              className="w-full h-auto object-cover max-w-[175px]"
+              className="w-full- h-auto object-cover w-[100px] md:max-w-[175px] mx-auto md:mx-0"
             />
           </motion.div>
 
@@ -56,18 +56,18 @@ const Footer = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="space-y-3"
+            className="space-y-2 md:space-y-3"
           >
             <motion.div
               variants={childVariants}
-              className="flex flex-col gap-y-1"
+              className="flex flex-col gap-y-1 items-center md:items-start"
             >
-              <span className="text-[#EAE4D6] font-switzer text-lg leading-[193%]">
+              <span className="text-[#EAE4D6] font-switzer text-base md:text-lg leading-[193%]">
                 Email
               </span>
               <Link
                 href={"mailto:hello@whitelabelmedia.me"}
-                className="text-white text-3xl leading-[141%]"
+                className="text-white text-xl lg:text-2xl xl:text-3xl leading-[141%]"
               >
                 hello@whitelabelmedia.me
               </Link>
@@ -75,14 +75,14 @@ const Footer = () => {
 
             <motion.div
               variants={childVariants}
-              className="flex flex-col gap-y-1"
+              className="flex flex-col gap-y-1 items-center md:items-start"
             >
-              <span className="text-[#EAE4D6] font-switzer text-lg leading-[193%]">
+              <span className="text-[#EAE4D6] font-switzer text-base md:text-lg leading-[193%]">
                 Phone Number
               </span>
               <Link
                 href={"tel:+971 50 856 8028"}
-                className="text-white text-3xl leading-[141%]"
+                className="text-white text-xl lg:text-2xl xl:text-3xl leading-[141%]"
               >
                 +971 50 856 8028
               </Link>
@@ -94,11 +94,11 @@ const Footer = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="col-span-3 mt-auto flex flex-col items-center- gap-y-3"
+          className="col-span-12 md:col-span-3 mt-5 mb-7 md:mt-auto flex flex-col items-center md:items-start gap-y-2 md:gap-y-3"
         >
           <motion.p
             variants={childVariants}
-            className="text-lg font-switzer leading-[193%] text-[#EAE4D6] -ml-140- "
+            className="text-base md:text-lg font-switzer leading-[193%] text-[#EAE4D6]  "
           >
             Follow Us
           </motion.p>
@@ -107,7 +107,7 @@ const Footer = () => {
               <Link
                 href={"/"}
                 target="_blank"
-                className="w-11 h-11 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-sm"
+                className="md:w-11 md:h-11 w-9  h-9 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-xs md:text-sm"
               >
                 <FaFacebookF />
               </Link>
@@ -116,7 +116,7 @@ const Footer = () => {
               <Link
                 href={"/"}
                 target="_blank"
-                className="w-11 h-11 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-sm"
+                className="md:w-11 md:h-11 w-9  h-9 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-xs md:text-sm"
               >
                 <FaInstagram />
               </Link>
@@ -125,7 +125,7 @@ const Footer = () => {
               <Link
                 href={"/"}
                 target="_blank"
-                className="w-11 h-11 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-sm"
+                className="md:w-11 md:h-11 w-9  h-9 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-xs md:text-sm"
               >
                 <FaLinkedinIn />
               </Link>
@@ -137,11 +137,11 @@ const Footer = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="col-span-5 mt-auto"
+          className="col-span-12 md:col-span-5 mt-auto"
         >
           <motion.p
             variants={childVariants}
-            className="text-[#EAE4D6] text-[40px] font-medium border-b-1 border-b-white border-b pb-5"
+            className="text-[#EAE4D6] text-xl md:text-2xl xl:text-3xl 2xl:text-[40px] font-medium md:border-b-1 border-b-white md:border-b md:pb-5 text-center md:text-left"
           >
             Committed to high standards of excellence
           </motion.p>
@@ -151,7 +151,7 @@ const Footer = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="flex gap-x-10 gap-y-6 flex-wrap pt-8 max-w-[80%]"
+            className="flex gap-x-2 md:gap-x-6 lg:gap-x-10 gap-y-3 md:gap-y-6 flex-wrap pt-3 md:pt-5 lg:pt-8 md:max-w-[80%] justify-center md:justify-start"
           >
             {footerLink?.map((links, index) => (
               <motion.li
@@ -161,9 +161,12 @@ const Footer = () => {
               >
                 <Link
                   href={links?.link}
-                  className="text-[#EAE4D6] font-switzer text-sm font-medium uppercase "
+                  className="text-[#EAE4D6] font-switzer text-sm font-medium uppercase flex items-center justify-center gap-x-1 md:gap-x-0 "
                 >
-                  {links?.title}
+                  {links?.title}{" "}
+                  {index !== footerLink.length - 1 && (
+                    <span className="md:hidden">|</span>
+                  )}
                 </Link>
               </motion.li>
             ))}
@@ -176,7 +179,7 @@ const Footer = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="pt-6 pb-10 flex  justify-between"
+        className="pt-6 pb pb-[74px] md:pb-10 flex gap-y-2 justify-center flex-wrap md:gap-y-0 md:justify-between"
       >
         <motion.p
           variants={childVariants}

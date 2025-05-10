@@ -15,7 +15,7 @@ const Section2 = () => {
   const hasMore = loadMore < eventsData?.length;
   return (
     <section className="containers pt-14 relative">
-      <div className="grid grid-cols-12 gap-x-16 pl-16 pr-8 gap-y-20 pb-[72px]">
+      <div className="grid grid-cols-12 gap-y-7 md:gap-7 lg:gap-10 xl:gap-x-16 lg:pl-10 xl:pl-16 lg:pr-8 xl:gap-y-20 mb-8 md:pb-12 lg:pb-16 xl:pb-[72px]">
         <AnimatePresence initial={false}>
           {visibleEvents?.map((event, index) => {
             const isOddRow = Math.floor(index / 2) % 2 === 0;
@@ -23,14 +23,15 @@ const Section2 = () => {
 
             const colSpan =
               isOddRow && isLeftCard
-                ? "col-span-7"
+                ? "col-span-12 md:col-span-7"
                 : isOddRow && !isLeftCard
-                ? "col-span-5"
+                ? "col-span-12 md:col-span-5"
                 : !isOddRow && isLeftCard
-                ? "col-span-5"
-                : "col-span-7";
+                ? "col-span-12 md:col-span-5"
+                : "col-span-12 md:col-span-7";
 
-            const isMt = Math.floor(index / 2) % 2 === index % 2 ? "" : "mt-16";
+            const isMt =
+              Math.floor(index / 2) % 2 === index % 2 ? "" : "md:mt-16";
             return (
               <motion.div
                 initial={{ opacity: 0, y: 80 }}
@@ -60,15 +61,18 @@ const Section2 = () => {
                       width={500}
                       sizes="100vw"
                       className="object-cover w-full h-auto"
+                      unoptimized={
+                        process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                      }
                     />
                   )}
                 </div>
 
-                <div className="flex flex-col max-w-[650px] gap-y-5 mt-10">
-                  <h3 className="text-[40px]  font-medium leading-[141%] ">
+                <div className="flex flex-col md:max-w-[650px] gap-y-5 mt-6 md:mt-10">
+                  <h3 className="text-3xl lg:text-[40px]  font-medium leading-[141%]  text-center md:text-left">
                     {event?.title}
                   </h3>
-                  <div className="flex gap-4 ">
+                  <div className="flex gap-4 justify-center md:justify-start ">
                     <div className="event-meta">
                       <IoLocationOutline size={20} />
                       <span>{event?.location}</span>
@@ -78,7 +82,7 @@ const Section2 = () => {
                       <span>{event?.date}</span>
                     </div>
                   </div>
-                  <p className="text-base font-switzer  font-light leading-[161%]  ">
+                  <p className="text-sm md:text-base text-center md:text-left font-switzer  font-light leading-[161%]  ">
                     {event?.description}
                   </p>
                 </div>
@@ -88,7 +92,7 @@ const Section2 = () => {
         </AnimatePresence>
       </div>
       {hasMore && (
-        <div className="flex justify-center mb-28">
+        <div className="flex justify-center mb-14 lg:mb-16 xl:mb-20 2xl:mb-28">
           <button
             onClick={handleLoadMore}
             className="border-main border  px-14 py-4 rounded-full hover:bg-main hover:text-white font-switzer text-base leading-[118.423%]  transition-all duration-300 ease-in-out uppercase"

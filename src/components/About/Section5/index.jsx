@@ -26,7 +26,7 @@ const Section5 = () => {
   };
 
   return (
-    <section className="px-[116px] pb-16">
+    <section className="px-6 md:px-16 lg:px-20 xl:px-[116px] pb-16">
       <motion.div
         className="flex  flex-wrap gap-12 justify-center"
         variants={containerVariants}
@@ -48,7 +48,7 @@ const Section5 = () => {
         ))}
       </motion.div>
 
-      <div className="flex justify-center mt-16">
+      <div className=" justify-center mt-16 hidden md:flex">
         <Link
           href={"/"}
           className="font-switzer text-sm uppercase leading-[118.423%] px-11 py-4 border border-main rounded-full text-center hover:bg-main hover:text-white transition-all duration-300"

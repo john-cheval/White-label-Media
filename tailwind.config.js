@@ -22,12 +22,15 @@ module.exports = {
       },
       screens: {
         "5xl": "2000px",
+        "3xl": "1600px",
       },
       backgroundImage: {
         "home-hero-video-grad":
           " linear-gradient(180deg, rgba(34, 51, 79, 0.00) 0%, #22334F 100%)",
         "sector-grad":
           "linear-gradient(180deg, rgba(34, 51, 79, 0.00) 0%, #22334F 100%)",
+        "sector-grad-1":
+          " linear-gradient(180deg, rgba(34, 51, 79, 0.35) 0%, #22334F 100%)",
         "sector-grad-2":
           "linear-gradient(180deg, rgba(34, 51, 79, 0.00) 0%, #22334F 100%)",
         "events-grad-1":
