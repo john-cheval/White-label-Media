@@ -57,6 +57,9 @@ const Section4 = () => {
                 height={2}
                 sizes="100vw"
                 className="w-[50px] h-[2px] object-cover mx-auto"
+                unoptimized={
+                  process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                }
               />
             </div>
           </motion.div>

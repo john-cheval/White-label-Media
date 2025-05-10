@@ -61,6 +61,9 @@ const Section2 = () => {
                       width={500}
                       sizes="100vw"
                       className="object-cover w-full h-auto"
+                      unoptimized={
+                        process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                      }
                     />
                   )}
                 </div>
