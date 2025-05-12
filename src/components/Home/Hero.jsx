@@ -85,7 +85,7 @@ const Hero = () => {
 
   return (
     <header
-      className="containers relative perspective-[1500px] h-[100dvh]- pt-6 pb-9 md:py-10 lg:py-14 space-y-5 overflow-hidden"
+      className="containers relative perspective-[1500px] h-[100dvh]- pt-6 pb-9 md:py-10 lg:py-14 space-y-8 overflow-hidden"
       style={{
         backgroundImage: `url("/Home/label.svg")`,
         backgroundRepeat: "no-repeat",
@@ -94,7 +94,7 @@ const Hero = () => {
       }}
     >
       <div className="grid grid-cols-12">
-        <h1 className="uppercase text-main font-gambetta text-3xl sm:text-[6vw] 5xl:text-[100px]  leading-[1.30] col-span-5">
+        <h1 className="uppercase text-main font-gambetta text-3xl sm:text-[6vw] 5xl:text-[100px]  leading-[1.30] col-span-8 sm:col-span-5">
           A CREATIVE COLLECTIVE
         </h1>
       </div>
@@ -117,7 +117,7 @@ const Hero = () => {
             loop
             playsInline
             src="/Home/hero.mp4"
-            className="col-start-3 col-end-9 sm:col-start-5 sm:col-end-9  w-full h-auto rounded-[20px] rotate-[-4deg]"
+            className="col-start-3 col-end-9 sm:col-start-5 sm:col-end-9  w-full min-w-[220px] min-h-[150px] hidden sm:block sm:h-auto rounded-[20px] rotate-[-4deg]"
           />
         )}
 
@@ -163,7 +163,7 @@ const Hero = () => {
             </Link>
           </div>
         )}
-        <div className="col-start-4 -col-end-1">
+        <div className="col-start-2  sm:col-start-4 -col-end-1">
           <h2 className="uppercase text-main font-gambetta text-3xl sm:text-[6vw] 5xl:text-[100px]  leading-[1.30]  text-right">
             CRAFTING THE <br /> FUTURE OF BRANDS
           </h2>
@@ -171,7 +171,7 @@ const Hero = () => {
             <Link
               href={"/about"}
               aria-label="About the group"
-              className="text-main  w-fit font-switzer gap-x-3 text-sm leading-main uppercase py-4 px-7 rounded-full  border border-main  h-fit flex items-center justify-between group mt-auto- -ml-5 mt-6"
+              className="text-main  w-fit font-switzer gap-x-3 text-sm leading-main uppercase py-4 px-7 rounded-full  border border-main  h-fit flex items-center justify-between group mt-auto- -ml-5- mt-6"
             >
               About the group{" "}
               <LuArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
