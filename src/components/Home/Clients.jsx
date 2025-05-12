@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import ClientsMobile from "./ClientsMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +16,7 @@ const Clients = () => {
   const slider2 = useRef(null);
   const firstSet = clientsData.slice(0, 6);
   const secondSet = clientsData.slice(6, 12);
+
   useGSAP(() => {
     let timeline = gsap.timeline({
       defaults: {
@@ -49,10 +51,16 @@ const Clients = () => {
       className="relative overflow-x-hidden w-full containers pt-10 pb-12 lg:pb-16 xl:pb-24"
       id="clients"
     >
-      <h3 className="main-heading text-center md:text-left">Clients</h3>
+      <h3 className="main-heading text-center md:text-left mb-8 md:mb-0">
+        Clients
+      </h3>
 
+      <div className="md:hidden">
+        <ClientsMobile clientsList={firstSet} />
+        <ClientsMobile clientsList={secondSet} isReversed={true} />
+      </div>
       <div
-        className="relative whitespace-nowrap mt-8 overflow-hidden "
+        className="relative hidden md:block whitespace-nowrap mt-8 overflow-hidden "
         ref={slider1}
       >
         <div className="flex -translate-x-[500px] " ref={firstSlider}>
@@ -79,7 +87,10 @@ const Clients = () => {
         </div>
       </div>
 
-      <div className="relative whitespace-nowrap overflow-hidden" ref={slider2}>
+      <div
+        className="relative hidden md:block whitespace-nowrap overflow-hidden"
+        ref={slider2}
+      >
         <div className="flex" ref={secondSlider}>
           {[...secondSet, ...secondSet]?.map((client, index) => (
             <div

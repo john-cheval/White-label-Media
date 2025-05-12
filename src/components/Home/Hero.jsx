@@ -56,6 +56,7 @@ const Hero = () => {
             rotateY: 180,
             overflow: "hidden",
             overwrite: true,
+            borderRadius: "20px",
           });
         } else {
           setVidoExpanded(false);
@@ -122,7 +123,7 @@ const Hero = () => {
         )}
 
         {videoExpanded && (
-          <div className=" z-[100] w-[80%] hidden sm:block left-1/2 -translate-x-1/2 -translate-y-1/2  absolute sm:bottom-5 md:bottom-[30px] pb-5 md:pb-10 rounded-[20px]  sm:px-6 md:px-[70px] lg:px-[128px]  overflow-hidden home-grad">
+          <div className=" z-[100] w-[80%] hidden sm:block left-1/2 -translate-x-1/2 -translate-y-1/2  absolute sm:bottom-5 md:bottom-[35px] pb-5 md:pb-10 rounded-[20px]  sm:px-6 md:px-[70px] lg:px-[128px]  overflow-hidden home-grad">
             <div>
               <div className="flex gap-x-11 relative items-center md:items-start  ">
                 <div>
