@@ -61,7 +61,6 @@ const Section1 = () => {
   const [active, setActive] = useState("past");
   const videoRef = useRef(null);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  console.log(isMobile, "isMobile");
 
   const handlePlay = () => {
     if (videoRef.current) {
