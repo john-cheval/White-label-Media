@@ -37,6 +37,7 @@ const Navbar = () => {
 
         <div>
           <IoMenuOutline
+            aria-label="menu open"
             className="text-main text-xl md:text-3xl cursor-pointer relative z-50"
             onClick={() => setIsOpen(true)}
           />
@@ -63,7 +64,7 @@ const Navbar = () => {
             >
               <div className="flex justify-between items-center border-b border-[#DBDBDB] pb-5 md:pb-9">
                 <div className="max-w-[120px] sm:max-w-[150px] md:max-w-[190px] w-full md:px-4">
-                  <Link href={"/"}>
+                  <Link href={"/"} aria-label="Go to Homepage">
                     <Image
                       src={"/common/logo.svg"}
                       alt="White Label Media"
@@ -79,6 +80,7 @@ const Navbar = () => {
                 </div>
 
                 <IoMdClose
+                  aria-label="close menu"
                   className="text-main text-xl md:text-3xl cursor-pointer"
                   onClick={() => setIsOpen(false)}
                 />
@@ -116,6 +118,7 @@ const Navbar = () => {
                   <Link
                     href={"/"}
                     target="_blank"
+                    aria-label="Facebook"
                     className="w-11 h-11 flex items-center justify-center rounded-full border border-main text-main text-sm"
                   >
                     <FaFacebookF className="text-sm md:text-lg" />
@@ -125,6 +128,7 @@ const Navbar = () => {
                   <Link
                     href={"/"}
                     target="_blank"
+                    aria-label="Instagram"
                     className="w-11 h-11 flex items-center justify-center rounded-full border border-main text-main text-sm"
                   >
                     <FaInstagram className="text-sm md:text-lg" />
@@ -134,6 +138,7 @@ const Navbar = () => {
                   <Link
                     href={"/"}
                     target="_blank"
+                    aria-label="Linkedin"
                     className="w-11 h-11 flex items-center justify-center rounded-full border border-main text-main text-sm"
                   >
                     <FaLinkedinIn className="text-sm md:text-lg" />

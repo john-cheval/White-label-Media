@@ -73,6 +73,7 @@ const Section2 = () => {
           <motion.div variants={itemVariants}>
             <Link
               href="/about"
+              aria-label="About the group"
               className="font-switzer text-center md:text-left text-sm underline uppercase inline-block  md:mt-10 mb-10 md:mb-0"
             >
               Explore the group
@@ -110,13 +111,14 @@ const Section2 = () => {
 
           <Link
             href="/about"
+            aria-label="About the group"
             className="text-xs hidden md:flex uppercase font-medium px-5 py-3 rounded-full border border-sec absolute bottom-9 left-14 overflow-hidden  items-center group gap-x-1"
           >
             Explore
             <IoArrowForwardOutline className="translate-x-3 group-hover:translate-x-0 transition-all duration-300 opacity-0 group-hover:opacity-100 text-lg" />
           </Link>
 
-          <Link href="/about">
+          <Link href="/about" aria-label="about the group">
             <GoArrowUpRight className="text-4xl lg:text-6xl text-sec hover:scale-110 transition-all duration-200 absolute top-3 right-3" />
           </Link>
         </motion.div>
