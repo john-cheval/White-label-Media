@@ -51,7 +51,7 @@ const Services = () => {
 
             <Link
               href={"/services"}
-              className="col-span-12 md:col-span-4 font-switzer text-sm leading-[118.423%] uppercase py-3 md:py-4 px-6 md:px-10 border border-main rounded-full inline-block h-fit w-fit self-baseline mx-auto md:ml-auto mt-5"
+              className="col-span-12 md:col-span-4 font-switzer text-sm leading-[118.423%] uppercase py-3 md:py-4 px-6 md:px-10 border border-main rounded-full inline-block h-fit w-fit self-baseline mx-auto md:ml-auto mt-5  hover:bg-main hover:text-white transition-colors duration-300"
             >
               Explore more
             </Link>
@@ -92,6 +92,7 @@ const Services = () => {
                     alt={servicesData[hoveredIndex]?.title || "image"}
                     fill
                     className="object-cover "
+                    priority
                     unoptimized={
                       process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                     }

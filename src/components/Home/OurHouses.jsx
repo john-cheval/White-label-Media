@@ -32,12 +32,12 @@ const OurHouses = () => {
             viewport={{ once: true, amount: 0.4 }}
             className="col-span-12 md:col-span-5 border border-b-1 border-r-0 border-t-0 border-l-0 xl:py-16 xl:px-14 xl:space-y-20  2xl:py-24 2xl:pl-24 2xl:pr-16 2xl:space-y-28 lg: py-14 lg:px-10 md:space-y-10 lg:space-y-14 pt-8 pb-12 px-8 hover:bg-[#F7F7F7] transition-all duration-300"
           >
-            <motion.h5
+            <motion.h4
               variants={itemVariants}
               className="main-heading text-center md:text-left mb-2 md:mb-0"
             >
               Our Houses
-            </motion.h5>
+            </motion.h4>
             <motion.p
               variants={itemVariants}
               className="font-gt text-center md:text-left leading-[141%] text-3xl md:text-4xl lg:text-[40px] mb-5 md:mb-0"
@@ -55,7 +55,9 @@ const OurHouses = () => {
               >
                 View all companies
               </Link>
-              <GoArrowUpRight className="text-main hidden md:block text-6xl font-light group-hover:rotate-45 transition-transform duration-300" />
+              <Link href={"/about"} aria-label="Go to aboutpage">
+                <GoArrowUpRight className="text-main hidden md:block text-6xl font-light group-hover:rotate-45 transition-transform duration-300" />
+              </Link>
             </motion.div>
           </motion.div>
 
@@ -79,19 +81,27 @@ const OurHouses = () => {
               >
                 <motion.div
                   variants={itemVariants}
-                  className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0"
+                  className="flex md:justify-between items-center"
                 >
-                  <Image
-                    src={house?.image}
-                    alt="image-1"
-                    sizes="100vw"
-                    height={100}
-                    width={250}
-                    className="w-full h-auto object-cover filter grayscale transition-all duration-500 group-hover:grayscale-0 "
-                    unoptimized={
-                      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                    }
-                  />
+                  <div className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0">
+                    <Image
+                      src={house?.image}
+                      alt="image-1"
+                      sizes="100vw"
+                      height={100}
+                      width={250}
+                      className="w-full h-auto object-cover filter grayscale transition-all duration-500 group-hover:grayscale-0 "
+                      unoptimized={
+                        process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                      }
+                    />
+                  </div>
+                  <Link
+                    href={"/about"}
+                    className="text-2xl hidden md:block opacity-0 group-hover:opacity-100 transition-all hover:rotate-45 duration-300"
+                  >
+                    <GoArrowUpRight />
+                  </Link>
                 </motion.div>
 
                 <motion.div
@@ -131,19 +141,27 @@ const OurHouses = () => {
               >
                 <motion.div
                   variants={itemVariants}
-                  className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0 "
+                  className="flex md:justify-between items-center"
                 >
-                  <Image
-                    src={house?.image}
-                    alt="image-1"
-                    sizes="100vw"
-                    height={100}
-                    width={250}
-                    className="w-full h-auto object-cover transition-all duration-500 group-hover:grayscale-0 filter grayscale "
-                    unoptimized={
-                      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                    }
-                  />
+                  <div className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0 ">
+                    <Image
+                      src={house?.image}
+                      alt="image-1"
+                      sizes="100vw"
+                      height={100}
+                      width={250}
+                      className="w-full h-auto object-cover transition-all duration-500 group-hover:grayscale-0 filter grayscale "
+                      unoptimized={
+                        process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                      }
+                    />
+                  </div>
+                  <Link
+                    href={"/about"}
+                    className="text-2xl hidden md:block opacity-0 group-hover:opacity-100 transition-all hover:rotate-45 duration-300"
+                  >
+                    <GoArrowUpRight />
+                  </Link>
                 </motion.div>
 
                 <motion.div

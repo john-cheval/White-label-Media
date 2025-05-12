@@ -155,6 +155,7 @@ const Hero = () => {
           <div className="col-span-3 pb-12 mt-auto ">
             <Link
               href={"/about"}
+              aria-label="About the group"
               className="text-main w-fit font-switzer gap-x-3 text-sm leading-main uppercase py-4 px-7 rounded-full  border border-main  h-fit flex items-center justify-between group mt-auto"
             >
               About the group{" "}
@@ -163,12 +164,13 @@ const Hero = () => {
           </div>
         )}
         <div className="col-start-4 -col-end-1">
-          <h3 className="uppercase text-main font-gambetta text-3xl sm:text-[6vw] 5xl:text-[100px]  leading-[1.30]  text-right">
+          <h2 className="uppercase text-main font-gambetta text-3xl sm:text-[6vw] 5xl:text-[100px]  leading-[1.30]  text-right">
             CRAFTING THE <br /> FUTURE OF BRANDS
-          </h3>
+          </h2>
           {!isShowButton && (
             <Link
               href={"/about"}
+              aria-label="About the group"
               className="text-main  w-fit font-switzer gap-x-3 text-sm leading-main uppercase py-4 px-7 rounded-full  border border-main  h-fit flex items-center justify-between group mt-auto- -ml-5 mt-6"
             >
               About the group{" "}
