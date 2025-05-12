@@ -107,6 +107,7 @@ const Footer = () => {
               <Link
                 href={"/"}
                 target="_blank"
+                aria-label="Facebook"
                 className="md:w-11 md:h-11 w-9  h-9 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-xs md:text-sm"
               >
                 <FaFacebookF />
@@ -116,6 +117,7 @@ const Footer = () => {
               <Link
                 href={"/"}
                 target="_blank"
+                aria-label="Instagram"
                 className="md:w-11 md:h-11 w-9  h-9 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-xs md:text-sm"
               >
                 <FaInstagram />
@@ -125,6 +127,7 @@ const Footer = () => {
               <Link
                 href={"/"}
                 target="_blank"
+                aria-label="Linkedin"
                 className="md:w-11 md:h-11 w-9  h-9 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-xs md:text-sm"
               >
                 <FaLinkedinIn />
