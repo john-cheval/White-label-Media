@@ -101,7 +101,7 @@ const Section1 = () => {
           </motion.p>
         </motion.div>
         <div className="mt-[141px]- mt-10 md:mt-0 md:pr-[52px] flex justify-center relative z-50">
-          {isVideo("/about/image1.png") ? (
+          {isVideo("/About/image1.png") ? (
             <video
               autoPlay
               loop
@@ -109,12 +109,12 @@ const Section1 = () => {
               playsInline
               className="object-cover max-h-[600px] w-[30%]"
             >
-              <source src="/about/image1.mp4" type="video/mp4" />
+              <source src="/About/image1.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           ) : (
             <Image
-              src={"/about/image1.png"}
+              src={"/About/image1.png"}
               ref={imageRef}
               alt="section1"
               height={100}

@@ -8,7 +8,7 @@ const Section3 = () => {
       <div className="grid grid-cols-12 gap-x-5 md:gap-x-10 lg:gap-x-16 3xl:gap-x-28">
         <div className="col-span-6 space-y-4 md:space-y-0">
           <div>
-            {isVideo("/about/image3.jpg") ? (
+            {isVideo("/About/image3.jpg") ? (
               <video
                 autoPlay
                 loop
@@ -20,7 +20,7 @@ const Section3 = () => {
               </video>
             ) : (
               <Image
-                src="/about/image3.jpg"
+                src="/About/image3.jpg"
                 alt="Image"
                 width={300}
                 height={300}
@@ -33,7 +33,7 @@ const Section3 = () => {
             )}
           </div>
           <div className="mt-auto  md:hidden  ml-[10%]">
-            {isVideo("/about/image2.jpg") ? (
+            {isVideo("/About/image2.jpg") ? (
               <video
                 autoPlay
                 loop
@@ -45,7 +45,7 @@ const Section3 = () => {
               </video>
             ) : (
               <Image
-                src="/about/image2.jpg"
+                src="/About/image2.jpg"
                 alt="Image"
                 width={300}
                 height={300}
@@ -61,7 +61,7 @@ const Section3 = () => {
         <div className="col-span-6 flex flex-col w-full gap-y-20- ">
           <div className="flex justify-between gap-x-10 lg:gap-x-16 3xl:gap-x-28 ">
             <div className="mt-auto hidden md:block ">
-              {isVideo("/about/image2.jpg") ? (
+              {isVideo("/About/image2.jpg") ? (
                 <video
                   autoPlay
                   loop
@@ -73,7 +73,7 @@ const Section3 = () => {
                 </video>
               ) : (
                 <Image
-                  src="/about/image2.jpg"
+                  src="/About/image2.jpg"
                   alt="Image"
                   width={300}
                   height={300}
@@ -86,7 +86,7 @@ const Section3 = () => {
               )}
             </div>
             <div className="md:w-[300px] w-[121px] h-[121px] md:h-[300px] mt-[50px] md:mt-0">
-              {isVideo("/about/video.mp4") ? (
+              {isVideo("/About/video.mp4") ? (
                 <video
                   autoPlay
                   loop
@@ -94,11 +94,11 @@ const Section3 = () => {
                   playsInline
                   className="w-full h-full object-cover "
                 >
-                  <source src="/about/video.mp4" type="video/mp4" />
+                  <source src="/About/video.mp4" type="video/mp4" />
                 </video>
               ) : (
                 <Image
-                  src="/about/image2.jpg"
+                  src="/About/image2.jpg"
                   alt="Image"
                   width={300}
                   height={300}
