@@ -7,23 +7,49 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Modal from "../Modal";
-// import { AnimatePresence } from "motion";
+
 const Testimonials = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const close = () => setIsModalOpen(false);
   const open = () => setIsModalOpen(true);
 
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
+
   return (
     <>
       <section className="bg-sec containers py-8 md:py-810 lg:py-12 xl:py-16">
-        <div className="flex justify-center md:justify-between items-center">
-          <h3 className="main-heading text-center md:text-left">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          className="flex justify-center md:justify-between items-center"
+        >
+          <motion.h3
+            variants={itemVariants}
+            className="main-heading text-center md:text-left"
+          >
             What Our Clients Say
-          </h3>
-          <div className="md:flex gap-x-4 hidden">
+          </motion.h3>
+          <motion.div
+            variants={itemVariants}
+            className="md:flex gap-x-4 hidden"
+          >
             <button
               className={`custom-prev p-5 rounded-full flex items-center justify-center border border-[#DEDEDE] cursor-pointer `}
             >
@@ -34,8 +60,8 @@ const Testimonials = () => {
             >
               <IoArrowForwardSharp className="text-lg text-main" />
             </button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         <div className="w-full py-6 md:py-8 lg:py-12 xl:py-16">
           <Swiper

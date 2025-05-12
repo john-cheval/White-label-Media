@@ -68,7 +68,7 @@ const Works = () => {
 
   return (
     <section
-      className="relative containers md:h-[100dvh] pb-16 md:pb-0 w-full overflow-hidden"
+      className="relative containers md:h-[100dvh] pb-16 md:pb-0 w-full overflow-hidden worksBG"
       id="works"
       ref={containerRef}
     >

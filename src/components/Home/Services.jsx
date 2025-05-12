@@ -6,6 +6,19 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import isVideo from "@/app/lib/checkVideo";
 
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 const Services = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   return (
@@ -13,8 +26,17 @@ const Services = () => {
       <div className="grid grid-cols-12">
         <div className="col-span-12 md:col-span-3 lg:col-span-4"></div>
         <div className="col-span-12 md:col-span-9 lg:col-span-8">
-          <div className="grid grid-cols-12 gap-x-3">
-            <div className=" space-y-2 col-span-12 md:col-span-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+            className="grid grid-cols-12 gap-x-3"
+          >
+            <motion.div
+              variants={itemVariants}
+              className=" space-y-2 col-span-12 md:col-span-8"
+            >
               <h3 className="main-heading text-center md:text-left">
                 Our Services
               </h3>
@@ -25,7 +47,7 @@ const Services = () => {
                 and strategists offering a complete 360 solution to marketing
                 and developing your business
               </p>
-            </div>
+            </motion.div>
 
             <Link
               href={"/services"}
@@ -33,7 +55,7 @@ const Services = () => {
             >
               Explore more
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
       <div
@@ -80,31 +102,39 @@ const Services = () => {
           </AnimatePresence>
         </div>
         <div className="col-span-12 md:col-span-9 lg:col-span-8 ">
-          {servicesData?.map?.((serivce, index) => (
-            <div
-              key={serivce?.id || index}
-              className={` py-5 md:py-9 border-b border-b-[#c7c7c7] group grid grid-cols-1 sm:grid-cols-2 gap-x-2  ${
-                index === 0 ? "border-t border-t-[#c7c7c7]" : ""
-              }`}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <div className="relative h-[1.2em]- text-2xl md:text-3xl lg:text-[40px] font-medium text-center sm:text-left leading-[141%] sm:max-w-[80%] sm:py-9">
-                {" "}
-                <span className="sm:hidden">{serivce?.title}</span>
-                <span className="absolute hidden sm:block  top-1/2 -translate-y-1/2 -font-gambetta opacity-100    group-hover:opacity-0 transition-all duration-300">
-                  {serivce?.title}
-                </span>
-                <span className="absolute hidden sm:block top-1/2 -translate-y-1/2 font-gt opacity-0 group-hover:text-[#385B93] group-hover:opacity-100 transition-all duration-300">
-                  {serivce?.title}
-                </span>
-              </div>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+          >
+            {servicesData?.map?.((serivce, index) => (
+              <motion.div
+                key={serivce?.id || index}
+                variants={itemVariants}
+                className={` py-5 md:py-9 border-b border-b-[#c7c7c7] group grid grid-cols-1 sm:grid-cols-2 gap-x-2  ${
+                  index === 0 ? "border-t border-t-[#c7c7c7]" : ""
+                }`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                <div className="relative h-[1.2em]- text-2xl md:text-3xl lg:text-[40px] font-medium text-center sm:text-left leading-[141%] sm:max-w-[80%] sm:py-9">
+                  {" "}
+                  <span className="sm:hidden">{serivce?.title}</span>
+                  <span className="absolute hidden sm:block  top-1/2 -translate-y-1/2 -font-gambetta opacity-100    group-hover:opacity-0 transition-all duration-300">
+                    {serivce?.title}
+                  </span>
+                  <span className="absolute hidden sm:block top-1/2 -translate-y-1/2 font-gt opacity-0 group-hover:text-[#385B93] group-hover:opacity-100 transition-all duration-300">
+                    {serivce?.title}
+                  </span>
+                </div>
 
-              <p className="font-switzer text-sm md:text-base leading-[193%]  group-hover:text-[#385B93] transition-all duration-300 text-center sm:text-left ">
-                {serivce?.description}
-              </p>
-            </div>
-          ))}
+                <p className="font-switzer text-sm md:text-base leading-[193%]  group-hover:text-[#385B93] transition-all duration-300 text-center sm:text-left ">
+                  {serivce?.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

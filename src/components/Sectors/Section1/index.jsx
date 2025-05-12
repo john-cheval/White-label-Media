@@ -157,7 +157,16 @@ const Section1 = () => {
                 return (
                   <SwiperSlide
                     key={index}
-                    onClick={() => setActiveSector(data)}
+                    onClick={() => {
+                      if (activeSector.id !== data.id) {
+                        setActiveSector(data);
+                      }
+                    }}
+                    onMouseEnter={() => {
+                      if (activeSector.id !== data.id) {
+                        setActiveSector(data);
+                      }
+                    }}
                   >
                     <motion.div
                       whileHover={{ y: -10 }}

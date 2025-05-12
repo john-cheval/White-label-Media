@@ -89,7 +89,7 @@ const Works = () => {
                       />
                     </div>
                   ) : (
-                    <div className="">
+                    <div className="max-h-[300px]">
                       <video
                         autoPlay
                         loop
@@ -97,8 +97,8 @@ const Works = () => {
                         playsInline
                         className="w-full h-full object-cover"
                       >
-                        <source src={item?.videoMp4} type="video/mp4" />
-                        <source src={item?.videoMov} type="video/quicktime" />
+                        <source src={item?.image} type="video/mp4" />
+                        <source src={item?.image} type="video/quicktime" />
                         Your browser does not support the video tag.
                       </video>
                     </div>

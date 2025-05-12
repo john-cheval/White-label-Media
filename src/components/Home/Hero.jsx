@@ -85,7 +85,7 @@ const Hero = () => {
 
   return (
     <header
-      className="containers relative perspective-[1500px] h-[100dvh]- overflow-hidden py-14"
+      className="containers relative perspective-[1500px] h-[100dvh]- pt-6 pb-9 md:py-10 lg:py-14 space-y-5 overflow-hidden"
       style={{
         backgroundImage: `url("/Home/label.svg")`,
         backgroundRepeat: "no-repeat",
@@ -99,7 +99,7 @@ const Hero = () => {
         </h1>
       </div>
 
-      <div className="grid grid-cols-12 ">
+      <div className="grid grid-cols-12 overflow-hidden- ">
         <video
           ref={videoRef}
           autoPlay
@@ -107,7 +107,7 @@ const Hero = () => {
           loop
           playsInline
           src="/Home/hero.mp4"
-          className="col-start-5 col-end-9 w-full h-auto rounded-[20px] rotate-[-4deg]"
+          className="col-start-3 col-end-9 sm:col-start-5 sm:col-end-9 w-full min-w-[220px] min-h-[150px] sm:h-auto rounded-[20px] rotate-[-4deg]"
         />
 
         {videoExpanded && (
@@ -117,14 +117,14 @@ const Hero = () => {
             loop
             playsInline
             src="/Home/hero.mp4"
-            className="col-start-5 col-end-9 w-full h-auto rounded-[20px] rotate-[-4deg]"
+            className="col-start-3 col-end-9 sm:col-start-5 sm:col-end-9  w-full h-auto rounded-[20px] rotate-[-4deg]"
           />
         )}
 
         {videoExpanded && (
-          <div className=" z-[100] w-[80vw] hidden sm:block left-1/2 -translate-x-1/2 -translate-y-1/2  absolute sm:bottom-5 md:bottom-10 pb-5 md:pb-10   sm:px-6 md:px-[70px] lg:px-[128px]  overflow-hidden home-grad-">
+          <div className=" z-[100] w-[80%] hidden sm:block left-1/2 -translate-x-1/2 -translate-y-1/2  absolute sm:bottom-5 md:bottom-[30px] pb-5 md:pb-10 rounded-[20px]  sm:px-6 md:px-[70px] lg:px-[128px]  overflow-hidden home-grad">
             <div>
-              <div className="flex gap-x-11 relative items-center md:items-start ">
+              <div className="flex gap-x-11 relative items-center md:items-start  ">
                 <div>
                   <p className="font-gambetta text-white- text-white text-lg sm:text-xl md:text-2xl lg:text-3xl leading-main ">
                     “I believe in the unique identity of each brand and that
@@ -148,9 +148,6 @@ const Hero = () => {
             </div>
           </div>
         )}
-        {/* {videoExpanded && (
-          <div className="bg-home-hero-video-grad hidden md:block w-[80vw] h-full left-1/2 -translate-x-1/2 translate-y-1/2  absolute bottom-14- z-[111]" />
-        )} */}
       </div>
 
       <div className="grid grid-cols-12">
