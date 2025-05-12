@@ -51,11 +51,13 @@ const Testimonials = () => {
             className="md:flex gap-x-4 hidden"
           >
             <button
+              aria-label="Prev-button"
               className={`custom-prev p-5 rounded-full flex items-center justify-center border border-[#DEDEDE] cursor-pointer `}
             >
               <IoArrowBackSharp className="text-lg text-main" />
             </button>
             <button
+              aria-label="Next-button"
               className={`custom-next p-5 rounded-full flex items-center justify-center border border-[#DEDEDE] cursor-pointer `}
             >
               <IoArrowForwardSharp className="text-lg text-main" />
@@ -109,9 +111,9 @@ const Testimonials = () => {
               return (
                 <SwiperSlide key={index}>
                   <div className="bg-white py-6 md:py-10 lg:py-14 px-6 md:px-10 lg:px-14 text-main flex flex-col gap-y-4 md:gap-y-5">
-                    <h5 className="text-2xl md:text-3xl leading-[141%]">
+                    <h4 className="text-2xl md:text-3xl leading-[141%]">
                       {titleText}
-                    </h5>
+                    </h4>
                     <p className="text-sm md:text-base font-switzer leading-[193%]">
                       {descText}{" "}
                       {showReadMore && (

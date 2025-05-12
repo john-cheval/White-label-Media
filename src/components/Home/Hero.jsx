@@ -103,8 +103,10 @@ const Hero = () => {
       <div className="grid grid-cols-12 overflow-hidden- ">
         <video
           ref={videoRef}
+          aria-hidden="true"
           autoPlay
           muted
+          tabIndex={-1}
           loop
           playsInline
           src="/Home/hero.mp4"
