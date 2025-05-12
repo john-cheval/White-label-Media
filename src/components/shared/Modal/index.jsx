@@ -15,8 +15,8 @@ const dropIn = {
     transition: {
       duration: 0.1,
       type: "spring",
-      damping: 25,
-      stiffness: 500,
+      damping: 30,
+      stiffness: 400,
     },
   },
   exit: {
@@ -38,7 +38,12 @@ const Modal = ({ handleClose, modalOpen }) => {
             animate="visible"
             exit="exit"
           >
-            <h5 className="text-center text-xl md:text-2xl  lg:text-3xl xl:text-4xl 2xl:text-[60px] leading-[141%] max-w-[850px]">
+            <h5
+              className="text-center text-xl md:text-2xl  lg:text-3xl xl:text-4xl 2xl:text-[60px] leading-[141%] max-w-[850px]"
+              style={{
+                lineHeight: 1,
+              }}
+            >
               White Label has really helped our business...
             </h5>
             <p className="font-switzer text-base lg:text-xl leading-193%] text-center w-[90%] lg:max-w-[950px]">
