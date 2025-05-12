@@ -29,7 +29,7 @@ export const services = [
 
 export const servicesWorkData = [
   {
-    image: "/services/work/1.mov",
+    image: "/services/work/1.mp4",
     descrption: "Lorem Ipsum is simply dummy text of the printing",
   },
   {
@@ -37,7 +37,7 @@ export const servicesWorkData = [
     descrption: "Lorem Ipsum is simply dummy text of the printing",
   },
   {
-    image: "/services/work/2.mov",
+    image: "/services/work/2.mp4",
     descrption:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
   },

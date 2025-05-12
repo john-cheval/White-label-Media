@@ -129,18 +129,18 @@ const Section1 = () => {
         </div>
         <div className="absolute bg-[#E3EEFF] blur-[250px] h-[500px] w-[500px] md:h-[700px] md:w-[700px] lg:h-[900px] lg:w-[900px] rounded-full top-1/2 md:-translate-y-1/2 left-3 md:left-1/2 -translate-x-1/2" />
       </section>
-      {/* <div className="absolute top-0 right-0 md:-right-10">
+      <div className="absolute top-0 right-0 md:-right-10-">
         <Image
           src={"/common/aboutBg.svg"}
           alt="bg-about"
           width={100}
           height={100}
           sizes="100vw"
-          aspectratio={391 / 191}
+          // aspectratio={391 / 191}
           unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
           className=" w-full h-full object-cover"
         />
-      </div> */}
+      </div>
     </>
   );
 };
