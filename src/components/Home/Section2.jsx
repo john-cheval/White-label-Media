@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { IoArrowForwardOutline } from "react-icons/io5";
-import { GoArrowUpRight } from "react-icons/go";
 import { motion } from "framer-motion";
 import isVideo from "@/app/lib/checkVideo";
 
@@ -119,7 +118,17 @@ const Section2 = () => {
           </Link>
 
           <Link href="/about" aria-label="about the group">
-            <GoArrowUpRight className="text-4xl lg:text-6xl text-sec hover:scale-110 transition-all duration-200 absolute top-3 right-3" />
+            <div className="absolute w-5 h-5 md:w-7 md:h-7 ml-2 top-5 md:top-0 right-5 md:right-0  md:relative">
+              <Image
+                src="/common/arrow_outward.svg"
+                alt="arrow_outward"
+                fill
+                unoptimized={
+                  process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                }
+                className="object-contain hover:rotate-45 transition-transform duration-300"
+              />
+            </div>
           </Link>
         </motion.div>
       </div>

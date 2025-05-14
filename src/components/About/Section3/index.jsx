@@ -60,7 +60,7 @@ const Section3 = () => {
         </div>
         <div className="col-span-6 flex flex-col w-full gap-y-20- ">
           <div className="flex justify-between gap-x-10 lg:gap-x-16 3xl:gap-x-28 ">
-            <div className="mt-auto hidden md:block ">
+            <div className="mt-[177px] hidden md:block ">
               {isVideo("/About/image2.jpg") ? (
                 <video
                   autoPlay
@@ -85,7 +85,7 @@ const Section3 = () => {
                 />
               )}
             </div>
-            <div className="md:w-[300px] w-[121px] h-[121px] md:h-[300px] mt-[50px] md:mt-0">
+            <div className="md:w-[300px] w-[121px] h-[121px] md:h-[300px] mt-[50px] md:mt-24">
               {isVideo("/About/video.mp4") ? (
                 <video
                   autoPlay

@@ -50,7 +50,7 @@ const Section5 = () => {
 
       <div className=" justify-center mt-16 hidden md:flex">
         <Link
-          href={"/"}
+          href={"/group-of-companies"}
           className="font-switzer text-sm uppercase leading-[118.423%] px-11 py-4 border border-main rounded-full text-center hover:bg-main hover:text-white transition-all duration-300"
         >
           Explore the group

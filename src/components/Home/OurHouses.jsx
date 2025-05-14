@@ -56,7 +56,17 @@ const OurHouses = () => {
                 View all companies
               </Link>
               <Link href={"/about"} aria-label="Go to aboutpage">
-                <GoArrowUpRight className="text-main hidden md:block text-6xl font-light group-hover:rotate-45 transition-transform duration-300" />
+                <Image
+                  src={"/common/arrow_blue.svg"}
+                  alt="arrow_outward"
+                  sizes="100vw"
+                  height={48}
+                  width={48}
+                  className="w-full h-auto object-cover group-hover:rotate-45 transition-transform duration-300 max-w-12"
+                  unoptimized={
+                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                  }
+                />
               </Link>
             </motion.div>
           </motion.div>
@@ -106,7 +116,7 @@ const OurHouses = () => {
 
                 <motion.div
                   variants={itemVariants}
-                  className="flex flex-col gap-y-5 mt-auto "
+                  className="flex flex-col gap-y-5 mt-auto pt-24 lg:pt-28 "
                 >
                   <span className="h-[1px] w-10 bg-[#EAE4D6] mt-7 sm:mt-0 block mx-auto sm:mx-0" />
                   <p className="text-main font-switzer text-sm uppercase !leading-[1.7] sm:max-w-[250px] mx-auto sm:mx-0 text-center sm:text-left">
@@ -166,7 +176,7 @@ const OurHouses = () => {
 
                 <motion.div
                   variants={itemVariants}
-                  className="flex flex-col gap-y-5 mt-auto "
+                  className="flex flex-col gap-y-5 mt-auto pt-24 lg:pt-28 xl:pt-40 "
                 >
                   <span className="h-[1px] w-10 bg-[#EAE4D6] block mt-7 sm:mt-0  mx-auto sm:mx-0" />
                   <p className="text-main font-switzer text-sm uppercase !leading-[1.7] max-w-[250px] mx-auto sm:mx-0 text-center sm:text-left">

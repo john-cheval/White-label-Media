@@ -29,7 +29,7 @@ const Section1 = () => {
 
     gsap.fromTo(
       imageRef.current,
-      { width: "30%" },
+      { width: "30%", transformOrigin: "center center" },
       {
         width: "100%",
         scrollTrigger: {
@@ -42,6 +42,9 @@ const Section1 = () => {
         ease: "power2.out",
       }
     );
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (
@@ -123,13 +126,17 @@ const Section1 = () => {
               unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
               //   className=" w-full- max-h-[600px] w-[30%] object-cover "
               className="object-cover max-h-[600px]"
-              style={{ width: "30%" }}
+              style={{
+                width: "30%",
+                transformOrigin: "center center",
+                willChange: "auto",
+              }}
             />
           )}
         </div>
         <div className="absolute bg-[#E3EEFF] blur-[250px] h-[500px] w-[500px] md:h-[700px] md:w-[700px] lg:h-[900px] lg:w-[900px] rounded-full top-1/2 md:-translate-y-1/2 left-3 md:left-1/2 -translate-x-1/2" />
       </section>
-      <div className="absolute top-0 right-0 md:-right-10-">
+      <div className="absolute top-[0] right-0 md:-right-10-">
         <Image
           src={"/common/aboutBg.svg"}
           alt="bg-about"
