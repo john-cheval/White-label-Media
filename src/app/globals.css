@@ -78,11 +78,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* Modal */
 .modal {
-  /* width: clamp(50%, 700px, 90%); */
-  /* height: min(50%, 300px); */
-
   margin: auto;
-  /* padding: 2rem; */
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -91,7 +87,7 @@ input[type="number"]::-webkit-outer-spin-button {
   z-index: 101;
 }
 .footer-grad {
-  background: url(/common/footer_bg.svg) center no-repeat,
+  background: url(/common/footer_bg.svg) 40% no-repeat,
     linear-gradient(180deg, #161616 0%, #22334f 100%);
 }
 

@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -11,7 +11,9 @@ const Section2 = () => {
   const secondSlider = useRef(null);
   const slider1 = useRef(null);
   const slider2 = useRef(null);
-  useGSAP(() => {
+
+  useEffect(() => {
+    if (!firstSlider.current || !secondSlider.current) return;
     let timeline = gsap.timeline({
       defaults: {
         ease: "none",
@@ -39,6 +41,11 @@ const Section2 = () => {
         },
         "start"
       );
+    ScrollTrigger.refresh();
+    return () => {
+      timeline.scrollTrigger?.kill();
+      timeline.kill();
+    };
   }, []);
   return (
     <section
