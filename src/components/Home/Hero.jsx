@@ -5,8 +5,8 @@ import gsap from "gsap";
 import Link from "next/link";
 gsap.registerPlugin(ScrollTrigger);
 import { LuArrowRight } from "react-icons/lu";
-import { GoArrowUpRight } from "react-icons/go";
 import useMediaQuery from "@/app/hooks/useMediaQuery";
+import Image from "next/image";
 
 const Hero = () => {
   const videoRef = useRef(null);
@@ -125,16 +125,16 @@ const Hero = () => {
         )}
 
         {videoExpanded && (
-          <div className=" z-[100] w-[80%] hidden sm:block left-1/2 -translate-x-1/2 -translate-y-1/2  absolute sm:bottom-5 md:bottom-[35px] pb-5 md:pb-10 rounded-[20px]  sm:px-6 md:px-[70px] lg:px-[128px]  overflow-hidden home-grad">
+          <div className=" z-[100] w-[80%] hidden sm:block left-1/2 -translate-x-1/2 -translate-y-1/2  absolute sm:bottom-5 md:bottom-[28px] pb-5 md:pb-10 rounded-[20px]  sm:px-6 md:px-[70px] lg:px-[128px]  overflow-hidden home-grad">
             <div>
               <div className="flex gap-x-11 relative items-center md:items-start  ">
                 <div>
-                  <p className="font-gambetta text-white- text-white text-lg sm:text-xl md:text-2xl lg:text-3xl leading-main ">
+                  <p className="font-gambetta text-white- text-white text-lg sm:text-xl md:text-2xl lg:text-3xl leading-main uppercase ">
                     “I believe in the unique identity of each brand and that
                     every business has the opportunity to go global.”
                   </p>
 
-                  <div className="flex flex-col gap-y-2 md:gap-y-3">
+                  <div className="flex flex-col gap-y-2 md:gap-y-3 mt-3">
                     <span className="font-switzer text-sm md:text-base leading-[193%] text-sec- text-white">
                       Shraddha Barot Amariei
                     </span>
@@ -144,8 +144,18 @@ const Hero = () => {
                   </div>
                 </div>
 
-                <Link href={"/"} className="text-white text-4xl lg:text-6xl">
-                  <GoArrowUpRight />
+                <Link href={"/about"} aria-label="about the group">
+                  <Image
+                    src={"/common/arrow_outward.svg"}
+                    alt="arrow_outward"
+                    sizes="100vw"
+                    height={48}
+                    width={48}
+                    className="h-auto w-full object-cover hover:rotate-45 transition-transform duration-300 "
+                    unoptimized={
+                      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                    }
+                  />
                 </Link>
               </div>
             </div>
