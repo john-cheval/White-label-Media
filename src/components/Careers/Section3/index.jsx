@@ -28,7 +28,7 @@ const Section3 = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="grid grid-cols-12 lg:pl-10 xl:pl-16 2xl:pl-24"
+        className="grid grid-cols-12 lg:pl-10 xl:pl-16 2xl:pl-24 space-x-8"
       >
         <motion.div
           variants={fadeUp}
@@ -40,7 +40,7 @@ const Section3 = () => {
           <h3 className=" text-[40px] md:text-[5vw] 2xl:text-[80px] leading-[123%] uppercase font-medium mt-6 md:mt-9 mb-3 text-center md:text-left">
             Our Values: Built on Trust, Integrity & Loyalty
           </h3>
-          <p className="text-sm md:text-base text-center md:text-left font-light font-switzer uppercase leading-[161%] md:max-w-[450px] md:ml-[50px]">
+          <p className="text-sm md:text-base text-center md:text-left font-light font-switzer  leading-[161%] md:max-w-[450px] md:ml-[50px]">
             A proud multi-national team of 50+ experts consisting of more than
             16 different nationalities, we bring our diverse cultural and work
             experiences from across the globe to our clients.No job is too small

@@ -107,10 +107,10 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .careersbg {
   background: url(/common/careers_bg.svg) center no-repeat;
-  background-position: 100% 150%;
+  background-position: 70% 185%;
 }
 .eventsbg {
-  background: url(/common/eventsbg.svg) center no-repeat, #eae4d6;
+  background: url(/common/eventBg.svg) center no-repeat, #eae4d6;
   background-position: 100% auto;
   background-size: contain;
 }

@@ -95,7 +95,7 @@ const Section1 = () => {
             unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
           />
         </motion.div>
-        <span className="hidden md:col-span-1"></span>
+        <span className="hidden md:block md:col-span-1"></span>
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -111,7 +111,7 @@ const Section1 = () => {
           </motion.h1>
           <motion.p
             variants={textVariants}
-            className="text-sm md:text-base font-light font-switzer uppercase leading-[161%] md:max-w-[450px] md:ml-[50px] text-center md:text-left"
+            className="text-sm md:text-base font-light font-switzer  leading-[161%] md:max-w-[450px] md:ml-[50px] text-center md:text-left"
           >
             A proud multi-national team of 50+ experts consisting of more than
             16 different nationalities, we bring our diverse cultural and work
