@@ -89,7 +89,7 @@ const Works = () => {
                       />
                     </div>
                   ) : (
-                    <div className="max-h-[300px]">
+                    <div className="max-h-[300px]- h-[300px]- aspect-video overflow-hidden">
                       <video
                         autoPlay
                         loop

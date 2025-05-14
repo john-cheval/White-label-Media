@@ -37,7 +37,7 @@ const Services = () => {
           className=" space-y-8 md:space-y-10 lg:space-y-16 pl-10- 3xl:pl-16"
           style={{
             position: isMobile ? "static" : "sticky",
-            top: "100px",
+            top: "150px",
             alignSelf: "start",
           }}
         >
