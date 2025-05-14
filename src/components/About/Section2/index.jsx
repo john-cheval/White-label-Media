@@ -23,7 +23,7 @@ const Section2 = () => {
         scrub: 1,
         start: "top bottom",
         end: "bottom top",
-        // markers: true,
+        markers: true,
       },
     });
     timeline

@@ -1,7 +1,7 @@
 import React from "react";
 import { IoLocationSharp } from "react-icons/io5";
-import { PiDeviceMobileSpeaker } from "react-icons/pi";
 import { IoMail } from "react-icons/io5";
+import { MdAdUnits } from "react-icons/md";
 import Link from "next/link";
 import ContactForm from "../Form";
 import * as motion from "motion/react-client";
@@ -19,7 +19,7 @@ const Contact = () => {
       </motion.p>
 
       <div className="grid grid-cols-12">
-        <div className="col-span-12 md:col-span-6 flex flex-col items-center  md:border-r md:border-r-[#EAE4D6] text-center md:text-left">
+        <div className="col-span-12 md:col-span-6 flex flex-col   md:border-r md:border-r-[#EAE4D6] text-center md:text-left">
           <motion.h1
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
@@ -47,7 +47,7 @@ const Contact = () => {
                   href: "/",
                 },
                 {
-                  icon: <PiDeviceMobileSpeaker size={18} />,
+                  icon: <MdAdUnits size={18} />,
                   text: ["+971 4 564 0367", "+971 50 8568028"],
                   href: ["tel:+97145640367", "tel:+971508568028"],
                 },

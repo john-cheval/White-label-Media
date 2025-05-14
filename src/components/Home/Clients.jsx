@@ -45,10 +45,14 @@ const Clients = () => {
         },
         "start"
       );
+    return () => {
+      timeline.scrollTrigger?.kill();
+      timeline.kill();
+    };
   }, []);
   return (
     <section
-      className="relative overflow-x-hidden w-full containers pt-10 pb-12 lg:pb-16 xl:pb-24"
+      className="relative overflow-x-hidden w-full containers pt-10 pb-12 lg:pb-16 xl:pb-24 h-fit"
       id="clients"
     >
       <h3 className="main-heading text-center md:text-left mb-8 md:mb-0">

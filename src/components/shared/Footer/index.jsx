@@ -31,7 +31,7 @@ const childVariants = {
 const Footer = () => {
   return (
     <footer className="footer-grad containers pt-[74px] relative">
-      <div className="grid grid-cols-12 border-b border-b-white pb-7 md:pb-10 lg:pb-14  2xl:pb-[74px]  place-items-center">
+      <div className="grid grid-cols-12 border-b border-b-white pb-7 md:pb-10 lg:pb-14  2xl:pb-[74px]  place-items-center-">
         <motion.div
           variants={parentVariants}
           initial="hidden"
