@@ -160,7 +160,8 @@ const Footer = () => {
               <motion.li
                 variants={childVariants}
                 key={index}
-                className="hover:scale-105 hover:-translate-y-1 transition-transform duration-300"
+                whileHover={{ scale: 1.05, y: -4 }}
+                // transition={{ type: "spring", stiffness: 300 }}
               >
                 <Link
                   href={links?.link}
@@ -184,12 +185,24 @@ const Footer = () => {
         viewport={{ once: true }}
         className="pt-6 pb pb-[74px] md:pb-10 flex gap-y-2 justify-center flex-wrap md:gap-y-0 md:justify-between"
       >
-        <motion.p
-          variants={childVariants}
-          className="text-[#EAE4D6] font-switzer text-sm leading-[170%] capitalize"
-        >
-          © 2024 White label Group . All rights reserved
-        </motion.p>
+        <div className="flex gap-x-2 items-center">
+          <motion.p
+            variants={childVariants}
+            className="text-[#EAE4D6] font-switzer text-sm leading-[170%] capitalize"
+          >
+            © 2025 White label Group . All rights reserved
+          </motion.p>
+          <span className="text-white">|</span>
+          <motion.div
+            variants={childVariants}
+            className="text-[#EAE4D6] font-switzer text-sm leading-[170%] capitalize  "
+          >
+            <Link href={"/privacy-policy"} className="hover:underline">
+              {" "}
+              Privacy Policy
+            </Link>
+          </motion.div>
+        </div>
         <motion.p
           variants={childVariants}
           className="text-[#EAE4D6] font-switzer text-sm leading-[170%] capitalize text-right group"

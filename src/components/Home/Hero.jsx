@@ -10,6 +10,7 @@ import Image from "next/image";
 
 const Hero = () => {
   const videoRef = useRef(null);
+  const headerRef = useRef(null);
   const [videoExpanded, setVidoExpanded] = useState(false);
   const isShowButton = useMediaQuery("(min-width: 890px)");
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -17,16 +18,17 @@ const Hero = () => {
   useEffect(() => {
     if (videoRef.current === null || isMobile === null) return;
     const video = videoRef.current;
+    const header = headerRef.current;
     gsap.set(video, {
       transformStyle: "preserve-3d",
       transformOrigin: "center center",
     });
 
     ScrollTrigger.create({
-      trigger: video,
-      start: `top ${isMobile ? "20%" : "30%"}`,
-      // start: `top 30%`,
-      end: "bottom 60%",
+      trigger: header,
+      // start: `top ${isMobile ? "20%" : "30%"}`,
+      start: `top top`,
+      end: "bottom center",
       scrub: true,
       // markers: true,
       onUpdate: (self) => {
@@ -38,7 +40,7 @@ const Hero = () => {
         //   overwrite: true,
         // });
 
-        if (progress > 0.5 && !videoExpanded) {
+        if (progress > 0.02 && !videoExpanded) {
           setVidoExpanded(true);
           gsap.to(video, {
             position: "absolute",
@@ -46,7 +48,7 @@ const Hero = () => {
             left: "50%",
             xPercent: -50,
             yPercent: -50,
-            width: isMobile ? "95vw" : "80%",
+            width: isMobile ? "95%" : "95%",
             height: "auto",
             zIndex: 50,
             rotate: 0,
@@ -86,6 +88,7 @@ const Hero = () => {
 
   return (
     <header
+      ref={headerRef}
       className="containers relative perspective-[1500px] h-[100dvh]- pt-6 pb-9 md:py-10 lg:py-14 space-y-8 overflow-hidden"
       style={{
         backgroundImage: `url("/Home/label.svg")`,
@@ -125,7 +128,7 @@ const Hero = () => {
         )}
 
         {videoExpanded && (
-          <div className=" z-[100] w-[80%] hidden sm:block left-1/2 -translate-x-1/2 -translate-y-1/2  absolute sm:bottom-5 md:bottom-[28px] pb-5 md:pb-10 rounded-[20px]  sm:px-6 md:px-[70px] lg:px-[128px]  overflow-hidden home-grad">
+          <div className=" z-[100] w-[95%] hidden sm:block left-1/2 -translate-x-1/2 -translate-y-1/2  absolute -bottom-[0]  lg:-bottom-14 3xl:-bottom-12 pb-5 md:pb-10 rounded-[20px]  sm:px-6 md:px-[70px] lg:px-[128px]  overflow-hidden home-grad home-gra">
             <div>
               <div className="flex gap-x-11 relative items-center md:items-start  ">
                 <div>

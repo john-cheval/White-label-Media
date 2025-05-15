@@ -140,18 +140,18 @@ export const footerLink = [
   },
   {
     id: 3,
-    title: "Sectors",
-    link: "/sectors",
+    title: "Group",
+    link: "/group-of-companies",
   },
   {
     id: 4,
-    title: "Ventures",
-    link: "/ventures",
+    title: "News and Events",
+    link: "/events",
   },
   {
     id: 5,
-    title: "News and Insights",
-    link: "/news-and-insights",
+    title: "Career",
+    link: "/careers",
   },
   {
     id: 6,
@@ -159,7 +159,7 @@ export const footerLink = [
     link: "/services",
   },
   {
-    id: 7,
+    id: 6,
     title: "Let’s Connect",
     link: "/contact-us",
   },
