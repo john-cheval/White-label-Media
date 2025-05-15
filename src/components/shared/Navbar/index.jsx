@@ -56,7 +56,7 @@ const Navbar = () => {
             />
 
             <motion.nav
-              className="bg-white fixed top-0 right-0 px-6 md:px-10 py-9 md:py-12 h-full z-[99999] w-full sm:w-[70%] md:w-[50%] xl:w-[30%]  flex flex-col overflow-y-auto"
+              className="bg-white fixed top-0 right-0 px-6 md:px-10 py-9 md:py-12 h-full z-[99999] w-full sm:w-[70%] md:w-[50%] xl:w-[30%]  flex flex-col overflow-y-auto scrollbar-hide"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
