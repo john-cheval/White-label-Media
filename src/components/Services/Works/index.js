@@ -32,10 +32,10 @@ const Works = () => {
             delay: 2000,
             disableOnInteraction: false,
           }}
-          navigation={{
-            prevEl: prevRefOne.current,
-            nextEl: nextRefOne.current,
-          }}
+          // navigation={{
+          //   prevEl: prevRefOne.current,
+          //   nextEl: nextRefOne.current,
+          // }}
           breakpoints={{
             0: {
               slidesPerView: 1,
@@ -57,16 +57,16 @@ const Works = () => {
             }%`;
           }}
           onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRefOne.current;
-            swiper.params.navigation.nextEl = nextRefOne.current;
-            swiper.navigation.init();
-            swiper.navigation.update();
+            // swiper.params.navigation.prevEl = prevRefOne.current;
+            // swiper.params.navigation.nextEl = nextRefOne.current;
+            // swiper.navigation.init();
+            // swiper.navigation.update();
             const progress = (swiper.realIndex + 1) / swiper.slides.length;
             document.querySelector(".progress-fill").style.width = `${
               progress * 100
             }%`;
           }}
-          modules={[Navigation /* , Autoplay */]}
+          modules={[Navigation, Autoplay]}
           className="mySwiper ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
         >
           {servicesWorkData?.map((item, idx) => {
@@ -123,7 +123,8 @@ const Works = () => {
 
       <div className="flex items-center gap-x-3 md:gap-x-8 lg:gap-x-11 md:px-10 lg:px-14 xl:px-16">
         <button
-          ref={prevRefOne}
+          onClick={() => swiperRef.current?.slidePrev()}
+          // ref={prevRefOne}
           className={`custom-prev p-3 sm:p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
         >
           <IoArrowBackSharp className="text-xl md:text-2xl lg: text-main" />
@@ -132,7 +133,8 @@ const Works = () => {
           <div className="progress-fill absolute top-0 left-0 h-full bg-black transition-all duration-[0ms] w-0" />
         </div>
         <button
-          ref={nextRefOne}
+          onClick={() => swiperRef.current?.slideNext()}
+          // ref={nextRefOne}
           className={`custom-next p-3 sm:p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
         >
           <IoArrowForwardSharp className="text-xl md:text-2xl text-main" />
