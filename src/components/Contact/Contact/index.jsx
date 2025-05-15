@@ -13,7 +13,7 @@ const Contact = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="font-switzer text-base  md:text-xl lg:text-2xl font-light leading-[150%] md:max-w-[420px] text-center md:text-left"
+        className="font-switzer text-base  md:text-xl lg:text-2xl-- lg:text-xl- font-light leading-[150%] md:max-w-[420px] text-center md:text-left"
       >
         Probably the best coffee you have had See you soon at our PlayQuarters
       </motion.p>
@@ -29,7 +29,7 @@ const Contact = () => {
             Get in Touch
           </motion.h1>
 
-          <div className="font-switzer  text-base  md:text-xl lg:text-2xl leading-[150%] space-y-6 md:space-y-9 lg:ml-[80px] xl:ml-[150px] ">
+          <div className="font-switzer  text-base  md:text-xl lg:text-2xl- leading-[150%] space-y-6 md:space-y-9 lg:ml-[80px] xl:ml-[150px] ">
             <motion.h5
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ const Contact = () => {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="col-span-12 md:col-span-6 md:pl-10 lg:pl-20 mt-11 md:mt-0"
         >
-          <p className="font-switzer text-base  md:text-xl lg:text-2xl font-light leading-[150%] md:max-w-[450px] mb-4 md:mb-8 text-center md:text-left">
+          <p className="font-switzer text-base  md:text-xl lg:text-2xl- font-light leading-[150%] md:max-w-[450px] mb-4 md:mb-8 text-center md:text-left">
             Feel free to contact us and we will get back to you as soon as we
             can
           </p>

@@ -42,6 +42,11 @@ export const GtSuperDisplay = localFont({
 export const Switzer = localFont({
   src: [
     {
+      path: "./fonts/Switzer-Light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
       path: "./fonts/Switzer-Variable.ttf",
       weight: "400",
       style: "normal",

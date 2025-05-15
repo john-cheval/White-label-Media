@@ -59,8 +59,8 @@ const Section3 = () => {
           </div>
         </div>
         <div className="col-span-6 flex flex-col w-full gap-y-20- ">
-          <div className="flex justify-between gap-x-10 lg:gap-x-16 3xl:gap-x-28 ">
-            <div className="mt-[177px] hidden md:block ">
+          <div className="flex justify-between- gap-x-10 lg:gap-x-16 3xl:gap-x-28 ">
+            <div className="mt-[282px] hidden md:block ">
               {isVideo("/About/image2.jpg") ? (
                 <video
                   autoPlay
