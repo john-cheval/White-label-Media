@@ -48,7 +48,7 @@ const Navbar = () => {
         {isOpen && (
           <>
             <motion.div
-              className="bg-black/[0.4] backdrop-blur-[14.5px] fixed inset-0 z-[9999] flex flex-col"
+              className="bg-black/[0.4] backdrop-blur-[14.5px] fixed inset-0 z-[9999] flex flex-col "
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -56,7 +56,7 @@ const Navbar = () => {
             />
 
             <motion.nav
-              className="bg-white fixed top-0 right-0 px-6 md:px-10 py-9 md:py-12 h-full z-[99999] w-full sm:w-[70%] md:w-[50%] xl:w-[30%]  flex flex-col"
+              className="bg-white fixed top-0 right-0 px-6 md:px-10 py-9 md:py-12 h-full z-[99999] w-full sm:w-[70%] md:w-[50%] xl:w-[30%]  flex flex-col overflow-y-auto"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -113,7 +113,7 @@ const Navbar = () => {
                 })}
               </ul>
 
-              <motion.ul className="flex gap-x-2 justify-center mt-auto  ">
+              <motion.ul className="flex gap-x-2 justify-center mt-auto pt-5  ">
                 <li>
                   <Link
                     href={"/"}
