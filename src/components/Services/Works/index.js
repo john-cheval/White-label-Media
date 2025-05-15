@@ -10,16 +10,20 @@ import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
 import isVideo from "@/app/lib/checkVideo";
 
 const Works = () => {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  const prevRefOne = useRef(null);
+  const nextRefOne = useRef(null);
+  const swiperRef = useRef(null);
   return (
-    <section className="py-12 md:py-14 lg:py-16 xl:py-20  containers ">
+    <section className="py-12 md:py-14 lg:py-16 xl:py-20--  containers ">
       <h3 className="text-[40px] sm:text-[5vw] 3xl:text-[80px]  leading-[118.423%] uppercase md:pl-10 lg:pl-20 2xl:pl-28 3xl:pl-36 text-center md:text-left">
         Selection of <br /> <span className="md:ml-[12%]">our works</span>
       </h3>
 
-      <div className="w-full pt-7 md:pt-14 md:px-10 lg:px-14 xl:px-16 pb-7 md:pb-14 lg:pb-20 xl:pb-28">
+      <div className="w-full pt-7 md:pt-14 md:px-10 lg:px-14 xl:px-16 pb-7 md:pb-16 lg:pb-20- xl:pb-28-">
         <Swiper
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
           slidesPerView={3}
           spaceBetween={42}
           loop
@@ -29,8 +33,8 @@ const Works = () => {
             disableOnInteraction: false,
           }}
           navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
+            prevEl: prevRefOne.current,
+            nextEl: nextRefOne.current,
           }}
           breakpoints={{
             0: {
@@ -53,8 +57,8 @@ const Works = () => {
             }%`;
           }}
           onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
+            swiper.params.navigation.prevEl = prevRefOne.current;
+            swiper.params.navigation.nextEl = nextRefOne.current;
             swiper.navigation.init();
             swiper.navigation.update();
             const progress = (swiper.realIndex + 1) / swiper.slides.length;
@@ -89,7 +93,7 @@ const Works = () => {
                       />
                     </div>
                   ) : (
-                    <div className="max-h-[300px]- h-[300px]- aspect-video overflow-hidden">
+                    <div className="max-h-[300px]- h-[300px]- aspect-video- overflow-hidden">
                       <video
                         autoPlay
                         loop
@@ -119,7 +123,7 @@ const Works = () => {
 
       <div className="flex items-center gap-x-3 md:gap-x-8 lg:gap-x-11 md:px-10 lg:px-14 xl:px-16">
         <button
-          ref={prevRef}
+          ref={prevRefOne}
           className={`custom-prev p-3 sm:p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
         >
           <IoArrowBackSharp className="text-xl md:text-2xl lg: text-main" />
@@ -128,7 +132,7 @@ const Works = () => {
           <div className="progress-fill absolute top-0 left-0 h-full bg-black transition-all duration-[0ms] w-0" />
         </div>
         <button
-          ref={nextRef}
+          ref={nextRefOne}
           className={`custom-next p-3 sm:p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
         >
           <IoArrowForwardSharp className="text-xl md:text-2xl text-main" />

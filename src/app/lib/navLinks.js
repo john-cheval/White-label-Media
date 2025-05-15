@@ -25,7 +25,12 @@ export const navLinks = [
     link: "/events",
   },
   {
-    id: 5,
+    id: 6,
+    title: "group of companies",
+    link: "/group-of-companies",
+  },
+  {
+    id: 7,
     title: "contact us",
     link: "/contact-us",
   },

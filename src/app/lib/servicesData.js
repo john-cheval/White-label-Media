@@ -50,7 +50,7 @@ export const servicesWorkData = [
     descrption: "Lorem Ipsum is simply dummy text of the printing",
   },
   {
-    image: "/services/work/3.mp4",
+    image: "/services/work/1.mp4",
     descrption:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the",
   },

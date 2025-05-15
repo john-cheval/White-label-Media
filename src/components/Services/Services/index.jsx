@@ -27,14 +27,14 @@ export const fadeInUp = {
 const Services = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   return (
-    <section className="containers text-[#EAE4D6] bg-main py-8 md:py-10 xl:py-16 2xl:py-20 3xl:py-24  bg-service">
-      <div className="grid grid-cols-1s md:grid-cols-2 gap-x-5">
+    <section className="containers text-[#EAE4D6] bg-main py-8 md:py-10 xl:py-16 2xl:py-20 3xl:py-24 bg-service ">
+      <div className="grid grid-cols-12 gap-x-5">
         <motion.div
           variants={staggerContainer}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true, amount: 0.2 }}
-          className=" space-y-8 md:space-y-10 lg:space-y-16 pl-10- 3xl:pl-16"
+          className=" space-y-8 md:space-y-10 lg:space-y-16 pl-10- 3xl:pl-16 col-span-12 md:col-span-7"
           style={{
             position: isMobile ? "static" : "sticky",
             top: "150px",
@@ -64,7 +64,7 @@ const Services = () => {
           <motion.div variants={fadeInUp}>
             <Link
               href={"/about"}
-              className="font-switzer text-sm font-semibold leading-[118.423%] uppercase py-3 md:py-4 px-6 md:px-8 flex items-center gap-x-10 border-[1.5px] border-[#EAE4D6] w-fit group mx-auto md:mx-0
+              className="font-switzer text-sm font-semibold leading-[118.423%] uppercase py-3 md:py-4 px-6 md:px-8 flex items-center gap-x-10 border-[1.5px] border-[#EAE4D6] hover:text-main hover:bg-[#EAE4D6] w-fit group mx-auto md:mx-0 transition-all duration-300 hover:border-main-
           "
             >
               Discover the group{" "}
@@ -75,7 +75,7 @@ const Services = () => {
             </Link>
           </motion.div>
         </motion.div>
-        <div className="space-y-9 overflow-y-auto- pt-14 md:pt-0">
+        <div className="space-y-9 overflow-y-auto- pt-14 md:pt-0 col-span-12 md:col-span-5 bg-service-1">
           {[...services, ...services]?.map((service, index) => (
             <motion.div
               key={index}
