@@ -6,8 +6,8 @@ import isVideo from "@/app/lib/checkVideo";
 const Section2 = () => {
   const images = [
     "/careers/image3.jpg",
-    "/careers/image3.jpg",
-    "/careers/image3.jpg",
+    "/careers/image-1.jpg",
+    "/careers/image-1.jpg",
   ];
 
   const parentStagger = {
@@ -29,7 +29,7 @@ const Section2 = () => {
   };
 
   return (
-    <section className="containers space-y-5 md:space-y-8 lg:space-y-11 md:pt-10">
+    <section className="containers space-y-5 pt-5 md:space-y-8 lg:space-y-11 md:pt-10">
       <motion.div
         variants={parentStagger}
         initial="hidden"
@@ -39,7 +39,7 @@ const Section2 = () => {
       >
         <motion.h3
           variants={fadeUp}
-          className="text-[40px] md:text-[6vw] 2xl:text-[80px] font-medium leading-[123%] uppercase "
+          className="text-3xl md:text-[5vw] xl:text-[80px] font-medium leading-[123%] uppercase "
         >
           OUR ETHOS
         </motion.h3>
@@ -55,18 +55,23 @@ const Section2 = () => {
       </motion.div>
 
       <motion.div
-        className="flex md:flex-row flex-col gap-5 flex-wrap-"
+        className="grid grid-cols-12 gap-5"
         variants={parentStagger}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
       >
         {images.map((image, index) => {
+          const colSpanClass =
+            index === 0
+              ? "col-span-12 md:col-span-6"
+              : "col-span-12 md:col-span-3";
+
           return (
             <motion.div
               key={index}
               variants={fadeUp}
-              className="w-full md:w-1/3"
+              className={`${colSpanClass} w-full`}
             >
               {isVideo(image) ? (
                 <video
@@ -87,7 +92,7 @@ const Section2 = () => {
                   unoptimized={
                     process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                   }
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-cover"
                 />
               )}
             </motion.div>
