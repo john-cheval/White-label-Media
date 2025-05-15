@@ -37,7 +37,7 @@ const Section4 = () => {
         </motion.h3>
         <motion.p
           variants={fadeUp}
-          className=" font-light font-switzer text-sm md:text-base  leading-[161%]"
+          className=" font-light font-switzer text-sm md:text-base  leading-[161%] mb-1 md:mb-3"
         >
           Join us in shaping the future—where creativity, integrity, and
           innovation come together to make an impact

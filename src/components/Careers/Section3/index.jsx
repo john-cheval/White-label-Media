@@ -32,12 +32,12 @@ const Section3 = () => {
       >
         <motion.div
           variants={fadeUp}
-          className="col-span-12 md:col-span-8 mb-10 md:mb-0"
+          className="col-span-12 md:col-span-7 mb-10 md:mb-0 mt-0 md:mt-16 xl:mt-20 3xl:mt-24"
         >
           <p className="font-switzer text-center text-sm leading-[118.423%] uppercase py-2 px-6 w-fit rounded-full border border-main mx-auto md:mx-0">
             Diversity, Equity & Inclusion
           </p>
-          <h3 className=" text-[40px] md:text-[5vw] 2xl:text-[80px] leading-[123%] uppercase font-medium mt-6 md:mt-9 mb-3 text-center md:text-left">
+          <h3 className=" text-[40px] md:text-[5vw] 2xl:text-[70px] 3xl:text-[80px] leading-[123%] uppercase font-medium mt-6 md:mt-9 mb-3 text-center md:text-left">
             Our Values: Built on Trust, Integrity & Loyalty
           </h3>
           <p className="text-sm md:text-base text-center md:text-left font-light font-switzer  leading-[161%] md:max-w-[450px] md:ml-[50px]">
@@ -53,7 +53,7 @@ const Section3 = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="col-span-12 md:col-span-4"
+          className="col-span-12 md:col-span-5"
         >
           <motion.div variants={fadeUp}>
             <Image

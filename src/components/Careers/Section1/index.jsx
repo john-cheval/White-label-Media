@@ -46,7 +46,7 @@ const Section1 = () => {
           </motion.p>
           <motion.h1
             variants={textVariants}
-            className="text-[40px] lg:text-[6vw] 2xl:text-[110px] leading-[118.423%] uppercase text-center md:text-left mb-2 md:mb-0
+            className="text-[40px] lg:text-[5vw] xl:text-[70px] 3xl:text-[110px] leading-[118.423%] uppercase text-center md:text-left mb-2 md:mb-0
             "
           >
             Work with
@@ -105,7 +105,7 @@ const Section1 = () => {
         >
           <motion.h1
             variants={textVariants}
-            className="text-[40px] md:text-[6vw] 2xl:text-[80px] leading-[123%] uppercase font-medium text-center md:text-left"
+            className="text-3xl md:text-[5vw] 2xl:text-[70px] leading-[123%] uppercase font-medium text-center md:text-left"
           >
             CORE TEAM
           </motion.h1>
