@@ -60,7 +60,7 @@ const Section2 = () => {
                       height={500}
                       width={500}
                       sizes="100vw"
-                      className="object-cover w-full h-auto"
+                      className="object-cover- w-full h-auto max-w-[450px]-"
                       unoptimized={
                         process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                       }

@@ -40,7 +40,7 @@ const ClientsMobile = ({ clientsList, isReversed = false }) => {
               isReversed ? "border-t-0" : ""
             } ${
               index === 0 ? "border-l-1" : "border-l-0"
-            }  flex items-center justify-center py-7 min-w-[260px] shrink-0`}
+            }  flex items-center justify-center py-7 min-w-[240px] shrink-0`}
           >
             <Image
               src={client?.image}
@@ -49,7 +49,7 @@ const ClientsMobile = ({ clientsList, isReversed = false }) => {
               height={150}
               sizes="100vw"
               unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-              className="w-full h-auto object-cover max-w-[90px]"
+              className="w-full h-auto object-cover max-w-[150px]"
             />
           </div>
         );

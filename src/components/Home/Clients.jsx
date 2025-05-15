@@ -84,7 +84,7 @@ const Clients = () => {
                 unoptimized={
                   process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                 }
-                className="w-full h-auto object-cover max-w-[90px]"
+                className="w-full h-auto object-cover"
               />
             </div>
           ))}
@@ -112,7 +112,7 @@ const Clients = () => {
                 unoptimized={
                   process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                 }
-                className="w-full h-auto object-cover max-w-[90px]"
+                className="w-full h-auto object-cover "
               />
             </div>
           ))}

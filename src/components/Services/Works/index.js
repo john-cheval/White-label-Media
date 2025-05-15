@@ -62,7 +62,7 @@ const Works = () => {
               progress * 100
             }%`;
           }}
-          modules={[Navigation, Autoplay]}
+          modules={[Navigation /* , Autoplay */]}
           className="mySwiper ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
         >
           {servicesWorkData?.map((item, idx) => {

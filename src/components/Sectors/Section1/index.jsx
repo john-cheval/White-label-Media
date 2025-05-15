@@ -60,14 +60,14 @@ const Section1 = () => {
         <div className="absolute- inset-0 bg-sector-grad" />
       </div>
 
-      <div className="grid grid-cols-12 relative z-50 md:gap-x-10 xl:gap-x-20">
+      <div className="grid grid-cols-12 relative z-50 md:gap-x-10 xl:gap-x-16">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeSector.id}
             initial="initial"
             animate="animate"
             exit="exit"
-            className="col-span-12 md:col-span-5 3xl:col-span-4 px-6 md:ml-12 xl:ml-20 2xl:ml-24 gap-y-3 md:gap-y-6 flex items-center md:items-start flex-col h-full"
+            className="col-span-12 md:col-span-6 3xl:col-span-5 px-6 md:ml-12 xl:ml-20 2xl:ml-24 gap-y-3 md:gap-y-6 flex items-center md:items-start flex-col h-full"
           >
             <motion.div
               custom={0}
@@ -129,10 +129,10 @@ const Section1 = () => {
           </motion.div>
         </AnimatePresence>
 
-        <div className="col-span-12 md:col-span-7 3xl:col-span-8 px-6">
+        <div className="col-span-12 md:col-span-6 3xl:col-span-7 px-6-">
           <div className="w-full">
             <Swiper
-              slidesPerView={3}
+              slidesPerView={3.3}
               spaceBetween={24}
               loop
               navigation={{
@@ -141,12 +141,17 @@ const Section1 = () => {
               }}
               breakpoints={{
                 0: {
-                  slidesPerView: 1,
+                  slidesPerView: 1.3,
                   spaceBetween: 10,
                 },
 
                 1024: {
-                  slidesPerView: 2,
+                  slidesPerView: 2.3,
+                  spaceBetween: 24,
+                },
+
+                1300: {
+                  slidesPerView: 3.3,
                   spaceBetween: 24,
                 },
               }}

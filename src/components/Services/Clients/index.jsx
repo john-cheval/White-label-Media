@@ -14,8 +14,8 @@ const ServiceClients = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isTablet = useMediaQuery("(max-width: 1024px)");
 
-  const clientsData = Array.from({ length: 24 }, (_, i) => {
-    return `/services/clients/${i + 1}.svg`;
+  const clientsData = Array.from({ length: 13 }, (_, i) => {
+    return `services/clients/${i + 1}.svg`;
   });
 
   const getItemsPerSlide = () => {

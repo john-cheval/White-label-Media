@@ -44,51 +44,51 @@ export const houseData = [
 export const clientsData = [
   {
     id: 1,
-    image: "/clients/image1.jpg",
+    image: "/clients/1.svg",
   },
   {
     id: 2,
-    image: "/clients/image2.jpg",
+    image: "/clients/2.svg",
   },
   {
     id: 3,
-    image: "/clients/image3.jpg",
+    image: "/clients/3.svg",
   },
   {
     id: 4,
-    image: "/clients/image4.jpg",
+    image: "/clients/4.svg",
   },
   {
     id: 5,
-    image: "/clients/image5.jpg",
+    image: "/clients/5.svg",
   },
   {
     id: 6,
-    image: "/clients/image6.jpg",
+    image: "/clients/6.svg",
   },
   {
     id: 7,
-    image: "/clients/image7.jpg",
+    image: "/clients/7.svg",
   },
   {
     id: 8,
-    image: "/clients/image8.jpg",
+    image: "/clients/8.svg",
   },
   {
     id: 9,
-    image: "/clients/image9.jpg",
+    image: "/clients/9.svg",
   },
   {
     id: 10,
-    image: "/clients/image10.jpg",
+    image: "/clients/10.svg",
   },
   {
     id: 11,
-    image: "/clients/image11.jpg",
+    image: "/clients/11.svg",
   },
   {
     id: 12,
-    image: "/clients/imag12.jpg",
+    image: "/clients/12.svg",
   },
 ];
 

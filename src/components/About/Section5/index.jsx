@@ -3,8 +3,8 @@ import Link from "next/link";
 import React from "react";
 import * as motion from "motion/react-client";
 const Section5 = () => {
-  const clientsData = Array.from({ length: 24 }, (_, i) => {
-    return `/services/clients/${i + 1}.svg`;
+  const clientsData = Array.from({ length: 13 }, (_, i) => {
+    return `services/clients/${i + 1}.svg`;
   });
 
   const containerVariants = {
