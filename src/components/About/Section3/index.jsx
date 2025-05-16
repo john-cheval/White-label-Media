@@ -14,7 +14,7 @@ const fadeInUp = {
 const Section3 = () => {
   return (
     <section className="containers pb-14 md:pb-16 lg:pb-20 xl:pb-[100px]- 2xl:pb-[148px]-">
-      <div className="grid grid-cols-12 gap-x-5 md:gap-x-10 lg:gap-x-16 3xl:gap-x-28">
+      <div className="grid grid-cols-12 gap-x-5 md:gap-x-10 lg:gap-x-16 3xl:gap-x-24">
         <div className="col-span-6 space-y-4 md:space-y-0">
           <motion.div
             initial="hidden"
@@ -89,7 +89,7 @@ const Section3 = () => {
             custom={0.4}
             className="flex justify-between- gap-x-10 lg:gap-x-16 3xl:gap-x-28 "
           >
-            <div className="mt-[250px] hidden md:block ">
+            <div className="mt-[200px] hidden md:block ">
               {isVideo("/About/image2.jpg") ? (
                 <video
                   autoPlay
@@ -146,12 +146,12 @@ const Section3 = () => {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInUp}
             custom={0.6}
-            className="3xl:max-w-[650px] hidden lg:flex flex-col mt-16 gap-y-9"
+            className="3xl:max-w-[650px] hidden lg:flex flex-col mt-14 gap-y-5"
           >
             <h3 className="text-[4vw] 3xl:text-[60px] font-medium leading-[118.423%]">
               A Legacy of Excellence, Innovation & Growth
             </h3>
-            <p className="text-base leading-[162%] font-switzer">
+            <p className="text-base leading-[162%] font-switzer max-w-[560px]">
               With 12+ years of experience, a 50+ member specialized team, and a
               global footprint spanning 10+ countries, we are committed to the
               continuous development of our creative houses. We honor the vision
@@ -174,7 +174,7 @@ const Section3 = () => {
           <h3 className=" text-3xl md:text-[6vw] 3xl:text-[60px] font-medium leading-[118.423%]">
             A Legacy of Excellence, Innovation & Growth
           </h3>
-          <p className="text-base leading-[162%] font-switzer">
+          <p className="text-base leading-[162%] font-switzer max-w-[560px]">
             With 12+ years of experience, a 50+ member specialized team, and a
             global footprint spanning 10+ countries, we are committed to the
             continuous development of our creative houses. We honor the vision
