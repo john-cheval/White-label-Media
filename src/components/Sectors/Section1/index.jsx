@@ -11,6 +11,7 @@ import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
 import isVideo from "@/app/lib/checkVideo";
 import { Swiper as SwiperType } from "swiper";
+import { IoIosArrowRoundForward } from "react-icons/io";
 const Section1 = () => {
   const [activeSector, setActiveSector] = useState(sectorsData[0]);
   const swiperRef = useRef(null);
@@ -123,9 +124,10 @@ const Section1 = () => {
               <Link
                 href={activeSector?.link}
                 target="_blank"
-                className="text-white font-switzer text-sm leading-[118.423%] uppercase text-center py-3 md:py-4 px-10 md:px-14 border border-white rounded-full inline-block w-fit "
+                className="text-white font-switzer text-sm leading-[118.423%] uppercase text-center py-3 md:py-4 px-10 md:px-14 border border-white rounded-full inline-flex w-fit   items-center gap-x-2 group  "
               >
-                {activeSector?.linkText}
+                {activeSector?.linkText}{" "}
+                <IoIosArrowRoundForward className="opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 text-2xl" />
               </Link>
             </motion.div>
           </motion.div>

@@ -12,9 +12,16 @@ import Modal from "../Modal";
 
 const Testimonials = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedData, setSelectedData] = useState(null);
 
-  const close = () => setIsModalOpen(false);
-  const open = () => setIsModalOpen(true);
+  const close = () => {
+    setIsModalOpen(false);
+    setSelectedData(null);
+  };
+  const open = (data) => {
+    setIsModalOpen(true);
+    setSelectedData(data);
+  };
 
   const containerVariants = {
     hidden: {},
@@ -29,7 +36,7 @@ const Testimonials = () => {
     hidden: { opacity: 0, y: 40 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
-
+  console.log(selectedData, "this is selected data");
   return (
     <>
       <section className="bg-sec containers py-8 md:py-810 lg:py-12 xl:py-16">
@@ -101,7 +108,7 @@ const Testimonials = () => {
                 progress * 100
               }%`;
             }}
-            modules={[Navigation, Autoplay]}
+            modules={[Navigation /* , Autoplay */]}
             className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
           >
             {testimonialData?.map((data, index) => {
@@ -119,7 +126,7 @@ const Testimonials = () => {
                       {showReadMore && (
                         <button
                           className="text-main underline hover:no-underline "
-                          onClick={() => (isModalOpen ? close() : open())}
+                          onClick={() => open(data)}
                         >
                           Read More...
                         </button>
@@ -162,7 +169,13 @@ const Testimonials = () => {
         exitBeforeEnter={true}
         onExitComplete={() => null}
       >
-        {isModalOpen && <Modal modalOpen={isModalOpen} handleClose={close} />}
+        {isModalOpen && (
+          <Modal
+            modalOpen={isModalOpen}
+            handleClose={close}
+            data={selectedData}
+          />
+        )}
       </AnimatePresence>
     </>
   );
