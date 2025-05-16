@@ -50,12 +50,12 @@ const OurHouses = () => {
               className="flex items-center justify-center md:justify-between group"
             >
               <Link
-                href={"/about"}
-                className="font-switzer underline uppercase text-sm"
+                href={"/group-of-companies"}
+                className="font-switzer underline uppercase text-sm hover:no-underline hover:translate-x-2 transition-all duration-300 hover:-translate-y-2 hover:border origin-center hover:border-main hover:py-3 hover:px-2"
               >
                 View all companies
               </Link>
-              <Link href={"/about"} aria-label="Go to aboutpage">
+              <Link href={"/group-of-companies"} aria-label="Go to aboutpage">
                 <Image
                   src={"/common/arrow_blue.svg"}
                   alt="arrow_outward"
@@ -93,7 +93,10 @@ const OurHouses = () => {
                   variants={itemVariants}
                   className="flex md:justify-between items-center"
                 >
-                  <div className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0">
+                  <Link
+                    href={"/about"}
+                    className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0"
+                  >
                     <Image
                       src={house?.image}
                       alt="image-1"
@@ -105,7 +108,7 @@ const OurHouses = () => {
                         process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                       }
                     />
-                  </div>
+                  </Link>
                   <Link
                     href={"/about"}
                     className="text-2xl hidden md:block opacity-0 group-hover:opacity-100 transition-all hover:rotate-45 duration-300"
@@ -153,7 +156,10 @@ const OurHouses = () => {
                   variants={itemVariants}
                   className="flex md:justify-between items-center"
                 >
-                  <div className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0 ">
+                  <Link
+                    href={"/about"}
+                    className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0 "
+                  >
                     <Image
                       src={house?.image}
                       alt="image-1"
@@ -165,10 +171,10 @@ const OurHouses = () => {
                         process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                       }
                     />
-                  </div>
+                  </Link>
                   <Link
                     href={"/about"}
-                    className="text-2xl hidden md:block opacity-0 group-hover:opacity-100 transition-all hover:rotate-45 duration-300"
+                    className="text-2xl hidden md:block opacity-0 group-hover:opacity-100 transition-all hover:rotate-45 duration-300 "
                   >
                     <GoArrowUpRight />
                   </Link>

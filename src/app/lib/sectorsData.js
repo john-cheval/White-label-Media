@@ -43,14 +43,14 @@ export const sectorsData = [
   {
     id: 4,
     logo: "/sectors/logo2.svg",
-    title: "Group of Companies",
+    title: "White Window",
     description:
       "With senior-level expertise, our co-founders unite specialized consultancies, offering a 360° marketing and strategy solution through collaboration, experience, and a proven track record with global brands.",
     link: "/",
     linkText: "White label group",
     bgImage: "/sectors/video1.mp4",
     listImage: "/sectors/image4.jpg",
-    listTitle: "11 15",
+    listTitle: "Window Window",
     listDescription:
       "Discover Your Brand’s True Potential with Expert Strategy",
   },

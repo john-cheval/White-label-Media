@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,8 +10,10 @@ import { sectorsData } from "@/app/lib/sectorsData";
 import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
 import isVideo from "@/app/lib/checkVideo";
+import { Swiper as SwiperType } from "swiper";
 const Section1 = () => {
   const [activeSector, setActiveSector] = useState(sectorsData[0]);
+  const swiperRef = useRef(null);
 
   const itemVariant = {
     initial: { opacity: 0, y: 40 },
@@ -24,8 +26,8 @@ const Section1 = () => {
   };
 
   return (
-    <section className=" h-full pt-10 md:pt-20 xl:pt-28 2xl:pt-40 3xl:pt-52 pb-14 md:pb-20 xl:pb-28 relative">
-      <div className="absolute w-full h-full bottom-0 left-0 -z-10">
+    <section className=" h-full pt-10 md:pt-20 xl:pt-28 2xl:pt-32 3xl:pt-52- pb-14 md:pb-20 xl:pb-28 relative mt-20 md:mt-28">
+      <div className="absolute w-full h-full top-0 left-0 -z-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeSector.bgImage}
@@ -67,7 +69,7 @@ const Section1 = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="col-span-12 md:col-span-6 3xl:col-span-5 px-6 md:ml-12 xl:ml-20 2xl:ml-24 gap-y-3 md:gap-y-6 flex items-center md:items-start flex-col h-full"
+            className="col-span-12 md:col-span-6 3xl:col-span-5 px-6 md:ml-12 xl:ml-16 3xl:ml-24 gap-y-3 md:gap-y-6 flex items-center md:items-start flex-col h-full"
           >
             <motion.div
               custom={0}
@@ -132,6 +134,9 @@ const Section1 = () => {
         <div className="col-span-12 md:col-span-6 3xl:col-span-7 px-6-">
           <div className="w-full">
             <Swiper
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
               slidesPerView={3.3}
               spaceBetween={24}
               loop
@@ -145,7 +150,7 @@ const Section1 = () => {
                   spaceBetween: 10,
                 },
 
-                1024: {
+                500: {
                   slidesPerView: 2.3,
                   spaceBetween: 24,
                 },
@@ -189,13 +194,13 @@ const Section1 = () => {
                           width={300}
                           height={400}
                           sizes="100vw"
-                          className="w-full h-auto object-cover"
+                          className="w-full max-h-[382px] h-auto  md:max-h-full object-cover"
                           unoptimized={
                             process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                           }
                         />
-                        <div className="bg-sector-grad-2 w-full h-full absolute bottom-0 left-0 z-[5]" />
-                        <p className="text-white absolute bottom-9  w-full z-[10] text-center text-2xl font-medium leading-[141%]">
+                        <div className="bg-sector-grad-2 w-full h-full absolute bottom-0 left-0 z-[5] " />
+                        <p className="text-white absolute bottom-9  w-full z-[10] text-center text-2xl px-1 font-medium leading-[141%]">
                           {data?.listTitle}
                         </p>
                       </div>
@@ -209,7 +214,7 @@ const Section1 = () => {
             </Swiper>
           </div>
 
-          <div className="flex gap-x-5 items-center justify-center md:justify-between md:pr-6 xl:pr-14 mt-10 md:mt-16">
+          <div className="flex gap-x-5 items-center justify-center md:justify-between md:pr-6 xl:pr-14 mt-10 md:mt-14">
             <div className="flex gap-x-5 lg:gap-x-7">
               <button
                 className={`custom-prev p-3 md:p-4 rounded-full flex items-center justify-center border border-white `}
@@ -226,7 +231,10 @@ const Section1 = () => {
               {sectorsData.map((data, index) => (
                 <button
                   key={index}
-                  onClick={() => setActiveSector(data)}
+                  onClick={() => {
+                    setActiveSector(data);
+                    swiperRef.current?.slideToLoop(index);
+                  }}
                   className={`text-white text-sm font-medium leading-[141%] transition-colors duration-300 ${
                     activeSector.id === data.id ? "underline-" : ""
                   }`}

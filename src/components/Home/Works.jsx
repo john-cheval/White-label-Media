@@ -68,9 +68,8 @@ const Works = () => {
 
   return (
     <section
-      className="relative containers md:h-[100dvh] pb-16 md:pb-0 w-full overflow-hidden worksBG"
+      className="relative containers  pb-16 md:pb-0 w-full overflow-hidden worksBG"
       id="works"
-      ref={containerRef}
     >
       <motion.div
         variants={containerVariants}
@@ -95,7 +94,10 @@ const Works = () => {
         </motion.p>
       </motion.div>
 
-      <div className="md:grid hidden grid-cols-3 md:gap-x-8 lg:gap-x-16 xl:gap-x-24 mt-12 lg:mt-20 2l:mt-28">
+      <div
+        className="md:grid hidden grid-cols-3 md:gap-x-8 lg:gap-x-16 xl:gap-x-24 mt-12 lg:mt-20 2l:mt-28 md:h-[100dvh]"
+        ref={containerRef}
+      >
         <div className="overflow-hidden">
           <div
             className="flex flex-col md:gap-y-14 lg:gap-y-20 xl:gap-y-24"

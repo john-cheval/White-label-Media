@@ -114,14 +114,17 @@ const Services = () => {
                       muted
                       playsInline
                       preload="auto"
-                      className="w-full h-full object-cover  "
+                      className="w-full h-full object-cover- "
                     />
                   ) : (
                     <Image
                       src={servicesData[hoveredIndex].image}
                       alt={servicesData[hoveredIndex]?.title || "image"}
-                      fill
-                      className="object-cover "
+                      // fill-
+                      width={100}
+                      height={100}
+                      sizes="100vw"
+                      className="object-cover- w-full h-auto"
                       priority
                       unoptimized={
                         process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
@@ -152,12 +155,27 @@ const Services = () => {
                   <div className="relative h-[1.2em]- text-2xl md:text-3xl lg:text-[40px] font-medium text-center sm:text-left leading-[141%] sm:max-w-[80%] sm:py-9">
                     {" "}
                     <span className="sm:hidden">{serivce?.title}</span>
-                    <span className="absolute hidden sm:block  top-1/2 -translate-y-1/2 font-gambetta opacity-100    group-hover:opacity-0 transition-all duration-300">
+                    <motion.span
+                      initial={{ opacity: 1 }}
+                      animate={{
+                        opacity: hoveredIndex === index ? 0 : 1,
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute hidden sm:block top-1/2 -translate-y-1/2 font-gambetta"
+                    >
                       {serivce?.title}
-                    </span>
-                    <span className="absolute hidden sm:block top-1/2 -translate-y-1/2 font-gt opacity-0 group-hover:text-[#385B93] group-hover:opacity-100 transition-all duration-300">
+                    </motion.span>
+                    <motion.span
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: hoveredIndex === index ? 1 : 0,
+                        color: hoveredIndex === index ? "#385B93" : "#000",
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute hidden sm:block top-1/2 -translate-y-1/2 font-gt italic"
+                    >
                       {serivce?.title}
-                    </span>
+                    </motion.span>
                   </div>
 
                   <p className="font-switzer text-sm md:text-base leading-[193%]  group-hover:text-[#385B93] transition-all duration-300 text-center sm:text-left ">

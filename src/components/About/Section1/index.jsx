@@ -68,7 +68,7 @@ const Section1 = () => {
 
   return (
     <>
-      <section className="pt-6 md:pt-11 pb-11 lg:py-16 xl:py-[76px] px-6 md:px-20  lg:pl-[190px] lg:pr-[94px] flex flex-col gap-y-4  md:gap-y-14 relative">
+      <section className="pt-28  pb-11 lg:pb-16 xl:pb-[76px] px-6 md:px-20  lg:pl-[190px] lg:pr-[94px] flex flex-col gap-y-4  md:gap-y-14 relative pt-20-- md:pt-40 about-bg">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -102,7 +102,7 @@ const Section1 = () => {
           variants={containerVariants}
           initial="hidden"
           animate="show"
-          className="flex gap-x-14 gap-y-7 flex-col md:flex-row  justify-end relative z-50"
+          className="flex gap-x-14 gap-y-7 flex-col md:flex-row  md:justify-end items-center md:items-start relative z-50"
         >
           <motion.p
             variants={childVariants}
@@ -166,7 +166,7 @@ const Section1 = () => {
 
         <div className="absolute bg-[#E3EEFF] blur-[250px] h-[500px] w-[500px] md:h-[700px] md:w-[700px] lg:h-[900px] lg:w-[900px] rounded-full top-1/2 md:-translate-y-1/2 left-3 md:left-1/2 -translate-x-1/2" />
       </section>
-      <div className="absolute top-[0] right-0 md:-right-10-">
+      {/* <div className="absolute top-[0] right-0 md:-right-10- z-[999995]">
         <Image
           src={"/common/aboutBg.svg"}
           alt="bg-about"
@@ -177,7 +177,7 @@ const Section1 = () => {
           unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
           className=" w-full h-full object-cover"
         />
-      </div>
+      </div> */}
     </>
   );
 };

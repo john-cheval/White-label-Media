@@ -199,8 +199,23 @@ input[type="number"]::-webkit-outer-spin-button {
   background: linear-gradient(180deg, rgba(34, 51, 79, 0) 0%, #22334f 100%);
 }
 
-@media (min-width: 890px) and (max-width: 992px) {
+/* @media (min-width: 890px) and (max-width: 992px) {
   .home-gra {
     bottom: -9%;
+  }
+} */
+.about-bg {
+  background: url(/common/aboutBg.svg) top right no-repeat;
+}
+@media (max-width: 1024px) {
+  .about-bg {
+    background-size: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-bg {
+    background-size: 60%;
+    background-position: top center;
   }
 }

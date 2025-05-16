@@ -8,7 +8,7 @@ import * as motion from "motion/react-client";
 
 const Contact = () => {
   return (
-    <section className="!bg-main contactBg containers text-[#EAE4D6] pt-10 md:pt-14 lg:pt-20 xl:pt-40 pb-14 md:pb-16 lg:pb-20 xl:pb-24 space-y-4 overflow-hidden">
+    <section className="!bg-main contactBg containers text-[#EAE4D6] pt-10 md:pt-14 lg:pt-20 xl:pt-40 pb-14 md:pb-16 lg:pb-20 xl:pb-24 space-y-4 overflow-hidden mt-20 md:mt-28">
       <motion.p
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
