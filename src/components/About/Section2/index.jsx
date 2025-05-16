@@ -57,7 +57,7 @@ const Section2 = () => {
         ref={slider1}
       >
         <div className="flex -translate-x-[100%]" ref={firstSlider}>
-          <h3 className="  text-[6vw] xl:text-[100px] uppercase">
+          <h3 className=" text-[clamp(30px,5vw,100px)] uppercase">
             Trusted by 300+ brands
           </h3>
         </div>
@@ -67,7 +67,7 @@ const Section2 = () => {
         ref={slider2}
       >
         <div className="flex translate-x-[100%]" ref={secondSlider}>
-          <h3 className="text-[6vw] xl:text-[100px] uppercase">
+          <h3 className=" text-[clamp(30px,5vw,100px)] uppercase">
             to create lasting impact
           </h3>
         </div>

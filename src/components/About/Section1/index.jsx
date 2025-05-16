@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
@@ -23,23 +23,42 @@ const childVariants = {
 };
 const Section1 = () => {
   const imageRef = useRef(null);
+  const wrapperRef = useRef(null);
+  const [imageSrc, setImageSrc] = useState("/About/small.jpg");
+  const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
     if (!imageRef.current) return;
 
     gsap.fromTo(
       imageRef.current,
-      { width: "30%", transformOrigin: "center center" },
+      // { width: "30%", transformOrigin: "center center" },
+      { scaleX: 0.4, transformOrigin: "center center" },
       {
+        scaleX: 1,
         width: "100%",
+        ease: "power2.out",
         scrollTrigger: {
           trigger: imageRef.current,
-          start: "top center",
-          end: "bottom center",
-          scrub: true,
-          //   markers: true,
+          start: "10% center",
+          end: "40% center",
+          scrub: 2,
+          // markers: true,
+          onEnter: () => {
+            setFadeIn(true);
+            setTimeout(() => {
+              setImageSrc("/About/large.jpg");
+              setFadeIn(false);
+            }, 300);
+          },
+          onEnterBack: () => {
+            setFadeIn(true);
+            setTimeout(() => {
+              setImageSrc("/About/small.jpg");
+              setFadeIn(false);
+            }, 300);
+          },
         },
-        ease: "power2.out",
       }
     );
     return () => {
@@ -107,6 +126,7 @@ const Section1 = () => {
           {isVideo("/About/image1.png") ? (
             <video
               autoPlay
+              ref={imageRef}
               loop
               muted
               playsInline
@@ -116,24 +136,34 @@ const Section1 = () => {
               Your browser does not support the video tag.
             </video>
           ) : (
-            <Image
-              src={"/About/image1.png"}
-              ref={imageRef}
-              alt="section1"
-              height={100}
-              width={100}
-              sizes="100vw"
-              unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-              //   className=" w-full- max-h-[600px] w-[30%] object-cover "
-              className="object-cover max-h-[600px]"
-              style={{
-                width: "30%",
-                transformOrigin: "center center",
-                willChange: "auto",
-              }}
-            />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: fadeIn ? 0 : 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Image
+                // src={"/About/small.jpg"}
+                src={imageSrc}
+                ref={imageRef}
+                alt="section1"
+                height={100}
+                width={100}
+                sizes="100vw"
+                unoptimized={
+                  process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                }
+                //   className=" w-full- max-h-[600px] w-[30%] object-cover "
+                className="object-cover- h-[611px] w-full will-change-transform-"
+                style={{
+                  width: "100%",
+                  transformOrigin: "center center",
+                  willChange: "transform",
+                }}
+              />
+            </motion.div>
           )}
         </div>
+
         <div className="absolute bg-[#E3EEFF] blur-[250px] h-[500px] w-[500px] md:h-[700px] md:w-[700px] lg:h-[900px] lg:w-[900px] rounded-full top-1/2 md:-translate-y-1/2 left-3 md:left-1/2 -translate-x-1/2" />
       </section>
       <div className="absolute top-[0] right-0 md:-right-10-">
