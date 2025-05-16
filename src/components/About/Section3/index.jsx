@@ -1,13 +1,28 @@
+"use client";
 import isVideo from "@/app/lib/checkVideo";
 import Image from "next/image";
 import React from "react";
-
+import { motion } from "framer-motion";
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay },
+  }),
+};
 const Section3 = () => {
   return (
-    <section className="containers pb-14 md:pb-16 lg:pb-20 xl:pb-[100px] 2xl:pb-[148px]">
+    <section className="containers pb-14 md:pb-16 lg:pb-20 xl:pb-[100px]- 2xl:pb-[148px]-">
       <div className="grid grid-cols-12 gap-x-5 md:gap-x-10 lg:gap-x-16 3xl:gap-x-28">
         <div className="col-span-6 space-y-4 md:space-y-0">
-          <div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+            custom={0}
+          >
             {isVideo("/About/image3.jpg") ? (
               <video
                 autoPlay
@@ -31,8 +46,15 @@ const Section3 = () => {
                 className="w-full h-full object-cover"
               />
             )}
-          </div>
-          <div className="mt-auto  md:hidden  ml-[10%]">
+          </motion.div>
+          <motion.div
+            className="mt-auto  md:hidden  ml-[10%]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+            custom={0.2}
+          >
             {isVideo("/About/image2.jpg") ? (
               <video
                 autoPlay
@@ -56,11 +78,18 @@ const Section3 = () => {
                 className="w-full h-full- max-w-[220px] h-[200px]- object-cover"
               />
             )}
-          </div>
+          </motion.div>
         </div>
         <div className="col-span-6 flex flex-col w-full gap-y-20- ">
-          <div className="flex justify-between- gap-x-10 lg:gap-x-16 3xl:gap-x-28 ">
-            <div className="mt-[282px] hidden md:block ">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+            custom={0.4}
+            className="flex justify-between- gap-x-10 lg:gap-x-16 3xl:gap-x-28 "
+          >
+            <div className="mt-[250px] hidden md:block ">
               {isVideo("/About/image2.jpg") ? (
                 <video
                   autoPlay
@@ -110,9 +139,16 @@ const Section3 = () => {
                 />
               )}
             </div>
-          </div>
-          <div className="3xl:max-w-[650px] hidden lg:flex flex-col mt-16 gap-y-9">
-            <h3 className="text-[6vw] 3xl:text-[60px] font-medium leading-[118.423%]">
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeInUp}
+            custom={0.6}
+            className="3xl:max-w-[650px] hidden lg:flex flex-col mt-16 gap-y-9"
+          >
+            <h3 className="text-[4vw] 3xl:text-[60px] font-medium leading-[118.423%]">
               A Legacy of Excellence, Innovation & Growth
             </h3>
             <p className="text-base leading-[162%] font-switzer">
@@ -124,10 +160,17 @@ const Section3 = () => {
               industry-agnostic clients, we bring innovation, strategy, and
               creativity together to deliver unparalleled impact.
             </p>
-          </div>
+          </motion.div>
         </div>
 
-        <div className="px-6 col-span-12  lg:hidden flex flex-col mt-10 gap-y-5 text-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+          custom={0.6}
+          className="px-6 col-span-12  lg:hidden flex flex-col mt-10 gap-y-5 text-center"
+        >
           <h3 className=" text-3xl md:text-[6vw] 3xl:text-[60px] font-medium leading-[118.423%]">
             A Legacy of Excellence, Innovation & Growth
           </h3>
@@ -140,7 +183,7 @@ const Section3 = () => {
             industry-agnostic clients, we bring innovation, strategy, and
             creativity together to deliver unparalleled impact.
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

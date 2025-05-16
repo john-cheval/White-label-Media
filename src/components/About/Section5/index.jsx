@@ -3,8 +3,8 @@ import Link from "next/link";
 import React from "react";
 import * as motion from "motion/react-client";
 const Section5 = () => {
-  const clientsData = Array.from({ length: 13 }, (_, i) => {
-    return `services/clients/${i + 1}.svg`;
+  const clientsData = Array.from({ length: 10 }, (_, i) => {
+    return `About/group/${i + 1}.svg`;
   });
 
   const containerVariants = {
@@ -28,7 +28,7 @@ const Section5 = () => {
   return (
     <section className="px-6 md:px-16 lg:px-20 xl:px-[116px] pb-16">
       <motion.div
-        className="flex  flex-wrap gap-12 justify-center"
+        className="flex  flex-wrap gap-10 md:gap-16 justify-center items-center"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
@@ -42,7 +42,7 @@ const Section5 = () => {
               width={100}
               height={100}
               unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-              className="w-full h-auto"
+              className="w-full h-auto max-w-[150px]"
             />
           </motion.div>
         ))}

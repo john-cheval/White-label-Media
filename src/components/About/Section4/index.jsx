@@ -23,8 +23,8 @@ const Section4 = () => {
   };
 
   return (
-    <section className="px-6 md:px-16 lg:px-20 xl:px-[184px] mb-14 md:mb-16 lg:pb-20 xl:pb-24">
-      <h3 className=" text-3xl md:text-[6vw] 2xl:text-[60px] text-center font-medium leading-[118.423%] mb-2 md:mb-4">
+    <section className="px-6 md:px-16 lg:px-20 xl:px-[184px] mb-14- md:mb-20- pb-12 lg:pb-24 xl:pb-28">
+      <h3 className=" text-3xl md:text-[5vw] 2xl:text-[60px] text-center font-medium leading-[118.423%] mb-2 md:mb-4">
         Global Footprint
       </h3>
       <p className="font-switzer text-center leading-[162%] text-base mb-4 md:mb-8 lg:mb-12">
@@ -42,14 +42,16 @@ const Section4 = () => {
         {aboutData?.map((row, rowIndex) => (
           <motion.div
             key={rowIndex}
-            className="min-w-[200px] md:min-w-[265px]"
+            className="min-w-[200px] lg:min-w-[265px]"
             variants={itemVariants}
           >
             <div
               key={rowIndex}
-              className="py-14 px-16 text-center border border-main border-opacity-20 space-y-2  border-r-0 last:border-r"
+              className="py-14 lg:px-16- text-center border border-main border-opacity-20 space-y-2  border-r-0 last:border-r"
             >
-              <p>{row.country}</p>
+              <p className="text-2xl font-medium leading-[118.423%] text-center">
+                {row.country}
+              </p>
               <Image
                 src={row.flag}
                 alt={row.country}
