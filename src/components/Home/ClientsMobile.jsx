@@ -49,7 +49,7 @@ const ClientsMobile = ({ clientsList, isReversed = false }) => {
               height={150}
               sizes="100vw"
               unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-              className="w-full h-auto object-cover max-w-[150px]"
+              className="w-full h-auto object-cover max-w-[150px] md:max-w-[200px]"
             />
           </div>
         );

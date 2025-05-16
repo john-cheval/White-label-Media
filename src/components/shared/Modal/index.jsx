@@ -25,47 +25,42 @@ const dropIn = {
   },
 };
 
-const Modal = ({ handleClose, modalOpen }) => {
+const Modal = ({ handleClose, modalOpen, data }) => {
   return (
     <>
       {modalOpen && (
         <Backdrop onClick={handleClose}>
           <motion.div
             onClick={(e) => e.stopPropagation()}
-            className="modal flex flex-col gap-y-5 lg:gap-y-7 py-12 lg:pt-20 xl:pt-[108px]  lg:pb-16 xl:pb-20 md:px-5 2xl:px-[250px] relative w-[90%] sm:w-[80%] "
+            className="modal flex flex-col gap-y-5 lg:gap-y-7 py-14 lg:pt-20 xl:pt-[108px]  lg:pb-16 xl:pb-20  px-5 2xl:px-[200px]- relative w-[90%] sm:w-[60%] "
             variants={dropIn}
             initial="hidden"
             animate="visible"
             exit="exit"
           >
             <h5
-              className="text-center text-xl md:text-2xl  lg:text-3xl xl:text-4xl 2xl:text-[60px] leading-[141%] max-w-[850px]"
+              className="text-center text-2xl md:text-3xl leading-[141%] max-w-[850px]"
               style={{
                 lineHeight: 1,
               }}
             >
-              White Label has really helped our business...
+              {data?.title}
             </h5>
-            <p className="font-switzer text-base lg:text-xl leading-193%] text-center w-[90%] lg:max-w-[950px]">
-              “White Label has really helped our business evolve and stand out
-              from the crowd. With the amount of work they put in, it is hard to
-              believe they aren’t a part of our company. They have gone out of
-              their way and at times performed beyond their scope of work simply
-              due to their genuine interest in seeing our business succeed. We
-              have been very happy with their performance and hope to...
+            <p className="font-switzer text-sm md:text-base leading-193%] text-center w-[90%] lg:max-w-[950px]">
+              {data?.description}
             </p>
 
             <div className="flex flex-col gap-y-2 md:gap-y-3">
-              <span className="text-center  md:text-3xl xl:text-[40px] leading-[141%]">
-                Pallav Patel
+              <span className="text-center  text-2xl md:text-3xl leading-[141%]">
+                {data?.name}
               </span>
-              <span className="text-center text-base lg:text-xl leading-[193%]">
-                House of curry, Bombay Bungalow, Ibn AlBahr
+              <span className="text-center font-switzer  text-sm md:text-base leading-[193%]">
+                {data?.designation}
               </span>
             </div>
             <button
               onClick={handleClose}
-              className="absolute top-5 md:top-10 right-5 md:right-10"
+              className="absolute top-3 md:top-10 right-3 md:right-10"
             >
               {" "}
               <IoCloseOutline size={25} color="#22334F" />

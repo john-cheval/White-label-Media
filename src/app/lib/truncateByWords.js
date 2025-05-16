@@ -13,3 +13,9 @@ export function truncateByWords(text, wordLimit, addDot = true) {
     isTruncated: true,
   };
 }
+
+export function truncateByChars(text, limit, dots = true) {
+  if (text.length <= limit) return text;
+
+  return text.slice(0, limit) + (dots ? "..." : "");
+}

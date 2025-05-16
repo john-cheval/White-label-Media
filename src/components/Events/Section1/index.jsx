@@ -110,7 +110,7 @@ const Section1 = () => {
 
   return (
     <section className="  relative ">
-      <div className="flex justify-center relative pt-6 md:pt-10 lg:pt-16   ">
+      <div className="flex justify-center relative pt-32  md:pt-40   ">
         <div className=" flex  border-b border-b-main justify-center items-center relative z-50">
           <button
             className={`event-tab text-sm md:text-base px-4 sm:px-8 md:px-14 ${

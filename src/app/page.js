@@ -10,12 +10,12 @@ import Testimonials from "@/components/shared/Testimonial";
 export default function Home() {
   return (
     <>
-      {/* <Hero /> */}
+      <Hero />
       <Section2 />
       <OurHouses />
       <Services />
       <Clients />
-      {/* <Works /> */}
+      <Works />
       <Testimonials />
       <Awards />
     </>

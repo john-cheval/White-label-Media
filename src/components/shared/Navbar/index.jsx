@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoMenuOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import { navLinks } from "@/app/lib/navLinks";
@@ -11,44 +11,83 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const Navbar = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const [bgColor, setBgColor] = useState(false);
+  console.log(pathname, "htis sis htepahtname");
 
+  useEffect(() => {
+    const currentScrollY = window.scrollY;
+    setBgColor(currentScrollY > 80);
+  }, []);
+  useEffect(() => {
+    const currentScrollY = window.scrollY;
+    const handleScroll = () => {
+      setBgColor(currentScrollY > 80);
+      if (window.scrollY > lastScrollY && window.scrollY > 150) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
   return (
     <>
-      <nav className="flex items-center justify-between py-6 border-b border-b-[#DBDBDB] containers relative bg-white ">
-        <div className="md:flex-1 flex justify-center relative z-50">
-          <div className="max-w-[120px] sm:max-w-[150px] md:max-w-[260px] w-full md:px-4">
-            <Link href={"/"}>
-              <Image
-                src={"/common/logo.svg"}
-                alt="White Label Media"
-                width={260}
-                height={80}
-                sizes="100vw"
-                unoptimized={
-                  process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                }
-                className="w-full h-auto object-cover"
-              />
-            </Link>
+      <header
+        className={` fixed top-0 w-full z-[999955] transition-all duration-300 ${
+          bgColor
+            ? "bg-white"
+            : pathname.includes("/about")
+            ? "bg-transparent"
+            : "bg-white"
+        } ease-in-out ${
+          isVisible ? "translate-y-0 shadow-md-" : "-translate-y-full"
+        }`}
+      >
+        <nav
+          className={`flex items-center justify-between py-6 border-b border-b-[#DBDBDB] containers relative- `}
+          style={{
+            willChange: "transform",
+          }}
+        >
+          <div className="md:flex-1 flex justify-center relative z-50">
+            <div className="max-w-[120px] sm:max-w-[150px] md:max-w-[260px] w-full md:px-4">
+              <Link href={"/"}>
+                <Image
+                  src={"/common/logo.svg"}
+                  alt="White Label Media"
+                  width={260}
+                  height={80}
+                  sizes="100vw"
+                  unoptimized={
+                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                  }
+                  className="w-full h-auto object-cover"
+                />
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <IoMenuOutline
-            aria-label="menu open"
-            className="text-main text-xl md:text-3xl cursor-pointer relative z-50"
-            onClick={() => setIsOpen(true)}
-          />
-        </div>
-      </nav>
-
+          <div>
+            <IoMenuOutline
+              aria-label="menu open"
+              className="text-main text-xl md:text-3xl cursor-pointer relative z-[9999999999999999999999999999999]"
+              onClick={() => setIsOpen(true)}
+            />
+          </div>
+        </nav>
+      </header>
       <AnimatePresence>
         {isOpen && (
           <>
             <motion.div
-              className="bg-black/[0.4] backdrop-blur-[14.5px] fixed inset-0 z-[9999] flex flex-col "
+              className="bg-black/[0.4] backdrop-blur-[14.5px] fixed inset-0 z-[999956] flex flex-col "
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -56,7 +95,7 @@ const Navbar = () => {
             />
 
             <motion.nav
-              className="bg-white fixed top-0 right-0 px-6 md:px-10 py-9 md:py-12 h-full z-[99999] w-full sm:w-[70%] md:w-[50%] xl:w-[30%]  flex flex-col overflow-y-auto scrollbar-hide"
+              className="bg-white fixed top-0 right-0 px-6 md:px-10 py-9 md:py-12 h-full z-[999957] w-full sm:w-[70%] md:w-[50%] xl:w-[30%]  flex flex-col overflow-y-auto scrollbar-hide"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}

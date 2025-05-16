@@ -16,7 +16,7 @@ export const houseData = [
   },
   {
     id: 4,
-    image: "/Home/houses/image4.jpg",
+    image: "/Home/houses/image4.svg",
     desc: "Artisanal lifestyle brand",
   },
   {
@@ -198,21 +198,21 @@ export const servicesData = [
     title: " PR & Media Relations",
     description:
       "Elevating brands with strategic storytelling, exclusive media access, and high-impact PR campaigns.",
-    image: "/Home/Services/1.png",
+    image: "/Home/Services/1.jpg",
   },
   {
     id: 2,
     title: " Brand Launches & Events",
     description:
       "Conceptualise and execute immersive brand experiences that captivate, connect, and leave a lasting impact.",
-    image: "/Home/Services/2.png",
+    image: "/Home/Services/2.jpg",
   },
   {
     id: 3,
     title: "Brand Strategy & Design",
     description:
       "Crafting unique brand identities through strategy, storytelling, and standout design.",
-    image: "/Home/Services/3.png",
+    image: "/Home/Services/3.jpg",
   },
   {
     id: 4,
@@ -244,7 +244,7 @@ export const workData = [
     title: "PR",
   },
   {
-    image: "/works/4.jpg",
+    image: "/works/1.mp4",
     title: "F&B Space",
   },
   {

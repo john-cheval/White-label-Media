@@ -42,7 +42,7 @@ const imageVariants = {
 
 const Section2 = () => {
   return (
-    <section className="relative bg-main text-sec py-9 md:py-20 lg:py-[100px] xl:py-[150px] 2xl:py-[200px] containers homeBGSection1 ">
+    <section className="relative bg-main text-sec py-9 md:py-20 lg:py-[100px] xl:py-[150px] containers homeBGSection1 ">
       <div className="grid grid-cols-12">
         <motion.div
           className="md:col-start-1 lg:col-start-2 md:col-end-7 col-span-12 flex flex-col items-center md:items-start gap-y-3 md:gap-y-5 lg:gap-y-9"
@@ -53,6 +53,9 @@ const Section2 = () => {
         >
           <motion.h3
             className="text-3xl lg:text-4xl xl:text-5xl text-center md:text-left font-medium leading-[141%]"
+            style={{
+              lineHeight: 1.2,
+            }}
             variants={itemVariants}
           >
             White Label Group is a curated collective and an integrated hub of
@@ -73,7 +76,7 @@ const Section2 = () => {
             <Link
               href="/about"
               aria-label="About the group"
-              className="font-switzer text-center md:text-left text-sm underline uppercase inline-block  md:mt-10 mb-10 md:mb-0"
+              className="font-switzer text-center md:text-left text-sm underline uppercase inline-block hover:no-underline hover:translate-x-2 transition-all duration-300 hover:-translate-y-2 hover:border origin-center hover:border-sec hover:py-3 hover:px-2  md:mt-10 mb-10 md:mb-0"
             >
               Explore the group
             </Link>
@@ -94,7 +97,7 @@ const Section2 = () => {
               loop
               muted
               playsInline
-              className="w-full h-full object-cover  "
+              className="w-full h-full object-cover   "
             />
           ) : (
             <Image
@@ -103,7 +106,7 @@ const Section2 = () => {
               width={470}
               sizes="100vw"
               unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover- max-h-[435px] md:max-h-[550px]"
               alt="Home Section Image"
             />
           )}

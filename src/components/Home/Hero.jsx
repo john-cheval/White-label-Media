@@ -13,7 +13,7 @@ const Hero = () => {
   const headerRef = useRef(null);
   const [videoExpanded, setVidoExpanded] = useState(false);
   const isShowButton = useMediaQuery("(min-width: 890px)");
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 1024px)");
 
   useEffect(() => {
     if (videoRef.current === null || isMobile === null) return;
@@ -26,22 +26,24 @@ const Hero = () => {
 
     ScrollTrigger.create({
       trigger: header,
-      // start: `top ${isMobile ? "20%" : "30%"}`,
-      start: `top top`,
+      // start: `top `,
+      start: `${isMobile ? "15%" : "20%"} ${isMobile ? "20%" : "30%"}`,
       end: "bottom center",
       scrub: true,
       // markers: true,
       onUpdate: (self) => {
         const progress = self.progress;
-
-        // gsap.to(video, {
-        //   rotateY: 180,
-        //   ease: "power2.out",
-        //   overwrite: true,
-        // });
+        if (videoRef.current) {
+          const videoHeight = videoRef.current.getBoundingClientRect().height;
+          const headerHeightElement =
+            document.querySelector(".home-height-video");
+          console.log("header height:", videoHeight);
+          if (headerHeightElement) {
+            headerHeightElement.style.height = `${videoHeight}px`;
+          }
+        }
 
         if (progress > 0.02 && !videoExpanded) {
-          setVidoExpanded(true);
           gsap.to(video, {
             position: "absolute",
             top: "50%",
@@ -59,7 +61,20 @@ const Hero = () => {
             overflow: "hidden",
             overwrite: true,
             borderRadius: "20px",
+            // onComplete: () => {
+            //   if (videoRef.current) {
+            //     const videoHeight =
+            //       videoRef.current.getBoundingClientRect().height;
+            //     const headerHeightElement =
+            //       document.querySelector(".home-height-video");
+            //     console.log("header height:", videoHeight);
+            //     if (headerHeightElement) {
+            //       headerHeightElement.style.height = `${videoHeight}px`;
+            //     }
+            //   }
+            // },
           });
+          setVidoExpanded(true);
         } else {
           setVidoExpanded(false);
           gsap.to(video, {
@@ -89,7 +104,7 @@ const Hero = () => {
   return (
     <header
       ref={headerRef}
-      className="containers relative perspective-[1500px] h-[100dvh]- pt-6 pb-9 md:py-10 lg:py-14 space-y-8 overflow-hidden"
+      className="containers relative perspective-[1500px] lg:h-[120dvh] 3xl:h-[120dvh] 5xl:h-[140dvh] mt-32 pb-9 md:mb-10 lg:mb-14 space-y-8 overflow-hidden-"
       style={{
         backgroundImage: `url("/Home/label.svg")`,
         backgroundRepeat: "no-repeat",
@@ -103,67 +118,69 @@ const Hero = () => {
         </h1>
       </div>
 
-      <div className="grid grid-cols-12 overflow-hidden- ">
-        <video
-          ref={videoRef}
-          aria-hidden="true"
-          autoPlay
-          muted
-          tabIndex={-1}
-          loop
-          playsInline
-          src="/Home/hero.mp4"
-          className="col-start-3 col-end-9 sm:col-start-5 sm:col-end-9 w-full min-w-[220px] min-h-[150px] sm:h-auto rounded-[20px] rotate-[-4deg]"
-        />
-
-        {videoExpanded && (
+      <div className="grid grid-cols-12 overflow-hidden-  ">
+        <div className="col-start-3 col-end-9 sm:col-start-5 sm:col-end-9">
           <video
+            ref={videoRef}
+            aria-hidden="true"
             autoPlay
             muted
+            tabIndex={-1}
             loop
             playsInline
             src="/Home/hero.mp4"
-            className="col-start-3 col-end-9 sm:col-start-5 sm:col-end-9  w-full min-w-[220px] min-h-[150px] hidden sm:block sm:h-auto rounded-[20px] rotate-[-4deg]"
+            className=" w-full min-w-[220px] min-h-[150px] sm:h-auto rounded-[20px] rotate-[-4deg]"
           />
-        )}
 
-        {videoExpanded && (
-          <div className=" z-[100] w-[95%] hidden sm:block left-1/2 -translate-x-1/2 -translate-y-1/2  absolute -bottom-[0]  lg:-bottom-14 3xl:-bottom-12 pb-5 md:pb-10 rounded-[20px]  sm:px-6 md:px-[70px] lg:px-[128px]  overflow-hidden home-grad home-gra">
-            <div>
-              <div className="flex gap-x-11 relative items-center md:items-start  ">
-                <div>
-                  <p className="font-gambetta text-white- text-white text-lg sm:text-xl md:text-2xl lg:text-3xl leading-main uppercase ">
-                    “I believe in the unique identity of each brand and that
-                    every business has the opportunity to go global.”
-                  </p>
+          {videoExpanded && (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              src="/Home/hero.mp4"
+              className="col-start-3 col-end-9 sm:col-start-5 sm:col-end-9  w-full min-w-[220px] min-h-[150px] hidden sm:block sm:h-auto rounded-[20px] rotate-[-4deg]"
+            />
+          )}
 
-                  <div className="flex flex-col gap-y-2 md:gap-y-3 mt-3">
-                    <span className="font-switzer text-sm md:text-base leading-[193%] text-sec- text-white">
-                      Shraddha Barot Amariei
-                    </span>
-                    <span className="font-switzer text-sm md:text-base leading-[193%] text-sec- text-white">
-                      Group CEO & Founder
-                    </span>
+          {videoExpanded && !isMobile && (
+            <div className=" z-[100] w-[95%] hidden- sm:block left-1/2 -translate-x-1/2 -translate-y-1/2  absolute bottom-[0]- top-1/2 flex  content-end lg:-bottom-20- 3xl:-bottom-24- pb-5 md:pb-10 rounded-[20px]  sm:px-6 md:px-[70px] lg:px-[128px]  overflow-hidden home-grad home-gra home-height-video">
+              <div>
+                <div className="flex gap-x-11 relative items-center md:items-start  ">
+                  <div>
+                    <p className="font-gambetta text-white- text-white text-lg sm:text-xl md:text-2xl lg:text-3xl leading-main uppercase ">
+                      “I believe in the unique identity of each brand and that
+                      every business has the opportunity to go global.”
+                    </p>
+
+                    <div className="flex flex-col gap-y-2 md:gap-y-3 mt-3">
+                      <span className="font-switzer text-sm md:text-base leading-[193%] text-sec- text-white">
+                        Shraddha Barot Amariei
+                      </span>
+                      <span className="font-switzer text-sm md:text-base leading-[193%] text-sec- text-white">
+                        Group CEO & Founder
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                <Link href={"/about"} aria-label="about the group">
-                  <Image
-                    src={"/common/arrow_outward.svg"}
-                    alt="arrow_outward"
-                    sizes="100vw"
-                    height={48}
-                    width={48}
-                    className="h-auto w-full object-cover hover:rotate-45 transition-transform duration-300 "
-                    unoptimized={
-                      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                    }
-                  />
-                </Link>
+                  <Link href={"/about"} aria-label="about the group">
+                    <Image
+                      src={"/common/arrow_outward.svg"}
+                      alt="arrow_outward"
+                      sizes="100vw"
+                      height={48}
+                      width={48}
+                      className="h-auto w-full object-cover hover:rotate-45 transition-transform duration-300 "
+                      unoptimized={
+                        process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                      }
+                    />
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       <div className="grid grid-cols-12">
@@ -172,7 +189,7 @@ const Hero = () => {
             <Link
               href={"/about"}
               aria-label="About the group"
-              className="text-main w-fit font-switzer gap-x-3 text-sm leading-main uppercase py-4 px-7 rounded-full  border border-main  h-fit flex items-center justify-between group mt-auto"
+              className="text-main w-fit font-switzer gap-x-3 text-sm leading-main uppercase py-4 px-7 rounded-full  border border-main  h-fit flex items-center justify-between group mt-auto hover:bg-main hover:text-sec transition-all duration-300"
             >
               About the group{" "}
               <LuArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
@@ -187,7 +204,7 @@ const Hero = () => {
             <Link
               href={"/about"}
               aria-label="About the group"
-              className="text-main  w-fit font-switzer gap-x-3 text-sm leading-main uppercase py-4 px-7 rounded-full  border border-main  h-fit flex items-center justify-between group mt-auto- -ml-5- mt-6"
+              className="text-main  w-fit font-switzer gap-x-3 text-sm leading-main uppercase py-4 px-7 rounded-full  border border-main  h-fit flex items-center justify-between group mt-auto- -ml-5- mt-6 hover:bg-main hover:text-sec transition-all duration-300"
             >
               About the group{" "}
               <LuArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
