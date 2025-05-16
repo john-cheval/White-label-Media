@@ -36,7 +36,6 @@ const Testimonials = () => {
     hidden: { opacity: 0, y: 40 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
-  console.log(selectedData, "this is selected data");
   return (
     <>
       <section className="bg-sec containers py-8 md:py-810 lg:py-12 xl:py-16">
@@ -108,7 +107,7 @@ const Testimonials = () => {
                 progress * 100
               }%`;
             }}
-            modules={[Navigation /* , Autoplay */]}
+            modules={[Navigation, Autoplay]}
             className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
           >
             {testimonialData?.map((data, index) => {
