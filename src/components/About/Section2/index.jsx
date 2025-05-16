@@ -62,7 +62,7 @@ const Section2 = () => {
           trigger: "#content",
           scrub: 1,
           start: "top bottom",
-          end: "bottom top",
+          end: "bottom center",
           // markers: true,
         },
       });
@@ -79,7 +79,7 @@ const Section2 = () => {
 
   return (
     <section
-      className="relative overflow-x-hidden h-fit w-full pb-11 md:pb-16  xl:pb-24"
+      className="relative overflow-x-hidden  w-full pb-11 md:pb-16  xl:pb-24"
       id="content"
     >
       <div
@@ -87,7 +87,7 @@ const Section2 = () => {
         ref={slider1}
       >
         <div
-          className="flex -translate-x-[100%] will-change-transform"
+          className="flex -translate-x-[70%] will-change-transform"
           ref={firstSlider}
         >
           <h3 className=" text-[clamp(30px,5vw,100px)] uppercase">
