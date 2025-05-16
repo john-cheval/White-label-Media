@@ -76,7 +76,7 @@ const Section2 = () => {
             <Link
               href="/about"
               aria-label="About the group"
-              className="font-switzer text-center md:text-left text-sm underline uppercase inline-block hover:no-underline hover:translate-x-2 transition-all duration-300 hover:-translate-y-2 hover:border origin-center hover:border-sec hover:py-3 hover:px-2  md:mt-10 mb-10 md:mb-0"
+              className="font-switzer text-center md:text-left text-sm underline uppercase inline-block hover:no-underline hover:translate-x-2 transition-all duration-300 hover:-translate-y-2 border origin-center hover:border-sec border-main py-3 px-2  md:mt-10 mb-10 md:mb-0"
             >
               Explore the group
             </Link>
@@ -106,7 +106,7 @@ const Section2 = () => {
               width={470}
               sizes="100vw"
               unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-              className="w-full h-auto object-cover- max-h-[435px] md:max-h-[550px]"
+              className="w-full h-auto object-cover- max-h-[435px]- md:max-h-[550px]-"
               alt="Home Section Image"
             />
           )}

@@ -16,7 +16,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const [bgColor, setBgColor] = useState(false);
-  console.log(pathname, "htis sis htepahtname");
 
   useEffect(() => {
     const currentScrollY = window.scrollY;

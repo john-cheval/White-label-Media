@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import isVideo from "@/app/lib/checkVideo";
+import useMediaQuery from "@/app/hooks/useMediaQuery";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,14 +22,21 @@ const childVariants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } },
+};
 const Section1 = () => {
   const imageRef = useRef(null);
-  const wrapperRef = useRef(null);
   const [imageSrc, setImageSrc] = useState("/About/small.jpg");
   const [fadeIn, setFadeIn] = useState(false);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
     if (!imageRef.current) return;
+
+    if (isMobile) return;
 
     gsap.fromTo(
       imageRef.current,
@@ -64,7 +72,7 @@ const Section1 = () => {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <>
@@ -122,62 +130,94 @@ const Section1 = () => {
             the region.
           </motion.p>
         </motion.div>
-        <div className="mt-[141px]- mt-10 md:mt-0 md:pr-[52px] flex justify-center relative z-50">
-          {isVideo("/About/image1.png") ? (
-            <video
-              autoPlay
-              ref={imageRef}
-              loop
-              muted
-              playsInline
-              className="object-cover max-h-[600px] w-[30%]"
-            >
-              <source src="/About/image1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: fadeIn ? 0 : 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Image
-                // src={"/About/small.jpg"}
-                src={imageSrc}
+
+        {!isMobile && (
+          <div className="mt-[141px]- mt-10 md:mt-0 lg:pr-[52px] flex justify-center w-full relative z-50">
+            {isVideo("/About/image1.png") ? (
+              <video
+                autoPlay
                 ref={imageRef}
-                alt="section1"
-                height={100}
-                width={100}
-                sizes="100vw"
-                unoptimized={
-                  process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                }
-                //   className=" w-full- max-h-[600px] w-[30%] object-cover "
-                className="object-cover- h-[611px] w-full will-change-transform-"
-                style={{
-                  width: "100%",
-                  transformOrigin: "center center",
-                  willChange: "transform",
-                }}
-              />
-            </motion.div>
-          )}
-        </div>
+                loop
+                muted
+                playsInline
+                className="object-cover max-h-[600px] w-[30%]"
+              >
+                <source src="/About/image1.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: fadeIn ? 0 : 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Image
+                  // src={"/About/small.jpg"}
+                  src={imageSrc}
+                  ref={imageRef}
+                  alt="section1"
+                  height={100}
+                  width={100}
+                  sizes="100vw"
+                  unoptimized={
+                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                  }
+                  //   className=" w-full- max-h-[600px] w-[30%] object-cover "
+                  className="object-cover- max-h-[611px] w-full will-change-transform-"
+                  style={{
+                    width: "100%",
+                    transformOrigin: "center center",
+                    willChange: "transform",
+                  }}
+                />
+              </motion.div>
+            )}
+          </div>
+        )}
+
+        {isMobile && (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            variants={fadeInUp}
+            className="mt-[141px]- mt-10 md:mt-0 md:pr-[52px] flex justify-center relative z-50"
+          >
+            {isVideo("/About/large.jpg") ? (
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="object-cover max-h-[600px] w-[30%]"
+              >
+                <source src="/About/image1.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: fadeIn ? 0 : 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Image
+                  src={"/About/large.jpg"}
+                  alt="section1"
+                  height={100}
+                  width={100}
+                  sizes="100vw"
+                  unoptimized={
+                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                  }
+                  className="object-cover- max-h-[400px] w-full will-change-transform-"
+                />
+              </motion.div>
+            )}
+          </motion.div>
+        )}
 
         <div className="absolute bg-[#E3EEFF] blur-[250px] h-[500px] w-[500px] md:h-[700px] md:w-[700px] lg:h-[900px] lg:w-[900px] rounded-full top-1/2 md:-translate-y-1/2 left-3 md:left-1/2 -translate-x-1/2" />
       </section>
-      {/* <div className="absolute top-[0] right-0 md:-right-10- z-[999995]">
-        <Image
-          src={"/common/aboutBg.svg"}
-          alt="bg-about"
-          width={100}
-          height={100}
-          sizes="100vw"
-          // aspectratio={391 / 191}
-          unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-          className=" w-full h-full object-cover"
-        />
-      </div> */}
     </>
   );
 };

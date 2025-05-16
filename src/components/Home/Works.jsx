@@ -51,7 +51,7 @@ const Works = () => {
               trigger: containerRef.current,
               start: "top top",
               end: "bottom+=200% top",
-              scrub: 1.4,
+              scrub: 2,
               pin: true,
               // markers: true,
             },
