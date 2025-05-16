@@ -4,6 +4,7 @@ import Section3 from "@/components/About/Section3";
 import Section4 from "@/components/About/Section4";
 import Section5 from "@/components/About/Section5";
 import Awards from "@/components/Home/Awards";
+import dynamic from "next/dynamic";
 import React from "react";
 
 const About = () => {

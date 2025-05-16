@@ -12,51 +12,84 @@ const Section2 = () => {
   const slider1 = useRef(null);
   const slider2 = useRef(null);
 
-  useEffect(() => {
+  // useGSAP(() => {
+  //   if (!firstSlider.current || !secondSlider.current) return;
+
+  //   // gsap.set(firstSlider.current, { xPercent: -100 });
+  //   // gsap.set(secondSlider.current, { xPercent: 100 });
+  //   let timeline = gsap.timeline({
+  //     defaults: {
+  //       ease: "none",
+  //     },
+  //     scrollTrigger: {
+  //       trigger: "#content",
+  //       scrub: 1,
+  //       start: "top bottom",
+  //       end: "bottom top",
+  //       markers: true,
+  //     },
+  //   });
+  //   timeline
+  //     .to(
+  //       firstSlider.current,
+  //       {
+  //         x: "50%",
+  //       },
+  //       "start"
+  //     )
+  //     .to(
+  //       secondSlider.current,
+  //       {
+  //         x: "0%",
+  //       },
+  //       "start"
+  //     );
+  //   ScrollTrigger.refresh();
+  //   return () => {
+  //     timeline.scrollTrigger?.kill();
+  //     timeline.kill();
+  //   };
+  // }, []);
+  useGSAP(() => {
     if (!firstSlider.current || !secondSlider.current) return;
-    let timeline = gsap.timeline({
-      defaults: {
-        ease: "none",
-      },
-      scrollTrigger: {
-        trigger: "#content",
-        scrub: 1,
-        start: "top bottom",
-        end: "bottom top",
-        // markers: true,
-      },
-    });
-    timeline
-      .to(
-        firstSlider.current,
-        {
-          x: "50%",
+
+    setTimeout(() => {
+      let timeline = gsap.timeline({
+        defaults: {
+          ease: "none",
         },
-        "start"
-      )
-      .to(
-        secondSlider.current,
-        {
-          x: "0%",
+        scrollTrigger: {
+          trigger: "#content",
+          scrub: 1,
+          start: "top bottom",
+          end: "bottom top",
+          // markers: true,
         },
-        "start"
-      );
-    ScrollTrigger.refresh();
+      });
+
+      timeline
+        .to(firstSlider.current, { x: "50%" }, "start")
+        .to(secondSlider.current, { x: "0%" }, "start");
+    }, 100);
+
     return () => {
-      timeline.scrollTrigger?.kill();
-      timeline.kill();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
+
   return (
     <section
-      className="relative overflow-x-hidden w-full pb-11 md:pb-16  xl:pb-24"
+      className="relative overflow-x-hidden h-fit w-full pb-11 md:pb-16  xl:pb-24"
       id="content"
     >
       <div
         className="relative  whitespace-nowrap  overflow-hidden"
         ref={slider1}
       >
-        <div className="flex -translate-x-[100%]" ref={firstSlider}>
+        <div
+          className="flex -translate-x-[100%] will-change-transform"
+          ref={firstSlider}
+        >
           <h3 className=" text-[clamp(30px,5vw,100px)] uppercase">
             Trusted by 300+ brands
           </h3>
@@ -66,7 +99,10 @@ const Section2 = () => {
         className="relative whitespace-nowrap  overflow-hidden"
         ref={slider2}
       >
-        <div className="flex translate-x-[100%]" ref={secondSlider}>
+        <div
+          className="flex translate-x-[100%] will-change-transform"
+          ref={secondSlider}
+        >
           <h3 className=" text-[clamp(30px,5vw,100px)] uppercase">
             to create lasting impact
           </h3>
