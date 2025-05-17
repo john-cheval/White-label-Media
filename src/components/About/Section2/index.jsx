@@ -41,7 +41,7 @@ const Section2 = () => {
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, [isMobile]);
+  }, []);
 
   return (
     <section
