@@ -3,6 +3,8 @@ import React, { useEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import useMediaQuery from "@/app/hooks/useMediaQuery";
+import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,47 +13,11 @@ const Section2 = () => {
   const secondSlider = useRef(null);
   const slider1 = useRef(null);
   const slider2 = useRef(null);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
-  // useGSAP(() => {
-  //   if (!firstSlider.current || !secondSlider.current) return;
-
-  //   // gsap.set(firstSlider.current, { xPercent: -100 });
-  //   // gsap.set(secondSlider.current, { xPercent: 100 });
-  //   let timeline = gsap.timeline({
-  //     defaults: {
-  //       ease: "none",
-  //     },
-  //     scrollTrigger: {
-  //       trigger: "#content",
-  //       scrub: 1,
-  //       start: "top bottom",
-  //       end: "bottom top",
-  //       markers: true,
-  //     },
-  //   });
-  //   timeline
-  //     .to(
-  //       firstSlider.current,
-  //       {
-  //         x: "50%",
-  //       },
-  //       "start"
-  //     )
-  //     .to(
-  //       secondSlider.current,
-  //       {
-  //         x: "0%",
-  //       },
-  //       "start"
-  //     );
-  //   ScrollTrigger.refresh();
-  //   return () => {
-  //     timeline.scrollTrigger?.kill();
-  //     timeline.kill();
-  //   };
-  // }, []);
   useGSAP(() => {
     if (!firstSlider.current || !secondSlider.current) return;
+    if (isMobile) return;
 
     setTimeout(() => {
       let timeline = gsap.timeline({
@@ -83,7 +49,7 @@ const Section2 = () => {
       id="content"
     >
       <div
-        className="relative  whitespace-nowrap  overflow-hidden"
+        className="relative hidden md:block  whitespace-nowrap  overflow-hidden"
         ref={slider1}
       >
         <div
@@ -96,7 +62,7 @@ const Section2 = () => {
         </div>
       </div>
       <div
-        className="relative whitespace-nowrap  overflow-hidden"
+        className="relative hidden md:block whitespace-nowrap  overflow-hidden"
         ref={slider2}
       >
         <div
@@ -108,6 +74,40 @@ const Section2 = () => {
           </h3>
         </div>
       </div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={{
+          hidden: { opacity: 0, y: 40 },
+          visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } },
+        }}
+        className="relative md:hidden whitespace-nowrap overflow-hidden px-5"
+      >
+        <div className="flex flex-col items-center">
+          <motion.h3
+            className="text-2xl sm:text-3xl uppercase"
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.6 }}
+          >
+            Trusted by 300+ brands
+          </motion.h3>
+
+          <motion.h3
+            className="text-2xl sm:text-3xl uppercase"
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.6, delay: 0.3 }} // delay for stagger
+          >
+            to create lasting impact
+          </motion.h3>
+        </div>
+      </motion.div>
     </section>
   );
 };
