@@ -48,7 +48,7 @@ const WorksMobile = ({ works }) => {
                 />
               )}
             </div>
-            <p className="text- text-center font-medium leading-[141%] mt-2">
+            <p className="text-3xl text-center font-medium leading-[141%] mt-2">
               {work?.title}
             </p>
           </motion.div>

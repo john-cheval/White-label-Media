@@ -185,14 +185,14 @@ const Footer = () => {
         viewport={{ once: true }}
         className="pt-6 pb pb-[74px] md:pb-10 flex gap-y-2 justify-center flex-wrap md:gap-y-0 md:justify-between"
       >
-        <div className="flex gap-x-2 items-center">
+        <div className="flex flex-col gap-y-2 sm:gap-y-0 sm:flex-row sm:gap-x-2 items-center">
           <motion.p
             variants={childVariants}
-            className="text-[#EAE4D6] font-switzer text-sm leading-[170%] capitalize"
+            className="text-[#EAE4D6] font-switzer text-center sm:text-left text-sm leading-[170%] capitalize"
           >
             © 2025 White label Media Group . All rights reserved
           </motion.p>
-          <span className="text-white">|</span>
+          <span className="text-white hidden sm:block">|</span>
           <motion.div
             variants={childVariants}
             className="text-[#EAE4D6] font-switzer text-sm leading-[170%] capitalize  "

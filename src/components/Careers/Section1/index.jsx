@@ -29,7 +29,7 @@ const imageVariants = (direction) => ({
 });
 const Section1 = () => {
   return (
-    <section className="containers pb-11 md:pyb12 lg:pb-16 xl:pb-20 pt-32 md:pt-48 lg:pt-60 2xl:pb-24 space-y-8 md:space-y-12 lg:space-y-16 xl:space-y-20 2xl:space-y-28 relative overflow-hidden  ">
+    <section className="containers pb-11 md:pyb12 lg:pb-16 xl:pb-20 pt-32 md:pt-48 lg:pt-60 2xl:pb-24 space-y-8 md:space-y-12 lg:space-y-16 xl:space-y-20 2xl:space-y-28 relative overflow-hidden careers-bg ">
       <div className="grid grid-cols-12 gap-y-6 md:gap-y-0 gap-x-0 md:gap-x-8 lg:gap-x-10 relative z-50 md:pl-8 lg:pl-10 xl:pl-16 ">
         <motion.div
           variants={containerVariants}
@@ -46,7 +46,7 @@ const Section1 = () => {
           </motion.p>
           <motion.h1
             variants={textVariants}
-            className="text-[40px] lg:text-[5vw] xl:text-[70px] 3xl:text-[110px] leading-[118.423%] uppercase text-center md:text-left mb-2 md:mb-0
+            className="text-3xl lg:text-[5vw] xl:text-[70px] 3xl:text-[110px] leading-[118.423%] uppercase text-center md:text-left mb-2 md:mb-0
             "
           >
             Work with

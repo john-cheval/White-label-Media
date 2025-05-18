@@ -36,7 +36,7 @@ const ServiceClients = () => {
     <section className="containers pb-8 md:pb-16">
       <h3 className="main-heading text-center">Clients</h3>
 
-      <div className="w-full pt-8 pb-12 md:pb-16">
+      <div className="w-full pt-8 pb-7 sm:pb-12 md:pb-16">
         <Swiper
           slidesPerView={1}
           grabCursor
@@ -85,7 +85,7 @@ const ServiceClients = () => {
                       unoptimized={
                         process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                       }
-                      className="w-full h-auto min-h-[60px]- max-w-[140px] object-cover"
+                      className="w-full h-auto min-w-[125px]  md:min-h-[60px]- md:max-w-[140px] object-cover"
                     />
                   </div>
                 ))}

@@ -128,7 +128,7 @@ const Hero = () => {
             loop
             playsInline
             src="/Home/hero.mp4"
-            className=" w-full min-w-[220px] min-h-[150px] sm:h-auto rounded-[20px] rotate-[-4deg]"
+            className=" w-full min-w-[220px] min-h-[120px] sm:h-auto rounded-[20px] rotate-[-4deg]"
           />
 
           {videoExpanded && (

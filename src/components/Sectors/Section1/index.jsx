@@ -109,7 +109,7 @@ const Section1 = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="text-white font-switzer text-sm md:text-base font-light leading-[161%] text-center md:text-left"
+              className="text-white font-switzer text-sm md:text-base font-light leading-[161%] text-center md:text-left mb-11 md:mb-0"
             >
               {activeSector?.description}
             </motion.p>
@@ -119,7 +119,7 @@ const Section1 = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="mt-auto mb-10 md:mb-2"
+              className="mt-auto hidden md:block mb-10 md:mb-2"
             >
               <Link
                 href={activeSector?.link}
