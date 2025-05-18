@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { IoArrowForwardSharp } from "react-icons/io5";
 import isVideo from "@/app/lib/checkVideo";
 import Head from "next/head";
 
@@ -76,9 +77,9 @@ const Services = () => {
 
               <Link
                 href={"/services"}
-                className="col-span-12 md:col-span-4 font-switzer text-sm leading-[118.423%] uppercase py-3 md:py-4 px-6 md:px-10 border border-main rounded-full inline-block h-fit w-fit self-baseline mx-auto md:ml-auto mt-5  hover:bg-main hover:text-white transition-colors duration-300"
+                className="col-span-12  md:col-span-4 font-switzer text-sm leading-[118.423%] uppercase py-3 md:py-4 px-5 md:px-10 border border-main rounded-full inline-flex items-center h-fit w-fit self-baseline mx-auto md:ml-auto mt-5  hover:bg-main hover:text-white transition-colors duration-300 gap-x-8 md:gap-x-0"
               >
-                Explore more
+                Explore more <IoArrowForwardSharp className="md:hidden" />
               </Link>
             </motion.div>
           </div>

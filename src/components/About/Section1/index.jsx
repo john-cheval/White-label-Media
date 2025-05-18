@@ -87,7 +87,9 @@ const Section1 = () => {
         </motion.h1>
 
         <motion.div
-          animate={{ y: [0, -15, 15, 0] }}
+          // animate={{ y: [0, -15, 15, 0] }}
+          initial={{ y: 0 }}
+          animate={{ y: [0, -10, 10, 0] }}
           transition={{
             duration: 3,
             repeat: Infinity,
@@ -100,9 +102,11 @@ const Section1 = () => {
             alt="down_arrow"
             height={100}
             width={100}
+            layout="fixed"
             sizes="100vw"
             unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-            className=" h-16 md:h-[100px] object-cover-"
+            className=" h-16 w-full object-contain md:h-[100px] object-cover-"
+            // className="h-16 w-16 object-contain"
           />
         </motion.div>
 

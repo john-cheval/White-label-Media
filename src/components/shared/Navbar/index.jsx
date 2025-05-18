@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { IoIosArrowForward } from "react-icons/io";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import useMediaQuery from "@/app/hooks/useMediaQuery";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -16,6 +17,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const [bgColor, setBgColor] = useState(false);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   useEffect(() => {
     const currentScrollY = window.scrollY;
@@ -44,6 +46,8 @@ const Navbar = () => {
             ? "bg-white"
             : pathname.includes("/about")
             ? "bg-transparent"
+            : pathname.includes("/careers")
+            ? "bg-transparent md:bg-white"
             : "bg-white"
         } ease-in-out ${
           isVisible ? "translate-y-0 shadow-md-" : "-translate-y-full"
@@ -59,7 +63,10 @@ const Navbar = () => {
             <div className="max-w-[120px] sm:max-w-[150px] md:max-w-[260px] w-full md:px-4">
               <Link href={"/"}>
                 <Image
-                  src={"/common/logo.svg"}
+                  // src={"/common/logo.svg"}
+                  src={
+                    isMobile ? "/common/mobile_logo.svg" : "/common/logo.svg"
+                  }
                   alt="White Label Media"
                   width={260}
                   height={80}
@@ -67,7 +74,7 @@ const Navbar = () => {
                   unoptimized={
                     process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                   }
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto md:object-cover"
                 />
               </Link>
             </div>
@@ -76,7 +83,7 @@ const Navbar = () => {
           <div>
             <IoMenuOutline
               aria-label="menu open"
-              className="text-main text-xl md:text-3xl cursor-pointer relative z-[9999999999999999999999999999999]"
+              className="text-main text-2xl md:text-3xl cursor-pointer relative z-[9999999999999999999999999999999]"
               onClick={() => setIsOpen(true)}
             />
           </div>
@@ -104,7 +111,12 @@ const Navbar = () => {
                 <div className="max-w-[120px] sm:max-w-[150px] md:max-w-[190px] w-full md:px-4">
                   <Link href={"/"} aria-label="Go to Homepage">
                     <Image
-                      src={"/common/logo.svg"}
+                      // src={"/common/logo.svg"}
+                      src={
+                        isMobile
+                          ? "/common/mobile_logo.svg"
+                          : "/common/logo.svg"
+                      }
                       alt="White Label Media"
                       width={260}
                       height={80}
@@ -143,8 +155,8 @@ const Navbar = () => {
                       </Link>
                       <IoIosArrowForward
                         color="#B8B8B8"
-                        size={20}
-                        className="group-hover:translate-x-1 transition-transform duration-300"
+                        // size={20}
+                        className="text-2xl md:text-3xl group-hover:translate-x-1 transition-transform duration-300"
                       />
                     </li>
                   );

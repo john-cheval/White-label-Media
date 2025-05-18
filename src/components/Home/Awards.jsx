@@ -82,7 +82,7 @@ const Awards = () => {
                       width={250}
                       height={100}
                       sizes="100vw"
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-cover max-w-[200px] md:max-w-full"
                       unoptimized={
                         process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                       }

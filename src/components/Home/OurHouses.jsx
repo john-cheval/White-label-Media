@@ -62,7 +62,7 @@ const OurHouses = () => {
                   sizes="100vw"
                   height={48}
                   width={48}
-                  className="w-full h-auto object-cover group-hover:rotate-45 transition-transform duration-300 max-w-12"
+                  className="w-full h-auto hidden md:block object-cover group-hover:rotate-45 transition-transform duration-300 max-w-12"
                   unoptimized={
                     process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                   }

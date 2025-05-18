@@ -97,15 +97,23 @@ const Testimonials = () => {
             }}
             onSlideChange={(swiper) => {
               const progress = (swiper.realIndex + 1) / swiper.slides.length;
-              document.querySelector(".progress-fill").style.width = `${
-                progress * 100
-              }%`;
+              const desktopBar = document.querySelector(
+                ".progress-fill-desktop"
+              );
+              const mobileBar = document.querySelector(".progress-fill-mobile");
+
+              if (desktopBar) desktopBar.style.width = `${progress * 100}%`;
+              if (mobileBar) mobileBar.style.width = `${progress * 100}%`;
             }}
             onInit={(swiper) => {
               const progress = (swiper.realIndex + 1) / swiper.slides.length;
-              document.querySelector(".progress-fill").style.width = `${
-                progress * 100
-              }%`;
+              const desktopBar = document.querySelector(
+                ".progress-fill-desktop"
+              );
+              const mobileBar = document.querySelector(".progress-fill-mobile");
+
+              if (desktopBar) desktopBar.style.width = `${progress * 100}%`;
+              if (mobileBar) mobileBar.style.width = `${progress * 100}%`;
             }}
             modules={[Navigation, Autoplay]}
             className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
@@ -148,14 +156,19 @@ const Testimonials = () => {
         </div>
 
         <div className="progress hidden md:block w-full h-[1px] bg-black/[0.2] relative overflow-hidden">
-          <div className="progress-fill absolute top-0 left-0 h-full bg-black transition-all duration-[0ms] w-0" />
+          <div className="progress-fill-desktop absolute top-0 left-0 h-full bg-black transition-all duration-[0ms] w-0" />
         </div>
-        <div className="md:hidden gap-x-4 flex justify-between ">
+        <div className="md:hidden gap-x-4 flex justify-between items-center">
           <button
             className={`custom-prev p-3 rounded-full flex items-center justify-center border border-[#DEDEDE] cursor-pointer `}
           >
             <IoArrowBackSharp className="text-base text-main" />
           </button>
+
+          <div className="progress  md:hidden w-full h-[1px] bg-black/[0.2] relative overflow-hidden">
+            <div className="progress-fill-mobile absolute top-0 left-0 h-full bg-black transition-all duration-[0ms] w-0" />
+          </div>
+
           <button
             className={`custom-next p-3 rounded-full flex items-center justify-center border border-[#DEDEDE] cursor-pointer `}
           >

@@ -28,7 +28,7 @@ const Section3 = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="grid grid-cols-12 lg:pl-10 xl:pl-16 2xl:pl-24 space-x-8"
+        className="grid grid-cols-12 lg:pl-10 xl:pl-16 2xl:pl-24 md:space-x-8"
       >
         <motion.div
           variants={fadeUp}
@@ -37,7 +37,7 @@ const Section3 = () => {
           <p className="font-switzer text-center text-sm leading-[118.423%] uppercase py-2 px-6 w-fit rounded-full border border-main mx-auto md:mx-0">
             Diversity, Equity & Inclusion
           </p>
-          <h3 className=" text-[40px] md:text-[5vw] 2xl:text-[70px] 3xl:text-[80px] leading-[123%] uppercase font-medium mt-6 md:mt-9 mb-3 text-center md:text-left">
+          <h3 className=" text-[30px] md:text-[5vw] 2xl:text-[70px] 3xl:text-[80px] leading-[123%] uppercase font-medium mt-6 md:mt-9 mb-3 text-center md:text-left">
             Our Values: Built on Trust, Integrity & Loyalty
           </h3>
           <p className="text-sm md:text-base text-center md:text-left font-light font-switzer  leading-[161%] md:max-w-[450px] md:ml-[50px]">
