@@ -1,5 +1,5 @@
 "use client";
-import { workData } from "@/app/lib/homeData";
+import { workData, workDataMobile } from "@/app/lib/homeData";
 import Image from "next/image";
 import React, { useRef } from "react";
 import gsap from "gsap";
@@ -209,7 +209,7 @@ const Works = () => {
       </div>
 
       <div className="md:hidden pt-9">
-        <WorksMobile works={workData} />
+        <WorksMobile works={workDataMobile} />
       </div>
     </section>
   );
