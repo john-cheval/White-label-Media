@@ -167,28 +167,28 @@ export const footerLink = [
 
 export const awardsList = [
   {
-    image: "/awards/3.svg",
+    image: "/awards/1.svg",
   },
   {
-    image: "/awards/3.svg",
+    image: "/awards/1.svg",
   },
   {
-    image: "/awards/3.svg",
+    image: "/awards/1.svg",
+  },
+  {
+    image: "/awards/5.svg",
   },
   {
     image: "/awards/2.svg",
+  },
+  {
+    image: "/awards/3.svg",
   },
   {
     image: "/awards/4.svg",
   },
   {
     image: "/awards/5.svg",
-  },
-  {
-    image: "/awards/1.svg",
-  },
-  {
-    image: "/awards/2.svg",
   },
 ];
 
