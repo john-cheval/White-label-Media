@@ -2,6 +2,7 @@ import { awardsList } from "@/app/lib/homeData";
 import Image from "next/image";
 import React from "react";
 import * as motion from "motion/react-client";
+import AwardsMobile from "./AwardsMobile";
 
 const containerVariants = {
   hidden: {},
@@ -38,7 +39,9 @@ const Awards = () => {
         Awards
       </motion.h3>
 
-      <div className=" border-y border-y-[#2C2C2C] mt-6">
+      <AwardsMobile awards={awardsList} />
+
+      <div className=" hidden md:block  border-y border-y-[#2C2C2C] mt-6">
         {rows?.map((row, rowIndex) => {
           const columns =
             row.length === 4

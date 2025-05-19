@@ -23,7 +23,6 @@ const itemVariants = {
 };
 const Services = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  console.log(hoveredIndex, "index");
   return (
     <>
       {/* ✅ Preload all service media */}
@@ -85,70 +84,75 @@ const Services = () => {
             </motion.div>
           </div>
         </div>
-        <div
-          className="grid  grid-cols-12 mt-6 md:mt-14 sm-gap-x-5
-       md:gap-x-9 relative  "
-        >
-          <div className="col-span-12 hidden md:block md:col-span-3 lg:col-span-3 relative h-[300px]-- ">
-            <AnimatePresence mode="wait">
-              {hoveredIndex !== null && servicesData[hoveredIndex] && (
-                <motion.div
-                  key={hoveredIndex}
-                  initial={{
-                    opacity: 0,
-                    scale: 0.95,
-                    top: `${hoveredIndex * 13}%`,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    scale: 1,
-                    top: `${hoveredIndex * 13}%`,
-                  }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.1, ease: "easeInOut" }}
-                  className={`absolute  left-0 w-full h-full`}
-                >
-                  {isVideo(servicesData[hoveredIndex].image) ? (
-                    <video
-                      src={servicesData[hoveredIndex].image}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="auto"
-                      className="w-full h-auto object-cover- "
-                    />
-                  ) : (
-                    <Image
-                      src={servicesData[hoveredIndex].image}
-                      alt={servicesData[hoveredIndex]?.title || "image"}
-                      // fill-
-                      width={100}
-                      height={100}
-                      sizes="100vw"
-                      className="object-cover- w-full h-auto"
-                      priority
-                      unoptimized={
-                        process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                      }
-                    />
-                  )}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-          <div className="col-span-12 md:col-span-9 lg:col-span-9 ">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.4 }}
-            >
-              {servicesData?.map?.((serivce, index) => (
+        <div className=" mt-6 md:mt-14  relative  ">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.4 }}
+            className="grid grid-cols-12 sm-gap-x-5
+       md:gap-x-9"
+          >
+            {servicesData?.map?.((serivce, index) => (
+              <>
+                <div className="col-span-12 hidden md:block md:col-span-3 lg:col-span-3 relative  ">
+                  <AnimatePresence mode="wait">
+                    {hoveredIndex !== null && hoveredIndex === index && (
+                      <motion.div
+                        key={hoveredIndex}
+                        initial={{
+                          opacity: 0,
+                          scale: 0.95,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          scale: 1,
+                        }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{ duration: 0.1, ease: "easeInOut" }}
+                        className={`absolute  left-0 w-full h-full-   ${
+                          servicesData?.length - 1 === index
+                            ? "bottom-0"
+                            : index === 0
+                            ? "top-0"
+                            : "-top-1/2"
+                        }`}
+                      >
+                        {isVideo(servicesData[hoveredIndex].image) ? (
+                          <video
+                            src={servicesData[hoveredIndex].image}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            preload="auto"
+                            className="w-full h-auto object-cover- "
+                          />
+                        ) : (
+                          <Image
+                            src={servicesData[hoveredIndex].image}
+                            alt={servicesData[hoveredIndex]?.title || "image"}
+                            // fill-
+                            width={100}
+                            height={100}
+                            sizes="100vw"
+                            className="object-cover w-full h-auto"
+                            priority
+                            unoptimized={
+                              process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED ===
+                              "true"
+                            }
+                          />
+                        )}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
                 <motion.div
                   key={serivce?.id || index}
                   variants={itemVariants}
-                  className={` py-5 md:py-9 border-b border-b-[#c7c7c7] group grid grid-cols-1 sm:grid-cols-2 items-center gap-x-2  ${
+                  className={` py-5 md:py-9 border-b border-b-[#c7c7c7] group col-span-12 md:col-span-9 grid grid-cols-1 sm:grid-cols-2 items-center gap-x-2  ${
                     index === 0 ? "border-t border-t-[#c7c7c7]" : ""
                   }`}
                   onMouseEnter={() => setHoveredIndex(index)}
@@ -184,9 +188,9 @@ const Services = () => {
                     {serivce?.description}
                   </p>
                 </motion.div>
-              ))}
-            </motion.div>
-          </div>
+              </>
+            ))}
+          </motion.div>
         </div>
       </section>
     </>

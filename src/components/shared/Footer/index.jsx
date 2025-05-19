@@ -190,7 +190,8 @@ const Footer = () => {
             variants={childVariants}
             className="text-[#EAE4D6] font-switzer text-center sm:text-left text-sm leading-[170%] capitalize"
           >
-            © 2025 White label Media Group . All rights reserved
+            © 2025 White label Media Group .<br className="footer-br" /> All
+            rights reserved
           </motion.p>
           <span className="text-white hidden sm:block">|</span>
           <motion.div

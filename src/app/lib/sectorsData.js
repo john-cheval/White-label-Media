@@ -8,7 +8,7 @@ export const sectorsData = [
     link: "/",
     linkText: "Visit website",
     bgImage: "/sectors/banner2.jpg",
-    listImage: "/sectors/image1.jpg",
+    listImage: "/1.png",
     listTitle: "White Label Media",
     listDescription:
       "Strategic Brand Storytelling Fuelled by Industry Expertise",

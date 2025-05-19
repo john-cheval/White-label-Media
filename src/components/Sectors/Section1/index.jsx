@@ -10,7 +10,6 @@ import { sectorsData } from "@/app/lib/sectorsData";
 import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
 import isVideo from "@/app/lib/checkVideo";
-import { Swiper as SwiperType } from "swiper";
 import { IoIosArrowRoundForward } from "react-icons/io";
 const Section1 = () => {
   const [activeSector, setActiveSector] = useState(sectorsData[0]);
@@ -172,6 +171,7 @@ const Section1 = () => {
                     onClick={() => {
                       if (activeSector.id !== data.id) {
                         setActiveSector(data);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
                       }
                     }}
                     onMouseEnter={() => {
@@ -236,6 +236,7 @@ const Section1 = () => {
                   onClick={() => {
                     setActiveSector(data);
                     swiperRef.current?.slideToLoop(index);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                   className={`text-white text-sm font-medium leading-[141%] transition-colors duration-300 ${
                     activeSector.id === data.id ? "underline-" : ""

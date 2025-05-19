@@ -33,7 +33,7 @@ const Section4 = () => {
       </p>
 
       <motion.div
-        className=" flex  flex-wrap justify-center"
+        className=" grid grid-cols-2 sm:flex  flex-wrap justify-center"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
@@ -42,14 +42,14 @@ const Section4 = () => {
         {aboutData?.map((row, rowIndex) => (
           <motion.div
             key={rowIndex}
-            className="min-w-[200px] lg:min-w-[265px]"
+            className="sm:min-w-[200px] lg:min-w-[265px]"
             variants={itemVariants}
           >
             <div
               key={rowIndex}
-              className="py-14 lg:px-16- text-center border border-main border-opacity-20 space-y-2  border-r-0 last:border-r"
+              className={`py-8 sm:py-14 lg:px-16- text-center border border-main border-opacity-20 space-y-2   border-r-0 last:border-r`}
             >
-              <p className="text-2xl font-medium leading-[118.423%] text-center">
+              <p className="text-xl sm:text-2xl font-medium leading-[118.423%] text-center">
                 {row.country}
               </p>
               <Image

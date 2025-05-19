@@ -67,7 +67,6 @@ const Hero = () => {
                   videoRef.current.getBoundingClientRect().height;
                 const headerHeightElement =
                   document.querySelector(".home-height-video");
-                console.log(videoHeight, "this is ");
                 if (headerHeightElement) {
                   headerHeightElement.style.height = `${videoHeight}px`;
                   headerHeightElement.style.opacity = 1;
