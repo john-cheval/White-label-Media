@@ -232,6 +232,9 @@ export const servicesData = [
 
 export const workData = [
   {
+    image: "/works/dummy.jpg",
+  },
+  {
     image: "/works/1.jpg",
     title: "Events",
   },
@@ -244,9 +247,14 @@ export const workData = [
     title: "PR",
   },
   {
+    image: "/works/11.jpg",
+    title: "Events",
+  },
+  {
     image: "/works/1.mp4",
     title: "F&B Space",
   },
+
   {
     image: "/works/5.jpg",
     title: "Kids Space",
@@ -255,14 +263,16 @@ export const workData = [
     image: "/works/6.jpg",
     title: "Events",
   },
-  {
-    image: "/works/7.jpg",
-    title: "Branding",
-  },
+
   {
     image: "/works/8.jpg",
     title: "PR",
   },
+  {
+    image: "/works/7.jpg",
+    title: "Branding",
+  },
+
   {
     image: "/works/9.jpg",
     title: "F&B Space",
@@ -272,13 +282,18 @@ export const workData = [
     title: "Kids Space",
   },
   {
+    image: "/works/dummy.jpg",
+  },
+  {
     image: "/works/11.jpg",
     title: "Events",
   },
+
   {
     image: "/works/12.jpg",
     title: "Branding",
   },
+
   {
     image: "/works/13.jpg",
     title: "PR",
@@ -290,9 +305,5 @@ export const workData = [
   {
     image: "/works/15.jpg",
     title: "Kids Space",
-  },
-  {
-    image: "/works/16.jpg",
-    title: "F&B Space",
   },
 ];

@@ -34,8 +34,8 @@ const Works = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   const firstSet = workData.slice(0, 6);
-  const secondSet = workData.slice(6, 10);
-  const thirdSet = workData.slice(10, -1);
+  const secondSet = workData.slice(6, 12);
+  const thirdSet = workData.slice(12, 18);
 
   useGSAP(
     () => {
@@ -127,10 +127,11 @@ const Works = () => {
                     className="w-full h-auto object-cover"
                   />
                 )}
-
-                <p className="text-3xl font-medium leading-[141%]">
-                  {work?.title}
-                </p>
+                {work?.title && (
+                  <p className="text-3xl font-medium leading-[141%]">
+                    {work?.title}
+                  </p>
+                )}
               </div>
             ))}
           </div>
