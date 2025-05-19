@@ -1,42 +1,42 @@
 export const houseData = [
   {
     id: 1,
-    image: "/Home/houses/image1.png",
+    image: "/Home/houses/01.png",
     desc: "media relations | Events |Activations & influencers",
   },
   {
     id: 2,
-    image: "/Home/houses/image1.png",
+    image: "/Home/houses/02.png",
     desc: "Branding | Website & Apps | business consultancy",
   },
   {
     id: 3,
-    image: "/Home/houses/image1.png",
+    image: "/Home/houses/03.png",
     desc: "Social | Content production | performance marketing",
   },
   {
     id: 4,
-    image: "/Home/houses/image4.svg",
+    image: "/Home/houses/04.png",
     desc: "Artisanal lifestyle brand",
   },
   {
     id: 5,
-    image: "/Home/houses/image5.jpg",
+    image: "/Home/houses/05.png",
     desc: "Real estate advisory",
   },
   {
     id: 6,
-    image: "/Home/houses/image6.jpg",
+    image: "/Home/houses/06.png",
     desc: "reviving careers",
   },
   {
     id: 7,
-    image: "/Home/houses/image7.jpg",
+    image: "/Home/houses/07.png",
     desc: "reviving careers | luxury | hni public relations ",
   },
   {
     id: 8,
-    image: "/Home/houses/image8.jpg",
+    image: "/Home/houses/08.png",
     desc: "Homegrown events consultancy",
   },
 ];

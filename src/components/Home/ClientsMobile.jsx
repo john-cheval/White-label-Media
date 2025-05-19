@@ -8,28 +8,6 @@ const ClientsMobile = ({ clientsList, isReversed = false }) => {
   let timeline = useRef();
   const movingContainer = useRef(null);
 
-  // useGSAP(
-  //   () => {
-  //     const setupInfiniteMarqueeTimeline = () => {
-  //       timeline.current?.kill();
-  //       gsap.set(movingContainer?.current, {
-  //         xPercent: isReversed ? -50 : 0,
-  //       });
-  //       timeline.current = gsap
-  //         .timeline({
-  //           defaults: { ease: "none", repeat: -1 },
-  //         })
-  //         .to(movingContainer.current, {
-  //           xPercent: isReversed ? 0 : -50,
-  //           duration: 40,
-  //         })
-  //         .set(movingContainer.current, { x: 0 });
-  //     };
-  //     setupInfiniteMarqueeTimeline();
-  //   },
-  //   { dependencies: [isReversed] }
-  // );
-
   useGSAP(() => {
     timeline.current?.kill();
 
@@ -38,13 +16,13 @@ const ClientsMobile = ({ clientsList, isReversed = false }) => {
     });
 
     timeline.current = gsap.timeline({
-      repeat: -1,
+      repeat: -2,
       defaults: { ease: "none" },
     });
 
     timeline.current.to(movingContainer.current, {
       xPercent: isReversed ? 0 : -50,
-      duration: 30,
+      duration: 50,
     });
   }, [isReversed]);
 
@@ -79,8 +57,8 @@ const ClientsMobile = ({ clientsList, isReversed = false }) => {
       <div ref={movingContainer} className="flex w-fit">
         {list}
         {list}
-        {list}
-        {list}
+        {/* {list} */}
+        {/* {list} */}
       </div>
     </div>
   );
