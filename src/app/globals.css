@@ -103,7 +103,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .bg-service-1 {
   background: url(/common/footer_bg.svg) center no-repeat, #22334f;
-  background-position: 20% 20%;
+  background-position: 20% 11%;
   background-size: 170%;
 }
 .careersbg {
@@ -224,4 +224,8 @@ input[type="number"]::-webkit-outer-spin-button {
     background-position: 75% 0;
     background-repeat: no-repeat;
   }
+}
+.home-height-video {
+  transition-duration: 300ms;
+  opacity: 0;
 }

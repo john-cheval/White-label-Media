@@ -33,14 +33,15 @@ const Hero = () => {
       // markers: true,
       onUpdate: (self) => {
         const progress = self.progress;
-        if (videoRef.current) {
-          const videoHeight = videoRef.current.getBoundingClientRect().height;
-          const headerHeightElement =
-            document.querySelector(".home-height-video");
-          if (headerHeightElement) {
-            headerHeightElement.style.height = `${videoHeight}px`;
-          }
-        }
+        // if (videoRef.current) {
+        //   const videoHeight = videoRef.current.getBoundingClientRect().height;
+        //   const headerHeightElement =
+        //     document.querySelector(".home-height-video");
+        //   console.log(videoHeight, "this is update ");
+        //   if (headerHeightElement) {
+        //     headerHeightElement.style.height = `${videoHeight}px`;
+        //   }
+        // }
 
         if (progress > 0.02 && !videoExpanded) {
           gsap.to(video, {
@@ -60,18 +61,19 @@ const Hero = () => {
             overflow: "hidden",
             overwrite: true,
             borderRadius: "20px",
-            // onComplete: () => {
-            //   if (videoRef.current) {
-            //     const videoHeight =
-            //       videoRef.current.getBoundingClientRect().height;
-            //     const headerHeightElement =
-            //       document.querySelector(".home-height-video");
-            //     console.log("header height:", videoHeight);
-            //     if (headerHeightElement) {
-            //       headerHeightElement.style.height = `${videoHeight}px`;
-            //     }
-            //   }
-            // },
+            onComplete: () => {
+              if (videoRef.current) {
+                const videoHeight =
+                  videoRef.current.getBoundingClientRect().height;
+                const headerHeightElement =
+                  document.querySelector(".home-height-video");
+                console.log(videoHeight, "this is ");
+                if (headerHeightElement) {
+                  headerHeightElement.style.height = `${videoHeight}px`;
+                  headerHeightElement.style.opacity = 1;
+                }
+              }
+            },
           });
           setVidoExpanded(true);
         } else {

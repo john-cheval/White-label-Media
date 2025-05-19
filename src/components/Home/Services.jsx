@@ -50,8 +50,8 @@ const Services = () => {
       </Head>
       <section className="containers pt-11 md:pt-12 lg:pt-16 xl:pt-24 serviceBg overflow-hidden">
         <div className="grid grid-cols-12">
-          <div className="col-span-12 md:col-span-3 lg:col-span-4"></div>
-          <div className="col-span-12 md:col-span-9 lg:col-span-8">
+          <div className="col-span-12 md:col-span-3 lg:col-span-4-"></div>
+          <div className="col-span-12 md:col-span-9 lg:col-span-8-">
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -88,7 +88,7 @@ const Services = () => {
           className="grid  grid-cols-12 mt-6 md:mt-14 sm-gap-x-5
        md:gap-x-9 relative  "
         >
-          <div className="col-span-12 hidden md:block md:col-span-3 lg:col-span-4 relative h-[300px]-- ">
+          <div className="col-span-12 hidden md:block md:col-span-3 lg:col-span-3 relative h-[300px]-- ">
             <AnimatePresence mode="wait">
               {hoveredIndex !== null && servicesData[hoveredIndex] && (
                 <motion.div
@@ -136,7 +136,7 @@ const Services = () => {
               )}
             </AnimatePresence>
           </div>
-          <div className="col-span-12 md:col-span-9 lg:col-span-8 ">
+          <div className="col-span-12 md:col-span-9 lg:col-span-9 ">
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -147,7 +147,7 @@ const Services = () => {
                 <motion.div
                   key={serivce?.id || index}
                   variants={itemVariants}
-                  className={` py-5 md:py-9 border-b border-b-[#c7c7c7] group grid grid-cols-1 sm:grid-cols-2 gap-x-2  ${
+                  className={` py-5 md:py-9 border-b border-b-[#c7c7c7] group grid grid-cols-1 sm:grid-cols-2 items-center gap-x-2  ${
                     index === 0 ? "border-t border-t-[#c7c7c7]" : ""
                   }`}
                   onMouseEnter={() => setHoveredIndex(index)}
