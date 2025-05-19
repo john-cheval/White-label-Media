@@ -307,3 +307,75 @@ export const workData = [
     title: "Kids Space",
   },
 ];
+export const workDataMobile = [
+  {
+    image: "/works/1.jpg",
+    title: "Events",
+  },
+  {
+    image: "/works/2.jpg",
+    title: "Branding",
+  },
+  {
+    image: "/works/3.jpg",
+    title: "PR",
+  },
+  {
+    image: "/works/11.jpg",
+    title: "Events",
+  },
+  {
+    image: "/works/1.mp4",
+    title: "F&B Space",
+  },
+
+  {
+    image: "/works/5.jpg",
+    title: "Kids Space",
+  },
+  {
+    image: "/works/6.jpg",
+    title: "Events",
+  },
+
+  {
+    image: "/works/8.jpg",
+    title: "PR",
+  },
+  {
+    image: "/works/7.jpg",
+    title: "Branding",
+  },
+
+  {
+    image: "/works/9.jpg",
+    title: "F&B Space",
+  },
+  {
+    image: "/works/10.jpg",
+    title: "Kids Space",
+  },
+
+  {
+    image: "/works/11.jpg",
+    title: "Events",
+  },
+
+  {
+    image: "/works/12.jpg",
+    title: "Branding",
+  },
+
+  {
+    image: "/works/13.jpg",
+    title: "PR",
+  },
+  {
+    image: "/works/14.jpg",
+    title: "F&B Space",
+  },
+  {
+    image: "/works/15.jpg",
+    title: "Kids Space",
+  },
+];
