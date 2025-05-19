@@ -106,7 +106,7 @@ const Section2 = () => {
               width={470}
               sizes="100vw"
               unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-              className="w-full h-auto object-cover- max-h-[435px]- md:max-h-[550px]-"
+              className="w-full- h-auto object-cover- max-h-[435px]- md:max-h-[550px]-"
               alt="Home Section Image"
             />
           )}

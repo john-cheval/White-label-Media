@@ -29,7 +29,7 @@ const fadeInUp = {
 };
 const Section1 = () => {
   const imageRef = useRef(null);
-  const [imageSrc, setImageSrc] = useState("/About/small.jpg");
+  const [imageSrc, setImageSrc] = useState("/About/large.jpg");
   const [fadeIn, setFadeIn] = useState(false);
   const isMobile = useMediaQuery("(max-width: 768px)");
 
@@ -41,31 +41,33 @@ const Section1 = () => {
     gsap.fromTo(
       imageRef.current,
       // { width: "30%", transformOrigin: "center center" },
-      { scaleX: 0.4, transformOrigin: "center center" },
+      { scale: 0.4, transformOrigin: "center center" },
       {
-        scaleX: 1,
+        scale: 1,
         width: "100%",
         ease: "power2.out",
         scrollTrigger: {
           trigger: imageRef.current,
-          start: "10% center",
-          end: "40% center",
-          scrub: 2,
+          // start: "10% center",
+          start: "top center",
+          // end: "40% center",
+          end: "bottom center",
+          scrub: true,
           // markers: true,
-          onEnter: () => {
-            setFadeIn(true);
-            setTimeout(() => {
-              setImageSrc("/About/large.jpg");
-              setFadeIn(false);
-            }, 300);
-          },
-          onEnterBack: () => {
-            setFadeIn(true);
-            setTimeout(() => {
-              setImageSrc("/About/small.jpg");
-              setFadeIn(false);
-            }, 300);
-          },
+          // onEnter: () => {
+          //   setFadeIn(true);
+          //   setTimeout(() => {
+          //     setImageSrc("/About/large.jpg");
+          //     setFadeIn(false);
+          //   }, 300);
+          // },
+          // onEnterBack: () => {
+          //   setFadeIn(true);
+          //   setTimeout(() => {
+          //     setImageSrc("/About/small.jpg");
+          //     setFadeIn(false);
+          //   }, 300);
+          // },
         },
       }
     );
