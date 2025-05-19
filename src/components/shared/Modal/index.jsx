@@ -46,7 +46,7 @@ const Modal = ({ handleClose, modalOpen, data }) => {
             >
               {data?.title}
             </h5>
-            <p className="font-switzer text-sm md:text-base leading-193%] text-center w-[90%] lg:max-w-[950px]">
+            <p className="font-switzer text-sm md:text-base leading-193%] text-justify- text-center w-[90%] lg:max-w-[950px] max-h-[150px] md:max-h-[300px] overflow-scroll scrollbar-hide">
               {data?.description}
             </p>
 

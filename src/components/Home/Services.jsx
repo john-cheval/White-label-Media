@@ -23,7 +23,6 @@ const itemVariants = {
 };
 const Services = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  console.log(hoveredIndex, "index");
   return (
     <>
       {/* ✅ Preload all service media */}

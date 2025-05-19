@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import * as motion from "motion/react-client";
+import Section5Mobile from "./Section5Mobile";
 const Section5 = () => {
   const clientsData = Array.from({ length: 10 }, (_, i) => {
     return `About/group/${i + 1}.svg`;
@@ -27,8 +28,10 @@ const Section5 = () => {
 
   return (
     <section className="px-6 md:px-16 lg:px-20 xl:px-[116px] pb-16">
+      <Section5Mobile clients={clientsData} />
+
       <motion.div
-        className="flex  flex-wrap gap-10 md:gap-16 justify-center items-center"
+        className="md:flex hidden   flex-wrap gap-10 md:gap-16 justify-center items-center"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"

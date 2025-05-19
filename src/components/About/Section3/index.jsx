@@ -114,7 +114,7 @@ const Section3 = () => {
                 />
               )}
             </div>
-            <div className="md:w-[300px] w-[200px] h-[200px] md:h-[300px] mt-[50px] md:mt-24">
+            <div className="md:w-[300px] w-[200px] max-h-[190px] sm:max-h-[200px] md:h-[300px] mt-[50px] md:mt-24">
               {isVideo("/About/video.mp4") ? (
                 <video
                   autoPlay

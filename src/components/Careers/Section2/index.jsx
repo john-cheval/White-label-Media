@@ -55,7 +55,7 @@ const Section2 = () => {
       </motion.div>
 
       <motion.div
-        className="grid grid-cols-12 gap-5"
+        className="md:grid grid-cols-12 gap-5"
         variants={parentStagger}
         initial="hidden"
         whileInView="visible"
@@ -64,14 +64,25 @@ const Section2 = () => {
         {images.map((image, index) => {
           const colSpanClass =
             index === 0
-              ? "col-span-12 md:col-span-6"
-              : "col-span-12 md:col-span-3";
+              ? "col-span-12- md:col-span-6"
+              : "col-span-12- md:col-span-3";
 
           return (
             <motion.div
               key={index}
               variants={fadeUp}
-              className={`${colSpanClass} w-full`}
+              // className={`${colSpanClass} w-full ${
+              //   index === 0 ? "" : "inline-block"
+              // }`}
+              className={`w-full ${colSpanClass}  ${
+                index === 0
+                  ? "careers-card-1"
+                  : index === 1
+                  ? "careers-card-2"
+                  : index === 2
+                  ? "careers-card-3"
+                  : ""
+              }`}
             >
               {isVideo(image) ? (
                 <video

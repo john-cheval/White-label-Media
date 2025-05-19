@@ -1,6 +1,6 @@
 "use client";
 import { testimonialData } from "@/app/lib/homeData";
-import { truncateByWords } from "@/app/lib/truncateByWords";
+import { truncateByChars, truncateByWords } from "@/app/lib/truncateByWords";
 import React, { useState } from "react";
 import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
 import "swiper/css";
@@ -9,10 +9,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { AnimatePresence, motion } from "framer-motion";
 import Modal from "../Modal";
+import useMediaQuery from "@/app/hooks/useMediaQuery";
 
 const Testimonials = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isDesktop = useMediaQuery("(max-width: 1175px)");
 
   const close = () => {
     setIsModalOpen(false);
@@ -119,16 +122,20 @@ const Testimonials = () => {
             className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
           >
             {testimonialData?.map((data, index) => {
-              const { text: titleText } = truncateByWords(data?.title, 5, true);
+              const titleText = truncateByChars(
+                data?.title,
+                isDesktop ? 25 : 30,
+                true
+              );
               const { text: descText, isTruncated: showReadMore } =
-                truncateByWords(data?.description, 50, false);
+                truncateByWords(data?.description, isDesktop ? 30 : 50, false);
               return (
                 <SwiperSlide key={index}>
                   <div className="bg-white py-6 md:py-10 lg:py-14 px-6 md:px-10 lg:px-14 text-main flex flex-col gap-y-4 md:gap-y-5">
-                    <h4 className="text-2xl md:text-3xl leading-[141%]">
+                    <h4 className="text-2xl md:text-3xl leading-[141%] ">
                       {titleText}
                     </h4>
-                    <p className="text-sm md:text-base font-switzer leading-[193%]">
+                    <p className="text-sm md:text-base font-switzer leading-[193%] min-h-[150px]">
                       {descText}{" "}
                       {showReadMore && (
                         <button
