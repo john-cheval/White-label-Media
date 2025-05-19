@@ -77,30 +77,65 @@ const Section1 = () => {
   //   };
   // }, [isMobile]);
 
+  // useEffect(() => {
+  //   if (!imageRef.current || isMobile) return;
+
+  //   const timeout = setTimeout(() => {
+  //     gsap.fromTo(
+  //       imageRef.current,
+  //       { scale: 0.4, transformOrigin: "center center" },
+  //       {
+  //         scale: 1,
+  //         width: "100%",
+  //         ease: "power2.out",
+  //         scrollTrigger: {
+  //           trigger: imageRef.current,
+  //           start: "top center",
+  //           end: "bottom center",
+  //           scrub: true,
+  //           // markers: true,
+  //         },
+  //       }
+  //     );
+  //   }, 100); // small delay ensures layout is ready
+
+  //   return () => {
+  //     clearTimeout(timeout);
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, [isMobile]);
+
   useEffect(() => {
     if (!imageRef.current || isMobile) return;
 
-    const timeout = setTimeout(() => {
+    const handleInit = () => {
       gsap.fromTo(
         imageRef.current,
         { scale: 0.4, transformOrigin: "center center" },
         {
           scale: 1,
-          width: "100%",
           ease: "power2.out",
           scrollTrigger: {
             trigger: imageRef.current,
             start: "top center",
             end: "bottom center",
             scrub: true,
-            markers: true,
+            // markers: true,
           },
         }
       );
-    }, 100); // small delay ensures layout is ready
+    };
+
+    const imgEl = imageRef.current;
+
+    if (imgEl.complete) {
+      handleInit();
+    } else {
+      imgEl.addEventListener("load", handleInit);
+    }
 
     return () => {
-      clearTimeout(timeout);
+      imgEl.removeEventListener("load", handleInit);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [isMobile]);
@@ -199,6 +234,9 @@ const Section1 = () => {
                   unoptimized={
                     process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                   }
+                  onLoad={() => {
+                    ScrollTrigger.refresh();
+                  }}
                   //   className=" w-full- max-h-[600px] w-[30%] object-cover "
                   className="object-cover- max-h-[611px] w-full will-change-transform-"
                   style={{
