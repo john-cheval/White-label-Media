@@ -23,6 +23,7 @@ const itemVariants = {
 };
 const Services = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  console.log(hoveredIndex, "index");
   return (
     <>
       {/* ✅ Preload all service media */}
@@ -115,7 +116,7 @@ const Services = () => {
                       muted
                       playsInline
                       preload="auto"
-                      className="w-full h-full object-cover- "
+                      className="w-full h-auto object-cover- "
                     />
                   ) : (
                     <Image

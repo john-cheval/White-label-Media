@@ -9,69 +9,98 @@ import useMediaQuery from "@/app/hooks/useMediaQuery";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-};
-
-const childVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } },
-};
 const Section1 = () => {
   const imageRef = useRef(null);
   const [imageSrc, setImageSrc] = useState("/About/large.jpg");
   const [fadeIn, setFadeIn] = useState(false);
   const isMobile = useMediaQuery("(max-width: 768px)");
 
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: 0.2 } },
+  };
+
+  // useEffect(() => {
+  //   if (!imageRef.current) return;
+
+  //   if (isMobile) return;
+
+  //   gsap.fromTo(
+  //     imageRef.current,
+  //     // { width: "30%", transformOrigin: "center center" },
+  //     { scale: 0.4, transformOrigin: "center center" },
+  //     {
+  //       scale: 1,
+  //       width: "100%",
+  //       ease: "power2.out",
+  //       scrollTrigger: {
+  //         trigger: imageRef.current,
+  //         // start: "10% center",
+  //         start: "top center",
+  //         // end: "40% center",
+  //         end: "bottom center",
+  //         scrub: true,
+  //         markers: true,
+  //         // onEnter: () => {
+  //         //   setFadeIn(true);
+  //         //   setTimeout(() => {
+  //         //     setImageSrc("/About/large.jpg");
+  //         //     setFadeIn(false);
+  //         //   }, 300);
+  //         // },
+  //         // onEnterBack: () => {
+  //         //   setFadeIn(true);
+  //         //   setTimeout(() => {
+  //         //     setImageSrc("/About/small.jpg");
+  //         //     setFadeIn(false);
+  //         //   }, 300);
+  //         // },
+  //       },
+  //     }
+  //   );
+  //   return () => {
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, [isMobile]);
+
   useEffect(() => {
-    if (!imageRef.current) return;
+    if (!imageRef.current || isMobile) return;
 
-    if (isMobile) return;
+    const timeout = setTimeout(() => {
+      gsap.fromTo(
+        imageRef.current,
+        { scale: 0.4, transformOrigin: "center center" },
+        {
+          scale: 1,
+          width: "100%",
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: imageRef.current,
+            start: "top center",
+            end: "bottom center",
+            scrub: true,
+            markers: true,
+          },
+        }
+      );
+    }, 100); // small delay ensures layout is ready
 
-    gsap.fromTo(
-      imageRef.current,
-      // { width: "30%", transformOrigin: "center center" },
-      { scale: 0.4, transformOrigin: "center center" },
-      {
-        scale: 1,
-        width: "100%",
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: imageRef.current,
-          // start: "10% center",
-          start: "top center",
-          // end: "40% center",
-          end: "bottom center",
-          scrub: true,
-          // markers: true,
-          // onEnter: () => {
-          //   setFadeIn(true);
-          //   setTimeout(() => {
-          //     setImageSrc("/About/large.jpg");
-          //     setFadeIn(false);
-          //   }, 300);
-          // },
-          // onEnterBack: () => {
-          //   setFadeIn(true);
-          //   setTimeout(() => {
-          //     setImageSrc("/About/small.jpg");
-          //     setFadeIn(false);
-          //   }, 300);
-          // },
-        },
-      }
-    );
     return () => {
+      clearTimeout(timeout);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [isMobile]);
@@ -106,6 +135,7 @@ const Section1 = () => {
             width={100}
             layout="fixed"
             sizes="100vw"
+            onLoad={() => ScrollTrigger.refresh()}
             unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
             className=" h-16 w-full object-contain md:h-[100px] object-cover-"
             // className="h-16 w-16 object-contain"
@@ -147,6 +177,7 @@ const Section1 = () => {
                 muted
                 playsInline
                 className="object-cover max-h-[600px] w-[30%]"
+                onLoadedData={() => ScrollTrigger.refresh()}
               >
                 <source src="/About/image1.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
