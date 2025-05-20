@@ -1,4 +1,3 @@
-import { footerLink } from "@/app/lib/homeData";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -28,7 +27,7 @@ const childVariants = {
   },
 };
 
-const Footer = () => {
+const Footer = ({ footerLink }) => {
   return (
     <footer className="footer-grad containers pt-[74px] relative">
       <div className="grid grid-cols-12 border-b border-b-white pb-7 md:pb-10 lg:pb-14  2xl:pb-[74px]  place-items-center-">
@@ -66,10 +65,10 @@ const Footer = () => {
                 Email
               </span>
               <Link
-                href={"mailto:hello@whitelabelmedia.me"}
+                href={`mailto:${footerLink?.email_address}`}
                 className="text-white text-xl lg:text-2xl xl:text-3xl leading-[141%]"
               >
-                hello@whitelabelmedia.me
+                {footerLink?.email_address}
               </Link>
             </motion.div>
 
@@ -81,10 +80,10 @@ const Footer = () => {
                 Phone Number
               </span>
               <Link
-                href={"tel:+971 50 856 8028"}
+                href={`tel:${footerLink?.phone_number}`}
                 className="text-white text-xl lg:text-2xl xl:text-3xl leading-[141%]"
               >
-                +971 50 856 8028
+                {footerLink?.phone_number}
               </Link>
             </motion.div>
           </motion.div>
@@ -105,7 +104,7 @@ const Footer = () => {
           <motion.ul variants={childVariants} className="flex gap-x-2">
             <li>
               <Link
-                href={"/"}
+                href={footerLink?.facebook_link}
                 target="_blank"
                 aria-label="Facebook"
                 className="md:w-11 md:h-11 w-9  h-9 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-xs md:text-sm"
@@ -115,7 +114,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href={"/"}
+                href={footerLink?.instagram_link}
                 target="_blank"
                 aria-label="Instagram"
                 className="md:w-11 md:h-11 w-9  h-9 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-xs md:text-sm"
@@ -125,7 +124,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href={"/"}
+                href={footerLink?.linkedin_link}
                 target="_blank"
                 aria-label="Linkedin"
                 className="md:w-11 md:h-11 w-9  h-9 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-xs md:text-sm"
@@ -146,7 +145,7 @@ const Footer = () => {
             variants={childVariants}
             className="text-[#EAE4D6] text-xl md:text-2xl xl:text-3xl 2xl:text-[40px] font-medium md:border-b-1 border-b-white md:border-b md:pb-5 text-center md:text-left"
           >
-            Committed to high standards of excellence
+            {footerLink?.footer_heading}
           </motion.p>
 
           <motion.ul
@@ -156,24 +155,27 @@ const Footer = () => {
             viewport={{ once: true }}
             className="flex gap-x-2 md:gap-x-6 lg:gap-x-10 gap-y-3 md:gap-y-6 flex-wrap pt-3 md:pt-5 lg:pt-8 md:max-w-[80%] justify-center md:justify-start"
           >
-            {footerLink?.map((links, index) => (
-              <motion.li
-                variants={childVariants}
-                key={index}
-                whileHover={{ scale: 1.05, y: -4 }}
-                // transition={{ type: "spring", stiffness: 300 }}
-              >
-                <Link
-                  href={links?.link}
-                  className="text-[#EAE4D6] font-switzer text-sm font-medium uppercase flex items-center justify-center gap-x-1 md:gap-x-0 "
+            {footerLink?.menu_tree?.map((links, index) => {
+              const url = links?.url === "" ? "/" : links?.url;
+              return (
+                <motion.li
+                  variants={childVariants}
+                  key={index}
+                  whileHover={{ scale: 1.05, y: -4 }}
+                  // transition={{ type: "spring", stiffness: 300 }}
                 >
-                  {links?.title}{" "}
-                  {index !== footerLink.length - 1 && (
-                    <span className="md:hidden">|</span>
-                  )}
-                </Link>
-              </motion.li>
-            ))}
+                  <Link
+                    href={url}
+                    className="text-[#EAE4D6] font-switzer text-sm font-medium uppercase flex items-center justify-center gap-x-1 md:gap-x-0 "
+                  >
+                    {links?.title}{" "}
+                    {index !== footerLink.menu_tree?.length - 1 && (
+                      <span className="md:hidden">|</span>
+                    )}
+                  </Link>
+                </motion.li>
+              );
+            })}
           </motion.ul>
         </motion.div>
       </div>

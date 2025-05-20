@@ -125,7 +125,12 @@ input[type="number"]::-webkit-outer-spin-button {
   background: url(/common/worksBG.svg) center no-repeat;
   background-position: center center;
 }
-
+.service_works span {
+  @apply md:ml-[12%];
+}
+.careers_data div a {
+  @apply mt-4 inline-block;
+}
 @layer components {
   .event-tab {
     @apply font-switzer text-sm  relative pb-5  text-center  uppercase leading-[118.423%];

@@ -25,9 +25,9 @@ const WorksMobile = ({ works }) => {
             key={index}
           >
             <div>
-              {isVideo(work?.image) ? (
+              {isVideo(work?.image?.url) ? (
                 <video
-                  src={work?.image}
+                  src={work?.image?.url}
                   autoPlay
                   loop
                   muted
@@ -36,7 +36,7 @@ const WorksMobile = ({ works }) => {
                 />
               ) : (
                 <Image
-                  src={work?.image}
+                  src={work?.image?.url}
                   alt={work?.title || `image-${index + 1}`}
                   width={400}
                   height={650}
@@ -48,9 +48,11 @@ const WorksMobile = ({ works }) => {
                 />
               )}
             </div>
-            <p className="text-3xl text-center font-medium leading-[141%] mt-2">
-              {work?.title}
-            </p>
+            {works?.title && (
+              <p className="text-3xl text-center font-medium leading-[141%] mt-2">
+                {work?.title}
+              </p>
+            )}
           </motion.div>
         ))}
       </div>

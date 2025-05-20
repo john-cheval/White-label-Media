@@ -6,13 +6,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { sectorsData } from "@/app/lib/sectorsData";
 import { BsArrowRightShort, BsArrowLeftShort } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
 import isVideo from "@/app/lib/checkVideo";
 import { IoIosArrowRoundForward } from "react-icons/io";
-const Section1 = () => {
-  const [activeSector, setActiveSector] = useState(sectorsData[0]);
+const Section1 = ({ companiesList }) => {
+  const [activeSector, setActiveSector] = useState(companiesList[0]);
   const swiperRef = useRef(null);
 
   const itemVariant = {
@@ -30,16 +29,16 @@ const Section1 = () => {
       <div className="absolute w-full h-full top-0 left-0 -z-10">
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeSector.bgImage}
+            key={activeSector?.image?.url}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
             className="absolute inset-0"
           >
-            {isVideo(activeSector.bgImage) ? (
+            {isVideo(activeSector?.image?.url) ? (
               <video
-                src={activeSector.bgImage}
+                src={activeSector?.image?.url}
                 autoPlay
                 muted
                 loop
@@ -48,10 +47,11 @@ const Section1 = () => {
               />
             ) : (
               <Image
-                src={activeSector.bgImage}
-                alt="background"
+                src={activeSector?.image?.url}
+                alt={activeSector?.title}
                 fill
                 className="object-cover"
+                priority
                 unoptimized={
                   process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                 }
@@ -65,7 +65,7 @@ const Section1 = () => {
       <div className="grid grid-cols-12 relative z-50 md:gap-x-10 xl:gap-x-16">
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeSector.id}
+            key={activeSector?.title}
             initial="initial"
             animate="animate"
             exit="exit"
@@ -80,7 +80,7 @@ const Section1 = () => {
             >
               <div className="w-fit">
                 <Image
-                  src={activeSector?.logo}
+                  src={activeSector?.logo?.url}
                   alt={activeSector?.title}
                   height={30}
                   width={100}
@@ -112,23 +112,25 @@ const Section1 = () => {
             >
               {activeSector?.description}
             </motion.p>
-            <motion.div
-              custom={3}
-              variants={itemVariant}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="mt-auto hidden md:block mb-10 md:mb-2"
-            >
-              <Link
-                href={activeSector?.link}
-                target="_blank"
-                className="text-white font-switzer text-sm leading-[118.423%] uppercase text-center py-3 md:py-4 px-10 md:px-14 border border-white rounded-full inline-flex w-fit   items-center gap-x-2 group  "
+            {activeSector?.website_link && (
+              <motion.div
+                custom={3}
+                variants={itemVariant}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className="mt-auto hidden md:block mb-10 md:mb-2"
               >
-                {activeSector?.linkText}{" "}
-                <IoIosArrowRoundForward className="opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 text-2xl" />
-              </Link>
-            </motion.div>
+                <Link
+                  href={activeSector?.website_link}
+                  target="_blank"
+                  className="text-white font-switzer text-sm leading-[118.423%] uppercase text-center py-3 md:py-4 px-10 md:px-14 border border-white rounded-full inline-flex w-fit   items-center gap-x-2 group  "
+                >
+                  {activeSector?.title}{" "}
+                  <IoIosArrowRoundForward className="opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 text-2xl" />
+                </Link>
+              </motion.div>
+            )}
           </motion.div>
         </AnimatePresence>
 
@@ -164,18 +166,18 @@ const Section1 = () => {
               modules={[Navigation]}
               className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
             >
-              {sectorsData?.map((data, index) => {
+              {companiesList?.map((data, index) => {
                 return (
                   <SwiperSlide
                     key={index}
                     onClick={() => {
-                      if (activeSector.id !== data.id) {
+                      if (activeSector.title !== data.title) {
                         setActiveSector(data);
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }
                     }}
                     onMouseEnter={() => {
-                      if (activeSector.id !== data.id) {
+                      if (activeSector.title !== data.title) {
                         setActiveSector(data);
                       }
                     }}
@@ -191,8 +193,8 @@ const Section1 = () => {
                     >
                       <div className="relative w-full ">
                         <Image
-                          src={data?.listImage}
-                          alt={data?.listTitle}
+                          src={data?.thumbnail?.url}
+                          alt={data?.title}
                           width={300}
                           height={400}
                           sizes="100vw"
@@ -203,11 +205,11 @@ const Section1 = () => {
                         />
                         <div className="bg-sector-grad-2 w-full h-full absolute bottom-0 left-0 z-[5] " />
                         <p className="text-white absolute bottom-9  w-full z-[10] text-center text-2xl px-1 font-medium leading-[141%]">
-                          {data?.listTitle}
+                          {data?.title}
                         </p>
                       </div>
                       <p className="font-switzer text-center text-sm md:text-base leading-[161%] font-light text-white">
-                        {data?.listDescription}
+                        {data?.short_description}
                       </p>
                     </motion.div>
                   </SwiperSlide>
@@ -230,7 +232,7 @@ const Section1 = () => {
               </button>
             </div>
             <div className="flex-  items-center flex-wrap hidden md:flex">
-              {sectorsData.map((data, index) => (
+              {companiesList?.map((data, index) => (
                 <button
                   key={index}
                   onClick={() => {
@@ -239,11 +241,11 @@ const Section1 = () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                   className={`text-white text-sm font-medium leading-[141%] transition-colors duration-300 ${
-                    activeSector.id === data.id ? "underline-" : ""
+                    activeSector?.title === data?.title ? "underline-" : ""
                   }`}
                 >
-                  {data.listTitle}
-                  {index !== sectorsData.length - 1 && (
+                  {data?.title}
+                  {index !== companiesList.length - 1 && (
                     <span className="mx-2">|</span>
                   )}
                 </button>

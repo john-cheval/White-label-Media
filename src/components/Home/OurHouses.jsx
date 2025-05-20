@@ -1,11 +1,11 @@
-import { houseData } from "@/app/lib/homeData";
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import * as motion from "motion/react-client";
 
-const OurHouses = () => {
+const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
   const containerVariants = {
     hidden: {},
     show: {
@@ -36,13 +36,13 @@ const OurHouses = () => {
               variants={itemVariants}
               className="main-heading text-center md:text-left mb-2 md:mb-0"
             >
-              Our Houses
+              {houseHeading}
             </motion.h4>
             <motion.p
               variants={itemVariants}
               className="font-gt text-center md:text-left leading-[141%] text-3xl md:text-4xl lg:text-[40px] mb-5 md:mb-0"
             >
-              Discover our unique and specialised agencies
+              {houseDesc}
             </motion.p>
 
             <motion.div
@@ -78,9 +78,9 @@ const OurHouses = () => {
             viewport={{ once: true, amount: 0.4 }}
             className="col-span-12 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 mx-auto- sm:mx-0"
           >
-            {houseData?.slice(0, 4)?.map((house, index) => (
+            {companiesList?.slice(0, 4)?.map((house, index) => (
               <div
-                key={house?.id || index}
+                key={house?.title || index}
                 className={`border border-r-0 sm:border-r ${
                   index === 1 || index === 0
                     ? "border-t-0 border-b-1 sm:border-b-0"
@@ -94,12 +94,13 @@ const OurHouses = () => {
                   className="flex md:justify-between items-center"
                 >
                   <Link
-                    href={"/about"}
+                    href={house?.website_link}
+                    aria-label={`Go To ${house?.title} website`}
                     className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0"
                   >
                     <Image
-                      src={house?.image}
-                      alt="image-1"
+                      src={house?.logo?.url}
+                      alt={house?.title}
                       sizes="100vw"
                       height={100}
                       width={250}
@@ -110,7 +111,8 @@ const OurHouses = () => {
                     />
                   </Link>
                   <Link
-                    href={"/about"}
+                    href={house?.website_link}
+                    aria-label={`Go To ${house?.title} website`}
                     className="text-2xl hidden md:block opacity-0 group-hover:opacity-100 transition-all hover:rotate-45 duration-300"
                   >
                     <GoArrowUpRight />
@@ -123,7 +125,7 @@ const OurHouses = () => {
                 >
                   <span className="h-[1px] w-10 bg-[#EAE4D6] mt-7 sm:mt-0 block mx-auto sm:mx-0" />
                   <p className="text-main font-switzer text-sm uppercase !leading-[1.7] sm:max-w-[250px] mx-auto sm:mx-0 text-center sm:text-left">
-                    {house?.desc}
+                    {house?.home_page_description}
                   </p>
                 </motion.div>
               </div>
@@ -141,9 +143,9 @@ const OurHouses = () => {
           className="grid grid-cols-12"
         >
           <div className="col-span-12 md:col-span-8 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2">
-            {houseData?.slice(4)?.map((house, index) => (
+            {companiesList?.slice(4)?.map((house, index) => (
               <div
-                key={house?.id || index}
+                key={house?.title || index}
                 className={`border border-r-0 sm:border-r ${
                   index === 1 || index === 0
                     ? "border-t-0 border-b-1 sm:border-b-0"
@@ -157,12 +159,13 @@ const OurHouses = () => {
                   className="flex md:justify-between items-center"
                 >
                   <Link
-                    href={"/about"}
+                    href={house?.website_link}
+                    aria-label={`Go To ${house?.title} website`}
                     className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0 "
                   >
                     <Image
-                      src={house?.image}
-                      alt="image-1"
+                      src={house?.logo?.url}
+                      alt={house?.title}
                       sizes="100vw"
                       height={100}
                       width={250}
@@ -173,7 +176,8 @@ const OurHouses = () => {
                     />
                   </Link>
                   <Link
-                    href={"/about"}
+                    href={house?.website_link}
+                    aria-label={`Go To ${house?.title} website`}
                     className="text-2xl hidden md:block opacity-0 group-hover:opacity-100 transition-all hover:rotate-45 duration-300 "
                   >
                     <GoArrowUpRight />
@@ -186,7 +190,7 @@ const OurHouses = () => {
                 >
                   <span className="h-[1px] w-10 bg-[#EAE4D6] block mt-7 sm:mt-0  mx-auto sm:mx-0" />
                   <p className="text-main font-switzer text-sm uppercase !leading-[1.7] max-w-[250px] mx-auto sm:mx-0 text-center sm:text-left">
-                    {house?.desc}
+                    {house?.home_page_description}
                   </p>
                 </motion.div>
               </div>
@@ -202,7 +206,7 @@ const OurHouses = () => {
               playsInline
               muted
               loop
-              src="/Home/test.mp4"
+              src={house_video}
               className="w-full h-full object-cover "
             />
           </motion.div>

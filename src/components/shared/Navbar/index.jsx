@@ -4,14 +4,13 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { IoMenuOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
-import { navLinks } from "@/app/lib/navLinks";
 import { usePathname } from "next/navigation";
 import { IoIosArrowForward } from "react-icons/io";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import useMediaQuery from "@/app/hooks/useMediaQuery";
 
-const Navbar = () => {
+const Navbar = ({ navLinks }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +22,7 @@ const Navbar = () => {
     const currentScrollY = window.scrollY;
     setBgColor(currentScrollY > 80);
   }, []);
+
   useEffect(() => {
     const currentScrollY = window.scrollY;
     const handleScroll = () => {
@@ -137,21 +137,22 @@ const Navbar = () => {
               </div>
 
               <ul className="flex flex-col gap-y-6">
-                {navLinks.map((link, index) => {
-                  const isActive = pathname === link.link;
+                {navLinks?.map((link, index) => {
+                  const url = link?.url === "" ? "/" : link?.url;
+                  const isActive = pathname === url;
                   return (
                     <li
                       key={index}
                       className="flex items-center justify-between border-b pb-5 md:pb-[22px] border-b-[#DBDBDB] group"
                     >
                       <Link
-                        href={link.link}
+                        href={url}
                         className={`text-xl md:text-2xl lg:text-3xl uppercase leading-[118.423%] font-medium  ${
                           index === 0 ? "pt-5 md:pt-6" : ""
                         } ${isActive ? "font-semibold" : "font-normal"}`}
                         onClick={() => setIsOpen(false)}
                       >
-                        {link.title}
+                        {link?.title}
                       </Link>
                       <IoIosArrowForward
                         color="#B8B8B8"

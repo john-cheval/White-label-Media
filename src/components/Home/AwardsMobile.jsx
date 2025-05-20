@@ -53,8 +53,8 @@ const AwardsMobile = ({ awards }) => {
             return (
               <SwiperSlide key={index}>
                 <Image
-                  src={award.image}
-                  alt={`Award ${index + 1}`}
+                  src={award?.url}
+                  alt={`${award?.title} ||Award ${index + 1}`}
                   width={250}
                   height={100}
                   sizes="100vw"

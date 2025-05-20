@@ -34,24 +34,24 @@ const ContactForm = () => {
     e.preventDefault();
 
     const newformData = new FormData();
-    newformData.append("text-name", formData.name);
-    newformData.append("email-address", formData.email);
-    newformData.append("tel-phone", formData.phone);
-    newformData.append("textarea-message", formData.message);
-    // newformData.append("_wpcf7_unit_tag", "19c102c");
+    newformData.append("your-name", formData.name);
+    newformData.append("your-email", formData.email);
+    newformData.append("your-phone", formData.phone);
+    newformData.append("your-message", formData.message);
+    newformData.append("_wpcf7_unit_tag", "8c6c893");
 
     try {
-      //   const response = await fetch(
-      //     "https://chevaldemo.xyz/demo/alpha-experience/wp-json/contact-form-7/v1/contact-forms/256/feedback",
-      //     {
-      //       method: "POST",
-      //       body: newformData,
-      //     }
-      //   );
+      const response = await fetch(
+        "https://chevaldemo.xyz/demo/white-label/wp-json/contact-form-7/v1/contact-forms/5/feedback",
+        {
+          method: "POST",
+          body: newformData,
+        }
+      );
 
-      //   if (!response.ok) {
-      //     throw new Error(`HTTP error! Status: ${response.status}`);
-      //   }
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
       setFormData({
         name: "",
         email: "",
@@ -74,7 +74,7 @@ const ContactForm = () => {
         required
         maxLength={50}
         id="Name"
-        name="Name"
+        name="name"
         value={formData.name}
         onChange={handleChange}
         variants={inputVariants}
@@ -89,7 +89,7 @@ const ContactForm = () => {
         required
         maxLength={50}
         id="Email"
-        name="Email"
+        name="email"
         value={formData.email}
         onChange={handleChange}
         variants={inputVariants}

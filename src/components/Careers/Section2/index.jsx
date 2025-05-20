@@ -3,13 +3,7 @@ import React from "react";
 import * as motion from "motion/react-client";
 import isVideo from "@/app/lib/checkVideo";
 
-const Section2 = () => {
-  const images = [
-    "/careers/image3.jpg",
-    "/careers/image-1.jpg",
-    "/careers/image-1.jpg",
-  ];
-
+const Section2 = ({ data }) => {
   const parentStagger = {
     hidden: {},
     visible: {
@@ -41,17 +35,18 @@ const Section2 = () => {
           variants={fadeUp}
           className="text-3xl md:text-[5vw] xl:text-[80px] font-medium leading-[123%] uppercase "
         >
-          OUR ETHOS
+          {data?.main_heading}
         </motion.h3>
-        <motion.p
+        <motion.div
           variants={fadeUp}
           className="font-switzer text-base font-light leading-[161%] max-w-[700px]- text-center md:text-right"
+          dangerouslySetInnerHTML={{ __html: data?.description }}
         >
-          We prioritize integrity, equality, and inclusion,{" "}
+          {/* We prioritize integrity, equality, and inclusion,{" "}
           <br className="hidden md:block" />
           fostering an environment where everyone thrives. Providing equal and
-          inclusive opportunities for all.
-        </motion.p>
+          inclusive opportunities for all. */}
+        </motion.div>
       </motion.div>
 
       <motion.div
@@ -61,7 +56,7 @@ const Section2 = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
       >
-        {images.map((image, index) => {
+        {data?.images_gallery?.map((image, index) => {
           const colSpanClass =
             index === 0
               ? "col-span-12- md:col-span-6"
@@ -84,9 +79,9 @@ const Section2 = () => {
                   : ""
               }`}
             >
-              {isVideo(image) ? (
+              {isVideo(image?.url) ? (
                 <video
-                  src={image}
+                  src={image?.url}
                   autoPlay
                   playsInline
                   muted
@@ -95,7 +90,7 @@ const Section2 = () => {
                 />
               ) : (
                 <Image
-                  src={image}
+                  src={image?.url}
                   alt={`image-${index + 1}`}
                   sizes="100vw"
                   height={500}
