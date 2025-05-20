@@ -8,7 +8,16 @@ import { LuArrowRight } from "react-icons/lu";
 import useMediaQuery from "@/app/hooks/useMediaQuery";
 import Image from "next/image";
 
-const Hero = () => {
+const Hero = ({
+  titleTop,
+  titleBottom,
+  videoLink,
+  homeLinkText,
+  homeLink,
+  description,
+  clientName,
+  position,
+}) => {
   const videoRef = useRef(null);
   const headerRef = useRef(null);
   const [videoExpanded, setVidoExpanded] = useState(false);
@@ -114,7 +123,7 @@ const Hero = () => {
     >
       <div className="grid grid-cols-12">
         <h1 className="uppercase text-main font-gambetta text-3xl sm:text-[6vw] 5xl:text-[100px]  leading-[1.30] col-span-8 sm:col-span-5">
-          A CREATIVE COLLECTIVE
+          {titleTop}
         </h1>
       </div>
 
@@ -128,7 +137,7 @@ const Hero = () => {
             tabIndex={-1}
             loop
             playsInline
-            src="/Home/hero.mp4"
+            src={videoLink || "/Home/hero.mp4"}
             className=" w-full min-w-[220px] min-h-[120px] sm:h-auto rounded-[20px] rotate-[-4deg]"
           />
 
@@ -138,7 +147,7 @@ const Hero = () => {
               muted
               loop
               playsInline
-              src="/Home/hero.mp4"
+              src={videoLink || "/Home/hero.mp4"}
               className="col-start-3 col-end-9 sm:col-start-5 sm:col-end-9  w-full min-w-[220px] min-h-[150px] hidden sm:block sm:h-auto rounded-[20px] rotate-[-4deg]"
             />
           )}
@@ -149,21 +158,20 @@ const Hero = () => {
                 <div className="flex gap-x-11 relative items-center md:items-start  ">
                   <div>
                     <p className="font-gambetta text-white- text-white text-lg sm:text-xl md:text-2xl lg:text-3xl leading-main uppercase ">
-                      “I believe in the unique identity of each brand and that
-                      every business has the opportunity to go global.”
+                      {description}
                     </p>
 
                     <div className="flex flex-col gap-y-2 md:gap-y-3 mt-3">
                       <span className="font-switzer text-sm md:text-base leading-[193%] text-sec- text-white">
-                        Shraddha Barot Amariei
+                        {clientName}
                       </span>
                       <span className="font-switzer text-sm md:text-base leading-[193%] text-sec- text-white">
-                        Group CEO & Founder
+                        {position}
                       </span>
                     </div>
                   </div>
 
-                  <Link href={"/about"} aria-label="about the group">
+                  <Link href={homeLink} aria-label="about the group">
                     <Image
                       src={"/common/arrow_outward.svg"}
                       alt="arrow_outward"
@@ -187,26 +195,27 @@ const Hero = () => {
         {isShowButton && (
           <div className="col-span-3 pb-12 mt-auto ">
             <Link
-              href={"/about"}
+              href={homeLink}
               aria-label="About the group"
               className="text-main w-fit font-switzer gap-x-3 text-sm leading-main uppercase py-4 px-7 rounded-full  border border-main  h-fit flex items-center justify-between group mt-auto hover:bg-main hover:text-sec transition-all duration-300"
             >
-              About the group{" "}
+              {homeLinkText}
               <LuArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           </div>
         )}
         <div className="col-start-2  sm:col-start-4 -col-end-1">
-          <h2 className="uppercase text-main font-gambetta text-3xl sm:text-[6vw] 5xl:text-[100px]  leading-[1.30]  text-right">
-            CRAFTING THE <br /> FUTURE OF BRANDS
-          </h2>
+          <h2
+            className="uppercase text-main font-gambetta text-3xl sm:text-[6vw] 5xl:text-[100px]  leading-[1.30]  text-right"
+            dangerouslySetInnerHTML={{ __html: titleBottom }}
+          ></h2>
           {!isShowButton && (
             <Link
-              href={"/about"}
+              href={homeLink}
               aria-label="About the group"
               className="text-main  w-fit font-switzer gap-x-3 text-sm leading-main uppercase py-4 px-7 rounded-full  border border-main  h-fit flex items-center justify-between group mt-auto- -ml-5- mt-6 hover:bg-main hover:text-sec transition-all duration-300"
             >
-              About the group{" "}
+              {homeLinkText}
               <LuArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
           )}

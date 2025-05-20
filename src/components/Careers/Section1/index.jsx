@@ -27,7 +27,7 @@ const imageVariants = (direction) => ({
     transition: { duration: 0.8, ease: "easeOut" },
   },
 });
-const Section1 = () => {
+const Section1 = ({ data }) => {
   return (
     <section className="containers pb-11 md:pyb12 lg:pb-16 xl:pb-20 pt-32 md:pt-48 lg:pt-60 2xl:pb-24 space-y-8 md:space-y-12 lg:space-y-16 xl:space-y-20 2xl:space-y-28 relative overflow-hidden careers-bg ">
       <div className="grid grid-cols-12 gap-y-6 md:gap-y-0 gap-x-0 md:gap-x-8 lg:gap-x-10 relative z-50 md:pl-8 lg:pl-10 xl:pl-16 ">
@@ -42,20 +42,20 @@ const Section1 = () => {
             variants={textVariants}
             className="font-switzer text-center text-sm leading-[118.423%] uppercase py-2 px-5 w-fit rounded-full border border-main mx-auto md:mx-0 mb-6 md:mb-0"
           >
-            Be part of our vision
+            {data[0]?.small_heading}
           </motion.p>
           <motion.h1
             variants={textVariants}
             className="text-3xl lg:text-[5vw] xl:text-[70px] 3xl:text-[110px] leading-[118.423%] uppercase text-center md:text-left mb-2 md:mb-0
             "
           >
-            Work with
+            {data[0]?.main_heading}
           </motion.h1>
           <motion.p
             variants={textVariants}
             className="text-xl md:text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-medium uppercase leading-[141%] text-center md:text-left"
           >
-            White Label Media
+            {data[0]?.sub_heading}
           </motion.p>
         </motion.div>
         <motion.div
@@ -66,7 +66,7 @@ const Section1 = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <Image
-            src={"/careers/image1.jpg"}
+            src={data[0]?.image?.url}
             alt="Team_white_label"
             height={550}
             width={780}
@@ -86,7 +86,7 @@ const Section1 = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <Image
-            src={"/careers/image.jpg"}
+            src={data[1]?.image?.url}
             alt="Team_white_label"
             height={550}
             width={780}
@@ -107,18 +107,13 @@ const Section1 = () => {
             variants={textVariants}
             className="text-3xl md:text-[5vw] 2xl:text-[70px] leading-[123%] uppercase font-medium text-center md:text-left"
           >
-            CORE TEAM
+            {data[1]?.main_heading}
           </motion.h1>
-          <motion.p
+          <motion.div
             variants={textVariants}
             className="text-sm md:text-base font-light font-switzer  leading-[161%] md:max-w-[450px] md:ml-[50px] text-center md:text-left"
-          >
-            A proud multi-national team of 50+ experts consisting of more than
-            16 different nationalities, we bring our diverse cultural and work
-            experiences from across the globe to our clients.No job is too small
-            and egos are left at the door. Driven by passion our team is a bunch
-            of happy people who love what they do.
-          </motion.p>
+            dangerouslySetInnerHTML={{ __html: data[1]?.description }}
+          ></motion.div>
         </motion.div>
       </div>
 

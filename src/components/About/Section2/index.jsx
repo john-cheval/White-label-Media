@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Section2 = () => {
+const Section2 = ({ titleOne, titleTwo }) => {
   const firstSlider = useRef(null);
   const secondSlider = useRef(null);
   const slider1 = useRef(null);
@@ -57,7 +57,7 @@ const Section2 = () => {
           ref={firstSlider}
         >
           <h3 className=" text-[clamp(30px,5vw,100px)] uppercase">
-            Trusted by 300+ brands
+            {titleOne}
           </h3>
         </div>
       </div>
@@ -70,7 +70,7 @@ const Section2 = () => {
           ref={secondSlider}
         >
           <h3 className=" text-[clamp(30px,5vw,100px)] uppercase">
-            to create lasting impact
+            {titleTwo}
           </h3>
         </div>
       </div>
@@ -93,7 +93,7 @@ const Section2 = () => {
             }}
             transition={{ duration: 0.6 }}
           >
-            Trusted by 300+ brands
+            {titleOne}
           </motion.h3>
 
           <motion.h3
@@ -102,9 +102,9 @@ const Section2 = () => {
               hidden: { opacity: 0, y: 40 },
               visible: { opacity: 1, y: 0 },
             }}
-            transition={{ duration: 0.6, delay: 0.3 }} // delay for stagger
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            to create lasting impact
+            {titleTwo}
           </motion.h3>
         </div>
       </motion.div>

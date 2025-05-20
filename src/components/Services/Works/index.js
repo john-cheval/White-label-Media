@@ -4,20 +4,18 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
-import { servicesWorkData } from "@/app/lib/servicesData";
 import Image from "next/image";
 import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
 import isVideo from "@/app/lib/checkVideo";
 
-const Works = () => {
-  const prevRefOne = useRef(null);
-  const nextRefOne = useRef(null);
+const Works = ({ heading, workList }) => {
   const swiperRef = useRef(null);
   return (
     <section className="py-12 md:py-14 lg:py-16 xl:py-20--  containers ">
-      <h3 className="text-[40px] sm:text-[5vw] 3xl:text-[80px]  leading-[118.423%] uppercase md:pl-10 lg:pl-20 2xl:pl-28 3xl:pl-36 text-center md:text-left">
-        Selection of <br /> <span className="md:ml-[12%]">our works</span>
-      </h3>
+      <h3
+        className="text-[40px] sm:text-[5vw] 3xl:text-[80px]  leading-[118.423%] uppercase md:pl-10 lg:pl-20 2xl:pl-28 3xl:pl-36 text-center md:text-left service_works"
+        dangerouslySetInnerHTML={{ __html: heading }}
+      ></h3>
 
       <div className="w-full pt-7 md:pt-14 md:px-10 lg:px-14 xl:px-16 pb-7 md:pb-16 lg:pb-20- xl:pb-28-">
         <Swiper
@@ -27,15 +25,11 @@ const Works = () => {
           slidesPerView={3}
           spaceBetween={42}
           loop
-          loopedslides={servicesWorkData.length}
+          loopedslides={workList?.length}
           autoplay={{
             delay: 2000,
             disableOnInteraction: false,
           }}
-          // navigation={{
-          //   prevEl: prevRefOne.current,
-          //   nextEl: nextRefOne.current,
-          // }}
           breakpoints={{
             0: {
               slidesPerView: 1,
@@ -57,10 +51,6 @@ const Works = () => {
             }%`;
           }}
           onInit={(swiper) => {
-            // swiper.params.navigation.prevEl = prevRefOne.current;
-            // swiper.params.navigation.nextEl = nextRefOne.current;
-            // swiper.navigation.init();
-            // swiper.navigation.update();
             const progress = (swiper.realIndex + 1) / swiper.slides.length;
             document.querySelector(".progress-fill").style.width = `${
               progress * 100
@@ -69,7 +59,7 @@ const Works = () => {
           modules={[Navigation, Autoplay]}
           className="mySwiper ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
         >
-          {servicesWorkData?.map((item, idx) => {
+          {workList?.map((item, idx) => {
             const isEvenCard = idx % 2 === 1;
             return (
               <SwiperSlide key={idx}>
@@ -78,10 +68,10 @@ const Works = () => {
                     isEvenCard ? "md:mt-[100px]" : ""
                   } `}
                 >
-                  {!isVideo(item?.image) ? (
+                  {!isVideo(item?.image?.url) ? (
                     <div className="max-h-[300px]-">
                       <Image
-                        src={item?.image}
+                        src={item?.image?.url}
                         alt={`work-${idx}`}
                         className="w-full h-auto"
                         height={300}
@@ -101,19 +91,20 @@ const Works = () => {
                         playsInline
                         className="w-full h-full object-cover"
                       >
-                        <source src={item?.image} type="video/mp4" />
-                        <source src={item?.image} type="video/quicktime" />
+                        <source src={item?.image?.url} type="video/mp4" />
+                        <source src={item?.image?.url} type="video/quicktime" />
                         Your browser does not support the video tag.
                       </video>
                     </div>
                   )}
-                  <p
-                    className={`text-sm md:text-base font-switzer text-center md:text-left leading-[161%] ${
-                      isEvenCard ? "md:-order-1" : ""
-                    }`}
-                  >
-                    {item.descrption}
-                  </p>
+                  {item?.description && (
+                    <div
+                      className={`text-sm md:text-base font-switzer text-center md:text-left leading-[161%] ${
+                        isEvenCard ? "md:-order-1" : ""
+                      }`}
+                      dangerouslySetInnerHTML={{ __html: item?.description }}
+                    ></div>
+                  )}
                 </div>
               </SwiperSlide>
             );
@@ -124,7 +115,6 @@ const Works = () => {
       <div className="flex items-center gap-x-3 md:gap-x-8 lg:gap-x-11 md:px-10 lg:px-14 xl:px-16">
         <button
           onClick={() => swiperRef.current?.slidePrev()}
-          // ref={prevRefOne}
           className={`custom-prev p-3 sm:p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
         >
           <IoArrowBackSharp className="text-xl md:text-2xl lg: text-main" />
@@ -134,7 +124,6 @@ const Works = () => {
         </div>
         <button
           onClick={() => swiperRef.current?.slideNext()}
-          // ref={nextRefOne}
           className={`custom-next p-3 sm:p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
         >
           <IoArrowForwardSharp className="text-xl md:text-2xl text-main" />

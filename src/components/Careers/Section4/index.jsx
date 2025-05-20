@@ -19,7 +19,7 @@ const fadeUp = {
     transition: { duration: 0.6, ease: "easeOut" },
   },
 };
-const Section4 = () => {
+const Section4 = ({ data }) => {
   return (
     <section className="pb-7 md:pb-10 lg:pb-20 xl:pb-28 2xl:pb-40 containers careersbg">
       <motion.div
@@ -33,22 +33,20 @@ const Section4 = () => {
           variants={fadeUp}
           className=" text-3xl md:text-[40px] xl:text-[60px] font-medium leading-[141%]"
         >
-          Be part of our Vision
+          {data?.main_heading}
         </motion.h3>
-        <motion.p
+        <motion.div
           variants={fadeUp}
-          className=" font-light font-switzer text-sm md:text-base  leading-[161%] mb-1 md:mb-3"
-        >
-          Join us in shaping the future—where creativity, integrity, and
-          innovation come together to make an impact
-        </motion.p>
+          className="careers_data"
+          dangerouslySetInnerHTML={{ __html: data?.description }}
+        ></motion.div>
         <motion.div variants={fadeUp}>
-          <Link
+          {/* <Link
             href={"mailto:hr@whitelabelmedia.com"}
             className=" text-xl lg:text-2xl xl:text-[40px]  font-medium leading-[141%]"
           >
             hr@whitelabelmedia.com
-          </Link>
+          </Link> */}
         </motion.div>
       </motion.div>
     </section>

@@ -1,4 +1,3 @@
-import { awardsList } from "@/app/lib/homeData";
 import Image from "next/image";
 import React from "react";
 import * as motion from "motion/react-client";
@@ -21,7 +20,7 @@ const itemVariants = {
     transition: { duration: 0.5, ease: "easeOut" },
   },
 };
-const Awards = () => {
+const Awards = ({ heading, awardsList }) => {
   const rows = [
     awardsList?.slice(0, 4),
     awardsList?.slice(4, 7),
@@ -36,7 +35,7 @@ const Awards = () => {
         viewport={{ once: true, amount: 0.5 }}
         className="main-heading !text-white text-center md:text-left"
       >
-        Awards
+        {heading || "Awards"}
       </motion.h3>
 
       <AwardsMobile awards={awardsList} />
@@ -80,8 +79,8 @@ const Awards = () => {
                        }`}
                   >
                     <Image
-                      src={award.image}
-                      alt={`Award ${index + 1}`}
+                      src={award?.url}
+                      alt={`${award?.title} ||Award ${index + 1}`}
                       width={250}
                       height={100}
                       sizes="100vw"

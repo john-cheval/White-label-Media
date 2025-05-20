@@ -40,7 +40,7 @@ const ClientsMobile = ({ clientsList, isReversed = false }) => {
           >
             <Image
               src={client?.image}
-              alt={`image-${index + 1}`}
+              alt={`${client?.title} || image-${index + 1}`}
               width={250}
               height={150}
               sizes="100vw"

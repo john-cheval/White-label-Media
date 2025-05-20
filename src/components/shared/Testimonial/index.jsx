@@ -1,5 +1,4 @@
 "use client";
-import { testimonialData } from "@/app/lib/homeData";
 import { truncateByChars, truncateByWords } from "@/app/lib/truncateByWords";
 import React, { useState } from "react";
 import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
@@ -11,7 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Modal from "../Modal";
 import useMediaQuery from "@/app/hooks/useMediaQuery";
 
-const Testimonials = () => {
+const Testimonials = ({ heading, testiList }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -53,7 +52,7 @@ const Testimonials = () => {
             variants={itemVariants}
             className="main-heading text-center md:text-left"
           >
-            What Our Clients Say
+            {heading}
           </motion.h3>
           <motion.div
             variants={itemVariants}
@@ -121,14 +120,18 @@ const Testimonials = () => {
             modules={[Navigation, Autoplay]}
             className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
           >
-            {testimonialData?.map((data, index) => {
+            {testiList?.map((data, index) => {
               const titleText = truncateByChars(
                 data?.title,
                 isDesktop ? 25 : 30,
                 true
               );
               const { text: descText, isTruncated: showReadMore } =
-                truncateByWords(data?.description, isDesktop ? 30 : 50, false);
+                truncateByWords(
+                  data?.full_description,
+                  isDesktop ? 30 : 50,
+                  false
+                );
               return (
                 <SwiperSlide key={index}>
                   <div className="bg-white py-6 md:py-10 lg:py-14 px-6 md:px-10 lg:px-14 text-main flex flex-col gap-y-4 md:gap-y-5">
@@ -149,10 +152,10 @@ const Testimonials = () => {
 
                     <div className="flex  flex-col mt-4 md:mt-5">
                       <span className="text-2xl md:text-3xl leading-[141%]">
-                        {data?.name}
+                        {data?.client_name}
                       </span>
                       <span className="text-sm md:text-base font-switzer leading-[193%]">
-                        {data?.designation}
+                        {data?.position}
                       </span>
                     </div>
                   </div>

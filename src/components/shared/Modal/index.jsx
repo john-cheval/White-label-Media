@@ -46,16 +46,17 @@ const Modal = ({ handleClose, modalOpen, data }) => {
             >
               {data?.title}
             </h5>
-            <p className="font-switzer text-sm md:text-base leading-193%] text-justify- text-center w-[90%] lg:max-w-[950px] max-h-[150px] md:max-h-[300px] overflow-scroll scrollbar-hide">
-              {data?.description}
-            </p>
+            <div
+              className="font-switzer text-sm md:text-base leading-193%] text-justify- text-center w-[90%] lg:max-w-[950px] max-h-[150px] md:max-h-[300px] overflow-scroll scrollbar-hide"
+              dangerouslySetInnerHTML={{ __html: data?.full_description }}
+            ></div>
 
             <div className="flex flex-col gap-y-2 md:gap-y-3">
               <span className="text-center  text-2xl md:text-3xl leading-[141%]">
-                {data?.name}
+                {data?.client_name}
               </span>
               <span className="text-center font-switzer  text-sm md:text-base leading-[193%]">
-                {data?.designation}
+                {data?.position}
               </span>
             </div>
             <button

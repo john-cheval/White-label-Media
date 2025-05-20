@@ -1,5 +1,4 @@
 "use client";
-import { workData, workDataMobile } from "@/app/lib/homeData";
 import Image from "next/image";
 import React, { useRef } from "react";
 import gsap from "gsap";
@@ -26,16 +25,36 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const Works = () => {
+const Works = ({ heading, description, workList }) => {
+  const workData = Object.values(workList);
   const firstSlider = useRef(null);
   const secondSlider = useRef(null);
   const thirdSlider = useRef(null);
   const containerRef = useRef(null);
   const isMobile = useMediaQuery("(max-width: 768px)");
 
-  const firstSet = workData.slice(0, 6);
-  const secondSet = workData.slice(6, 12);
-  const thirdSet = workData.slice(12, 18);
+  const total = workData?.length;
+  const chunkSize = Math.ceil(total / 3);
+
+  const firstSet = [
+    {
+      title: "",
+      image: {
+        url: "/works/dummy.jpg",
+      },
+    },
+    ...workData.slice(0, chunkSize),
+  ];
+  const secondSet = workData.slice(chunkSize, chunkSize * 2);
+  const thirdSet = [
+    {
+      title: "",
+      image: {
+        url: "/works/dummy.jpg",
+      },
+    },
+    ...workData.slice(chunkSize * 2),
+  ];
 
   useGSAP(
     () => {
@@ -82,15 +101,13 @@ const Works = () => {
           variants={itemVariants}
           className="main-heading col-span-12 text-center md:text-left md:col-span-4"
         >
-          Selection of our works
+          {heading}
         </motion.h3>
         <motion.p
           variants={itemVariants}
           className="col-span-12 md:col-span-8 text-center md:text-left font-switzer text-base leading-[193%] mt-5 hidden md:block"
         >
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley...
+          {description}
         </motion.p>
       </motion.div>
 
@@ -105,9 +122,9 @@ const Works = () => {
           >
             {[...firstSet]?.map((work, index) => (
               <div key={index} className="space-y-4">
-                {isVideo(work?.image) ? (
+                {isVideo(work?.image?.url) ? (
                   <video
-                    src={work?.image}
+                    src={work?.image?.url}
                     autoPlay
                     loop
                     muted
@@ -116,7 +133,7 @@ const Works = () => {
                   />
                 ) : (
                   <Image
-                    src={work?.image}
+                    src={work?.image?.url}
                     alt={work?.title || `image-${index + 1}`}
                     width={400}
                     height={650}
@@ -141,9 +158,9 @@ const Works = () => {
           <div className="flex flex-col gap-y-24" ref={secondSlider}>
             {[...secondSet]?.map((work, index) => (
               <div key={index} className="space-y-4">
-                {isVideo(work?.image) ? (
+                {isVideo(work?.image?.url) ? (
                   <video
-                    src={work?.image}
+                    src={work?.image?.url}
                     autoPlay
                     loop
                     muted
@@ -152,7 +169,7 @@ const Works = () => {
                   />
                 ) : (
                   <Image
-                    src={work?.image}
+                    src={work?.image?.url}
                     alt={work?.title || `image-${index + 1}`}
                     width={400}
                     height={650}
@@ -176,9 +193,9 @@ const Works = () => {
           <div className="flex flex-col gap-y-24" ref={thirdSlider}>
             {[...thirdSet]?.map((work, index) => (
               <div key={index} className="space-y-4">
-                {isVideo(work?.image) ? (
+                {isVideo(work?.image?.url) ? (
                   <video
-                    src={work?.image}
+                    src={work?.image?.url}
                     autoPlay
                     loop
                     muted
@@ -187,7 +204,7 @@ const Works = () => {
                   />
                 ) : (
                   <Image
-                    src={work?.image}
+                    src={work?.image?.url}
                     alt={work?.title || `image-${index + 1}`}
                     width={400}
                     height={650}
@@ -199,9 +216,11 @@ const Works = () => {
                   />
                 )}
 
-                <p className="text-3xl font-medium leading-[141%]">
-                  {work?.title}
-                </p>
+                {work?.title && (
+                  <p className="text-3xl font-medium leading-[141%]">
+                    {work?.title}
+                  </p>
+                )}
               </div>
             ))}
           </div>
@@ -209,7 +228,7 @@ const Works = () => {
       </div>
 
       <div className="md:hidden pt-9">
-        <WorksMobile works={workDataMobile} />
+        <WorksMobile works={workData} />
       </div>
     </section>
   );

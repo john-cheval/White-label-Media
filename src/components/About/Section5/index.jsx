@@ -3,11 +3,7 @@ import Link from "next/link";
 import React from "react";
 import * as motion from "motion/react-client";
 import Section5Mobile from "./Section5Mobile";
-const Section5 = () => {
-  const clientsData = Array.from({ length: 10 }, (_, i) => {
-    return `About/group/${i + 1}.svg`;
-  });
-
+const Section5 = ({ compainesList }) => {
   const containerVariants = {
     hidden: {},
     show: {
@@ -28,7 +24,7 @@ const Section5 = () => {
 
   return (
     <section className="px-6 md:px-16 lg:px-20 xl:px-[116px] pb-16">
-      <Section5Mobile clients={clientsData} />
+      <Section5Mobile clients={compainesList} />
 
       <motion.div
         className="md:flex hidden   flex-wrap gap-10 md:gap-16 justify-center items-center"
@@ -37,11 +33,11 @@ const Section5 = () => {
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
       >
-        {clientsData?.map((client, index) => (
+        {compainesList?.map((client, index) => (
           <motion.div key={index} variants={itemVariants}>
             <Image
-              src={client}
-              alt="client"
+              src={client?.logo?.url}
+              alt={client?.title}
               width={100}
               height={100}
               unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}

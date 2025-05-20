@@ -8,15 +8,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import useMediaQuery from "@/app/hooks/useMediaQuery";
 
-const ServiceClients = () => {
+const ServiceClients = ({ clientsData, heading }) => {
   const prevRefClient = useRef(null);
   const nextRefClient = useRef(null);
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isTablet = useMediaQuery("(max-width: 1024px)");
-
-  const clientsData = Array.from({ length: 13 }, (_, i) => {
-    return `services/clients/${i + 1}.svg`;
-  });
 
   const getItemsPerSlide = () => {
     if (isMobile) return 4;
@@ -34,7 +30,7 @@ const ServiceClients = () => {
 
   return (
     <section className="containers pb-8 md:pb-16">
-      <h3 className="main-heading text-center">Clients</h3>
+      <h3 className="main-heading text-center">{heading}</h3>
 
       <div className="w-full pt-8 pb-7 sm:pb-12 md:pb-16">
         <Swiper
@@ -68,16 +64,16 @@ const ServiceClients = () => {
           modules={[Navigation /* , Autoplay */]}
           className="mySwiper ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
         >
-          {chunkedData.map((chunk, chunkIndex) => (
+          {chunkedData?.map((chunk, chunkIndex) => (
             <SwiperSlide key={chunkIndex}>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-rows-2 md:grid-rows-4 gap-4-  ">
-                {chunk.map((client, index) => (
+                {chunk?.map((client, index) => (
                   <div
                     key={index}
                     className="flex items-center justify-center border border-main/[0.20] py-4 px-9 md:px-16"
                   >
                     <Image
-                      src={client}
+                      src={client?.image}
                       alt={`client-${chunkIndex * 24 + index + 1}`}
                       height={100}
                       width={150}

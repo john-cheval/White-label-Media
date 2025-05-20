@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import * as motion from "motion/react-client";
 
-const Section3 = () => {
+const Section3 = ({ data }) => {
   const parentStagger = {
     hidden: {},
     visible: {
@@ -35,18 +35,15 @@ const Section3 = () => {
           className="col-span-12 md:col-span-7 mb-10 md:mb-0 mt-0 md:mt-16 xl:mt-20 3xl:mt-24"
         >
           <p className="font-switzer text-center text-sm leading-[118.423%] uppercase py-2 px-6 w-fit rounded-full border border-main mx-auto md:mx-0">
-            Diversity, Equity & Inclusion
+            {data?.small_heading}
           </p>
           <h3 className=" text-[30px] md:text-[5vw] 2xl:text-[70px] 3xl:text-[80px] leading-[123%] uppercase font-medium mt-6 md:mt-9 mb-3 text-center md:text-left">
-            Our Values: Built on Trust, Integrity & Loyalty
+            {data?.main_heading}
           </h3>
-          <p className="text-sm md:text-base text-center md:text-left font-light font-switzer  leading-[161%] md:max-w-[450px] md:ml-[50px]">
-            A proud multi-national team of 50+ experts consisting of more than
-            16 different nationalities, we bring our diverse cultural and work
-            experiences from across the globe to our clients.No job is too small
-            and egos are left at the door. Driven by passion our team is a bunch
-            of happy people who love what they do.
-          </p>
+          <div
+            className="text-sm md:text-base text-center md:text-left font-light font-switzer  leading-[161%] md:max-w-[450px] md:ml-[50px]"
+            dangerouslySetInnerHTML={{ __html: data?.description }}
+          ></div>
         </motion.div>
         <motion.div
           variants={parentStagger}
@@ -57,7 +54,7 @@ const Section3 = () => {
         >
           <motion.div variants={fadeUp}>
             <Image
-              src={"/careers/image2.jpg"}
+              src={data?.image?.url}
               alt="group"
               width={500}
               height={500}

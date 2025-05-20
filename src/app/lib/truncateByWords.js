@@ -1,11 +1,35 @@
-// utils/truncate.ts
-export function truncateByWords(text, wordLimit, addDot = true) {
-  if (!text) return { text: "", isTruncated: false };
+// export function truncateByWords(htmlString, wordLimit, addDot = true) {
+//   if (!htmlString) return { text: "", isTruncated: false };
 
-  const words = text.trim().split(/\s+/);
+//   const tempElement = document.createElement("div");
+//   tempElement.innerHTML = htmlString;
+//   const plainText = tempElement.textContent || tempElement.innerText || "";
+
+//   const words = plainText.trim().split(/\s+/);
+//   const isTruncated = words.length > wordLimit;
+
+//   if (!isTruncated) return { text: plainText, isTruncated: false };
+
+//   const truncated = words.slice(0, wordLimit).join(" ");
+//   return {
+//     text: addDot ? truncated + "…" : truncated,
+//     isTruncated: true,
+//   };
+// }
+import { convert } from "html-to-text";
+
+export function truncateByWords(htmlString, wordLimit, addDot = true) {
+  if (!htmlString) return { text: "", isTruncated: false };
+
+  const plainText = convert(htmlString, {
+    wordwrap: false,
+    selectors: [{ selector: "a", options: { ignoreHref: true } }],
+  });
+
+  const words = plainText.trim().split(/\s+/);
   const isTruncated = words.length > wordLimit;
 
-  if (!isTruncated) return { text, isTruncated: false };
+  if (!isTruncated) return { text: plainText, isTruncated: false };
 
   const truncated = words.slice(0, wordLimit).join(" ");
   return {

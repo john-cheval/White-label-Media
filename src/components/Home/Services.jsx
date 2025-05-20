@@ -1,5 +1,4 @@
 "use client";
-import { servicesData } from "@/app/lib/homeData";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -21,19 +20,19 @@ const itemVariants = {
   hidden: { opacity: 0, y: 40 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
-const Services = () => {
+const Services = ({ services, heading, description }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   return (
     <>
       {/* ✅ Preload all service media */}
       <Head>
-        {servicesData.map((item, index) =>
-          isVideo(item.image) ? (
+        {services.map((item, index) =>
+          isVideo(item?.image?.url) ? (
             <link
               key={`video-${index}`}
               rel="preload"
               as="video"
-              href={item.image}
+              href={item?.image?.url}
               type="video/mp4"
             />
           ) : (
@@ -42,7 +41,7 @@ const Services = () => {
               rel="preload"
               as="image"
               href={item.image}
-              imagesrcset={item.image}
+              imagesrcset={item?.image?.url}
               fetchpriority="high"
             />
           )
@@ -50,8 +49,8 @@ const Services = () => {
       </Head>
       <section className="containers pt-11 md:pt-12 lg:pt-16 xl:pt-24 serviceBg overflow-hidden">
         <div className="grid grid-cols-12">
-          <div className="col-span-12 md:col-span-3 lg:col-span-4-"></div>
-          <div className="col-span-12 md:col-span-9 lg:col-span-8-">
+          <div className="col-span-12 md:col-span-3 "></div>
+          <div className="col-span-12 md:col-span-9 ">
             <motion.div
               variants={containerVariants}
               initial="hidden"
@@ -64,14 +63,10 @@ const Services = () => {
                 className=" space-y-2 col-span-12 md:col-span-8"
               >
                 <h3 className="main-heading text-center md:text-left">
-                  Our Services
+                  {heading}
                 </h3>
                 <p className=" font-switzer md:text-sm text-base text-center md:text-left leading-[193%]">
-                  With each Co-Founder bringing senior level of expertise we
-                  take pride in being a collective group of creative
-                  consultancies. Together as one entity; we bring an entire team
-                  of marketeers and strategists offering a complete 360 solution
-                  to marketing and developing your business
+                  {description}
                 </p>
               </motion.div>
 
@@ -93,9 +88,12 @@ const Services = () => {
             className="grid grid-cols-12 sm-gap-x-5
        md:gap-x-9"
           >
-            {servicesData?.map?.((serivce, index) => (
+            {services?.map?.((serivce, index) => (
               <>
-                <div className="col-span-12 hidden md:block md:col-span-3 lg:col-span-3 relative  ">
+                <div
+                  className="col-span-12 hidden md:block md:col-span-3 lg:col-span-3 relative  "
+                  key={index}
+                >
                   <AnimatePresence mode="wait">
                     {hoveredIndex !== null && hoveredIndex === index && (
                       <motion.div
@@ -111,16 +109,16 @@ const Services = () => {
                         exit={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.1, ease: "easeInOut" }}
                         className={`absolute  left-0 w-full h-full-   ${
-                          servicesData?.length - 1 === index
+                          services?.length - 1 === index
                             ? "bottom-0"
                             : index === 0
                             ? "top-0"
                             : "-top-1/2"
                         }`}
                       >
-                        {isVideo(servicesData[hoveredIndex].image) ? (
+                        {isVideo(services[hoveredIndex].image?.url) ? (
                           <video
-                            src={servicesData[hoveredIndex].image}
+                            src={services[hoveredIndex].image?.url}
                             autoPlay
                             loop
                             muted
@@ -130,9 +128,8 @@ const Services = () => {
                           />
                         ) : (
                           <Image
-                            src={servicesData[hoveredIndex].image}
-                            alt={servicesData[hoveredIndex]?.title || "image"}
-                            // fill-
+                            src={services[hoveredIndex].image?.url}
+                            alt={services[hoveredIndex]?.title || "image"}
                             width={100}
                             height={100}
                             sizes="100vw"
@@ -150,7 +147,7 @@ const Services = () => {
                 </div>
 
                 <motion.div
-                  key={serivce?.id || index}
+                  key={serivce?.id || index + 1}
                   variants={itemVariants}
                   className={` py-5 md:py-9 border-b border-b-[#c7c7c7] group col-span-12 md:col-span-9 grid grid-cols-1 sm:grid-cols-2 items-center gap-x-2  ${
                     index === 0 ? "border-t border-t-[#c7c7c7]" : ""
@@ -184,9 +181,10 @@ const Services = () => {
                     </motion.span>
                   </div>
 
-                  <p className="font-switzer text-sm md:text-base leading-[193%]  group-hover:text-[#385B93] transition-all duration-300 text-center sm:text-left ">
-                    {serivce?.description}
-                  </p>
+                  <div
+                    className="font-switzer text-sm md:text-base leading-[193%]  group-hover:text-[#385B93] transition-all duration-300 text-center sm:text-left "
+                    dangerouslySetInnerHTML={{ __html: serivce?.description }}
+                  ></div>
                 </motion.div>
               </>
             ))}

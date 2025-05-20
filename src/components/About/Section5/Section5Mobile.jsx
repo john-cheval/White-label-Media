@@ -53,8 +53,8 @@ const Section5Mobile = ({ clients }) => {
             return (
               <SwiperSlide key={index} className="flex items-center">
                 <Image
-                  src={client}
-                  alt={`clients ${index + 1}`}
+                  src={client?.logo?.url}
+                  alt={client?.title}
                   width={250}
                   height={100}
                   sizes="100vw"
