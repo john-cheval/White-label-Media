@@ -51,15 +51,16 @@ const Section2 = ({ heading, description, linkText, link, image }) => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
         >
-          <motion.h3
-            className="text-3xl lg:text-4xl xl:text-5xl text-center md:text-left font-medium leading-[141%]"
-            style={{
-              lineHeight: 1.2,
-            }}
-            variants={itemVariants}
-          >
-            {heading}
-          </motion.h3>
+          <motion.div variants={itemVariants}>
+            <h3
+              className="text-3xl lg:text-4xl xl:text-5xl text-center md:text-left font-medium leading-[141%]"
+              style={{
+                lineHeight: 1.2,
+              }}
+            >
+              {heading}
+            </h3>
+          </motion.div>
 
           <motion.p
             className="font-switzer text-sm md:text-base  text-center md:text-left leading-[193%]"
