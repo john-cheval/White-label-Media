@@ -19,6 +19,22 @@ export default async function RootLayout({ children }) {
   );
   return (
     <html lang="en" className="h-full">
+      <head>
+        <link
+          rel="preload"
+          href="./ui/fonts/Gambetta-Variable.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="./ui/fonts/Switzer-Light.otf"
+          as="font"
+          type="font/otf"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className={`${Gambetta.variable} ${GtSuperDisplay.variable} ${Switzer.variable} antialiased flex flex-col min-h-full`}
       >
