@@ -11,7 +11,7 @@ const LoadingAnimation = () => {
 
   return (
     <motion.div
-      className="flex items-center justify-center h-full w-full"
+      className="flex items-center justify-center h-[100dvh] w-screen"
       variants={loadingVariants}
       initial="initial"
       animate="animate"
