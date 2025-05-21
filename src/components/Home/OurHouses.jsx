@@ -51,7 +51,9 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
             >
               <Link
                 href={"/group-of-companies"}
-                className="font-switzer underline uppercase text-sm hover:no-underline hover:translate-x-2 transition-all duration-300 hover:-translate-y-2 hover:border origin-center hover:border-main hover:py-3 hover:px-2"
+                className="relative font-switzer text-center md:text-left text-sm uppercase inline-block transition-all duration-300 md:mt-10 mb-10 md:mb-0
+             before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-full before:h-[1px] before:bg-main
+             before:transition-all before:duration-300 hover:before:translate-x-2"
               >
                 View all companies
               </Link>

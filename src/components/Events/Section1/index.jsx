@@ -17,6 +17,7 @@ const Section1 = ({ event, setEvent, post, loading }) => {
   const videoRef = useRef(null);
   const textRef = useRef(null);
   const playButtonRef = useRef(null);
+  const videoContainerRef = useRef(null);
   const latestPost = post && Object.values(post)[0];
 
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -43,7 +44,7 @@ const Section1 = ({ event, setEvent, post, loading }) => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const video = videoRef.current;
+      const video = videoContainerRef.current;
       const button = playButtonRef.current;
       const text = textRef.current;
 
@@ -107,7 +108,7 @@ const Section1 = ({ event, setEvent, post, loading }) => {
 
     return () => ctx.revert();
   }, [isMobile]);
-
+  // console.log(isPlaying, "hello");
   return (
     <section className="  relative ">
       <div className="flex justify-center relative pt-32  md:pt-40   ">
@@ -142,12 +143,13 @@ const Section1 = ({ event, setEvent, post, loading }) => {
             <div className=" col-span-12 md:col-start-3 md:col-end-11 relative overflow-hidden">
               <div
                 className="aspect-[16/9] relative mb-6 md:mb-0 will-change-transform"
-                ref={videoRef}
+                ref={videoContainerRef}
               >
                 {isVideo(latestPost?.event_image?.url) ? (
                   <video
                     loop
                     muted
+                    ref={videoRef}
                     playsInline
                     autoPlay={isPlaying}
                     // poster={latestPost?.event_image?.url}
@@ -175,12 +177,12 @@ const Section1 = ({ event, setEvent, post, loading }) => {
                         color="#EAE4D6"
                         size={isMobile ? 50 : 100}
                         onClick={handleVideoClick}
+                        ref={playButtonRef}
                       />
                     ) : (
                       <IoPlayCircleSharp
                         className=" cursor-pointer"
                         ref={playButtonRef}
-                        style={{ transform: "translateY(50px)", opacity: 0 }}
                         color="#EAE4D6"
                         size={isMobile ? 50 : 100}
                         onClick={handleVideoClick}

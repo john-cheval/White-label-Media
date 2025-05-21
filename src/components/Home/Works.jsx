@@ -128,7 +128,7 @@ const Works = ({ heading, description, workList }) => {
       >
         <div className="overflow-hidden">
           <div
-            className="flex flex-col md:gap-y-14 lg:gap-y-20 xl:gap-y-24"
+            className="flex flex-col md:gap-y-14 lg:gap-y-20 xl:gap-y-[110px]"
             ref={firstSlider}
           >
             {[...firstSet]?.map((work, index) => (
@@ -154,7 +154,7 @@ const Works = ({ heading, description, workList }) => {
                       process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                     }
                     className="w-full h-auto object-cover"
-                    onLoadingComplete={() => ScrollTrigger.refresh()}
+                    onLoad={() => ScrollTrigger.refresh()}
                   />
                 )}
                 {work?.title && (
@@ -168,7 +168,10 @@ const Works = ({ heading, description, workList }) => {
         </div>
 
         <div className="overflow-hidden">
-          <div className="flex flex-col gap-y-24" ref={secondSlider}>
+          <div
+            className="flex flex-col md:gap-y-14 lg:gap-y-20 xl:gap-y-[110px]"
+            ref={secondSlider}
+          >
             {[...secondSet]?.map((work, index) => (
               <div key={index} className="space-y-4">
                 {isVideo(work?.image?.url) ? (
@@ -193,17 +196,21 @@ const Works = ({ heading, description, workList }) => {
                     className="w-full h-auto object-cover"
                   />
                 )}
-
-                <p className="text-3xl font-medium leading-[141%]">
-                  {work?.title}
-                </p>
+                {work?.title && (
+                  <p className="text-3xl font-medium leading-[141%]">
+                    {work?.title}
+                  </p>
+                )}
               </div>
             ))}
           </div>
         </div>
 
         <div className="overflow-hidden">
-          <div className="flex flex-col gap-y-24" ref={thirdSlider}>
+          <div
+            className="flex flex-col md:gap-y-14 lg:gap-y-20 xl:gap-y-[110px]"
+            ref={thirdSlider}
+          >
             {[...thirdSet]?.map((work, index) => (
               <div key={index} className="space-y-4">
                 {isVideo(work?.image?.url) ? (

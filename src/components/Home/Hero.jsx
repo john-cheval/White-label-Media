@@ -24,6 +24,13 @@ const Hero = ({
   const isShowButton = useMediaQuery("(min-width: 890px)");
   const isMobile = useMediaQuery("(max-width: 1024px)");
   const [videoLoaded, setVideoLoaded] = useState(false);
+  // const [sliderVideoLink, setSliderVideoLink] = useState("/Home/hero.mp4");
+
+  // useEffect(() => {
+  //   if (videoLink) {
+  //     setSliderVideoLink(videoLink);
+  //   }
+  // }, [videoLink]);
 
   useEffect(() => {
     if (videoRef.current === null || isMobile === null) return;
@@ -155,16 +162,19 @@ const Hero = ({
             playsInline
             // src={videoLink || "/Home/hero.mp4"}
             src={videoLoaded ? videoLink : "/Home/hero.mp4"}
+            // src={sliderVideoLink}
             className=" w-full min-w-[220px] min-h-[120px] sm:h-auto rounded-[20px] rotate-[-4deg]"
           />
 
           {videoExpanded && (
             <video
               autoPlay
+              onLoadedData={handleVideoLoad}
               muted
               loop
               playsInline
               src={videoLink || "/Home/hero.mp4"}
+              // src={sliderVideoLink}
               className="col-start-3 col-end-9 sm:col-start-5 sm:col-end-9  w-full min-w-[220px] min-h-[150px] hidden sm:block sm:h-auto rounded-[20px] rotate-[-4deg]"
             />
           )}
