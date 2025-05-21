@@ -73,7 +73,9 @@ const Section2 = ({ heading, description, linkText, link, image }) => {
             <Link
               href={link}
               aria-label="About the group"
-              className="font-switzer text-center md:text-left text-sm underline uppercase inline-block hover:no-underline hover:translate-x-2 transition-all duration-300 hover:-translate-y-2 border origin-center hover:border-sec border-main py-3 px-2  md:mt-10 mb-10 md:mb-0"
+              className="relative font-switzer text-center md:text-left text-sm uppercase inline-block transition-all duration-300 md:mt-10 mb-10 md:mb-0
+             before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-full before:h-[1px] before:bg-sec
+             before:transition-all before:duration-300 hover:before:translate-x-2"
             >
               {linkText}
             </Link>
