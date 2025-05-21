@@ -40,17 +40,25 @@ const Works = ({ heading, description, workList }) => {
     {
       title: "",
       image: {
-        url: "/works/dummy.jpg",
+        url: "/common/dummy.jpg",
       },
     },
     ...workData.slice(0, chunkSize),
   ];
-  const secondSet = workData.slice(chunkSize, chunkSize * 2);
-  const thirdSet = [
+  const secondSet = [
+    ...workData.slice(chunkSize, chunkSize * 2),
     {
       title: "",
       image: {
         url: "/works/dummy.jpg",
+      },
+    },
+  ];
+  const thirdSet = [
+    {
+      title: "",
+      image: {
+        url: "/common/dummy.jpg",
       },
     },
     ...workData.slice(chunkSize * 2),
@@ -72,6 +80,7 @@ const Works = ({ heading, description, workList }) => {
               end: "bottom+=200% top",
               scrub: 2,
               pin: true,
+              anticipatePin: 1,
               // markers: true,
             },
           })
