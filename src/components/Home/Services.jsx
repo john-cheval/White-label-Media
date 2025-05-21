@@ -85,12 +85,17 @@ const Services = ({ services, heading, description }) => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.4 }}
-            className="grid grid-cols-12 sm-gap-x-5
-       md:gap-x-9"
           >
             {services?.map?.((serivce, index) => (
-              <div key={index}>
-                <div className="col-span-12 hidden md:block md:col-span-3 lg:col-span-3 relative  ">
+              <div
+                key={index}
+                className="grid grid-cols-12 sm-gap-x-5
+       md:gap-x-9"
+              >
+                <div
+                  className="col-span-12 hidden md:block md:col-span-3 lg:col-span-3 relative  "
+                  key={index}
+                >
                   <AnimatePresence mode="wait">
                     {hoveredIndex !== null && hoveredIndex === index && (
                       <motion.div
