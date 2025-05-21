@@ -23,6 +23,7 @@ const Hero = ({
   const [videoExpanded, setVidoExpanded] = useState(false);
   const isShowButton = useMediaQuery("(min-width: 890px)");
   const isMobile = useMediaQuery("(max-width: 1024px)");
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     if (videoRef.current === null || isMobile === null) return;
@@ -46,7 +47,7 @@ const Hero = ({
         //   const videoHeight = videoRef.current.getBoundingClientRect().height;
         //   const headerHeightElement =
         //     document.querySelector(".home-height-video");
-        //   console.log(videoHeight, "this is update ");
+
         //   if (headerHeightElement) {
         //     headerHeightElement.style.height = `${videoHeight}px`;
         //   }
@@ -110,6 +111,18 @@ const Hero = ({
     };
   }, [isMobile]);
 
+  const handleVideoLoad = () => {
+    setVideoLoaded(true);
+
+    if (
+      typeof window !== "undefined" &&
+      window.performance &&
+      window.performance.mark
+    ) {
+      window.performance.mark("video-loaded");
+    }
+  };
+
   return (
     <header
       ref={headerRef}
@@ -134,10 +147,14 @@ const Hero = ({
             aria-hidden="true"
             autoPlay
             muted
+            onLoadedData={handleVideoLoad}
+            webkitplaysinline={"true"}
             tabIndex={-1}
             loop
+            preload="metadata"
             playsInline
-            src={videoLink || "/Home/hero.mp4"}
+            // src={videoLink || "/Home/hero.mp4"}
+            src={videoLoaded ? videoLink : "/Home/hero.mp4"}
             className=" w-full min-w-[220px] min-h-[120px] sm:h-auto rounded-[20px] rotate-[-4deg]"
           />
 

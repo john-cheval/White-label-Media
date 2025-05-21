@@ -89,11 +89,8 @@ const Services = ({ services, heading, description }) => {
        md:gap-x-9"
           >
             {services?.map?.((serivce, index) => (
-              <>
-                <div
-                  className="col-span-12 hidden md:block md:col-span-3 lg:col-span-3 relative  "
-                  key={index}
-                >
+              <div key={index}>
+                <div className="col-span-12 hidden md:block md:col-span-3 lg:col-span-3 relative  ">
                   <AnimatePresence mode="wait">
                     {hoveredIndex !== null && hoveredIndex === index && (
                       <motion.div
@@ -186,7 +183,7 @@ const Services = ({ services, heading, description }) => {
                     dangerouslySetInnerHTML={{ __html: serivce?.description }}
                   ></div>
                 </motion.div>
-              </>
+              </div>
             ))}
           </motion.div>
         </div>

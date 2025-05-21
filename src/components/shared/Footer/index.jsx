@@ -39,15 +39,19 @@ const Footer = ({ footerLink }) => {
           className="col-span-12 md:col-span-4 space-y-4 md:space-y-5 lg:space-y-8 2xl:space-y-12"
         >
           <motion.div variants={childVariants}>
-            <Image
-              src={"/common/footer_logo.svg"}
-              alt="footer_logo"
-              width={175}
-              height={130}
-              sizes="100vw"
-              unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-              className="w-full- h-auto object-cover w-[100px] md:max-w-[175px] mx-auto md:mx-0"
-            />
+            <Link href={"/"}>
+              <Image
+                src={"/common/footer_logo.svg"}
+                alt="footer_logo"
+                width={175}
+                height={130}
+                sizes="100vw"
+                unoptimized={
+                  process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                }
+                className="w-full- h-auto object-cover w-[100px] md:max-w-[175px] mx-auto md:mx-0"
+              />
+            </Link>
           </motion.div>
 
           <motion.div

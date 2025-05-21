@@ -1,8 +1,8 @@
 import { Gambetta, GtSuperDisplay, Switzer } from "./ui/fonts";
 import "./globals.css";
-import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import { fetchData } from "./lib/fetchData";
+import ServerNavbar from "@/components/shared/ServerNavbar/ServerNavbar";
 
 export const metadata = {
   title: "White Label Media",
@@ -22,7 +22,7 @@ export default async function RootLayout({ children }) {
       <body
         className={`${Gambetta.variable} ${GtSuperDisplay.variable} ${Switzer.variable} antialiased flex flex-col min-h-full`}
       >
-        <Navbar navLinks={headerData?.menu_tree} />
+        <ServerNavbar navLinksData={headerData?.menu_tree} />
         <main className="flex-grow">{children}</main>
         <Footer footerLink={footerData} />
       </body>

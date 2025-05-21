@@ -61,6 +61,7 @@ const Works = ({ heading, workList }) => {
         >
           {workList?.map((item, idx) => {
             const isEvenCard = idx % 2 === 1;
+
             return (
               <SwiperSlide key={idx}>
                 <div
@@ -69,7 +70,7 @@ const Works = ({ heading, workList }) => {
                   } `}
                 >
                   {!isVideo(item?.image?.url) ? (
-                    <div className="max-h-[300px]-">
+                    <div className="">
                       <Image
                         src={item?.image?.url}
                         alt={`work-${idx}`}
@@ -83,7 +84,7 @@ const Works = ({ heading, workList }) => {
                       />
                     </div>
                   ) : (
-                    <div className="max-h-[300px]- h-[300px]- aspect-video- overflow-hidden">
+                    <div className=" overflow-hidden">
                       <video
                         autoPlay
                         loop

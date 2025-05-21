@@ -22,14 +22,24 @@ const Section4 = ({ heading, description, list }) => {
   };
 
   return (
-    <section className="px-6 md:px-16 lg:px-20 xl:px-[184px] mb-14- md:mb-20- pb-12 lg:pb-24 xl:pb-28">
-      <h3 className=" text-3xl md:text-[5vw] 2xl:text-[60px] text-center font-medium leading-[118.423%] mb-2 md:mb-4">
+    <motion.section
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
+      className="px-6 md:px-16 lg:px-20 xl:px-[184px] mb-14- md:mb-20- pb-12 lg:pb-24 xl:pb-28"
+    >
+      <motion.h3
+        variants={itemVariants}
+        className=" text-3xl md:text-[5vw] 2xl:text-[60px] text-center font-medium leading-[118.423%] mb-2 md:mb-4"
+      >
         {heading}
-      </h3>
-      <div
+      </motion.h3>
+      <motion.div
+        variants={itemVariants}
         className="font-switzer text-center leading-[162%] text-base mb-4 md:mb-8 lg:mb-12"
         dangerouslySetInnerHTML={{ __html: description }}
-      ></div>
+      ></motion.div>
 
       <motion.div
         className=" grid grid-cols-2 sm:flex  flex-wrap justify-center"
@@ -66,7 +76,7 @@ const Section4 = ({ heading, description, list }) => {
           </motion.div>
         ))}
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 

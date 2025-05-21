@@ -61,7 +61,7 @@ const Navbar = ({ navLinks }) => {
         >
           <div className="md:flex-1 flex justify-center relative z-50">
             <div className="max-w-[120px] sm:max-w-[150px] md:max-w-[260px] w-full md:px-4">
-              <Link href={"/"}>
+              <Link href={"/"} rel="preload" fetchPriority="high">
                 <Image
                   // src={"/common/logo.svg"}
                   src={
@@ -74,6 +74,7 @@ const Navbar = ({ navLinks }) => {
                   unoptimized={
                     process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                   }
+                  priority
                   className="w-full h-auto md:object-cover"
                 />
               </Link>
