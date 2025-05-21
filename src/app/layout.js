@@ -22,14 +22,14 @@ export default async function RootLayout({ children }) {
       <head>
         <link
           rel="preload"
-          href="./ui/fonts/Gambetta-Variable.ttf"
+          href="/fonts/Gambetta-Variable.ttf"
           as="font"
           type="font/ttf"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
-          href="./ui/fonts/Switzer-Light.otf"
+          href="/fonts/Switzer-Light.otf"
           as="font"
           type="font/otf"
           crossOrigin="anonymous"
