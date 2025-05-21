@@ -81,7 +81,7 @@ const Works = ({ heading, description, workList }) => {
               scrub: 2,
               pin: true,
               anticipatePin: 1,
-              markers: true,
+              // markers: true,
             },
           })
           .to(firstSlider.current, { yPercent: 0 }, 0)
