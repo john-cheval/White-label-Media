@@ -47,7 +47,7 @@ const Modal = ({ handleClose, modalOpen, data }) => {
               {data?.title}
             </h5>
             <div
-              className="font-switzer text-main text-sm md:text-base leading-[193%] text-justify- text-center w-[90%] lg:max-w-[950px] max-h-[150px] md:max-h-[300px]- overflow-y-scroll md:overflow-y-hidden- scrollbar-hide "
+              className="font-switzer text-main text-sm md:text-base leading-[193%] text-justify- text-center w-[90%] lg:max-w-[950px] max-h-[150px] md:max-h-[300px]- overflow-y-scroll md:overflow-y-hidden scrollbar-hide "
               dangerouslySetInnerHTML={{ __html: data?.full_description }}
             ></div>
             {data?.client_name && (
