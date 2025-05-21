@@ -81,12 +81,14 @@ const Works = ({ heading, description, workList }) => {
               scrub: 2,
               pin: true,
               anticipatePin: 1,
-              // markers: true,
+              markers: true,
             },
           })
           .to(firstSlider.current, { yPercent: 0 }, 0)
           .to(secondSlider.current, { yPercent: -80 }, 0)
           .to(thirdSlider.current, { yPercent: 0 }, 0);
+
+        setTimeout(() => ScrollTrigger.refresh(), 100);
       }, containerRef);
 
       return () => ctx.revert();
@@ -96,7 +98,7 @@ const Works = ({ heading, description, workList }) => {
 
   return (
     <section
-      className="relative containers  pb-16 md:pb-0 w-full overflow-hidden worksBG"
+      className="relative containers  pb-16 md:pb-0 w-full overflow-hidden worksBG gpu-transform"
       id="works"
     >
       <motion.div
@@ -139,6 +141,7 @@ const Works = ({ heading, description, workList }) => {
                     muted
                     playsInline
                     className="w-full h-full object-cover  "
+                    onLoadedData={() => ScrollTrigger.refresh()}
                   />
                 ) : (
                   <Image
@@ -151,6 +154,7 @@ const Works = ({ heading, description, workList }) => {
                       process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                     }
                     className="w-full h-auto object-cover"
+                    onLoadingComplete={() => ScrollTrigger.refresh()}
                   />
                 )}
                 {work?.title && (
