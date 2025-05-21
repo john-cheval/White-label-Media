@@ -39,7 +39,7 @@ const Modal = ({ handleClose, modalOpen, data }) => {
             exit="exit"
           >
             <h5
-              className="text-center text-2xl md:text-3xl leading-[141%] max-w-[850px]"
+              className="text-center text-main text-2xl md:text-3xl leading-[141%] max-w-[850px]"
               style={{
                 lineHeight: 1,
               }}
@@ -47,18 +47,20 @@ const Modal = ({ handleClose, modalOpen, data }) => {
               {data?.title}
             </h5>
             <div
-              className="font-switzer text-sm md:text-base leading-193%] text-justify- text-center w-[90%] lg:max-w-[950px] max-h-[150px] md:max-h-[300px] overflow-scroll scrollbar-hide"
+              className="font-switzer text-main text-sm md:text-base leading-[193%] text-justify- text-center w-[90%] lg:max-w-[950px] max-h-[150px] md:max-h-[300px] overflow-y-scroll md:overflow-y-hidden- scrollbar-hide "
               dangerouslySetInnerHTML={{ __html: data?.full_description }}
             ></div>
+            {data?.client_name && (
+              <div className="flex flex-col gap-y-2 md:gap-y-3">
+                <span className="text-center  text-2xl md:text-3xl leading-[141%]">
+                  {data?.client_name}
+                </span>
+                <span className="text-center font-switzer  text-sm md:text-base leading-[193%]">
+                  {data?.position}
+                </span>
+              </div>
+            )}
 
-            <div className="flex flex-col gap-y-2 md:gap-y-3">
-              <span className="text-center  text-2xl md:text-3xl leading-[141%]">
-                {data?.client_name}
-              </span>
-              <span className="text-center font-switzer  text-sm md:text-base leading-[193%]">
-                {data?.position}
-              </span>
-            </div>
             <button
               onClick={handleClose}
               className="absolute top-3 md:top-10 right-3 md:right-10"

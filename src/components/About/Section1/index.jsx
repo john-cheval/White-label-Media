@@ -149,6 +149,8 @@ const Section1 = ({ heading, descriptionOne, descriptionTwo, image }) => {
                   height={100}
                   width={100}
                   sizes="100vw"
+                  priority={true}
+                  fetchPriority="high"
                   unoptimized={
                     process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                   }

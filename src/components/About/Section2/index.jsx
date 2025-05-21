@@ -34,7 +34,7 @@ const Section2 = ({ titleOne, titleTwo }) => {
       });
 
       timeline
-        .to(firstSlider.current, { x: "50%" }, "start")
+        .to(firstSlider.current, { x: "0%" }, "start")
         .to(secondSlider.current, { x: "0%" }, "start");
     }, 100);
 
@@ -53,7 +53,7 @@ const Section2 = ({ titleOne, titleTwo }) => {
         ref={slider1}
       >
         <div
-          className="flex -translate-x-[70%] will-change-transform"
+          className="flex -translate-x-[70%] will-change-transform justify-center w-full"
           ref={firstSlider}
         >
           <h3 className=" text-[clamp(30px,5vw,100px)] uppercase">
@@ -62,11 +62,11 @@ const Section2 = ({ titleOne, titleTwo }) => {
         </div>
       </div>
       <div
-        className="relative hidden md:block whitespace-nowrap  overflow-hidden"
+        className="relative hidden md:block whitespace-nowrap  overflow-hidden w-full"
         ref={slider2}
       >
         <div
-          className="flex translate-x-[100%] will-change-transform"
+          className="flex translate-x-[100%] will-change-transform justify-center"
           ref={secondSlider}
         >
           <h3 className=" text-[clamp(30px,5vw,100px)] uppercase">

@@ -20,10 +20,13 @@ const textVariants = {
 };
 
 const imageVariants = (direction) => ({
-  hidden: { opacity: 0, y: direction === "left" ? -100 : 100 },
+  hidden: {
+    opacity: 0,
+    scale: 0.8 /* y: direction === "left" ? -100 : 100  */,
+  },
   visible: {
     opacity: 1,
-    y: 0,
+    scale: 1,
     transition: { duration: 0.8, ease: "easeOut" },
   },
 });
