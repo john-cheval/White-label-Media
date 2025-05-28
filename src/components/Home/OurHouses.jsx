@@ -98,6 +98,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                   <Link
                     href={house?.website_link}
                     aria-label={`Go To ${house?.title} website`}
+                    target="_blank"
                     className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0"
                   >
                     <Image
@@ -114,6 +115,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                   </Link>
                   <Link
                     href={house?.website_link}
+                    target="_blank"
                     aria-label={`Go To ${house?.title} website`}
                     className="text-2xl hidden md:block opacity-0 group-hover:opacity-100 transition-all hover:rotate-45 duration-300"
                   >
@@ -145,7 +147,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
           className="grid grid-cols-12"
         >
           <div className="col-span-12 md:col-span-8 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2">
-            {companiesList?.slice(4)?.map((house, index) => (
+            {companiesList?.slice(4, 8)?.map((house, index) => (
               <div
                 key={house?.title || index}
                 className={`border border-r-0 sm:border-r ${
@@ -162,6 +164,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                 >
                   <Link
                     href={house?.website_link}
+                    target="_blank"
                     aria-label={`Go To ${house?.title} website`}
                     className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0 "
                   >
@@ -180,6 +183,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                   <Link
                     href={house?.website_link}
                     aria-label={`Go To ${house?.title} website`}
+                    target="_blank"
                     className="text-2xl hidden md:block opacity-0 group-hover:opacity-100 transition-all hover:rotate-45 duration-300 "
                   >
                     <GoArrowUpRight />

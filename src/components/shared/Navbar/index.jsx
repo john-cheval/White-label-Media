@@ -54,7 +54,7 @@ const Navbar = ({ navLinks }) => {
         }`}
       >
         <nav
-          className={`flex items-center justify-between py-6 border-b border-b-[#DBDBDB] containers relative- `}
+          className={`flex items-center justify-between py-3 border-b border-b-[#DBDBDB] containers relative- `}
           style={{
             willChange: "transform",
           }}

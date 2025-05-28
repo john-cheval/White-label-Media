@@ -25,7 +25,7 @@ const Section1 = ({ companiesList }) => {
   };
 
   return (
-    <section className=" h-full pt-10 md:pt-20 xl:pt-28 2xl:pt-32 3xl:pt-52- pb-14 md:pb-20 xl:pb-28 relative mt-20 md:mt-28">
+    <section className=" h-full pt-20 md:pt-52 pb-14 md:pb-20 xl:pb-28 relative mt-20- md:mt-28-">
       <div className="absolute w-full h-full top-0 left-0 -z-10">
         <AnimatePresence mode="wait">
           <motion.div
@@ -102,16 +102,19 @@ const Section1 = ({ companiesList }) => {
             >
               {activeSector?.title}
             </motion.h1>
-            <motion.p
-              custom={2}
-              variants={itemVariant}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="text-white font-switzer text-sm md:text-base font-light leading-[161%] text-center md:text-left mb-11 md:mb-0"
-            >
-              {activeSector?.description}
-            </motion.p>
+            {activeSector?.description && (
+              <motion.p
+                custom={2}
+                variants={itemVariant}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className="text-white font-switzer text-sm md:text-base font-light leading-[161%] text-center md:text-left mb-11 md:mb-0"
+              >
+                {activeSector?.description}
+              </motion.p>
+            )}
+
             {activeSector?.website_link && (
               <motion.div
                 custom={3}
@@ -176,11 +179,11 @@ const Section1 = ({ companiesList }) => {
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }
                     }}
-                    onMouseEnter={() => {
-                      if (activeSector.title !== data.title) {
-                        setActiveSector(data);
-                      }
-                    }}
+                    // onMouseEnter={() => {
+                    //   if (activeSector.title !== data.title) {
+                    //     setActiveSector(data);
+                    //   }
+                    // }}
                   >
                     <motion.div
                       whileHover={{ y: -10 }}
