@@ -19,7 +19,7 @@ export default async function Home() {
   );
   return (
     <>
-      {/* <Hero
+      <Hero
         titleTop={homeData?.slider_heading_top}
         titleBottom={homeData?.slider_heading_bottom}
         videoLink={homeData?.slider_video}
@@ -36,7 +36,7 @@ export default async function Home() {
         linkText={homeData?.about_link_text}
         link={homeData?.about_link}
         image={homeData?.about_image?.url}
-      /> */}
+      />
       <OurHouses
         houseHeading={homeData?.our_houses_heading}
         houseDesc={homeData?.our_houses_description}

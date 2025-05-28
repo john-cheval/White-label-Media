@@ -79,8 +79,6 @@ const Works = ({ heading, description, workList }) => {
               // start: "top top",
               end: `bottom+=200% top`,
 
-              // end: `+=${height * 2}`,
-              // end: "+=100%",
               scrub: 2,
               pin: true,
               anticipatePin: 1,
@@ -143,7 +141,7 @@ const Works = ({ heading, description, workList }) => {
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover  "
+                    className="w-full h-full object-cover-  "
                     onLoadedData={() => ScrollTrigger.refresh()}
                   />
                 ) : (
