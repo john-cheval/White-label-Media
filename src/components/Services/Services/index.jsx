@@ -33,7 +33,7 @@ const Services = ({
 }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   return (
-    <section className="containers text-[#EAE4D6] bg-main pb-8 md:pb-10 xl:pb-16 2xl:pb-20 3xl:pb-24 bg-service pt-32 md:pt-40 ">
+    <section className="containers text-[#EAE4D6] bg-main pb-8 md:pb-10 xl:pb-16 2xl:pb-20 3xl:pb-24 bg-service pt-28 md:pt-40 ">
       <div className="grid grid-cols-12 gap-x-5">
         <motion.div
           variants={staggerContainer}

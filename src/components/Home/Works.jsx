@@ -68,16 +68,19 @@ const Works = ({ heading, description, workList }) => {
     () => {
       if (isMobile === null || isMobile) return;
       const ctx = gsap.context(() => {
-        gsap.set(firstSlider.current, { yPercent: -85 });
+        gsap.set(firstSlider.current, { yPercent: -90 });
         gsap.set(secondSlider.current, { yPercent: 5 });
         gsap.set(thirdSlider.current, { yPercent: -90 });
-
+        const height = containerRef.current.offsetHeight;
         gsap
           .timeline({
             scrollTrigger: {
               trigger: containerRef.current,
-              start: "top top",
-              end: "bottom+=200% top",
+              // start: "top top",
+              end: `bottom+=200% top`,
+
+              // end: `+=${height * 2}`,
+              // end: "+=100%",
               scrub: 2,
               pin: true,
               anticipatePin: 1,
@@ -123,7 +126,7 @@ const Works = ({ heading, description, workList }) => {
       </motion.div>
 
       <div
-        className="md:grid hidden grid-cols-3 md:gap-x-8 lg:gap-x-16 xl:gap-x-24 mt-12 lg:mt-20 2l:mt-28 md:h-[100dvh]"
+        className="md:grid hidden grid-cols-3 md:gap-x-8 lg:gap-x-16 xl:gap-x-24 mt-12 lg:mt-20 2l:mt-28 md:h-[155dvh]"
         ref={containerRef}
       >
         <div className="overflow-hidden">
