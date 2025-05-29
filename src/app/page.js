@@ -41,7 +41,7 @@ export default async function Home() {
         houseHeading={homeData?.our_houses_heading}
         houseDesc={homeData?.our_houses_description}
         house_video={homeData?.our_houses_video?.url}
-        companiesList={homeData?.companies_list}
+        companiesList={homeData?.companies_list_home}
       />
       <Services
         heading={homeData?.our_services_heading}

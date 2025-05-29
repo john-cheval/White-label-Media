@@ -147,7 +147,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
           className="grid grid-cols-12"
         >
           <div className="col-span-12 md:col-span-8 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2">
-            {companiesList?.slice(4, 8)?.map((house, index) => (
+            {companiesList?.slice(4)?.map((house, index) => (
               <div
                 key={house?.title || index}
                 className={`border border-r-0 sm:border-r ${
