@@ -38,6 +38,7 @@ const Navbar = ({ navLinks }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
   return (
     <>
       <header
@@ -75,7 +76,9 @@ const Navbar = ({ navLinks }) => {
                     process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                   }
                   priority
-                  className="w-full h-auto md:object-cover"
+                  className={`w-full transition-all duration-300 ease-in-out  ${
+                    bgColor ? "h-[45px]" : "h-full"
+                  }`}
                 />
               </Link>
             </div>
