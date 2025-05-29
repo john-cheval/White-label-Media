@@ -117,7 +117,7 @@ const Testimonials = ({ heading, testiList }) => {
               if (desktopBar) desktopBar.style.width = `${progress * 100}%`;
               if (mobileBar) mobileBar.style.width = `${progress * 100}%`;
             }}
-            modules={[Navigation, Autoplay]}
+            modules={[Navigation /* , Autoplay */]}
             className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
           >
             {testiList?.map((data, index) => {
@@ -135,7 +135,7 @@ const Testimonials = ({ heading, testiList }) => {
               return (
                 <SwiperSlide key={index}>
                   <div className="bg-white py-6 md:py-10 lg:py-14 px-6 md:px-10 lg:px-14 text-main flex flex-col gap-y-4 md:gap-y-5">
-                    <h4 className="text-2xl md:text-3xl leading-[141%] ">
+                    <h4 className="text-2xl md:text-3xl leading-[141%] min-h-[50px] ">
                       {titleText}
                     </h4>
                     <p className="text-sm md:text-base font-switzer leading-[193%] min-h-[150px]">
@@ -150,7 +150,7 @@ const Testimonials = ({ heading, testiList }) => {
                       )}
                     </p>
 
-                    <div className="flex  flex-col mt-4 md:mt-5">
+                    <div className="flex  flex-col mt-4 md:mt-5 min-h-[80px]">
                       <span className="text-2xl md:text-3xl leading-[141%]">
                         {data?.client_name}
                       </span>
