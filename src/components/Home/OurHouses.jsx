@@ -99,7 +99,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                     href={house?.website_link}
                     aria-label={`Go To ${house?.title} website`}
                     target="_blank"
-                    className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0"
+                    className="max-w-[250px] max-h-[150px]- overflow-hidden mx-auto sm:mx-0"
                   >
                     <Image
                       src={house?.logo?.url}
@@ -127,7 +127,9 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                   variants={itemVariants}
                   className="flex flex-col gap-y-5 mt-auto pt-24 lg:pt-28 "
                 >
-                  <span className="h-[1px] w-10 bg-[#EAE4D6] mt-7 sm:mt-0 block mx-auto sm:mx-0" />
+                  {house?.home_page_description && (
+                    <span className="h-[1px] w-10 bg-[#EAE4D6] mt-7 sm:mt-0 block mx-auto sm:mx-0" />
+                  )}
                   <p className="text-main font-switzer text-sm uppercase !leading-[1.7] sm:max-w-[250px] mx-auto sm:mx-0 text-center sm:text-left">
                     {house?.home_page_description}
                   </p>
@@ -166,7 +168,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                     href={house?.website_link}
                     target="_blank"
                     aria-label={`Go To ${house?.title} website`}
-                    className="max-w-[250px] max-h-[150px] overflow-hidden mx-auto sm:mx-0 "
+                    className="max-w-[250px] max-h-[150px]- overflow-hidden mx-auto sm:mx-0 "
                   >
                     <Image
                       src={house?.logo?.url}
@@ -194,7 +196,9 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                   variants={itemVariants}
                   className="flex flex-col gap-y-5 mt-auto pt-24 lg:pt-28 xl:pt-40 "
                 >
-                  <span className="h-[1px] w-10 bg-[#EAE4D6] block mt-7 sm:mt-0  mx-auto sm:mx-0" />
+                  {house?.home_page_description && (
+                    <span className="h-[1px] w-10 bg-[#EAE4D6] mt-7 sm:mt-0 block mx-auto sm:mx-0" />
+                  )}
                   <p className="text-main font-switzer text-sm uppercase !leading-[1.7] max-w-[250px] mx-auto sm:mx-0 text-center sm:text-left">
                     {house?.home_page_description}
                   </p>

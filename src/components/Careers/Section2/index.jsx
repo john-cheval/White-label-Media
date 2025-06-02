@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import * as motion from "motion/react-client";
 import isVideo from "@/app/lib/checkVideo";
+import SecuredVideo from "@/components/shared/SecuredVideo";
 
 const Section2 = ({ data }) => {
   const parentStagger = {
@@ -41,12 +42,7 @@ const Section2 = ({ data }) => {
           variants={fadeUp}
           className="font-switzer text-base font-light leading-[161%] max-w-[700px]- text-center md:text-right"
           dangerouslySetInnerHTML={{ __html: data?.description }}
-        >
-          {/* We prioritize integrity, equality, and inclusion,{" "}
-          <br className="hidden md:block" />
-          fostering an environment where everyone thrives. Providing equal and
-          inclusive opportunities for all. */}
-        </motion.div>
+        ></motion.div>
       </motion.div>
 
       <motion.div
@@ -86,9 +82,14 @@ const Section2 = ({ data }) => {
                   playsInline
                   muted
                   loop
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-cover"
                 />
               ) : (
+                // <SecuredVideo
+                //   // src={image?.url}
+                //   src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                //   className="w-full h-full object-cover"
+                // />
                 <Image
                   src={image?.url}
                   alt={`image-${index + 1}`}
