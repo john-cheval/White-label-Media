@@ -13,7 +13,7 @@ const fadeInUp = {
 };
 const Section3 = ({ list, description, heading }) => {
   return (
-    <section className="containers pb-14 md:pb-16 lg:pb-20 xl:pb-[100px]- 2xl:pb-[148px]-">
+    <section className="containers pb-14 md:pb-16 lg:pb-20 xl:pb-[100px]- 2xl:pb-[148px]- overflow-hidden">
       <div className="grid grid-cols-12 gap-x-5 md:gap-x-10 lg:gap-x-16 3xl:gap-x-24">
         <div className="col-span-6 space-y-4 md:space-y-0">
           <motion.div
@@ -22,6 +22,7 @@ const Section3 = ({ list, description, heading }) => {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeInUp}
             custom={0}
+            className="max-h-[700px]"
           >
             {isVideo(list[2]?.image?.url) ? (
               <video
@@ -29,7 +30,7 @@ const Section3 = ({ list, description, heading }) => {
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center aspect-square- max-h-[700px]"
               >
                 <source src={list[2]?.image?.url} type="video/mp4" />
               </video>
@@ -43,7 +44,7 @@ const Section3 = ({ list, description, heading }) => {
                 unoptimized={
                   process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                 }
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover max-h-[700px]"
               />
             )}
           </motion.div>
@@ -61,7 +62,7 @@ const Section3 = ({ list, description, heading }) => {
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover"
+                className="w-full h-full  object-cover aspect-square"
               >
                 <source src={list[0]?.image?.url} type="video/mp4" />
               </video>
@@ -80,7 +81,7 @@ const Section3 = ({ list, description, heading }) => {
             )}
           </motion.div>
         </div>
-        <div className="col-span-6 flex flex-col w-full gap-y-20- ">
+        <div className="col-span-6 flex flex-col justify-center md:justify-start w-full gap-y-20- ">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -89,14 +90,14 @@ const Section3 = ({ list, description, heading }) => {
             custom={0.4}
             className="flex justify-between- gap-x-10 lg:gap-x-16 3xl:gap-x-28 "
           >
-            <div className="mt-[200px] hidden md:block ">
+            <div className="mt-[200px] hidden md:block aspect-square max-w-[220px] ">
               {isVideo(list[0]?.image?.url) ? (
                 <video
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                 >
                   <source src={list[0]?.image?.url} type="video/mp4" />
                 </video>
@@ -114,7 +115,7 @@ const Section3 = ({ list, description, heading }) => {
                 />
               )}
             </div>
-            <div className="md:w-[300px] w-[200px] max-h-[190px] sm:max-h-[200px] md:h-[300px] mt-[50px] md:mt-24">
+            <div className="md:w-[400px] w-[200px]- max-h-[190px]- sm:max-h-[200px]- md:h-[300px]- mt-[50px]- md:mt-24">
               {isVideo(list[1]?.image?.url) ? (
                 <video
                   autoPlay
@@ -135,7 +136,7 @@ const Section3 = ({ list, description, heading }) => {
                   unoptimized={
                     process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                   }
-                  className="w-full h-full max-w-[300px] max-h-[300px] object-cover"
+                  className="w-full h-auto max-w-[300px]- max-h-[300px-] object-cover-"
                 />
               )}
             </div>

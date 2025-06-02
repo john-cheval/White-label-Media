@@ -85,7 +85,7 @@ const Section1 = ({ companiesList }) => {
                   height={30}
                   width={100}
                   sizes="100vw"
-                  className="h-auto w-full "
+                  className="h-auto w-full max-h-[65px] "
                   unoptimized={
                     process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                   }
@@ -129,7 +129,10 @@ const Section1 = ({ companiesList }) => {
                   target="_blank"
                   className="text-white font-switzer text-sm leading-[118.423%] uppercase text-center py-3 md:py-4 px-10 md:px-14 border border-white rounded-full inline-flex w-fit   items-center gap-x-2 group  "
                 >
-                  {activeSector?.title}{" "}
+                  {activeSector?.website_link_text
+                    ? activeSector?.website_link_text
+                    : activeSector?.title}
+                  {/* {activeSector?.title}{" "} */}
                   <IoIosArrowRoundForward className="opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 text-2xl" />
                 </Link>
               </motion.div>
@@ -169,7 +172,7 @@ const Section1 = ({ companiesList }) => {
               modules={[Navigation]}
               className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
             >
-              {companiesList?.map((data, index) => {
+              {companiesList?.slice(1).map((data, index) => {
                 return (
                   <SwiperSlide
                     key={index}
@@ -201,7 +204,7 @@ const Section1 = ({ companiesList }) => {
                           width={300}
                           height={400}
                           sizes="100vw"
-                          className="w-full max-h-[382px] h-auto  md:max-h-full object-cover"
+                          className="w-full max-h-[382px]- h-auto  md:max-h-full- object-cover-"
                           unoptimized={
                             process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                           }
@@ -235,7 +238,7 @@ const Section1 = ({ companiesList }) => {
               </button>
             </div>
             <div className="flex-  items-center flex-wrap hidden md:flex">
-              {companiesList?.map((data, index) => (
+              {companiesList?.slice(1)?.map((data, index) => (
                 <button
                   key={index}
                   onClick={() => {

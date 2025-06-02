@@ -61,7 +61,7 @@ const Navbar = ({ navLinks }) => {
           }}
         >
           <div className="md:flex-1 flex justify-center relative z-50">
-            <div className="max-w-[120px] sm:max-w-[150px] md:max-w-[260px] w-full md:px-4">
+            <div className="max-w-[120px]- sm:max-w-[150px]- md:max-w-[260px] h-auto w-full md:px-4">
               <Link href={"/"} rel="preload" fetchPriority="high">
                 <Image
                   // src={"/common/logo.svg"}
@@ -77,7 +77,7 @@ const Navbar = ({ navLinks }) => {
                   }
                   priority
                   className={`w-full transition-all duration-300 ease-in-out  ${
-                    bgColor ? "h-[45px]" : "h-full"
+                    bgColor ? "h-[50px]" : "h-full"
                   }`}
                 />
               </Link>
@@ -85,10 +85,22 @@ const Navbar = ({ navLinks }) => {
           </div>
 
           <div>
-            <IoMenuOutline
+            {/* <IoMenuOutline
               aria-label="menu open"
               className="text-main text-2xl md:text-3xl cursor-pointer relative z-[9999999999999999999999999999999]"
               onClick={() => setIsOpen(true)}
+            /> */}
+            <Image
+              src={"/common/menu.svg"}
+              className={`w-full ${
+                bgColor ? "h-[20px]" : "h-full"
+              }  cursor-pointer relative z-[9999999999999999999999999999999]`}
+              onClick={() => setIsOpen(true)}
+              aria-label="menu open"
+              width={30}
+              height={22}
+              sizes="100vw"
+              unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
             />
           </div>
         </nav>

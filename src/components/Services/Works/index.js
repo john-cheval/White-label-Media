@@ -56,7 +56,7 @@ const Works = ({ heading, workList }) => {
               progress * 100
             }%`;
           }}
-          modules={[Navigation, Autoplay]}
+          modules={[Navigation , Autoplay]}
           className="mySwiper ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
         >
           {workList?.map((item, idx) => {
@@ -90,7 +90,7 @@ const Works = ({ heading, workList }) => {
                         loop
                         muted
                         playsInline
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover-"
                       >
                         <source src={item?.image?.url} type="video/mp4" />
                         <source src={item?.image?.url} type="video/quicktime" />
