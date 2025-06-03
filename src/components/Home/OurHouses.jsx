@@ -209,7 +209,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
 
           <motion.div
             variants={itemVariants}
-            className="col-span-12 md:col-span-4 lg:col-span-5"
+            className="col-span-12 md:col-span-4 lg:col-span-5 bg-black"
           >
             <video
               autoPlay
@@ -217,7 +217,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
               muted
               loop
               src={house_video}
-              className="w-full h-full object-cover "
+              className="w-full h-full object-cover- "
             />
           </motion.div>
         </motion.div>
