@@ -47,7 +47,7 @@ const Awards = ({ heading, awardsList }) => {
               ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
               : row.length === 3
               ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
-              : "grid-cols-1";
+              : "md:grid-cols-2";
 
           const isLastRow = rowIndex === rows.length - 1;
 
@@ -84,7 +84,7 @@ const Awards = ({ heading, awardsList }) => {
                       width={250}
                       height={100}
                       sizes="100vw"
-                      className="w-full h-auto object-cover max-w-[200px] md:max-w-full"
+                      className="w-auto h-auto- object-cover- max-w-[200px]- md:max-w-full- max-h-[100px]"
                       unoptimized={
                         process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                       }

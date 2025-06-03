@@ -58,7 +58,7 @@ const AwardsMobile = ({ awards }) => {
                   width={250}
                   height={100}
                   sizes="100vw"
-                  className="w-full h-auto object-cover- max-h-[100px]"
+                  className="w-auto h-auto- object-cover- max-h-[100px] mx-auto"
                   unoptimized={
                     process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                   }
