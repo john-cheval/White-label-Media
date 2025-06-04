@@ -84,7 +84,7 @@ const Awards = ({ heading, awardsList }) => {
                       width={250}
                       height={100}
                       sizes="100vw"
-                      className="w-auto h-auto- object-cover- max-w-[200px]- md:max-w-full- max-h-[100px]"
+                      className="w-auto h-auto- object-cover- max-w-[200px]- md:max-w-full- max-h-[90px]"
                       unoptimized={
                         process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                       }
