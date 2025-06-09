@@ -63,7 +63,7 @@ export default async function Home() {
       />
       <Awards
         heading={homeData?.awards_heading}
-        awardsList={homeData?.awards_list}
+        awardsList={homeData?.our_awards}
       />
     </>
   );

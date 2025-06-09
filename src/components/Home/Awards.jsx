@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import * as motion from "motion/react-client";
 import AwardsMobile from "./AwardsMobile";
+import Link from "next/link";
 
 const containerVariants = {
   hidden: {},
@@ -26,6 +27,7 @@ const Awards = ({ heading, awardsList }) => {
     awardsList?.slice(4, 7),
     awardsList?.slice(7, 9),
   ];
+
   return (
     <section className="containers bg-[#161616] pt-10 lg:py-16">
       <motion.h3
@@ -50,7 +52,6 @@ const Awards = ({ heading, awardsList }) => {
               : "md:grid-cols-2";
 
           const isLastRow = rowIndex === rows.length - 1;
-
           return (
             <div
               key={rowIndex}
@@ -78,17 +79,19 @@ const Awards = ({ heading, awardsList }) => {
                            : "md:border-r border-r-[#2C2C2C]"
                        }`}
                   >
-                    <Image
-                      src={award?.url}
-                      alt={`${award?.title} ||Award ${index + 1}`}
-                      width={250}
-                      height={100}
-                      sizes="100vw"
-                      className="w-auto h-auto- object-cover- max-w-[200px]- md:max-w-full- h-[75px] 2xl:h-[90px]"
-                      unoptimized={
-                        process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                      }
-                    />
+                    <Link href={award?.link} target="_blank">
+                      <Image
+                        src={award?.image?.url}
+                        alt={`${award?.title} ||Award ${index + 1}`}
+                        width={250}
+                        height={100}
+                        sizes="100vw"
+                        className="w-auto h-auto- object-cover- max-w-[200px]- md:max-w-full- h-[75px] 2xl:h-[90px]"
+                        unoptimized={
+                          process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                        }
+                      />
+                    </Link>
                   </motion.div>
                 ))}
               </motion.div>

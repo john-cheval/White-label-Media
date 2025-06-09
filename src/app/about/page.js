@@ -38,7 +38,7 @@ const About = async () => {
         list={aboutData?.global_footprint_list}
       />
       <Section5 compainesList={aboutData?.companies_list} />
-      <Awards awardsList={aboutData?.awards_list} />
+      <Awards awardsList={aboutData?.our_awards} />
     </>
   );
 };
