@@ -38,7 +38,7 @@ const ServiceClients = ({ clientsData, heading }) => {
           grabCursor
           loop
           autoplay={{
-            delay: 2000,
+            delay: 4000,
             disableOnInteraction: false,
           }}
           navigation={{
@@ -61,7 +61,7 @@ const ServiceClients = ({ clientsData, heading }) => {
               progress * 100
             }%`;
           }}
-          modules={[Navigation /* , Autoplay */]}
+          modules={[Navigation, Autoplay]}
           className="mySwiper ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
         >
           {chunkedData?.map((chunk, chunkIndex) => (
