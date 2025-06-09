@@ -31,6 +31,16 @@ const Hero = ({
   //     setSliderVideoLink(videoLink);
   //   }
   // }, [videoLink]);
+  useEffect(() => {
+    const handleScroll = () => {
+      setVideoLoaded(true);
+      window.removeEventListener("scroll", handleScroll);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (videoRef.current === null || isMobile === null) return;
