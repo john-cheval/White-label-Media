@@ -1,10 +1,10 @@
 import { cache } from "react";
 
-export const fetchData = cache(async (url) => {
+export const fetchData = /* cache */ async (url) => {
   try {
     const response = await fetch(url, {
       next: {
-        revalidate: 3600, // Revalidate every 1 hour
+        revalidate: 1, // Revalidate every 1 hour
       },
     });
     if (!response.ok) {
@@ -16,4 +16,4 @@ export const fetchData = cache(async (url) => {
     console.error(error);
     return null;
   }
-});
+};

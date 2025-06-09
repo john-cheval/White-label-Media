@@ -14,8 +14,9 @@ const Contact = ({ data }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="font-switzer text-base  md:text-xl lg:text-2xl-- lg:text-xl- font-light leading-[150%] md:max-w-[420px] text-center md:text-left"
+        dangerouslySetInnerHTML={{ __html: data?.get_in_touch_description }}
       >
-        {data?.get_in_touch_description}
+        {/* {data?.get_in_touch_description} */}
       </motion.p>
 
       <div className="grid grid-cols-12">
