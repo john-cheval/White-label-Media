@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,6 +14,11 @@ const ServiceClients = ({ clientsData, heading }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isTablet = useMediaQuery("(max-width: 1024px)");
   const isBelowXL = useMediaQuery("(max-width: 1279px)");
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   const getItemsPerSlide = () => {
     if (isMobile) return 4;
@@ -34,73 +39,75 @@ const ServiceClients = ({ clientsData, heading }) => {
       <h3 className="main-heading text-center">{heading}</h3>
 
       <div className="w-full pt-8 pb-7 sm:pb-12 md:pb-16">
-        <Swiper
-          slidesPerView={1}
-          grabCursor
-          loop={isBelowXL ? true : false}
-          // autoplay={{
-          //   delay: 4000,
-          //   disableOnInteraction: false,
-          // }}
-          autoplay={
-            isBelowXL
-              ? {
-                  delay: 4000,
-                  disableOnInteraction: false,
-                }
-              : false
-          }
-          navigation={{
-            prevEl: prevRefClient.current,
-            nextEl: nextRefClient.current,
-          }}
-          onSlideChange={(swiper) => {
-            const progress = (swiper.realIndex + 1) / swiper.slides.length;
-            document.querySelector(".progress-fill-client").style.width = `${
-              progress * 100
-            }%`;
-          }}
-          onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRefClient.current;
-            swiper.params.navigation.nextEl = nextRefClient.current;
-            swiper.navigation.init();
-            swiper.navigation.update();
-            const progress = (swiper.realIndex + 1) / swiper.slides.length;
-            document.querySelector(".progress-fill-client").style.width = `${
-              progress * 100
-            }%`;
-          }}
-          modules={[Navigation, Autoplay]}
-          className="mySwiper ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
-        >
-          {chunkedData?.map((chunk, chunkIndex) => (
-            <SwiperSlide key={chunkIndex}>
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-rows-2 md:grid-rows-4 gap-4-  ">
-                {chunk?.map((client, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-center border border-main/[0.20] py-4 px-9 md:px-16"
-                  >
-                    <Image
-                      src={client?.image}
-                      alt={`client-${chunkIndex * 24 + index + 1}`}
-                      height={100}
-                      width={150}
-                      sizes="100vw"
-                      unoptimized={
-                        process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                      }
-                      className="w-full h-auto min-w-[125px]  md:min-h-[60px]- md:max-w-[140px] object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {hasMounted && (
+          <Swiper
+            slidesPerView={1}
+            grabCursor
+            loop={isTablet ? true : false}
+            // autoplay={{
+            //   delay: 4000,
+            //   disableOnInteraction: false,
+            // }}
+            autoplay={
+              isTablet
+                ? {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                  }
+                : false
+            }
+            navigation={{
+              prevEl: prevRefClient.current,
+              nextEl: nextRefClient.current,
+            }}
+            onSlideChange={(swiper) => {
+              const progress = (swiper.realIndex + 1) / swiper.slides.length;
+              document.querySelector(".progress-fill-client").style.width = `${
+                progress * 100
+              }%`;
+            }}
+            onInit={(swiper) => {
+              swiper.params.navigation.prevEl = prevRefClient.current;
+              swiper.params.navigation.nextEl = nextRefClient.current;
+              swiper.navigation.init();
+              swiper.navigation.update();
+              const progress = (swiper.realIndex + 1) / swiper.slides.length;
+              document.querySelector(".progress-fill-client").style.width = `${
+                progress * 100
+              }%`;
+            }}
+            modules={[Navigation, Autoplay]}
+            className="mySwiper ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
+          >
+            {chunkedData?.map((chunk, chunkIndex) => (
+              <SwiperSlide key={chunkIndex}>
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-rows-2 md:grid-rows-4 gap-4-  ">
+                  {chunk?.map((client, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-center border border-main/[0.20] py-4 px-9 md:px-16"
+                    >
+                      <Image
+                        src={client?.image}
+                        alt={`client-${chunkIndex * 24 + index + 1}`}
+                        height={100}
+                        width={150}
+                        sizes="100vw"
+                        unoptimized={
+                          process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                        }
+                        className="w-full h-auto min-w-[125px]  md:min-h-[60px]- md:max-w-[140px] object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
       </div>
 
-      <div className="flex items-center gap-x-3 md:gap-x-8 lg:gap-x-11 md:px-10 lg:px-14 xl:px-16 xl:hidden">
+      <div className="flex items-center gap-x-3 md:gap-x-8 lg:gap-x-11 md:px-10 lg:px-14 xl:px-16 lg:hidden">
         <button
           ref={prevRefClient}
           className={`custom-prev p-3 sm:p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
