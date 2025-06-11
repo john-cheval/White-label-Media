@@ -199,8 +199,8 @@ const Footer = ({ footerLink }) => {
             © 2025 White label Media Group .<br className="footer-br" /> All
             rights reserved
           </motion.p>
-          <span className="text-white hidden sm:block">|</span>
-          <motion.div
+          <span className="text-white hidden sm:block-">|</span>
+          {/* <motion.div
             variants={childVariants}
             className="text-[#EAE4D6] font-switzer text-sm leading-[170%] capitalize  "
           >
@@ -208,9 +208,9 @@ const Footer = ({ footerLink }) => {
               {" "}
               Privacy Policy
             </Link>
-          </motion.div>
+          </motion.div> */}
         </div>
-        <motion.p
+        {/* <motion.p
           variants={childVariants}
           className="text-[#EAE4D6] font-switzer text-sm leading-[170%] capitalize text-right group"
         >
@@ -222,7 +222,16 @@ const Footer = ({ footerLink }) => {
           >
             Cheval
           </Link>
-        </motion.p>
+        </motion.p> */}
+        <motion.div
+          variants={childVariants}
+          className="text-[#EAE4D6] font-switzer text-sm leading-[170%] capitalize text-right "
+        >
+          <Link href={"/privacy-policy"} className="hover:underline">
+            {" "}
+            Privacy Policy
+          </Link>
+        </motion.div>
       </motion.div>
     </footer>
   );

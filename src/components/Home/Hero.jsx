@@ -24,13 +24,8 @@ const Hero = ({
   const isShowButton = useMediaQuery("(min-width: 890px)");
   const isMobile = useMediaQuery("(max-width: 1024px)");
   const [videoLoaded, setVideoLoaded] = useState(false);
-  // const [sliderVideoLink, setSliderVideoLink] = useState("/Home/hero.mp4");
+  const videoExpandedOnce = useRef(false);
 
-  // useEffect(() => {
-  //   if (videoLink) {
-  //     setSliderVideoLink(videoLink);
-  //   }
-  // }, [videoLink]);
   useEffect(() => {
     const handleScroll = () => {
       setVideoLoaded(true);
@@ -60,17 +55,12 @@ const Hero = ({
       // markers: true,
       onUpdate: (self) => {
         const progress = self.progress;
-        // if (videoRef.current) {
-        //   const videoHeight = videoRef.current.getBoundingClientRect().height;
-        //   const headerHeightElement =
-        //     document.querySelector(".home-height-video");
-
-        //   if (headerHeightElement) {
-        //     headerHeightElement.style.height = `${videoHeight}px`;
-        //   }
-        // }
+        const video = videoRef.current;
+        if (!video) return;
 
         if (progress > 0.02 && !videoExpanded) {
+          videoExpandedOnce.current = true;
+          setVidoExpanded(true);
           gsap.to(video, {
             position: "absolute",
             top: "50%",
@@ -101,7 +91,6 @@ const Hero = ({
               }
             },
           });
-          setVidoExpanded(true);
         } else {
           setVidoExpanded(false);
           gsap.to(video, {
@@ -126,7 +115,7 @@ const Hero = ({
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [isMobile]);
+  }, [isMobile /* videoExpanded */]);
 
   const handleVideoLoad = () => {
     setVideoLoaded(true);
@@ -140,10 +129,50 @@ const Hero = ({
     }
   };
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (!videoExpandedOnce.current && videoRef.current && headerRef.current) {
+        const video = videoRef.current;
+
+        videoExpandedOnce.current = true;
+        setVidoExpanded(true);
+
+        gsap.to(video, {
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          xPercent: -50,
+          yPercent: -50,
+          width: isMobile ? "95%" : "95%",
+          height: "auto",
+          zIndex: 50,
+          rotate: 0,
+          objectFit: "cover",
+          ease: "power2.out",
+          duration: 0.6,
+          rotateY: 180,
+          overwrite: true,
+          borderRadius: "20px",
+          onComplete: () => {
+            const videoHeight = video.getBoundingClientRect().height;
+            const headerHeightElement =
+              document.querySelector(".home-height-video");
+            if (headerHeightElement) {
+              headerHeightElement.style.height = `${videoHeight}px`;
+              headerHeightElement.style.opacity = 1;
+            }
+          },
+        });
+      }
+    }, 3000); // 3 seconds
+
+    return () => clearTimeout(timeout);
+  }, [isMobile]);
+
   return (
     <header
       ref={headerRef}
-      className="containers relative perspective-[1500px] lg:h-[120dvh] 3xl:h-[120dvh] 5xl:h-[140dvh] mt-32 pb-9 md:mb-10 lg:mb-14 space-y-8 overflow-hidden-"
+      className="containers relative perspective-[1500px] lg:h-[120dvh] 3xl:h-[120dvh] 5xl:h-[140dvh] mt-32 pb-9 md:mb-10 lg:mb-14 space-y-5 overflow-hidden-"
       style={{
         backgroundImage: `url("/Home/label.svg")`,
         backgroundRepeat: "no-repeat",
@@ -152,9 +181,10 @@ const Hero = ({
       }}
     >
       <div className="grid grid-cols-12">
-        <h1 className="uppercase text-main font-gambetta text-3xl sm:text-[6vw] 5xl:text-[100px]  leading-[1.30] col-span-8 sm:col-span-5">
-          {titleTop}
-        </h1>
+        <h1
+          className="uppercase text-main font-gambetta text-3xl sm:text-[3.5vw] 5xl:text-[80px]  leading-[1.30] col-span-8 sm:col-span-5"
+          dangerouslySetInnerHTML={{ __html: titleTop }}
+        ></h1>
       </div>
 
       <div className="grid grid-cols-12 overflow-hidden-  ">
@@ -170,7 +200,7 @@ const Hero = ({
             loop
             preload="metadata"
             playsInline
-            // src={videoLink || "/Home/hero.mp4"}
+            // src={"/Home/hero.mp4"}
             src={videoLoaded ? videoLink : "/Home/hero.mp4"}
             // src={sliderVideoLink}
             className=" w-full min-w-[220px] min-h-[120px] sm:h-auto rounded-[20px] rotate-[-4deg]"
@@ -230,7 +260,7 @@ const Hero = ({
 
       <div className="grid grid-cols-12">
         {isShowButton && (
-          <div className="col-span-3 pb-12 mt-auto ">
+          <div className="col-span-3 pb-8 mt-auto ">
             <Link
               href={homeLink}
               aria-label="About the group"
@@ -243,7 +273,7 @@ const Hero = ({
         )}
         <div className="col-start-2  sm:col-start-4 -col-end-1">
           <h2
-            className="uppercase text-main font-gambetta text-3xl sm:text-[6vw] 5xl:text-[100px]  leading-[1.30]  text-right"
+            className="uppercase text-main font-gambetta text-3xl sm:text-[3.5vw] 5xl:text-[80px]  leading-[1.30]  text-right"
             dangerouslySetInnerHTML={{ __html: titleBottom }}
           ></h2>
           {!isShowButton && (

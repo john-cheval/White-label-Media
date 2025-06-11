@@ -114,7 +114,7 @@ const Section1 = ({ data }) => {
           </motion.h1>
           <motion.div
             variants={textVariants}
-            className="text-sm md:text-base font-light font-switzer  leading-[161%] md:max-w-[450px] md:ml-[50px] text-center md:text-left"
+            className="text-sm sm:text-base lg:text-lg font-light font-switzer  leading-[161%] md:max-w-[450px] md:ml-[50px] text-center md:text-left"
             dangerouslySetInnerHTML={{ __html: data[1]?.description }}
           ></motion.div>
         </motion.div>

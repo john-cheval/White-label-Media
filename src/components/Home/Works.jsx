@@ -117,7 +117,7 @@ const Works = ({ heading, description, workList }) => {
         </motion.h3>
         <motion.p
           variants={itemVariants}
-          className="col-span-12 md:col-span-8 text-center md:text-left font-switzer text-base leading-[193%] mt-5 hidden md:block"
+          className="col-span-12 md:col-span-8 text-center md:text-left font-switzer text-base- text-sm sm:text-base md:text-lg leading-[193%] mt-5 hidden md:block"
         >
           {description}
         </motion.p>

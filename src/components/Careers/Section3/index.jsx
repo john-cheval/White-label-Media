@@ -41,7 +41,7 @@ const Section3 = ({ data }) => {
             {data?.main_heading}
           </h3>
           <div
-            className="text-sm md:text-base text-center md:text-left font-light font-switzer  leading-[161%] md:max-w-[450px] md:ml-[50px]"
+            className="text-sm sm:text-base lg:text-lg text-center md:text-left font-light font-switzer  leading-[161%] md:max-w-[450px] md:ml-[50px]"
             dangerouslySetInnerHTML={{ __html: data?.description }}
           ></div>
         </motion.div>
