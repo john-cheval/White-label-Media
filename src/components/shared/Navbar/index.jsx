@@ -77,7 +77,7 @@ const Navbar = ({ navLinks }) => {
                   }
                   priority
                   className={`w-full transition-all duration-300 ease-in-out  ${
-                    bgColor ? "h-[50px]" : "h-full"
+                    bgColor ? "h-[60px]" : "h-full"
                   }`}
                 />
               </Link>

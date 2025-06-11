@@ -82,7 +82,7 @@ const Section1 = ({ companiesList }) => {
                 {activeSector?.logo && (
                   <Image
                     src={activeSector?.logo?.url}
-                    alt={activeSector?.title}
+                    alt={activeSector?.title || "image"}
                     height={30}
                     width={100}
                     sizes="100vw"
@@ -203,7 +203,7 @@ const Section1 = ({ companiesList }) => {
                         {data?.thumbnail && (
                           <Image
                             src={data?.thumbnail?.url}
-                            alt={data?.title}
+                            alt={data?.title || "image"}
                             width={300}
                             height={400}
                             sizes="100vw"
