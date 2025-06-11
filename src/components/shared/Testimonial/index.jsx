@@ -154,7 +154,7 @@ const Testimonials = ({ heading, testiList }) => {
                       <span className="text-2xl md:text-3xl leading-[141%]">
                         {data?.client_name}
                       </span>
-                      <span className="text-sm md:text-base font-switzer leading-[193%]">
+                      <span className="text-sm md:text-base font-semibold font-switzer leading-[193%]">
                         {data?.position}
                       </span>
                     </div>

@@ -79,17 +79,19 @@ const Section1 = ({ companiesList }) => {
               exit="exit"
             >
               <div className="w-fit">
-                <Image
-                  src={activeSector?.logo?.url}
-                  alt={activeSector?.title}
-                  height={30}
-                  width={100}
-                  sizes="100vw"
-                  className="h-auto w-full max-h-[65px] "
-                  unoptimized={
-                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                  }
-                />
+                {activeSector?.logo && (
+                  <Image
+                    src={activeSector?.logo?.url}
+                    alt={activeSector?.title}
+                    height={30}
+                    width={100}
+                    sizes="100vw"
+                    className="h-auto w-full max-h-[65px]- max-w-[250px] "
+                    unoptimized={
+                      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                    }
+                  />
+                )}
               </div>
             </motion.div>
             <motion.h1
@@ -109,7 +111,7 @@ const Section1 = ({ companiesList }) => {
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                className="text-white font-switzer text-sm md:text-base font-light leading-[161%] text-center md:text-left mb-11 md:mb-0"
+                className="text-white font-switzer text-sm sm:text-base lg:text-lg font-light leading-[161%] text-center md:text-left mb-11 md:mb-0"
               >
                 {activeSector?.description}
               </motion.p>
@@ -198,17 +200,21 @@ const Section1 = ({ companiesList }) => {
                       className="space-y-7 cursor-pointer"
                     >
                       <div className="relative w-full ">
-                        <Image
-                          src={data?.thumbnail?.url}
-                          alt={data?.title}
-                          width={300}
-                          height={400}
-                          sizes="100vw"
-                          className="w-full max-h-[382px]- h-auto  md:max-h-full- object-cover-"
-                          unoptimized={
-                            process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                          }
-                        />
+                        {data?.thumbnail && (
+                          <Image
+                            src={data?.thumbnail?.url}
+                            alt={data?.title}
+                            width={300}
+                            height={400}
+                            sizes="100vw"
+                            className="w-full max-h-[382px]- h-auto  md:max-h-full- object-cover-"
+                            unoptimized={
+                              process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED ===
+                              "true"
+                            }
+                          />
+                        )}
+
                         <div className="bg-sector-grad-2 w-full h-full absolute bottom-0 left-0 z-[5] " />
                         <p className="text-white absolute bottom-9  w-full z-[10] text-center text-2xl px-1 font-medium leading-[141%]">
                           {data?.title}

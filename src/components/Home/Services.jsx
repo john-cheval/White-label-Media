@@ -65,7 +65,7 @@ const Services = ({ services, heading, description }) => {
                 <h3 className="main-heading text-center md:text-left">
                   {heading}
                 </h3>
-                <p className=" font-switzer md:text-sm text-base text-center md:text-left leading-[193%]">
+                <p className=" font-switzer text-sm sm:text-base md:text-lg text-center md:text-left leading-[193%]">
                   {description}
                 </p>
               </motion.div>

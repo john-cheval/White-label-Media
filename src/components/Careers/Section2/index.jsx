@@ -40,7 +40,7 @@ const Section2 = ({ data }) => {
         </motion.h3>
         <motion.div
           variants={fadeUp}
-          className="font-switzer text-base font-light leading-[161%] max-w-[700px]- text-center md:text-right"
+          className="font-switzer text-sm md:text-base lg:text-lg font-light leading-[161%] max-w-[700px]- text-center md:text-right"
           dangerouslySetInnerHTML={{ __html: data?.description }}
         ></motion.div>
       </motion.div>

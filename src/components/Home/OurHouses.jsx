@@ -99,7 +99,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                     href={house?.website_link}
                     aria-label={`Go To ${house?.title} website`}
                     target="_blank"
-                    className="max-w-[250px] max-h-[150px]- overflow-hidden mx-auto sm:mx-0"
+                    className="max-w-[200px] max-h-[150px]- overflow-hidden mx-auto sm:mx-0"
                   >
                     <Image
                       src={house?.logo?.url}
@@ -107,7 +107,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                       sizes="100vw"
                       height={100}
                       width={250}
-                      className="w-full h-auto object-cover filter grayscale transition-all duration-500 group-hover:grayscale-0 "
+                      className="w-full h-full object-cover filter grayscale transition-all duration-500 group-hover:grayscale-0 "
                       unoptimized={
                         process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
                       }
@@ -168,7 +168,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                     href={house?.website_link}
                     target="_blank"
                     aria-label={`Go To ${house?.title} website`}
-                    className="max-w-[250px] max-h-[150px]- overflow-hidden mx-auto sm:mx-0 "
+                    className="max-w-[200px] max-h-[150px]- overflow-hidden mx-auto sm:mx-0 "
                   >
                     <Image
                       src={house?.logo?.url}
