@@ -38,7 +38,7 @@ const ServiceClients = ({ clientsData, heading }) => {
     <section className="containers pb-8 md:pb-16">
       <h3 className="main-heading text-center">{heading}</h3>
 
-      <div className="w-full pt-8 pb-7 sm:pb-12 md:pb-16">
+      <div className="w-full pt-8 pb-7- sm:pb-12 md:pb-16">
         {hasMounted && (
           <Swiper
             slidesPerView={1}
