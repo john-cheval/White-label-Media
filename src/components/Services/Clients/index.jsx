@@ -13,6 +13,7 @@ const ServiceClients = ({ clientsData, heading }) => {
   const nextRefClient = useRef(null);
   const isMobile = useMediaQuery("(max-width: 768px)");
   const isTablet = useMediaQuery("(max-width: 1024px)");
+  const isBelowXL = useMediaQuery("(max-width: 1279px)");
 
   const getItemsPerSlide = () => {
     if (isMobile) return 4;
@@ -36,11 +37,19 @@ const ServiceClients = ({ clientsData, heading }) => {
         <Swiper
           slidesPerView={1}
           grabCursor
-          loop
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
+          loop={isBelowXL ? true : false}
+          // autoplay={{
+          //   delay: 4000,
+          //   disableOnInteraction: false,
+          // }}
+          autoplay={
+            isBelowXL
+              ? {
+                  delay: 4000,
+                  disableOnInteraction: false,
+                }
+              : false
+          }
           navigation={{
             prevEl: prevRefClient.current,
             nextEl: nextRefClient.current,
@@ -91,7 +100,7 @@ const ServiceClients = ({ clientsData, heading }) => {
         </Swiper>
       </div>
 
-      <div className="flex items-center gap-x-3 md:gap-x-8 lg:gap-x-11 md:px-10 lg:px-14 xl:px-16">
+      <div className="flex items-center gap-x-3 md:gap-x-8 lg:gap-x-11 md:px-10 lg:px-14 xl:px-16 xl:hidden">
         <button
           ref={prevRefClient}
           className={`custom-prev p-3 sm:p-4 rounded-full flex items-center justify-center border border-[#DEDEDE] `}
