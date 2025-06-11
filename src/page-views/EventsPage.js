@@ -3,11 +3,19 @@ import Section1 from "@/components/Events/Section1";
 import Section2 from "@/components/Events/Section2";
 import LoadingAnimation from "@/components/shared/Loader/LoadingAnimation";
 import dayjs from "dayjs";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 const EventsPage = () => {
   const [event, setEvent] = useState("past");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  console.log(pathname, "this is pathname");
+
+  if (pathname === "/events") {
+    router.push("/");
+  }
 
   const getApiUrl = (type) => {
     if (type === "past") {
