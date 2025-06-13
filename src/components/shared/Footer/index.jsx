@@ -148,9 +148,11 @@ const Footer = ({ footerLink }) => {
           <motion.p
             variants={childVariants}
             className="text-[#EAE4D6] text-xl md:text-2xl xl:text-3xl 2xl:text-[40px] font-medium md:border-b-1 border-b-white md:border-b md:pb-5 text-center md:text-left"
-          >
-            {footerLink?.footer_heading}
-          </motion.p>
+            dangerouslySetInnerHTML={{
+              __html: footerLink?.footer_heading,
+            }}
+            style={{ lineHeight: 1.2 }}
+          ></motion.p>
 
           <motion.ul
             variants={parentVariants}
