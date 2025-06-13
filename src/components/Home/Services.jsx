@@ -115,6 +115,8 @@ const Services = ({ services, heading, description }) => {
                             ? "bottom-0"
                             : index === 0
                             ? "top-0"
+                            : index === 1
+                            ? "top-5"
                             : "-top-1/2"
                         }`}
                       >
