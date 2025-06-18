@@ -58,7 +58,7 @@ const Section2 = ({ eventList }) => {
                 ) : (
                   <Image
                     src={event?.event_image?.url}
-                    alt={event?.post_title}
+                    alt={event?.post_title || "Team White Label"}
                     height={500}
                     width={500}
                     sizes="100vw"

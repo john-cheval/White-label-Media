@@ -33,11 +33,11 @@ const Section5 = ({ compainesList }) => {
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
       >
-        {compainesList?.map((client, index) => (
+        {compainesList?.slice(1)?.map((client, index) => (
           <motion.div key={index} variants={itemVariants}>
             <Image
               src={client?.logo?.url}
-              alt={client?.title}
+              alt={client?.title || "image"}
               width={100}
               height={100}
               unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}

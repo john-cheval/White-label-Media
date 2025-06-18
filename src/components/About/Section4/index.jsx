@@ -63,7 +63,7 @@ const Section4 = ({ heading, description, list }) => {
               </p>
               <Image
                 src={row?.flag_image?.url}
-                alt={row?.title}
+                alt={row?.title || "image"}
                 width={50}
                 height={2}
                 sizes="100vw"

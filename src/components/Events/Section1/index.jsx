@@ -160,7 +160,7 @@ const Section1 = ({ event, setEvent, post, loading }) => {
                 ) : (
                   <Image
                     src={latestPost?.event_image?.url}
-                    alt={latestPost?.post_title}
+                    alt={latestPost?.post_title || "image"}
                     fill
                     className="object-cover"
                     priority

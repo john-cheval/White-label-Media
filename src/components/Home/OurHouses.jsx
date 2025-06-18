@@ -103,7 +103,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                   >
                     <Image
                       src={house?.logo?.url}
-                      alt={house?.title}
+                      alt={house?.title || "group-of-companies"}
                       sizes="100vw"
                       height={100}
                       width={250}
@@ -172,7 +172,7 @@ const OurHouses = ({ houseHeading, houseDesc, house_video, companiesList }) => {
                   >
                     <Image
                       src={house?.logo?.url}
-                      alt={house?.title}
+                      alt={house?.title || "group-of-companies"}
                       sizes="100vw"
                       height={100}
                       width={250}

@@ -1,6 +1,6 @@
 import { cache } from "react";
 
-export const fetchData = /* cache */ async (url) => {
+export const fetchData = cache(async (url) => {
   try {
     const response = await fetch(url, {
       next: {
@@ -16,4 +16,4 @@ export const fetchData = /* cache */ async (url) => {
     console.error(error);
     return null;
   }
-};
+});
