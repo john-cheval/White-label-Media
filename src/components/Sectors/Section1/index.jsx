@@ -48,7 +48,7 @@ const Section1 = ({ companiesList }) => {
             ) : (
               <Image
                 src={activeSector?.image?.url}
-                alt={activeSector?.title}
+                alt={activeSector?.title || "group-of-companies"}
                 fill
                 className="object-cover"
                 priority

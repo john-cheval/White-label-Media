@@ -100,6 +100,7 @@ const Navbar = ({ navLinks }) => {
               width={30}
               height={22}
               sizes="100vw"
+              alt="menu"
               unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
             />
           </div>

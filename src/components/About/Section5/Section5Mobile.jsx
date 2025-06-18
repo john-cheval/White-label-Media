@@ -49,12 +49,12 @@ const Section5Mobile = ({ clients }) => {
           }}
           modules={[Navigation, Autoplay]}
         >
-          {clients?.map((client, index) => {
+          {clients?.slice(1)?.map((client, index) => {
             return (
               <SwiperSlide key={index} className="flex items-center">
                 <Image
                   src={client?.logo?.url}
-                  alt={client?.title}
+                  alt={client?.title || "image"}
                   width={250}
                   height={100}
                   sizes="100vw"
