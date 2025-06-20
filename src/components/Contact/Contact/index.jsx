@@ -71,15 +71,16 @@ const Contact = ({ data }) => {
                   <MdAdUnits size={18} />
                 </span>
                 <div className="flex flex-col">
-                  {data?.phone_list?.map((phone, index) => (
-                    <Link
-                      key={index}
-                      href={`tel:${phone?.phone_number}`}
-                      className="max-w-[300px]"
-                    >
-                      {phone?.phone_number}
-                    </Link>
-                  ))}
+                  {data?.phone_list &&
+                    data?.phone_list?.map((phone, index) => (
+                      <Link
+                        key={index}
+                        href={`tel:${phone?.phone_number}`}
+                        className="max-w-[300px]"
+                      >
+                        {phone?.phone_number}
+                      </Link>
+                    ))}
                 </div>
               </motion.li>
               <motion.li

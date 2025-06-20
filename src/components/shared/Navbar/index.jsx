@@ -154,31 +154,32 @@ const Navbar = ({ navLinks }) => {
               </div>
 
               <ul className="flex flex-col gap-y-6">
-                {navLinks?.map((link, index) => {
-                  const url = link?.url === "" ? "/" : link?.url;
-                  const isActive = pathname === url;
-                  return (
-                    <li
-                      key={index}
-                      className="flex items-center justify-between border-b pb-5 md:pb-[22px] border-b-[#DBDBDB] group"
-                    >
-                      <Link
-                        href={url}
-                        className={`text-xl md:text-2xl lg:text-3xl uppercase leading-[118.423%] font-medium  ${
-                          index === 0 ? "pt-5 md:pt-6" : ""
-                        } ${isActive ? "font-semibold" : "font-normal"}`}
-                        onClick={() => setIsOpen(false)}
+                {navLinks &&
+                  navLinks?.map((link, index) => {
+                    const url = link?.url === "" ? "/" : link?.url;
+                    const isActive = pathname === url;
+                    return (
+                      <li
+                        key={index}
+                        className="flex items-center justify-between border-b pb-5 md:pb-[22px] border-b-[#DBDBDB] group"
                       >
-                        {link?.title}
-                      </Link>
-                      <IoIosArrowForward
-                        color="#B8B8B8"
-                        // size={20}
-                        className="text-2xl md:text-3xl group-hover:translate-x-1 transition-transform duration-300"
-                      />
-                    </li>
-                  );
-                })}
+                        <Link
+                          href={url}
+                          className={`text-xl md:text-2xl lg:text-3xl uppercase leading-[118.423%] font-medium  ${
+                            index === 0 ? "pt-5 md:pt-6" : ""
+                          } ${isActive ? "font-semibold" : "font-normal"}`}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {link?.title}
+                        </Link>
+                        <IoIosArrowForward
+                          color="#B8B8B8"
+                          // size={20}
+                          className="text-2xl md:text-3xl group-hover:translate-x-1 transition-transform duration-300"
+                        />
+                      </li>
+                    );
+                  })}
               </ul>
 
               <motion.ul className="flex gap-x-2 justify-center mt-auto pt-5  ">

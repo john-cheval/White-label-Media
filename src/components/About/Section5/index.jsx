@@ -33,18 +33,21 @@ const Section5 = ({ compainesList }) => {
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
       >
-        {compainesList?.slice(1)?.map((client, index) => (
-          <motion.div key={index} variants={itemVariants}>
-            <Image
-              src={client?.logo?.url}
-              alt={client?.title || "image"}
-              width={100}
-              height={100}
-              unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-              className="w-full h-auto max-w-[150px]"
-            />
-          </motion.div>
-        ))}
+        {compainesList &&
+          compainesList?.slice(1)?.map((client, index) => (
+            <motion.div key={index} variants={itemVariants}>
+              <Image
+                src={client?.logo?.url}
+                alt={client?.title || "image"}
+                width={100}
+                height={100}
+                unoptimized={
+                  process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                }
+                className="w-full h-auto max-w-[150px]"
+              />
+            </motion.div>
+          ))}
       </motion.div>
 
       <div className=" justify-center mt-16 hidden md:flex">

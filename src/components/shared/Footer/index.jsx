@@ -155,7 +155,7 @@ const Footer = ({ footerLink }) => {
             // }}
             style={{ lineHeight: 1.2 }}
           >
-            <span>{firstText}</span>{" "}
+            <span className="text-center md:text-right">{firstText}</span>{" "}
             <span className="text-center md:text-right">{secondText}</span>
           </motion.p>
 
@@ -166,27 +166,28 @@ const Footer = ({ footerLink }) => {
             viewport={{ once: true }}
             className="flex gap-x-2 md:gap-x-6 lg:gap-x-10 gap-y-3 md:gap-y-6 flex-wrap pt-3 md:pt-5 lg:pt-8 md:max-w-[80%] justify-center md:justify-start"
           >
-            {footerLink?.menu_tree?.map((links, index) => {
-              const url = links?.url === "" ? "/" : links?.url;
-              return (
-                <motion.li
-                  variants={childVariants}
-                  key={index}
-                  whileHover={{ scale: 1.05, y: -4 }}
-                  // transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Link
-                    href={url}
-                    className="text-[#EAE4D6] font-switzer text-sm font-medium uppercase flex items-center justify-center gap-x-1 md:gap-x-0 "
+            {footerLink?.menu_tree &&
+              footerLink?.menu_tree?.map((links, index) => {
+                const url = links?.url === "" ? "/" : links?.url;
+                return (
+                  <motion.li
+                    variants={childVariants}
+                    key={index}
+                    whileHover={{ scale: 1.05, y: -4 }}
+                    // transition={{ type: "spring", stiffness: 300 }}
                   >
-                    {links?.title}{" "}
-                    {index !== footerLink.menu_tree?.length - 1 && (
-                      <span className="md:hidden">|</span>
-                    )}
-                  </Link>
-                </motion.li>
-              );
-            })}
+                    <Link
+                      href={url}
+                      className="text-[#EAE4D6] font-switzer text-sm font-medium uppercase flex items-center justify-center gap-x-1 md:gap-x-0 "
+                    >
+                      {links?.title}{" "}
+                      {index !== footerLink.menu_tree?.length - 1 && (
+                        <span className="md:hidden">|</span>
+                      )}
+                    </Link>
+                  </motion.li>
+                );
+              })}
           </motion.ul>
         </motion.div>
       </div>

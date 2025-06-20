@@ -56,60 +56,64 @@ const Works = ({ heading, workList }) => {
               progress * 100
             }%`;
           }}
-          modules={[Navigation , Autoplay]}
+          modules={[Navigation, Autoplay]}
           className="mySwiper ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
         >
-          {workList?.map((item, idx) => {
-            const isEvenCard = idx % 2 === 1;
+          {workList &&
+            workList?.map((item, idx) => {
+              const isEvenCard = idx % 2 === 1;
 
-            return (
-              <SwiperSlide key={idx}>
-                <div
-                  className={`overflow-hidden flex flex-col gap-y-5 md:gap-y-8 transition-all duration-300 relative group slide-content- swiper-slide-next:mt-[100px]- ${
-                    isEvenCard ? "md:mt-[100px]" : ""
-                  } `}
-                >
-                  {!isVideo(item?.image?.url) ? (
-                    <div className="">
-                      <Image
-                        src={item?.image?.url}
-                        alt={`work-${idx}`}
-                        className="w-full h-auto"
-                        height={300}
-                        width={150}
-                        sizes="100vw"
-                        unoptimized={
-                          process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                        }
-                      />
-                    </div>
-                  ) : (
-                    <div className=" overflow-hidden">
-                      <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover-"
-                      >
-                        <source src={item?.image?.url} type="video/mp4" />
-                        <source src={item?.image?.url} type="video/quicktime" />
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                  )}
-                  {item?.description && (
-                    <div
-                      className={`text-sm md:text-base font-switzer text-center md:text-left leading-[161%] ${
-                        isEvenCard ? "md:-order-1" : ""
-                      }`}
-                      dangerouslySetInnerHTML={{ __html: item?.description }}
-                    ></div>
-                  )}
-                </div>
-              </SwiperSlide>
-            );
-          })}
+              return (
+                <SwiperSlide key={idx}>
+                  <div
+                    className={`overflow-hidden flex flex-col gap-y-5 md:gap-y-8 transition-all duration-300 relative group slide-content- swiper-slide-next:mt-[100px]- ${
+                      isEvenCard ? "md:mt-[100px]" : ""
+                    } `}
+                  >
+                    {!isVideo(item?.image?.url) ? (
+                      <div className="">
+                        <Image
+                          src={item?.image?.url}
+                          alt={`work-${idx}`}
+                          className="w-full h-auto"
+                          height={300}
+                          width={150}
+                          sizes="100vw"
+                          unoptimized={
+                            process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                          }
+                        />
+                      </div>
+                    ) : (
+                      <div className=" overflow-hidden">
+                        <video
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover-"
+                        >
+                          <source src={item?.image?.url} type="video/mp4" />
+                          <source
+                            src={item?.image?.url}
+                            type="video/quicktime"
+                          />
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                    )}
+                    {item?.description && (
+                      <div
+                        className={`text-sm md:text-base font-switzer text-center md:text-left leading-[161%] ${
+                          isEvenCard ? "md:-order-1" : ""
+                        }`}
+                        dangerouslySetInnerHTML={{ __html: item?.description }}
+                      ></div>
+                    )}
+                  </div>
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </div>
 

@@ -11,7 +11,6 @@ const EventsPage = () => {
   const [loading, setLoading] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  console.log(pathname, "this is pathname");
 
   if (pathname === "/events") {
     router.push("/");

@@ -83,24 +83,25 @@ const Services = ({
           </motion.div>
         </motion.div>
         <div className="space-y-9 overflow-y-auto- pt-14 md:pt-0 col-span-12 md:col-span-5 bg-service-1">
-          {servicesList?.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={index >= 0 ? { opacity: 0, y: 100 } : false}
-              whileInView={index >= 0 ? { opacity: 1, y: 0 } : false}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-              viewport={{ once: true, amount: 0.7 }}
-              className="space-y-2 border-b border-b-[#EAE4D6] pb-7"
-            >
-              <h5 className="font-switzer text-xl  md:text-2xl 3xl:text-3xl font-semibold leading-[141%] text-center md:text-left">
-                {service?.title}
-              </h5>
-              <div
-                className="font-switzer text-sm md:text-base text-center md:text-left  leading-[161%]"
-                dangerouslySetInnerHTML={{ __html: service?.description }}
-              ></div>
-            </motion.div>
-          ))}
+          {servicesList &&
+            servicesList?.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={index >= 0 ? { opacity: 0, y: 100 } : false}
+                whileInView={index >= 0 ? { opacity: 1, y: 0 } : false}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+                viewport={{ once: true, amount: 0.7 }}
+                className="space-y-2 border-b border-b-[#EAE4D6] pb-7"
+              >
+                <h5 className="font-switzer text-xl  md:text-2xl 3xl:text-3xl font-semibold leading-[141%] text-center md:text-left">
+                  {service?.title}
+                </h5>
+                <div
+                  className="font-switzer text-sm md:text-base text-center md:text-left  leading-[161%]"
+                  dangerouslySetInnerHTML={{ __html: service?.description }}
+                ></div>
+              </motion.div>
+            ))}
         </div>
       </div>
     </section>

@@ -48,33 +48,34 @@ const Section4 = ({ heading, description, list }) => {
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
       >
-        {list?.map((row, rowIndex) => (
-          <motion.div
-            key={rowIndex}
-            className="sm:min-w-[200px] lg:min-w-[265px]"
-            variants={itemVariants}
-          >
-            <div
+        {list &&
+          list?.map((row, rowIndex) => (
+            <motion.div
               key={rowIndex}
-              className={`py-8 sm:py-14 lg:px-16- text-center border border-main border-opacity-20 space-y-2   border-r-0 last:border-r`}
+              className="sm:min-w-[200px] lg:min-w-[265px]"
+              variants={itemVariants}
             >
-              <p className="text-xl sm:text-2xl font-medium leading-[118.423%] text-center">
-                {row?.title}
-              </p>
-              <Image
-                src={row?.flag_image?.url}
-                alt={row?.title || "image"}
-                width={50}
-                height={2}
-                sizes="100vw"
-                className="w-[50px] h-[2px] object-cover mx-auto"
-                unoptimized={
-                  process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                }
-              />
-            </div>
-          </motion.div>
-        ))}
+              <div
+                key={rowIndex}
+                className={`py-8 sm:py-14 lg:px-16- text-center border border-main border-opacity-20 space-y-2   border-r-0 last:border-r`}
+              >
+                <p className="text-xl sm:text-2xl font-medium leading-[118.423%] text-center">
+                  {row?.title}
+                </p>
+                <Image
+                  src={row?.flag_image?.url}
+                  alt={row?.title || "image"}
+                  width={50}
+                  height={2}
+                  sizes="100vw"
+                  className="w-[50px] h-[2px] object-cover mx-auto"
+                  unoptimized={
+                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                  }
+                />
+              </div>
+            </motion.div>
+          ))}
       </motion.div>
     </motion.section>
   );

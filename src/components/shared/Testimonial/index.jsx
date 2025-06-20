@@ -120,48 +120,49 @@ const Testimonials = ({ heading, testiList }) => {
             modules={[Navigation /* , Autoplay */]}
             className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
           >
-            {testiList?.map((data, index) => {
-              const titleText = truncateByChars(
-                data?.title,
-                isDesktop ? 25 : 30,
-                true
-              );
-              const { text: descText, isTruncated: showReadMore } =
-                truncateByWords(
-                  data?.full_description,
-                  isDesktop ? 30 : 50,
-                  false
+            {testiList &&
+              testiList?.map((data, index) => {
+                const titleText = truncateByChars(
+                  data?.title,
+                  isDesktop ? 25 : 30,
+                  true
                 );
-              return (
-                <SwiperSlide key={index}>
-                  <div className="bg-white py-6 md:py-10 lg:py-14 px-6 md:px-10 lg:px-14 text-main flex flex-col gap-y-4 md:gap-y-5">
-                    <h4 className="text-2xl md:text-3xl leading-[141%] min-h-[50px] ">
-                      {titleText}
-                    </h4>
-                    <p className="text-sm md:text-base font-switzer leading-[193%] min-h-[150px]">
-                      {descText}{" "}
-                      {showReadMore && (
-                        <button
-                          className="text-main underline hover:no-underline "
-                          onClick={() => open(data)}
-                        >
-                          Read More...
-                        </button>
-                      )}
-                    </p>
+                const { text: descText, isTruncated: showReadMore } =
+                  truncateByWords(
+                    data?.full_description,
+                    isDesktop ? 30 : 50,
+                    false
+                  );
+                return (
+                  <SwiperSlide key={index}>
+                    <div className="bg-white py-6 md:py-10 lg:py-14 px-6 md:px-10 lg:px-14 text-main flex flex-col gap-y-4 md:gap-y-5">
+                      <h4 className="text-2xl md:text-3xl leading-[141%] min-h-[50px] ">
+                        {titleText}
+                      </h4>
+                      <p className="text-sm md:text-base font-switzer leading-[193%] min-h-[150px]">
+                        {descText}{" "}
+                        {showReadMore && (
+                          <button
+                            className="text-main underline hover:no-underline "
+                            onClick={() => open(data)}
+                          >
+                            Read More...
+                          </button>
+                        )}
+                      </p>
 
-                    <div className="flex  flex-col mt-4 md:mt-5 min-h-[80px]">
-                      <span className="text-2xl md:text-3xl leading-[141%]">
-                        {data?.client_name}
-                      </span>
-                      <span className="text-sm md:text-base font-semibold font-switzer leading-[193%]">
-                        {data?.position}
-                      </span>
+                      <div className="flex  flex-col mt-4 md:mt-5 min-h-[80px]">
+                        <span className="text-2xl md:text-3xl leading-[141%]">
+                          {data?.client_name}
+                        </span>
+                        <span className="text-sm md:text-base font-semibold font-switzer leading-[193%]">
+                          {data?.position}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </SwiperSlide>
-              );
-            })}
+                  </SwiperSlide>
+                );
+              })}
           </Swiper>
         </div>
 

@@ -43,61 +43,64 @@ const Awards = ({ heading, awardsList }) => {
       <AwardsMobile awards={awardsList} />
 
       <div className=" hidden md:block  border-y border-y-[#2C2C2C] mt-6">
-        {rows?.map((row, rowIndex) => {
-          const columns =
-            row.length === 4
-              ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
-              : row.length === 3
-              ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
-              : "md:grid-cols-2";
+        {rows &&
+          rows?.map((row, rowIndex) => {
+            const columns =
+              row.length === 4
+                ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
+                : row.length === 3
+                ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
+                : "md:grid-cols-2";
 
-          const isLastRow = rowIndex === rows.length - 1;
-          return (
-            <div
-              key={rowIndex}
-              className={`border-b  border-b-[#2C2C2C] ${
-                isLastRow ? "flex justify-center" : ""
-              }`}
-            >
-              <motion.div
-                className={`grid ${columns} gap-0 ${
-                  isLastRow ? "w-fit" : "w-full"
+            const isLastRow = rowIndex === rows.length - 1;
+            return (
+              <div
+                key={rowIndex}
+                className={`border-b  border-b-[#2C2C2C] ${
+                  isLastRow ? "flex justify-center" : ""
                 }`}
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.3 }}
               >
-                {row?.map((award, index) => (
-                  <motion.div
-                    variants={itemVariants}
-                    key={index}
-                    className={`relative flex items-center border-t border-t-[#2C2C2C] md:border-t-0 justify-center p-5
+                <motion.div
+                  className={`grid ${columns} gap-0 ${
+                    isLastRow ? "w-fit" : "w-full"
+                  }`}
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.3 }}
+                >
+                  {row &&
+                    row?.map((award, index) => (
+                      <motion.div
+                        variants={itemVariants}
+                        key={index}
+                        className={`relative flex items-center border-t border-t-[#2C2C2C] md:border-t-0 justify-center p-5
                        md:p-8 ${
                          index === row.length - 1
                            ? ""
                            : "md:border-r border-r-[#2C2C2C]"
                        }`}
-                  >
-                    <Link href={award?.link} target="_blank">
-                      <Image
-                        src={award?.image?.url}
-                        alt={`${award?.title} ||Award ${index + 1}`}
-                        width={250}
-                        height={100}
-                        sizes="100vw"
-                        className="w-auto h-auto- object-cover- max-w-[200px]- md:max-w-full- h-[75px] 2xl:h-[90px]"
-                        unoptimized={
-                          process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                        }
-                      />
-                    </Link>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          );
-        })}
+                      >
+                        <Link href={award?.link} target="_blank">
+                          <Image
+                            src={award?.image?.url}
+                            alt={`${award?.title} ||Award ${index + 1}`}
+                            width={250}
+                            height={100}
+                            sizes="100vw"
+                            className="w-auto h-auto- object-cover- max-w-[200px]- md:max-w-full- h-[75px] 2xl:h-[90px]"
+                            unoptimized={
+                              process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED ===
+                              "true"
+                            }
+                          />
+                        </Link>
+                      </motion.div>
+                    ))}
+                </motion.div>
+              </div>
+            );
+          })}
       </div>
     </section>
   );

@@ -49,23 +49,24 @@ const AwardsMobile = ({ awards }) => {
           }}
           modules={[Navigation, Autoplay]}
         >
-          {awards?.map((award, index) => {
-            return (
-              <SwiperSlide key={index}>
-                <Image
-                  src={award?.image?.url}
-                  alt={`${award?.title} ||Award ${index + 1}`}
-                  width={250}
-                  height={100}
-                  sizes="100vw"
-                  className="w-auto h-auto- object-cover- max-h-[100px] mx-auto"
-                  unoptimized={
-                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                  }
-                />
-              </SwiperSlide>
-            );
-          })}
+          {awards &&
+            awards?.map((award, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  <Image
+                    src={award?.image?.url}
+                    alt={`${award?.title} ||Award ${index + 1}`}
+                    width={250}
+                    height={100}
+                    sizes="100vw"
+                    className="w-auto h-auto- object-cover- max-h-[100px] mx-auto"
+                    unoptimized={
+                      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                    }
+                  />
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </div>
       <div className="md:hidden gap-x-4 flex justify-between items-center mt-5">
