@@ -155,7 +155,7 @@ const Footer = ({ footerLink }) => {
             // }}
             style={{ lineHeight: 1.2 }}
           >
-            <span>{firstText}</span>{" "}
+            <span className="text-center md:text-right">{firstText}</span>{" "}
             <span className="text-center md:text-right">{secondText}</span>
           </motion.p>
 
