@@ -79,30 +79,33 @@ const ServiceClients = ({ clientsData, heading }) => {
             modules={[Navigation, Autoplay]}
             className="mySwiper ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
           >
-            {chunkedData?.map((chunk, chunkIndex) => (
-              <SwiperSlide key={chunkIndex}>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-rows-2 md:grid-rows-4 gap-4-  ">
-                  {chunk?.map((client, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-center border border-main/[0.20] py-4 px-9 md:px-16"
-                    >
-                      <Image
-                        src={client?.image}
-                        alt={`client-${chunkIndex * 24 + index + 1}`}
-                        height={100}
-                        width={150}
-                        sizes="100vw"
-                        unoptimized={
-                          process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                        }
-                        className="w-full h-auto min-w-[125px]  md:min-h-[60px]- md:max-w-[140px] object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </SwiperSlide>
-            ))}
+            {chunkedData &&
+              chunkedData?.map((chunk, chunkIndex) => (
+                <SwiperSlide key={chunkIndex}>
+                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 grid-rows-2 md:grid-rows-4 gap-4-  ">
+                    {chunk &&
+                      chunk?.map((client, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center justify-center border border-main/[0.20] py-4 px-9 md:px-16"
+                        >
+                          <Image
+                            src={client?.image}
+                            alt={`client-${chunkIndex * 24 + index + 1}`}
+                            height={100}
+                            width={150}
+                            sizes="100vw"
+                            unoptimized={
+                              process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED ===
+                              "true"
+                            }
+                            className="w-full h-auto min-w-[125px]  md:min-h-[60px]- md:max-w-[140px] object-cover"
+                          />
+                        </div>
+                      ))}
+                  </div>
+                </SwiperSlide>
+              ))}
           </Swiper>
         )}
       </div>

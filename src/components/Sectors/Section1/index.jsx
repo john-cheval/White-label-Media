@@ -174,59 +174,60 @@ const Section1 = ({ companiesList }) => {
               modules={[Navigation]}
               className="mySwiper p-1 ![&_.swiper-wrapper]:!ease-in-out ![&_.swiper-wrapper]:!duration-300"
             >
-              {companiesList?.slice(1).map((data, index) => {
-                return (
-                  <SwiperSlide
-                    key={index}
-                    onClick={() => {
-                      if (activeSector.title !== data.title) {
-                        setActiveSector(data);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }
-                    }}
-                    // onMouseEnter={() => {
-                    //   if (activeSector.title !== data.title) {
-                    //     setActiveSector(data);
-                    //   }
-                    // }}
-                  >
-                    <motion.div
-                      whileHover={{ y: -10 }}
-                      transition={{
-                        type: "tween",
-                        ease: "easeOut",
-                        duration: 0.3,
+              {companiesList &&
+                companiesList?.slice(1).map((data, index) => {
+                  return (
+                    <SwiperSlide
+                      key={index}
+                      onClick={() => {
+                        if (activeSector.title !== data.title) {
+                          setActiveSector(data);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
                       }}
-                      className="space-y-7 cursor-pointer"
+                      // onMouseEnter={() => {
+                      //   if (activeSector.title !== data.title) {
+                      //     setActiveSector(data);
+                      //   }
+                      // }}
                     >
-                      <div className="relative w-full ">
-                        {data?.thumbnail && (
-                          <Image
-                            src={data?.thumbnail?.url}
-                            alt={data?.title || "image"}
-                            width={300}
-                            height={400}
-                            sizes="100vw"
-                            className="w-full max-h-[382px]- h-auto  md:max-h-full- object-cover-"
-                            unoptimized={
-                              process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED ===
-                              "true"
-                            }
-                          />
-                        )}
+                      <motion.div
+                        whileHover={{ y: -10 }}
+                        transition={{
+                          type: "tween",
+                          ease: "easeOut",
+                          duration: 0.3,
+                        }}
+                        className="space-y-7 cursor-pointer"
+                      >
+                        <div className="relative w-full ">
+                          {data?.thumbnail && (
+                            <Image
+                              src={data?.thumbnail?.url}
+                              alt={data?.title || "image"}
+                              width={300}
+                              height={400}
+                              sizes="100vw"
+                              className="w-full max-h-[382px]- h-auto  md:max-h-full- object-cover-"
+                              unoptimized={
+                                process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED ===
+                                "true"
+                              }
+                            />
+                          )}
 
-                        <div className="bg-sector-grad-2 w-full h-full absolute bottom-0 left-0 z-[5] " />
-                        <p className="text-white absolute bottom-9  w-full z-[10] text-center text-2xl px-1 font-medium leading-[141%]">
-                          {data?.title}
+                          <div className="bg-sector-grad-2 w-full h-full absolute bottom-0 left-0 z-[5] " />
+                          <p className="text-white absolute bottom-9  w-full z-[10] text-center text-2xl px-1 font-medium leading-[141%]">
+                            {data?.title}
+                          </p>
+                        </div>
+                        <p className="font-switzer text-center text-sm md:text-base leading-[161%] font-light text-white">
+                          {data?.short_description}
                         </p>
-                      </div>
-                      <p className="font-switzer text-center text-sm md:text-base leading-[161%] font-light text-white">
-                        {data?.short_description}
-                      </p>
-                    </motion.div>
-                  </SwiperSlide>
-                );
-              })}
+                      </motion.div>
+                    </SwiperSlide>
+                  );
+                })}
             </Swiper>
           </div>
 
@@ -244,24 +245,25 @@ const Section1 = ({ companiesList }) => {
               </button>
             </div>
             <div className="flex-  items-center flex-wrap hidden md:flex">
-              {companiesList?.slice(1)?.map((data, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setActiveSector(data);
-                    swiperRef.current?.slideToLoop(index);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className={`text-white text-sm font-medium leading-[141%] transition-colors duration-300 ${
-                    activeSector?.title === data?.title ? "underline-" : ""
-                  }`}
-                >
-                  {data?.title}
-                  {index !== companiesList.length - 1 && (
-                    <span className="mx-2">|</span>
-                  )}
-                </button>
-              ))}
+              {companiesList &&
+                companiesList?.slice(1)?.map((data, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setActiveSector(data);
+                      swiperRef.current?.slideToLoop(index);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className={`text-white text-sm font-medium leading-[141%] transition-colors duration-300 ${
+                      activeSector?.title === data?.title ? "underline-" : ""
+                    }`}
+                  >
+                    {data?.title}
+                    {index !== companiesList.length - 1 && (
+                      <span className="mx-2">|</span>
+                    )}
+                  </button>
+                ))}
             </div>
           </div>
         </div>

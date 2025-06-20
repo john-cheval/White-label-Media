@@ -16,45 +16,46 @@ const WorksMobile = ({ works }) => {
   return (
     <>
       <div className="space-y-4">
-        {visibleWorks?.map((work, index) => (
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.4 }}
-            key={index}
-          >
-            <div>
-              {isVideo(work?.image?.url) ? (
-                <video
-                  src={work?.image?.url}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover  "
-                />
-              ) : (
-                <Image
-                  src={work?.image?.url}
-                  alt={work?.title || `image-${index + 1}`}
-                  width={400}
-                  height={650}
-                  sizes="100vw"
-                  unoptimized={
-                    process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
-                  }
-                  className="w-full h-auto object-cover"
-                />
+        {visibleWorks &&
+          visibleWorks?.map((work, index) => (
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.4 }}
+              key={index}
+            >
+              <div>
+                {isVideo(work?.image?.url) ? (
+                  <video
+                    src={work?.image?.url}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover  "
+                  />
+                ) : (
+                  <Image
+                    src={work?.image?.url}
+                    alt={work?.title || `image-${index + 1}`}
+                    width={400}
+                    height={650}
+                    sizes="100vw"
+                    unoptimized={
+                      process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                    }
+                    className="w-full h-auto object-cover"
+                  />
+                )}
+              </div>
+              {works?.title && (
+                <p className="text-3xl text-center font-medium leading-[141%] mt-2">
+                  {work?.title}
+                </p>
               )}
-            </div>
-            {works?.title && (
-              <p className="text-3xl text-center font-medium leading-[141%] mt-2">
-                {work?.title}
-              </p>
-            )}
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
       </div>
       {visibleCount < works.length && (
         <button

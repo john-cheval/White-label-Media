@@ -28,28 +28,31 @@ const ClientsMobile = ({ clientsList, isReversed = false }) => {
 
   const list = useMemo(() => (
     <div className="flex w-fit ">
-      {elements?.map((client, index) => {
-        return (
-          <div
-            key={index}
-            className={`border border-main/20 ${
-              isReversed ? "border-t-0" : ""
-            } ${
-              index === 0 ? "border-l-1" : "border-l-0"
-            }  flex items-center justify-center py-7 min-w-[240px] shrink-0`}
-          >
-            <Image
-              src={client?.image}
-              alt={`${client?.title} || image-${index + 1}`}
-              width={250}
-              height={150}
-              sizes="100vw"
-              unoptimized={process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"}
-              className="w-full h-auto object-cover max-w-[150px] md:max-w-[200px]"
-            />
-          </div>
-        );
-      })}
+      {elements &&
+        elements?.map((client, index) => {
+          return (
+            <div
+              key={index}
+              className={`border border-main/20 ${
+                isReversed ? "border-t-0" : ""
+              } ${
+                index === 0 ? "border-l-1" : "border-l-0"
+              }  flex items-center justify-center py-7 min-w-[240px] shrink-0`}
+            >
+              <Image
+                src={client?.image}
+                alt={`${client?.title} || image-${index + 1}`}
+                width={250}
+                height={150}
+                sizes="100vw"
+                unoptimized={
+                  process.env.NEXT_PUBLIC_IMAGE_UNOPTIMIZED === "true"
+                }
+                className="w-full h-auto object-cover max-w-[150px] md:max-w-[200px]"
+              />
+            </div>
+          );
+        })}
     </div>
   ));
   return (
