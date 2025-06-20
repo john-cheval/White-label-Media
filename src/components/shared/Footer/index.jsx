@@ -28,6 +28,8 @@ const childVariants = {
 };
 
 const Footer = ({ footerLink }) => {
+  const [firstText, secondText] = footerLink?.footer_heading.split("</br>");
+
   return (
     <footer className="footer-grad containers pt-[74px] relative">
       <div className="grid grid-cols-12 border-b border-b-white pb-7 md:pb-10 lg:pb-14  2xl:pb-[74px]  place-items-center-">
@@ -147,12 +149,15 @@ const Footer = ({ footerLink }) => {
         >
           <motion.p
             variants={childVariants}
-            className="text-[#EAE4D6] text-xl md:text-2xl xl:text-3xl 2xl:text-[40px] font-medium md:border-b-1 border-b-white md:border-b md:pb-5 text-center md:text-left"
-            dangerouslySetInnerHTML={{
-              __html: footerLink?.footer_heading,
-            }}
+            className="text-[#EAE4D6] text-xl md:text-2xl xl:text-3xl 2xl:text-[40px] font-medium md:border-b-1 border-b-white md:border-b md:pb-5 text-center md:text-left flex flex-col gap-y-3 md:gap-y-2"
+            // dangerouslySetInnerHTML={{
+            //   __html: footerLink?.footer_heading,
+            // }}
             style={{ lineHeight: 1.2 }}
-          ></motion.p>
+          >
+            <span>{firstText}</span>{" "}
+            <span className="text-center md:text-right">{secondText}</span>
+          </motion.p>
 
           <motion.ul
             variants={parentVariants}
