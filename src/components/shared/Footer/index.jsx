@@ -1,7 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTiktok,
+  FaYoutube,
+} from "react-icons/fa";
 import * as motion from "motion/react-client";
 
 const parentVariants = {
@@ -136,6 +142,32 @@ const Footer = ({ footerLink }) => {
                 className="md:w-11 md:h-11 w-9  h-9 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-xs md:text-sm"
               >
                 <FaLinkedinIn />
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={
+                  footerLink?.youtube_link ||
+                  "https://www.youtube.com/@whitelabelmedia3613"
+                }
+                target="_blank"
+                aria-label="Youtube"
+                className="md:w-11 md:h-11 w-9  h-9 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-xs md:text-sm"
+              >
+                <FaYoutube />
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={
+                  footerLink?.tiktok_link ||
+                  "https://www.tiktok.com/@whitelabelmedia"
+                }
+                target="_blank"
+                aria-label="tikTok"
+                className="md:w-11 md:h-11 w-9  h-9 flex items-center justify-center rounded-full border border-[#DEDEDE] text-white text-xs md:text-sm"
+              >
+                <FaTiktok />
               </Link>
             </li>
           </motion.ul>
