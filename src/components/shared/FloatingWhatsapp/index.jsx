@@ -9,7 +9,7 @@ const FloatingWhatsapp = () => {
         target="_blank"
         aria-label="Go to Whats app"
         href={
-          "https://wa.me/+97145640367?text=Hello!+I+am+interested+in+your+service"
+          "https://wa.me/+971508568028?text=Hello!+I+am+interested+in+your+service"
         }
       >
         <div className="whatsapp animated pulse">

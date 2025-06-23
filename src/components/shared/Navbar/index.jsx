@@ -39,6 +39,7 @@ const Navbar = ({ navLinks }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  console.log(bgColor, "this is the bgColor");
   return (
     <>
       <header
@@ -77,7 +78,7 @@ const Navbar = ({ navLinks }) => {
                   }
                   priority
                   className={`w-full transition-all duration-300 ease-in-out  ${
-                    bgColor ? "h-[60px]" : "h-full"
+                    bgColor ? " md:h-[60px]" : "h-full"
                   }`}
                 />
               </Link>
