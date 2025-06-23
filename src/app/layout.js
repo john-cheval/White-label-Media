@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "@/components/shared/Footer";
 import { fetchData } from "./lib/fetchData";
 import ServerNavbar from "@/components/shared/ServerNavbar/ServerNavbar";
+import FloatingWhatsapp from "@/components/shared/FloatingWhatsapp";
 
 export const metadata = {
   title: "White Label Media",
@@ -40,6 +41,7 @@ export default async function RootLayout({ children }) {
       >
         <ServerNavbar navLinksData={headerData?.menu_tree} />
         <main className="flex-grow">{children}</main>
+        <FloatingWhatsapp />
         <Footer footerLink={footerData} />
       </body>
     </html>
