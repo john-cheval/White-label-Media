@@ -39,7 +39,6 @@ const Navbar = ({ navLinks }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  console.log(bgColor, "this is the bgColor");
   return (
     <>
       <header

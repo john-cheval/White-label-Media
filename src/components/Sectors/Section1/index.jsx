@@ -71,7 +71,7 @@ const Section1 = ({ companiesList }) => {
             exit="exit"
             className="col-span-12 md:col-span-6 3xl:col-span-5 px-6 md:ml-12 xl:ml-16 3xl:ml-24 gap-y-3 md:gap-y-6 flex items-center md:items-start flex-col h-full"
           >
-            <motion.div
+            {/* <motion.div
               custom={0}
               variants={itemVariant}
               initial="initial"
@@ -93,7 +93,7 @@ const Section1 = ({ companiesList }) => {
                   />
                 )}
               </div>
-            </motion.div>
+            </motion.div> */}
             <motion.h1
               custom={1}
               variants={itemVariant}
