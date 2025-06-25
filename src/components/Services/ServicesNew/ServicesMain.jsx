@@ -52,13 +52,7 @@ const ServicesMain = ({ services, isTopBorder = false }) => {
           )}
         </motion.div>
       </motion.div>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-        className="col-span-12 md:col-span-7 grid grid-cols-1 sm:grid-cols-2"
-      >
+      <div className="col-span-12 md:col-span-7 grid grid-cols-1 sm:grid-cols-2">
         {services?.slice(1)?.map((service, index) => {
           return (
             <div
@@ -75,6 +69,9 @@ const ServicesMain = ({ services, isTopBorder = false }) => {
             >
               <motion.div
                 variants={containerVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
                 className="flex flex-col gap-y-3 h-full md:justify-between"
               >
                 <motion.h4
@@ -84,16 +81,18 @@ const ServicesMain = ({ services, isTopBorder = false }) => {
                   {service?.title}
                 </motion.h4>
 
-                <motion.p
-                  variants={fadeInUp}
-                  className="font-switzer text-sm md:text-base text-center md:text-left  leading-[161%] pt-12- "
-                  dangerouslySetInnerHTML={{ __html: service?.description }}
-                ></motion.p>
+                {service?.description && (
+                  <motion.p
+                    variants={fadeInUp}
+                    className="font-switzer text-sm md:text-base text-center md:text-left  leading-[161%] pt-12- "
+                    dangerouslySetInnerHTML={{ __html: service?.description }}
+                  ></motion.p>
+                )}
               </motion.div>
             </div>
           );
         })}
-      </motion.div>
+      </div>
     </article>
   );
 };

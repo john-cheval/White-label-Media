@@ -8,14 +8,8 @@ const ServicesAlter = ({ services }) => {
   return (
     <article className="grid grid-cols-12">
       {" "}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-        className="col-span-12 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 order-2"
-      >
-        {services?.slice(1)?.map((service, index) => {
+      <div className="col-span-12 md:col-span-7 grid grid-cols-1 sm:grid-cols-2 order-2">
+        {services?.slice(0, 4)?.map((service, index) => {
           return (
             <div
               key={service?.title || index}
@@ -27,10 +21,13 @@ const ServicesAlter = ({ services }) => {
                 index % 2 === 0
                   ? "border-l sm:border-l"
                   : " border-l sm:border-l-0"
-              } px-10  2xl:px-16 py-10 lg:py-14`}
+              } px-10  2xl:px-16 py-10 lg:py-14 `}
             >
               <motion.div
                 variants={containerVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
                 className="flex flex-col gap-y-3 h-full justify-between"
               >
                 <motion.h4
@@ -40,16 +37,18 @@ const ServicesAlter = ({ services }) => {
                   {service?.title}
                 </motion.h4>
 
-                <motion.p
-                  variants={fadeInUp}
-                  className="font-switzer text-sm md:text-base text-center md:text-left  leading-[161%] "
-                  dangerouslySetInnerHTML={{ __html: service?.description }}
-                ></motion.p>
+                {service?.description && (
+                  <motion.p
+                    variants={fadeInUp}
+                    className="font-switzer text-sm md:text-base text-center md:text-left  leading-[161%] "
+                    dangerouslySetInnerHTML={{ __html: service?.description }}
+                  ></motion.p>
+                )}
               </motion.div>
             </div>
           );
         })}
-      </motion.div>
+      </div>
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -57,19 +56,31 @@ const ServicesAlter = ({ services }) => {
         viewport={{ once: true, amount: 0.4 }}
         className="col-span-12 md:col-span-5 border border-b border-r border-t-0 border-l md:border-l-0  px-6 md:px-10  2xl:px-16 py-8 md:py-10 lg:py-14  border-[#EAE4D6] order-1 md:order-5"
       >
-        <motion.h4
-          variants={fadeInUp}
-          className="text-[#EAE4D6] text-xl  lg:text-2xl 3xl:text-3xl text-center md:text-left font-semibold font-switzer leading-[141%] mb-3 "
-        >
-          {services?.[4]?.title}
-        </motion.h4>
-        <motion.p
-          variants={fadeInUp}
-          className="font-switzer text-sm md:text-base text-center md:text-left  leading-[161%]"
-          dangerouslySetInnerHTML={{ __html: services[0]?.description }}
-        ></motion.p>
+        {services?.[4]?.title && (
+          <motion.h4
+            variants={fadeInUp}
+            className="text-[#EAE4D6] text-xl  lg:text-2xl 3xl:text-3xl text-center md:text-left font-semibold font-switzer leading-[141%] mb-3 "
+          >
+            {services?.[4]?.title}
+          </motion.h4>
+        )}
 
-        <motion.div variants={scaleInUp} className="mt-5 md:mt-11">
+        {services[4]?.description && (
+          <motion.p
+            variants={fadeInUp}
+            className="font-switzer text-sm md:text-base text-center md:text-left  leading-[161%]"
+            dangerouslySetInnerHTML={{ __html: services[4]?.description }}
+          ></motion.p>
+        )}
+
+        <motion.div
+          variants={scaleInUp}
+          className={` ${
+            services?.[4]?.title || services[4]?.description
+              ? "mt-5 md:mt-11"
+              : ""
+          }`}
+        >
           {services[4]?.image && isVideo(services[4]?.image?.url) ? (
             <video
               autoPlay

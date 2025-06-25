@@ -14,7 +14,7 @@ const ServicesList = ({
   servicesList,
 }) => {
   return (
-    <section className="containers text-[#EAE4D6] bg-main pb-8 md:pb-10 xl:pb-16 2xl:pb-20 3xl:pb-24 bg-service pt-28 md:pt-40">
+    <section className="containers text-[#EAE4D6] bg-main pb-8 md:pb-10 xl:pb-16 2xl:pb-20 3xl:pb-24 bg-service pt-28 md:pt-40 ">
       <div className="mb-11">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
