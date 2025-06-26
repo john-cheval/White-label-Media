@@ -3,8 +3,9 @@ import React from "react";
 import ClientsMobile from "./ClientsMobile";
 
 const Clients = ({ heading, clientsList }) => {
-  const firstSet = clientsList?.slice(0, 6);
-  const secondSet = clientsList?.slice(6, 12);
+  const midIndex = Math.ceil(clientsList.length / 2);
+  const firstSet = clientsList.slice(0, midIndex);
+  const secondSet = clientsList.slice(midIndex);
 
   return (
     <section
