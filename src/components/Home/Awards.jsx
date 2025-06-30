@@ -25,8 +25,11 @@ const Awards = ({ heading, awardsList }) => {
   const rows = [
     awardsList?.slice(0, 4),
     awardsList?.slice(4, 7),
-    awardsList?.slice(7, 9),
+    awardsList?.slice(7, 10),
+    awardsList?.slice(10),
   ];
+
+  console.log(awardsList.length, "newone");
 
   return (
     <section className="containers bg-[#161616] pt-10 lg:py-16">
@@ -46,11 +49,11 @@ const Awards = ({ heading, awardsList }) => {
         {rows &&
           rows?.map((row, rowIndex) => {
             const columns =
-              row.length === 4
+              row.length === 1
+                ? "grid-cols-1"
+                : row.length === 4
                 ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
-                : row.length === 3
-                ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
-                : "md:grid-cols-2";
+                : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3";
 
             const isLastRow = rowIndex === rows.length - 1;
             return (

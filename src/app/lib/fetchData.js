@@ -4,7 +4,7 @@ export const fetchData = cache(async (url) => {
   try {
     const response = await fetch(url, {
       next: {
-        revalidate: 1, // Revalidate every 1 hour
+        revalidate: 5,
       },
     });
     if (!response.ok) {
