@@ -1,9 +1,9 @@
+import { baseUrl } from "../ui/apiUrl";
+
 async function generateMetadDataDetails(id, path, slug = false) {
   try {
     const res = await fetch(
-      `https://chevaldemo.xyz/demo/white-label/wp-json/custom/v1/full_details?${
-        slug ? "slug" : "ID"
-      }=${id}`
+      `${baseUrl}/custom/v1/full_details?${slug ? "slug" : "ID"}=${id}`
     );
     const data = await res.json();
 

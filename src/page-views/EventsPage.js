@@ -1,4 +1,5 @@
 "use client";
+import { baseUrl } from "@/app/ui/apiUrl";
 import Section1 from "@/components/Events/Section1";
 import Section2 from "@/components/Events/Section2";
 import LoadingAnimation from "@/components/shared/Loader/LoadingAnimation";
@@ -19,9 +20,9 @@ const EventsPage = () => {
   const getApiUrl = (type) => {
     if (type === "past") {
       const today = dayjs().format("YYYYMMDD");
-      return `https://chevaldemo.xyz/demo/white-label/wp-json/custom/v1/events_list?end_date=${today}`;
+      return `${baseUrl}/custom/v1/events_list?end_date=${today}`;
     }
-    return "https://chevaldemo.xyz/demo/white-label/wp-json/custom/v1/events_list";
+    return `${baseUrl}/custom/v1/events_list`;
   };
 
   useEffect(() => {

@@ -4,12 +4,13 @@ import Works from "@/components/Services/Works";
 import generateMetadDataDetails from "../lib/generateMetadata";
 import { fetchData } from "../lib/fetchData";
 import ServicesList from "@/components/Services/ServicesNew";
+import { baseUrl } from "../ui/apiUrl";
 export async function generateMetadata() {
   return await generateMetadDataDetails(13, "services", false);
 }
 const Service = async () => {
   const servicesData = await fetchData(
-    "https://chevaldemo.xyz/demo/white-label/wp-json/custom/v1/full_details?ID=13"
+    `${baseUrl}/custom/v1/full_details?ID=13`
   );
   return (
     <>

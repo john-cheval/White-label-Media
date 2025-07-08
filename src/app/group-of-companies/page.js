@@ -2,6 +2,7 @@ import Section1 from "@/components/Sectors/Section1";
 import React from "react";
 import generateMetadDataDetails from "../lib/generateMetadata";
 import { fetchData } from "../lib/fetchData";
+import { baseUrl } from "../ui/apiUrl";
 
 export async function generateMetadata() {
   return await generateMetadDataDetails(15, "group-of-companies", false);
@@ -9,7 +10,7 @@ export async function generateMetadata() {
 
 const Sectors = async () => {
   const { companies_list } = await fetchData(
-    "https://chevaldemo.xyz/demo/white-label/wp-json/custom/v1/full_details?ID=15"
+    `${baseUrl}/custom/v1/full_details?ID=15`
   );
 
   return (
