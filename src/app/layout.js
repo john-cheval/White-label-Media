@@ -4,6 +4,7 @@ import Footer from "@/components/shared/Footer";
 import { fetchData } from "./lib/fetchData";
 import ServerNavbar from "@/components/shared/ServerNavbar/ServerNavbar";
 import FloatingWhatsapp from "@/components/shared/FloatingWhatsapp";
+import { baseUrl } from "./ui/apiUrl";
 
 export const metadata = {
   title: "White Label Media",
@@ -12,12 +13,11 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const headerData = await fetchData(
-    "https://chevaldemo.xyz/demo/white-label/wp-json/custom/v1/menu/primary"
-  );
-  const footerData = await fetchData(
-    "https://chevaldemo.xyz/demo/white-label/wp-json/custom/v1/menu/footer"
-  );
+  const [headerData, footerData] = await Promise.all([
+    fetchData(`${baseUrl}/custom/v1/menu/primary`),
+    fetchData(`${baseUrl}/custom/v1/menu/footer`),
+  ]);
+
   return (
     <html lang="en" className="h-full">
       <head>

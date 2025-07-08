@@ -9,16 +9,6 @@ import * as motion from "motion/react-client";
 const Contact = ({ data }) => {
   return (
     <section className="!bg-main contactBg containers text-[#EAE4D6]  pt-24 md:pt-40 pb-14 md:pb-16 lg:pb-20 xl:pb-24 space-y-4 overflow-hidden ">
-      <motion.p
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="font-switzer text-base  md:text-xl lg:text-2xl-- lg:text-xl- font-light leading-[150%] md:max-w-[420px] text-center md:text-left"
-        dangerouslySetInnerHTML={{ __html: data?.get_in_touch_description }}
-      >
-        {/* {data?.get_in_touch_description} */}
-      </motion.p>
-
       <div className="grid grid-cols-12">
         <div className="col-span-12 md:col-span-6 flex flex-col   md:border-r md:border-r-[#EAE4D6] text-center md:text-left">
           <motion.h1
@@ -112,6 +102,16 @@ const Contact = ({ data }) => {
           <ContactForm />
         </motion.div>
       </div>
+
+      <motion.p
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="font-switzer text-base  md:text-xl lg:text-2xl-- lg:text-xl- font-light leading-[150%] md:max-w-[420px]- text-center pt-5"
+        dangerouslySetInnerHTML={{ __html: data?.get_in_touch_description }}
+      >
+        {/* {data?.get_in_touch_description} */}
+      </motion.p>
     </section>
   );
 };

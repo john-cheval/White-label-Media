@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Modal from "@/components/shared/Modal";
+import { baseUrl } from "@/app/ui/apiUrl";
 
 const inputVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -45,7 +46,7 @@ const ContactForm = () => {
 
     try {
       const response = await fetch(
-        "https://chevaldemo.xyz/demo/white-label/wp-json/contact-form-7/v1/contact-forms/5/feedback",
+        `${baseUrl}/contact-form-7/v1/contact-forms/5/feedback`,
         {
           method: "POST",
           body: newformData,

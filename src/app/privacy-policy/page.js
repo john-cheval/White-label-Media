@@ -2,14 +2,13 @@ import React from "react";
 import generateMetadDataDetails from "../lib/generateMetadata";
 import { fetchData } from "../lib/fetchData";
 import * as motion from "motion/react-client";
+import { baseUrl } from "../ui/apiUrl";
 
 export async function generateMetadata() {
   return await generateMetadDataDetails(199, "privacy-policy", false);
 }
 const PrivacyPolicy = async () => {
-  const data = await fetchData(
-    "https://chevaldemo.xyz/demo/white-label/wp-json/custom/v1/full_details?ID=199"
-  );
+  const data = await fetchData(`${baseUrl}/custom/v1/full_details?ID=199`);
   return (
     <section className="mt-20 md:mt-28 containers pt-10 md:pt-14 lg:pt-20  pb-14 md:pb-16 lg:pb-20 xl:pb-24 ">
       <motion.h1

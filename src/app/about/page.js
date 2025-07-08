@@ -7,14 +7,13 @@ import Awards from "@/components/Home/Awards";
 import React from "react";
 import generateMetadDataDetails from "../lib/generateMetadata";
 import { fetchData } from "../lib/fetchData";
+import { baseUrl } from "../ui/apiUrl";
 
 export async function generateMetadata() {
   return await generateMetadDataDetails(11, "about", false);
 }
 const About = async () => {
-  const aboutData = await fetchData(
-    "https://chevaldemo.xyz/demo/white-label/wp-json/custom/v1/full_details?ID=11"
-  );
+  const aboutData = await fetchData(`${baseUrl}/custom/v1/full_details?ID=11`);
   return (
     <>
       <Section1

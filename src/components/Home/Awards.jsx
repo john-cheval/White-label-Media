@@ -29,8 +29,6 @@ const Awards = ({ heading, awardsList }) => {
     awardsList?.slice(10),
   ];
 
-  console.log(awardsList.length, "newone");
-
   return (
     <section className="containers bg-[#161616] pt-10 lg:py-16">
       <motion.h3

@@ -8,15 +8,14 @@ import Works from "@/components/Home/Works";
 import Testimonials from "@/components/shared/Testimonial";
 import { fetchData } from "./lib/fetchData";
 import generateMetadDataDetails from "./lib/generateMetadata";
+import { baseUrl } from "./ui/apiUrl";
 
 export async function generateMetadata() {
   return await generateMetadDataDetails(6, "", false);
 }
 
 export default async function Home() {
-  const homeData = await fetchData(
-    "https://chevaldemo.xyz/demo/white-label/wp-json/custom/v1/full_details?ID=6"
-  );
+  const homeData = await fetchData(`${baseUrl}/custom/v1/full_details?ID=6`);
 
   return (
     <>
